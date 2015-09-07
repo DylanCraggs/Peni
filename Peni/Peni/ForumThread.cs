@@ -1,9 +1,11 @@
 ﻿using System;
+using Xamarin.Forms.Xaml;
 
 namespace Peni
 {
 	public class ForumThread
 	{
+		public int TopicID { get; set; }
 		public string TopicFavorite { get; set; }
 		public string TopicName { get; set; }
 		public string TopicComments { get; set; }
@@ -17,10 +19,11 @@ namespace Peni
 		/// <param name="TopicComments">Number of comments on a thread.</param>
 		/// <param name="TopicAuthor">The author of a thread.</param>
 		/// <param name="TopicCreationDate">The creation date of a thread.</param>
-		public ForumThread (string TopicName, int TopicComments, string TopicAuthor, string TopicCreationDate)
+		public ForumThread (int TopicID, string TopicName, int TopicComments, string TopicAuthor, string TopicCreationDate)
 		{
+			this.TopicID = TopicID;
 			// This obviously needs to be replaced with the proper image
-			this.TopicFavorite = "https://upload.wikimedia.org/wikipedia/en/archive/f/f4/20090120035706!Free_Blue_Star.jpg";
+			this.TopicFavorite = "http://i.imgur.com/q7cu36s.png";
 			this.TopicName = TopicName;
 			this.TopicComments = TopicComments + " Comments";
 			this.TopicAuthor = TopicAuthor;

@@ -1,24 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.Forums" Title="Forum">
-	<ContentPage.Content>
-		<ListView x:Name="ForumListView">
-			<ListView.ItemTemplate>
-				<DataTemplate>
-					<ViewCell>
-						<StackLayout Orientation="Vertical">
-							<StackLayout Orientation="Horizontal">
-								<Grid>
-									<Image Source="{Binding TopicFavorite}" Grid.RowSpan="2" Grid.Column="0" />
-									<Label Text="{Binding TopicName}" Grid.Row="0" Grid.Column="1" />
-									<Label Text="{Binding TopicComments}" Grid.Row="0" Grid.Column="2" />
-									<Label Text="{Binding TopicAuthor}" Grid.Row="1" Grid.Column="1" />
-									<Label Text="{Binding TopicCreationDate}" Grid.Row="1" Grid.Column="2" />
-								</Grid>
-							</StackLayout>
-						</StackLayout>
-					</ViewCell>
-				</DataTemplate>
-			</ListView.ItemTemplate>
-		</ListView>
-		</ContentPage.Content>
+	<StackLayout>
+		<ScrollView>
+			<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Image Source="{Binding TopicFavorite}" Grid.RowSpan="2" Grid.Column="0"/>
+								<Label Text="{Binding TopicName}" FontAttributes="Bold" Grid.Row="0" Grid.Column="1" />
+								<Label Text="{Binding TopicComments}" Grid.Row="0" Grid.Column="2" />
+								<Label Text="{Binding TopicAuthor}" Grid.Row="1" Grid.Column="1" />
+								<Label Text="{Binding TopicCreationDate}" Grid.Row="1" Grid.Column="2" />
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</ScrollView>
+	</StackLayout>
 </ContentPage>
