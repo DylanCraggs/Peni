@@ -16,7 +16,7 @@ namespace Peni
 			InitializeComponent ();
 
 			var threads = new List<ForumThread> ();
-			for (int i = 0; i < 10; ++i) {
+			for (int i = 0; i < 15; ++i) {
 				threads.Add (new ForumThread (i, "Hello World", i, "Dylan", "23 Aug 2015"));
 			}
 
