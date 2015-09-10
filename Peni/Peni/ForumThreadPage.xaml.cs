@@ -16,6 +16,12 @@ namespace Peni
 		/// </summary>
 		public ForumThreadPage () {
 			InitializeComponent ();
+
+			// -- NOTES DYLAN CRAGGS -- //
+
+			// * PostContent needs to be black text on white background instead of white on white //
+			// * CommentBox needs to be in a fixed location when scrolling //
+			// * Placeholder text needs to be black (currently white and on a white background you obviously can't see it..) //
 		}
 	}
 }

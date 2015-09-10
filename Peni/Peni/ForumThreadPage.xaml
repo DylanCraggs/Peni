@@ -6,26 +6,31 @@
 				<!--- Start of Topic Header Bar -->
 				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="Start">
 					<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5">
-						<Label Text="Topic Title" FontAttributes="Bold" FontSize="16" HorizontalOptions="Start"/>
-						<Label Text="(# Comments)" HorizontalOptions="EndAndExpand"/>
+						<Label Text="Topic Title" FontAttributes="Bold" FontSize="16" HorizontalOptions="Start" TextColor="#000"/>
+						<Label Text="(# Comments)" HorizontalOptions="EndAndExpand" TextColor="#000"/>
 					</StackLayout>
 					<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5">
-						<Label Text="Author" HorizontalOptions="Start"/>
-						<Label Text="Date" HorizontalOptions="EndAndExpand"/>
+						<Label Text="Author" HorizontalOptions="Start" TextColor="#000"/>
+						<Label Text="Date" HorizontalOptions="EndAndExpand" TextColor="#000"/>
 					</StackLayout>
+					<!-- Adds a line to the bottom of the title header -->
+					<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="Red"/>
 				</StackLayout>
 				<!--- End of Topic Header Bar -->
 				<!--- Start of Post Content -->
 				<StackLayout Padding="10, 10, 10, 10">
+					<!-- Find a way to apply anything below here to black text -->
 					<Label Text="This unit is"/>
 					<Label Text="actually starting"/>
 					<Label Text="to really upset"/>
 					<Label Text="me because nobody"/>
 					<Label Text="turns up to class"/>
+					<!-- End that above definition here -->
 				</StackLayout>
 				<!--- End of Post Content -->
 				<!--- Start of Topic Header Bar -->
 				<StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+					<!--- Adds a line above the comment field -->
 					<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="Red"/>
 						<StackLayout Orientation="Horizontal" x:Name="commentBox" Padding="5, 5, 5, 5">
 							<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
