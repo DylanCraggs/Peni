@@ -1,4 +1,8 @@
-﻿using System;
+﻿/// <summary>
+/// Forums class which displays a list of forum threads.
+/// </summary>
+
+using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;

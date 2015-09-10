@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.ForumThreadPage" Title="TopicName">
+	<ContentView BackgroundColor="White">
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+			<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+				<!--- Start of Topic Header Bar -->
+				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="Start">
+					<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5">
+						<Label Text="Topic Title" FontAttributes="Bold" FontSize="16" HorizontalOptions="Start"/>
+						<Label Text="(# Comments)" HorizontalOptions="EndAndExpand"/>
+					</StackLayout>
+					<StackLayout Orientation="Horizontal" Padding="5, 5, 5, 5">
+						<Label Text="Author" HorizontalOptions="Start"/>
+						<Label Text="Date" HorizontalOptions="EndAndExpand"/>
+					</StackLayout>
+				</StackLayout>
+				<!--- End of Topic Header Bar -->
+				<!--- Start of Post Content -->
+				<StackLayout Padding="10, 10, 10, 10">
+					<Label Text="This unit is"/>
+					<Label Text="actually starting"/>
+					<Label Text="to really upset"/>
+					<Label Text="me because nobody"/>
+					<Label Text="turns up to class"/>
+				</StackLayout>
+				<!--- End of Post Content -->
+				<!--- Start of Topic Header Bar -->
+				<StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
+					<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="Red"/>
+						<StackLayout Orientation="Horizontal" x:Name="commentBox" Padding="5, 5, 5, 5">
+							<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
+							<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Placeholder="Comment..." TextColor="#000000" />
+						</StackLayout>
+				</StackLayout>
+				<!--- End of Topic Header Bar -->
+			</StackLayout>
+		</ScrollView>
+	</ContentView>
+</ContentPage>
