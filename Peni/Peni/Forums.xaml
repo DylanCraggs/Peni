@@ -1,22 +1,27 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.Forums" Title="Forum">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" x:Class="Peni.Forums" Title="Forum">
 	<StackLayout BackgroundColor="White">
-		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="5">
 			<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
 							<Grid>
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-									<Image Source="{Binding TopicFavorite}"/>
+									<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
+									<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />
 									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding TopicName}" FontAttributes="Bold"/>
-										<Label Text="{Binding TopicAuthor}"/>
+										<Label Text="{Binding TopicName}" FontAttributes="Bold" TextColor="Black"/>
+										<Label Text="{Binding TopicAuthor}" TextColor="Black"/>
 									</StackLayout>
 									<StackLayout Orientation="Vertical">
-										<Label Text="{Binding TopicComments}"/>
-										<Label Text="{Binding TopicCreationDate}"/>
+										<Label Text="{Binding TopicComments}" TextColor="Black"/>
+										<Label Text="{Binding TopicCreationDate}" TextColor="Black"/>
 									</StackLayout>
+								</StackLayout>
+								<!-- Addds the ending line to make it more of a 'list' -->
+								<StackLayout Orientation="Vertical" VerticalOptions="End">
+									<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="#F6905D"/>
 								</StackLayout>
 							</Grid>
 						</ViewCell>
@@ -24,8 +29,8 @@
 				</ListView.ItemTemplate>
 			</ListView>
 		</ScrollView>
-		<StackLayout WidthRequest="75" HeightRequest="75" HorizontalOptions="EndAndExpand">
+		<AbsoluteLayout WidthRequest="75" HeightRequest="75" HorizontalOptions="End" VerticalOptions="End">
 			<Image Source="http://i.imgur.com/eMx6VNg.png"></Image>
-		</StackLayout>
+		</AbsoluteLayout>
 	</StackLayout>
 </ContentPage>
