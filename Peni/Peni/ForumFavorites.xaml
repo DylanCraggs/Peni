@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.ForumFavorites" Title="My Favorites">
+	<ScrollView Padding="5" BackgroundColor="#fff">
+		<ListView x:Name="FavoritesListView" BackgroundColor="#fff" RowHeight="50">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Grid>
+							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0">
+								<Image Source="notFavorite.png" HeightRequest="35" WidthRequest="35" Grid.RowSpan="2" />
+							</StackLayout>
+
+							<StackLayout Orientation="Vertical" Grid.Column="1">
+								<Label Text="{Binding TopicName}" Grid.Row="0" FontAttributes="Bold" TextColor="Black"/>
+								<Label Text="{Binding TopicAuthor}" Grid.Row="1" TextColor="Black"/>
+							</StackLayout>
+
+							<StackLayout Orientation="Vertical" Grid.Column="2">
+								<Label Text="{Binding TopicComments}" Grid.Row="0" TextColor="Black"/>
+								<Label Text="{Binding TopicCreationDate}" Grid.Row="1" TextColor="Black"/>
+							</StackLayout>
+
+							<StackLayout Orientation="Vertical" VerticalOptions="End" Grid.ColumnSpan="3">
+								<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="#F6905D"/>
+							</StackLayout>
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ScrollView>
+</ContentPage>
