@@ -5,7 +5,7 @@ using System.Text;
 
 using Xamarin.Forms;
 
-namespace Peni.Shared
+namespace Peni.Data
 {
 	public class MyPage : ContentPage
 	{
