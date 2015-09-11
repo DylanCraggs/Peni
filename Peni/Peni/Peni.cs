@@ -9,7 +9,7 @@ namespace Peni
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new NavigationPage(new ForumThreadPage());
+			MainPage = new NavigationPage(new PeniMain());
 		}
 
 		protected override void OnStart ()
