@@ -9,11 +9,13 @@ namespace Peni
 		public PeniMain ()
 		{
 
+
+
 			// put the content for the page here
 
 			StackLayout stacklayout = new StackLayout {
 
-				Padding = new Thickness(20),
+				Padding = new Thickness(20), // change to be universal to rest of app. 
 
 				Children = {
 
@@ -24,13 +26,31 @@ namespace Peni
 						Content = new Label {
 							Text = "Peni will be here",
 							HorizontalOptions = LayoutOptions.Center,
-							HeightRequest = 400
+							HeightRequest = 400,
 
-						}
+
+
+
+
+						},
 
 					},
 
+					///////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!////////
+					// currenty puting menu items here utill the menu will be added //
 
+					// put link to the forums
+
+					new Button() {
+						Text = "forums",
+						Command = new Command (() => Navigation.PushAsync (new Forums ()))
+					},
+					// put a link to health(water) settings
+
+					new Button() {
+						Text = "Set Health Goals",
+						Command = new Command (() => Navigation.PushAsync (new HealthGoalSettings ()))
+					},
 							
 					new Frame {  // The Water Info Card
 
@@ -74,16 +94,19 @@ namespace Peni
 
 						Content = new Label {
 							Text = "Food Stuff will go here",
+
+
 							HorizontalOptions = LayoutOptions.Center
 						}
 
 					}
 
 
+
 				} // ends children
 					
 
-			}; // stacklayout
+			}; // ends stacklayout
 
 				Content = new ScrollView { 
 
@@ -98,5 +121,5 @@ namespace Peni
 
 	}// ends public class
 
-}// ends the last thing
+}// ends namespace
 					

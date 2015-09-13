@@ -9,7 +9,8 @@ namespace Peni
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new NavigationPage(new Forums());
+			MainPage = new NavigationPage(new PeniMain());  
+			// currently you can assess all elements of the app from the peni frame untill the side menu is added
 		}
 
 		protected override void OnStart ()
