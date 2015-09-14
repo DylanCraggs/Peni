@@ -1,5 +1,19 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.Login">
-	<ContentPage.Content>
-	</ContentPage.Content>
+	
+	<StackLayout BackgroundColor="White">
+
+			<Image Source="/Resources/drawable/logo_app.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+
+			<Entry x:Name="entryUsername" Placeholder="Username" Keyboard="Default" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
+
+			<Entry x:Name="entryPassword" Placeholder="Password" Keyboard="Default" IsPassword="true" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
+
+			<Label x:Name="xLabel" />
+
+			<Button Text="Login" Clicked = "ButtonClicked" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
+
+	</StackLayout>
+
+
 </ContentPage>
