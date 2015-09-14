@@ -1,40 +1,33 @@
 ﻿using System;
-
 using Xamarin.Forms;
+using System.Linq;
+
 
 namespace Peni
 {
-	public class PeniMain : ContentPage
+    
+	public class PeniMainContet : ContentPage
 	{
-		public PeniMain ()
+		public PeniMainContet()
 		{
 
+            Image image = new Image
+            {
+                // Some differences with loading images in initial release.
+                Source = ImageSource.FromFile("peni_small.png"),
+                HeightRequest = 300,
+                VerticalOptions = LayoutOptions.CenterAndExpand
+            };
 
+            StackLayout stacklayout = new StackLayout {
 
-			// put the content for the page here
+                BackgroundColor = Color.White,
+                Padding = new Thickness(20), // change to be universal to rest of app. 
 
-			StackLayout stacklayout = new StackLayout {
+                Children = {
 
-				Padding = new Thickness(20), // change to be universal to rest of app. 
+                    image,
 
-				Children = {
-
-					new Frame {
-
-						OutlineColor = Color.Pink,
-
-						Content = new Label {
-							Text = "Peni will be here",
-							HorizontalOptions = LayoutOptions.Center,
-							HeightRequest = 400,
-
-
-
-
-
-						},
-
-					},
 
 					///////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!////////
 					// currenty puting menu items here utill the menu will be added //
@@ -120,6 +113,34 @@ namespace Peni
 		} // ends pibli
 
 	}// ends public class
+
+    public class PeniMasterDetail : MasterDetailPage
+    {
+        MenuPage menuPage;
+
+        public PeniMasterDetail()
+        {
+            menuPage = new MenuPage();
+
+            menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
+
+            Master = menuPage;
+            Detail = new NavigationPage(new PeniMainContet());
+        }
+
+        void NavigateTo(MenuItem menu)
+        {
+            if (menu == null)
+                return;
+
+            Page displayPage = (Page)Activator.CreateInstance(menu.TargetType);
+
+            Detail = new NavigationPage(displayPage);
+
+            menuPage.Menu.SelectedItem = null;
+            IsPresented = false;
+        }
+    }
 
 }// ends namespace
 					
