@@ -5,11 +5,12 @@
 			<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50">
 				<ListView.ItemTemplate>
 					<DataTemplate>
-						<ViewCell>
+						<ViewCell Tapped="listItemClicked">
 							<Grid>
 								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 									<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
-									<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />
+									<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
+									<Button Text="FAV" Clicked="favButtonPressed" />
 									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
 										<Label Text="{Binding TopicName}" FontAttributes="Bold" TextColor="Black"/>
 										<Label Text="{Binding TopicAuthor}" TextColor="Black"/>
@@ -30,7 +31,8 @@
 			</ListView>
 		</ScrollView>
 		<AbsoluteLayout WidthRequest="75" HeightRequest="75" HorizontalOptions="End" VerticalOptions="End">
-			<Image Source="http://i.imgur.com/eMx6VNg.png"></Image>
+			<!--<Image Source="http://i.imgur.com/eMx6VNg.png"></Image>-->
+			<Button Text="Menu" x:Name="menubutton" Clicked="showMenuButtonPressed"/>
 		</AbsoluteLayout>
 	</StackLayout>
 </ContentPage>

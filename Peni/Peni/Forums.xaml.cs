@@ -26,6 +26,39 @@ namespace Peni
 
 			ForumListView.ItemsSource = threads;
 		}
+
+		protected void showMenuButtonPressed(object sender, EventArgs e) {
+			menubutton.BackgroundColor = Color.Red;
+		}
+
+		protected void favButtonPressed(object sender, EventArgs e) {
+			Button senderBtn; 
+
+			// Attempt to cast the sending object to a button
+			try {
+				senderBtn = (Button)sender;
+			} catch (Exception ex) {
+				DisplayAlert("Error", "Failed to change value of favorite", "Okay");
+				return;
+			}
+
+			DisplayAlert ("Debug Topic Data", "Your Topic ID: ", "Okay");
+		}
+
+		protected void listItemClicked(object sender, EventArgs e) {
+			ViewCell sendingItem;
+			try {
+				sendingItem = (ViewCell)sender;
+			} catch (Exception ex) {
+				DisplayAlert ("Error", ex.Message.ToString (), "Okay");
+				return;
+			}
+
+			View cellView = sendingItem.View;
+			cellView.BackgroundColor = Color.Red;
+
+			DisplayAlert ("Click Event", "Clicked on ID: " + sendingItem.Id.ToString(), "Okay");
+		}
 	}
 }
 
