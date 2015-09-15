@@ -31,10 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DummyPage.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MenuCell.cs" />
     <Compile Include="MenuItem.cs" />
     <Compile Include="MenuListData.cs" />
@@ -56,6 +52,9 @@
       <DependentUpon>ForumFavorites.xaml</DependentUpon>
     </Compile>
     <Compile Include="HealthGoalSettings.cs" />
+    <Compile Include="Logins.xaml.cs">
+      <DependentUpon>Logins.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.3.6376\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -116,9 +115,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Login.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Logins.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
 </Project>

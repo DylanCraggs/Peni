@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Peni
 {
-	public partial class Login : ContentPage
+	public partial class Logins : ContentPage
 	{
-		public Login ()
+		public Logins ()
 		{
 			//InitializeComponent ();
 		}

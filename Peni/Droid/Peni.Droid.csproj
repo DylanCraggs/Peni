@@ -117,9 +117,7 @@
     <AndroidResource Include="Resources\drawable\ThreadCommentIcon.png" />
     <AndroidResource Include="Resources\drawable\notFavorite.png" />
     <AndroidResource Include="Resources\drawable\favorite.png" />
-<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\logo_app.png" />
-=======
     <AndroidResource Include="Resources\drawable\peni_grande.png" />
   </ItemGroup>
   <ItemGroup>

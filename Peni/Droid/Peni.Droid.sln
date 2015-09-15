@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peni.Droid", "Peni.Droid.csproj", "{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
