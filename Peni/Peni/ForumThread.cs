@@ -11,6 +11,7 @@ namespace Peni
 		public string TopicComments { get; set; }
 		public string TopicAuthor { get; set; }
 		public string TopicCreationDate { get; set; }
+		public string TopicPostContent { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.ForumThread"/> class.
@@ -28,6 +29,7 @@ namespace Peni
 			this.TopicComments = TopicComments + " Comments";
 			this.TopicAuthor = TopicAuthor;
 			this.TopicCreationDate = TopicCreationDate;
+			this.TopicPostContent = "Hello I'm a thread with the ID of " + TopicID + ".";
 		}
 	}
 }

@@ -14,8 +14,20 @@ namespace Peni
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.ForumThreadPage"/> class.
 		/// </summary>
-		public ForumThreadPage () {
+		public ForumThreadPage (ForumThread thread) {
 			InitializeComponent ();
+
+			listingAuthorLbl.SetBinding (Label.TextProperty, "TopicAuthor");
+			listingCommentsLbl.SetBinding (Label.TextProperty, "TopicComments");
+			listingDateLbl.SetBinding (Label.TextProperty, "TopicCreationDate");
+			listingTitleLbl.SetBinding (Label.TextProperty, "TopicName");
+			listingContentLbl.SetBinding (Label.TextProperty, "TopicPostContent");
+
+			listingAuthorLbl.BindingContext = thread;
+			listingCommentsLbl.BindingContext = thread;
+			listingDateLbl.BindingContext = thread;
+			listingTitleLbl.BindingContext = thread;
+			listingContentLbl.BindingContext = thread;
 
 			// -- NOTES DYLAN CRAGGS -- //
 

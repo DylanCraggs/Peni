@@ -6,10 +6,10 @@
 				<!--- Start of Topic Header Bar -->
 				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="Start" Padding="10, 0, 10, 0">
 					<Grid>
-						<Label Text="Topic Title" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="#000"/>
-						<Label Text="(# Comments)" Grid.Row="0" Grid.Column="1" TextColor="#000"/>
-						<Label Text="Author" Grid.Row="1" Grid.Column="0" TextColor="#000"/>
-						<Label Text="Date" Grid.Row="1" Grid.Column="1" TextColor="#000"/>
+						<Label Text="{Binding Title}" x:Name="listingTitleLbl" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="#000"/>
+						<Label Text="{Binding Comments}" x:Name="listingCommentsLbl" Grid.Row="0" Grid.Column="1" TextColor="#000"/>
+						<Label Text="{Binding Author}" x:Name="listingAuthorLbl" Grid.Row="1" Grid.Column="0" TextColor="#000"/>
+						<Label Text="{Binding Date}" x:Name="listingDateLbl" Grid.Row="1" Grid.Column="1" TextColor="#000"/>
 						<Image Source="notFavorite.png" HeightRequest="35" WidthRequest="35" Grid.Row="0" Grid.Column="2"></Image>
 					</Grid>
 				</StackLayout>
@@ -19,7 +19,7 @@
 				<!--- Start of Post Content -->
 				<StackLayout Padding="10, 0, 10, 0" VerticalOptions="StartAndExpand">
 					<!-- Find a way to apply anything below here to black text -->
-					<Label Text="Post Content Will Go Here... I'm not sure if Label is the optimal choice for displaying information about a post... This is also a scrollable thing so once there's too much content you can continue scrolling to view more..." TextColor="Black"/>
+					<Label Text="{Binding Content}" x:Name="listingContentLbl" TextColor="Black"/>
 					<!-- End that above definition here -->
 				</StackLayout>
 				<!--- End of Post Content -->

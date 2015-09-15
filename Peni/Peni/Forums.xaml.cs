@@ -46,18 +46,21 @@ namespace Peni
 		}
 
 		protected void listItemClicked(object sender, EventArgs e) {
-			ViewCell sendingItem;
+			Cell sendingItem; 
+
+			// Attempt to store cell requested in sendingItem
 			try {
-				sendingItem = (ViewCell)sender;
+				sendingItem = (Cell)sender;
 			} catch (Exception ex) {
 				DisplayAlert ("Error", ex.Message.ToString (), "Okay");
 				return;
 			}
 
-			View cellView = sendingItem.View;
-			cellView.BackgroundColor = Color.Red;
+			// Store reference to binding that cell has
+			var thread = (ForumThread)sendingItem.BindingContext;
 
-			DisplayAlert ("Click Event", "Clicked on ID: " + sendingItem.Id.ToString(), "Okay");
+			// Show the requested by parsing the object
+			Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 	}
 }
