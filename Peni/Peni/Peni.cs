@@ -8,7 +8,7 @@ namespace Peni
     {
             public App()
         {
-            MainPage = new PeniMasterDetail();
+			MainPage = new Login();
         }
 
 
