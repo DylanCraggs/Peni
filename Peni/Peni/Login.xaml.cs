@@ -17,7 +17,7 @@ namespace Peni
 			// These conditions need to be changed once the database is setup
 			if (entryUsername.Text != null) {
 				if (entryPassword.Text != null) {
-					Navigation.PushModalAsync( new PeniMainContet ());
+					Navigation.PushModalAsync( new PeniMasterDetail ());
 				} else {
 						xLabel.Text = "Please Enter Username and / or Password Again";
 				}
