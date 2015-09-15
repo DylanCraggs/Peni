@@ -9,7 +9,7 @@ namespace Peni
 	{
 		public Login ()
 		{
-			InitializeComponent ();
+			//InitializeComponent ();
 		}
 			
 

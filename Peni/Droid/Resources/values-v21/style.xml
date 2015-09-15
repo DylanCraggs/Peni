@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!-- Inherit from the light Material Theme -->
+    <style name="PeniTheme" parent="android:Theme.Material.Light">
+        <!-- Override the app bar color -->
+        <item name="android:colorPrimary">@color/primary_color</item>
+        <!-- Override the color of UI controls -->
+        <item name="android:colorAccent">@color/accent</item>
+        <!-- Override the color of status bar color-->
+        <item name="android:colorPrimaryDark">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+    </style>
+</resources>
