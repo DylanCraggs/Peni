@@ -24,7 +24,7 @@ namespace Peni
 			this.Add (new MenuItem () { 
 				Title = "Forum", 
 				IconSource = "ic_question_answer_white_48dp.png", 
-				TargetType = typeof(DummyPage)
+				TargetType = typeof(Forums)
 			});
 
             this.Add(new MenuItem()
