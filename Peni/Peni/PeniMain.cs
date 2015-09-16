@@ -10,8 +10,10 @@ namespace Peni
 	{
 		public PeniMainContet()
 		{
-
-            Image image = new Image
+            Title = "Home";
+            Icon = "drawable/ic_home_white_48dp.png";
+  
+        Image image = new Image
             {
                 // Some differences with loading images in initial release.
                 Source = ImageSource.FromFile("peni_small.png"),
@@ -27,24 +29,7 @@ namespace Peni
                 Children = {
 
                     image,
-
-
-					///////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!////////
-					// currenty puting menu items here utill the menu will be added //
-
-					// put link to the forums
-
-					new Button() {
-						Text = "forums",
-						Command = new Command (() => Navigation.PushAsync (new Forums ()))
-					},
-					// put a link to health(water) settings
-
-					new Button() {
-						Text = "Set Health Goals",
-						Command = new Command (() => Navigation.PushAsync (new HealthGoalSettings ()))
-					},
-							
+	
 					new Frame {  // The Water Info Card
 
 						// housekeeping
