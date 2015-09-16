@@ -16,24 +16,34 @@ namespace Peni
 
 			Menu = new MenuListView ();
 
-			var menuLabel = new ContentView {
-				Padding = new Thickness (10, 36, 0, 5),
-				Content = new Label {
-					TextColor = Color.FromHex ("FFFFFF"),
-					Text = "Young Women's Wellness App", 
-				}
-			};
+            Image image = new Image
+            {
+                // Some differences with loading images in initial release.
+                Source = ImageSource.FromFile("drawable/icon.png"),
+                HeightRequest = 110,
+                VerticalOptions = LayoutOptions.Start
+            };
 
-            var embeddedImage = new Image { Aspect = Aspect.AspectFit };
-            embeddedImage.Source = ImageSource.FromResource("circle_flower.png");
 
+            var whiteMenuFrame = new ContentView
+            {
+                Padding = new Thickness(2, 15, 2, 15),
+                BackgroundColor = Color.White,
+                Content = new Image
+                {
+                    HorizontalOptions = LayoutOptions.CenterAndExpand,
+                    Source = ImageSource.FromFile("drawable/app_large_icon.png"),
+                    HeightRequest = 90,
+                    VerticalOptions = LayoutOptions.Start
+                }
+
+            };
             var layout = new StackLayout { 
 				Spacing = 0, 
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
-            layout.Children.Add(menuLabel);
-            layout.Children.Add(embeddedImage);
-
+            
+            layout.Children.Add(whiteMenuFrame);
             layout.Children.Add (Menu);
 
 			Content = layout;

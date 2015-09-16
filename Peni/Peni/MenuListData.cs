@@ -15,10 +15,10 @@ namespace Peni
 				TargetType = typeof(PeniMainContet)
 			});
 
-			this.Add (new MenuItem () { 
+            this.Add (new MenuItem () { 
 				Title = "Health", 
 				IconSource = "ic_favorite_white_48dp.png", 
-				TargetType = typeof(DummyPage)
+				TargetType = typeof(HealthGoalSettings)
 			});
 
 			this.Add (new MenuItem () { 
@@ -31,6 +31,13 @@ namespace Peni
             {
                 Title = "Resources",
                 IconSource = "ic_local_library_white_48dp.png",
+                TargetType = typeof(DummyPage)
+            });
+
+            this.Add(new MenuItem()
+            {
+                Title = "My Account",
+                IconSource = "ic_account_circle_white_48dp.png",
                 TargetType = typeof(DummyPage)
             });
 
