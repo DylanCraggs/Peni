@@ -8,7 +8,10 @@ namespace Peni
 	{
 		public HealthGoalSettings ()
 		{
-			Content = new StackLayout { 
+            Title = "Health";
+            Icon = "drawable/ic_favorite_white_48dp.png";
+
+            Content = new StackLayout { 
 				Children = {
 					new Label { Text = "Hello ContentPage" }
 				}
