@@ -4,4 +4,5 @@
   <color name="primary_color">#F16378</color>
   <color name="navigation_bar">#214576</color>
   <color name="accent">#F16378</color>
+  <color name="textColorPrimary">#FFFFFF</color>
 </resources>
