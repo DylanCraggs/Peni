@@ -27,10 +27,20 @@ namespace Peni
 			ForumListView.ItemsSource = threads;
 		}
 
+		/// <summary>
+		/// Menu button pressed.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">Event.</param>
 		protected void showMenuButtonPressed(object sender, EventArgs e) {
 			menubutton.BackgroundColor = Color.Red;
 		}
 
+		/// <summary>
+		/// Favs button pressed.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">Event.</param>
 		protected void favButtonPressed(object sender, EventArgs e) {
 			Button senderBtn; 
 
@@ -45,6 +55,11 @@ namespace Peni
 			DisplayAlert ("Debug Topic Data", "Your Topic ID: ", "Okay");
 		}
 
+		/// <summary>
+		/// List item clicked.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">Event.</param>
 		protected void listItemClicked(object sender, EventArgs e) {
 			Cell sendingItem; 
 
