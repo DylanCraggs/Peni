@@ -11,6 +11,14 @@ namespace Peni
 		{
 			InitializeComponent ();
 		}
+
+
+		// update bio
+
+		// toggle garden availability
+
+		// upload picture
+
 	}
 }
 

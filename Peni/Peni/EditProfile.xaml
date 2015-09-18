@@ -1,24 +1,41 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.EditProfile">
+	<StackLayout BackgroundColor="White" Padding="10">
+		<ScrollView>
+			<TableView>
+				<TableView.Root>
+					<TableSection>
+						<ViewCell>
+							<RelativeLayout HorizontalOptions="Center">
+								<Image Source="/Resources/drawable/peni_small.png" x:Name="imageUser" />
+							</RelativeLayout>
+						</ViewCell>
 
-	<StackLayout VerticalOptions="CenterAndExpand">
+						<TextCell Text="User's Name" x:Name="labelUsersFirstName" />
+									
+						<ViewCell>
+							<StackLayout Orientation="Horizontal">
+								<Label Text="Age" x:Name="labelAge"/>
+								<Label Text="Stage" x:Name="labelStage" HorizontalOptions="EndAndExpand" />
+							</StackLayout>
+						</ViewCell>
 
-		<ScrollView VerticalOptions="CenterAndExpand">
+						<ViewCell>
+							<StackLayout VerticalOptions="Fill">
+								<Entry Placeholder="Enter Bio Here" x:Name="entryBio"/>
+							</StackLayout>
+						</ViewCell>
 
-			<StackLayout>
+						<ViewCell>
+							<StackLayout Orientation="Horizontal">
+								<Label Text="Appear in Other Gardens?"/>
+								<Switch HorizontalOptions="EndAndExpand" x:Name="appearGardens"/>
+							</StackLayout>
+						</ViewCell>
 
-				<Entry  Placeholder="Username" Keyboard="Default" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
-
-				<Entry  Placeholder="Password" Keyboard="Default" IsPassword="true" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
-
-				<Label Text="Nomnom" />
-
-				<Button Text="Login"  HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
-
-			</StackLayout>
-
+					</TableSection>
+				</TableView.Root>
+			</TableView>
 		</ScrollView>
-
 	</StackLayout>
-
 </ContentPage>
