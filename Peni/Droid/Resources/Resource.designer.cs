@@ -30,10 +30,51 @@ namespace Peni.Droid
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::com.refractored.fab.Resource.Attribute.fab_colorDisabled = global::Peni.Droid.Resource.Attribute.fab_colorDisabled;
+			global::com.refractored.fab.Resource.Attribute.fab_colorNormal = global::Peni.Droid.Resource.Attribute.fab_colorNormal;
+			global::com.refractored.fab.Resource.Attribute.fab_colorPressed = global::Peni.Droid.Resource.Attribute.fab_colorPressed;
+			global::com.refractored.fab.Resource.Attribute.fab_colorRipple = global::Peni.Droid.Resource.Attribute.fab_colorRipple;
+			global::com.refractored.fab.Resource.Attribute.fab_shadow = global::Peni.Droid.Resource.Attribute.fab_shadow;
+			global::com.refractored.fab.Resource.Attribute.fab_size = global::Peni.Droid.Resource.Attribute.fab_size;
+			global::com.refractored.fab.Resource.Color.fab_material_blue_500 = global::Peni.Droid.Resource.Color.fab_material_blue_500;
+			global::com.refractored.fab.Resource.Dimension.fab_elevation_lollipop = global::Peni.Droid.Resource.Dimension.fab_elevation_lollipop;
+			global::com.refractored.fab.Resource.Dimension.fab_scroll_threshold = global::Peni.Droid.Resource.Dimension.fab_scroll_threshold;
+			global::com.refractored.fab.Resource.Dimension.fab_shadow_size = global::Peni.Droid.Resource.Dimension.fab_shadow_size;
+			global::com.refractored.fab.Resource.Dimension.fab_size_mini = global::Peni.Droid.Resource.Dimension.fab_size_mini;
+			global::com.refractored.fab.Resource.Dimension.fab_size_normal = global::Peni.Droid.Resource.Dimension.fab_size_normal;
+			global::com.refractored.fab.Resource.Drawable.fab_shadow = global::Peni.Droid.Resource.Drawable.fab_shadow;
+			global::com.refractored.fab.Resource.Drawable.fab_shadow_mini = global::Peni.Droid.Resource.Drawable.fab_shadow_mini;
+			global::com.refractored.fab.Resource.Id.mini = global::Peni.Droid.Resource.Id.mini;
+			global::com.refractored.fab.Resource.Id.normal = global::Peni.Droid.Resource.Id.normal;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton = global::Peni.Droid.Resource.Styleable.FloatingActionButton;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorDisabled = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_colorDisabled;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorNormal = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_colorNormal;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorPressed = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_colorPressed;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_colorRipple;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_shadow;
+			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_size = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_size;
 		}
 		
 		public partial class Attribute
 		{
+			
+			// aapt resource value: 0x7f010002
+			public const int fab_colorDisabled = 2130771970;
+			
+			// aapt resource value: 0x7f010001
+			public const int fab_colorNormal = 2130771969;
+			
+			// aapt resource value: 0x7f010000
+			public const int fab_colorPressed = 2130771968;
+			
+			// aapt resource value: 0x7f010003
+			public const int fab_colorRipple = 2130771971;
+			
+			// aapt resource value: 0x7f010004
+			public const int fab_shadow = 2130771972;
+			
+			// aapt resource value: 0x7f010005
+			public const int fab_size = 2130771973;
 			
 			static Attribute()
 			{
@@ -48,20 +89,23 @@ namespace Peni.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f040003
-			public const int accent = 2130968579;
+			// aapt resource value: 0x7f030004
+			public const int accent = 2130903044;
 			
-			// aapt resource value: 0x7f040002
-			public const int navigation_bar = 2130968578;
+			// aapt resource value: 0x7f030000
+			public const int fab_material_blue_500 = 2130903040;
 			
-			// aapt resource value: 0x7f040001
-			public const int primary_color = 2130968577;
+			// aapt resource value: 0x7f030003
+			public const int navigation_bar = 2130903043;
 			
-			// aapt resource value: 0x7f040000
-			public const int status_bar = 2130968576;
+			// aapt resource value: 0x7f030002
+			public const int primary_color = 2130903042;
 			
-			// aapt resource value: 0x7f040004
-			public const int textColorPrimary = 2130968580;
+			// aapt resource value: 0x7f030001
+			public const int status_bar = 2130903041;
+			
+			// aapt resource value: 0x7f030005
+			public const int textColorPrimary = 2130903045;
 			
 			static Color()
 			{
@@ -73,6 +117,34 @@ namespace Peni.Droid
 			}
 		}
 		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f040004
+			public const int fab_elevation_lollipop = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int fab_scroll_threshold = 2130968579;
+			
+			// aapt resource value: 0x7f040002
+			public const int fab_shadow_size = 2130968578;
+			
+			// aapt resource value: 0x7f040001
+			public const int fab_size_mini = 2130968577;
+			
+			// aapt resource value: 0x7f040000
+			public const int fab_size_normal = 2130968576;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
@@ -80,46 +152,55 @@ namespace Peni.Droid
 			public const int app_large_icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int favorite = 2130837505;
+			public const int fab_shadow = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int ic_account_circle_white_48dp = 2130837506;
+			public const int fab_shadow_mini = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ic_favorite_white_48dp = 2130837507;
+			public const int favorite = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_home_white_48dp = 2130837508;
+			public const int ic_account_circle_white_48dp = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_local_library_white_48dp = 2130837509;
+			public const int ic_add = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_power_settings_new_white_48dp = 2130837510;
+			public const int ic_favorite_white_48dp = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_question_answer_white_48dp = 2130837511;
+			public const int ic_home_white_48dp = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int icon = 2130837512;
+			public const int ic_local_library_white_48dp = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int logo_app = 2130837513;
+			public const int ic_power_settings_new_white_48dp = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int notFavorite = 2130837514;
+			public const int ic_question_answer_white_48dp = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int peni_grande = 2130837515;
+			public const int icon = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int peni_small = 2130837516;
+			public const int logo_app = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int settings = 2130837517;
+			public const int notFavorite = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int ThreadCommentIcon = 2130837518;
+			public const int peni_grande = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int peni_small = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int settings = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int ThreadCommentIcon = 2130837521;
 			
 			static Drawable()
 			{
@@ -131,14 +212,33 @@ namespace Peni.Droid
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f070000
+			public const int mini = 2131165184;
+			
+			// aapt resource value: 0x7f070001
+			public const int normal = 2131165185;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030001
-			public const int ApplicationName = 2130903041;
+			// aapt resource value: 0x7f050001
+			public const int ApplicationName = 2131034113;
 			
-			// aapt resource value: 0x7f030000
-			public const int Hello = 2130903040;
+			// aapt resource value: 0x7f050000
+			public const int Hello = 2131034112;
 			
 			static String()
 			{
@@ -153,8 +253,8 @@ namespace Peni.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int PeniTheme = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int PeniTheme = 2131099648;
 			
 			static Style()
 			{
@@ -162,6 +262,46 @@ namespace Peni.Droid
 			}
 			
 			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] FloatingActionButton = new int[]
+			{
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971,
+					2130771972,
+					2130771973};
+			
+			// aapt resource value: 2
+			public const int FloatingActionButton_fab_colorDisabled = 2;
+			
+			// aapt resource value: 1
+			public const int FloatingActionButton_fab_colorNormal = 1;
+			
+			// aapt resource value: 0
+			public const int FloatingActionButton_fab_colorPressed = 0;
+			
+			// aapt resource value: 3
+			public const int FloatingActionButton_fab_colorRipple = 3;
+			
+			// aapt resource value: 4
+			public const int FloatingActionButton_fab_shadow = 4;
+			
+			// aapt resource value: 5
+			public const int FloatingActionButton_fab_size = 5;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}

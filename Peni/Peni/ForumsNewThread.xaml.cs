@@ -8,17 +8,21 @@ namespace Peni
 {
 	public partial class ForumsNewThread : ContentPage
 	{
-		Forums forums;
-		public ForumsNewThread (Forums page) {
+		public ForumsNewThread () {
 			InitializeComponent ();
-			this.forums = page;
 		}
 
+		/// <summary>
+		/// Adds the new thread to the database
+		/// </summary>
+		/// <param name="sender">Sending object.</param>
+		/// <param name="e">Event.</param>
 		protected void AddNewThread(object sender, EventArgs e) {
 			var Database = new ForumsDatabase ();
-			Database.InsertOrUpdateThread(new Thread(Title.Text.ToString(), "Anonymous", DateTime.Now.ToString(), Content.Text.ToString()));
-			forums.UpdateList ();
-			base.Navigation.RemovePage (this);
+			Thread thread = new Thread(Title.Text.ToString(), "Anonymous", DateTime.Now.ToString(), Content.Text.ToString());
+			Database.InsertOrUpdateThread(thread);
+			Navigation.PopAsync ();
+			Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 	}
 }

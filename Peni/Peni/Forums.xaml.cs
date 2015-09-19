@@ -7,28 +7,49 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Peni.Data;
+using System.Collections.ObjectModel;
 
 
 namespace Peni
 {
-	public partial class Forums : ContentPage
-	{
+	public partial class Forums : ContentPage {
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Forums"/> class.
 		/// </summary>
 		public Forums ()
 		{
 			InitializeComponent ();
+
+			var fab = new FloatingActionButtonView() {
+				ImageName = "ic_add.png",
+				ColorNormal = Color.FromHex("f16378"),
+				ColorPressed = Color.FromHex("f592a1"),
+				ColorRipple = Color.FromHex("f16378"),
+				Clicked = async (sender, args) => 
+				{
+					MenuButtonPressed();
+				},
+			};
+
+
+			// Position the pageLayout to fill the entire screen.
+			// Manage positioning of child elements on the page by editing the pageLayout.
+			AbsoluteLayout.SetLayoutFlags(pageLayout, AbsoluteLayoutFlags.All);
+			AbsoluteLayout.SetLayoutBounds(pageLayout, new Rectangle(0f, 0f, 1f, 1f));
+
+			// Overlay the FAB in the bottom-right corner
+			AbsoluteLayout.SetLayoutFlags(fab, AbsoluteLayoutFlags.PositionProportional);
+			AbsoluteLayout.SetLayoutBounds(fab, new Rectangle(1f, 1f, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+			test.Children.Add (fab);
+
 			UpdateList ();
 		}
 
 		/// <summary>
 		/// Menu button pressed.
 		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">Event.</param>
-		protected void showMenuButtonPressed(object sender, EventArgs e) {
-			Navigation.PushAsync (new ForumsNewThread (this));
+		private void MenuButtonPressed() {
+			Navigation.PushAsync (new ForumsNewThread ());
 		}
 
 		/// <summary>
@@ -76,6 +97,16 @@ namespace Peni
 		public void UpdateList() {
 			var Database = new ForumsDatabase ();
 			ForumListView.ItemsSource = Database.GetAll();
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			base.OnDisappearing();
 		}
 	}
 }

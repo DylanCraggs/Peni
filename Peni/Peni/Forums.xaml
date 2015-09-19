@@ -1,34 +1,32 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" x:Class="Peni.Forums" Title="Forum">
-	<StackLayout BackgroundColor="White">
-		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="5">
-			<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50" SeparatorColor="#F16378" SeparatorVisibility="Default">
-				<ListView.ItemTemplate>
-					<DataTemplate>
-						<ViewCell Tapped="listItemClicked">
-							<Grid>
-								<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-									<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
-									<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
-									<!--<Button Text="FAV" x:Name="IsFav" Clicked="favButtonPressed" />-->
-									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
-										<Label Text="{Binding TopicName}" FontAttributes="Bold" TextColor="Black"/>
-										<Label Text="{Binding TopicAuthor}" TextColor="Black"/>
+	<AbsoluteLayout x:Name="test" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Red">
+		<StackLayout BackgroundColor="White" x:Name="pageLayout">
+			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="5">
+				<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50" SeparatorColor="#F16378" SeparatorVisibility="Default">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell Tapped="listItemClicked">
+								<Grid>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
+										<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
+										<!--<Button Text="FAV" x:Name="IsFav" Clicked="favButtonPressed" />-->
+										<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+											<Label Text="{Binding TopicName}" FontAttributes="Bold" TextColor="Black"/>
+											<Label Text="{Binding TopicAuthor}" TextColor="Black"/>
+										</StackLayout>
+										<StackLayout Orientation="Vertical">
+											<Label Text="{Binding TopicComments}" TextColor="Black"/>
+											<Label Text="{Binding TopicCreationDate}" TextColor="Black"/>
+										</StackLayout>
 									</StackLayout>
-									<StackLayout Orientation="Vertical">
-										<Label Text="{Binding TopicComments}" TextColor="Black"/>
-										<Label Text="{Binding TopicCreationDate}" TextColor="Black"/>
-									</StackLayout>
-								</StackLayout>
-							</Grid>
-						</ViewCell>
-					</DataTemplate>
-				</ListView.ItemTemplate>
-			</ListView>
-		</ScrollView>
-		<StackLayout WidthRequest="75" HeightRequest="75" HorizontalOptions="End" VerticalOptions="End" Padding="5">
-			<!--<Image Source="http://i.imgur.com/eMx6VNg.png"></Image>-->
-			<Button Text="+" BackgroundColor="#F16378" x:Name="menubutton" Clicked="showMenuButtonPressed"/>
+								</Grid>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</ScrollView>
 		</StackLayout>
-	</StackLayout>
+	</AbsoluteLayout>
 </ContentPage>
