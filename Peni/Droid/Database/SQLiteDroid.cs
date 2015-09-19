@@ -1,20 +1,21 @@
 ﻿using System;
-using System.IO;
-using SQLite.Net;
 using Peni.Data;
+using SQLite.Net;
+using System.IO;
+using Xamarin.Forms;
 using Peni.Droid;
+
+[assembly: Dependency (typeof (SQLiteDroid))]
 
 namespace Peni.Droid
 {
 	public class SQLiteDroid : ISQLite
 	{
-		public SQLiteDroid ()
-		{
-		}
+		public SQLiteDroid () {}
 
 		#region ISQLite implementation
 
-		public SQLite.Net.SQLiteConnection GetConnection ()
+		public SQLiteConnection GetConnection ()
 		{
 			const string DatabaseFilename = "PeniDatabase.db3";
 			var DocumentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);

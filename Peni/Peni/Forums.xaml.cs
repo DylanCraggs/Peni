@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Peni.Data;
 
 
 namespace Peni
@@ -18,13 +19,7 @@ namespace Peni
 		public Forums ()
 		{
 			InitializeComponent ();
-
-			var threads = new List<ForumThread> ();
-			for (int i = 0; i < 15; ++i) {
-				threads.Add (new ForumThread (i, "Hello World", i, "Dylan", "23 Aug 2015"));
-			}
-
-			ForumListView.ItemsSource = threads;
+			UpdateList ();
 		}
 
 		/// <summary>
@@ -33,7 +28,7 @@ namespace Peni
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">Event.</param>
 		protected void showMenuButtonPressed(object sender, EventArgs e) {
-			menubutton.BackgroundColor = Color.Red;
+			Navigation.PushAsync (new ForumsNewThread (this));
 		}
 
 		/// <summary>
@@ -72,10 +67,15 @@ namespace Peni
 			}
 
 			// Store reference to binding that cell has
-			var thread = (ForumThread)sendingItem.BindingContext;
+			var thread = (Thread)sendingItem.BindingContext;
 
 			// Show the requested by parsing the object
 			Navigation.PushAsync(new ForumThreadPage(thread));
+		}
+
+		public void UpdateList() {
+			var Database = new ForumsDatabase ();
+			ForumListView.ItemsSource = Database.GetAll();
 		}
 	}
 }
