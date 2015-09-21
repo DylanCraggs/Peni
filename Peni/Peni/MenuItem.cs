@@ -1,6 +1,7 @@
 using System;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Windows.Input;
 
 namespace Peni
 {
@@ -12,6 +13,8 @@ namespace Peni
 		public string IconSource { get; set; }
 
 		public Type TargetType { get; set; }
+
+		public object BindingContext { get; set; }
 	}
 	
 }

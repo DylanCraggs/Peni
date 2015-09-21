@@ -26,8 +26,6 @@ namespace Peni.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
-			global::Xamarin.Forms.Platform.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 			global::com.refractored.fab.Resource.Attribute.fab_colorDisabled = global::Peni.Droid.Resource.Attribute.fab_colorDisabled;
@@ -53,6 +51,10 @@ namespace Peni.Droid
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_colorRipple;
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_shadow;
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_size = global::Peni.Droid.Resource.Styleable.FloatingActionButton_fab_size;
+			global::GalaSoft.MvvmLight.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
+			global::GalaSoft.MvvmLight.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
+			global::Xamarin.Forms.Platform.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -89,23 +91,23 @@ namespace Peni.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f030004
-			public const int accent = 2130903044;
+			// aapt resource value: 0x7f040004
+			public const int accent = 2130968580;
 			
-			// aapt resource value: 0x7f030000
-			public const int fab_material_blue_500 = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int fab_material_blue_500 = 2130968576;
 			
-			// aapt resource value: 0x7f030003
-			public const int navigation_bar = 2130903043;
+			// aapt resource value: 0x7f040003
+			public const int navigation_bar = 2130968579;
 			
-			// aapt resource value: 0x7f030002
-			public const int primary_color = 2130903042;
+			// aapt resource value: 0x7f040002
+			public const int primary_color = 2130968578;
 			
-			// aapt resource value: 0x7f030001
-			public const int status_bar = 2130903041;
+			// aapt resource value: 0x7f040001
+			public const int status_bar = 2130968577;
 			
-			// aapt resource value: 0x7f030005
-			public const int textColorPrimary = 2130903045;
+			// aapt resource value: 0x7f040005
+			public const int textColorPrimary = 2130968581;
 			
 			static Color()
 			{
@@ -120,20 +122,20 @@ namespace Peni.Droid
 		public partial class Dimension
 		{
 			
-			// aapt resource value: 0x7f040004
-			public const int fab_elevation_lollipop = 2130968580;
+			// aapt resource value: 0x7f050004
+			public const int fab_elevation_lollipop = 2131034116;
 			
-			// aapt resource value: 0x7f040003
-			public const int fab_scroll_threshold = 2130968579;
+			// aapt resource value: 0x7f050003
+			public const int fab_scroll_threshold = 2131034115;
 			
-			// aapt resource value: 0x7f040002
-			public const int fab_shadow_size = 2130968578;
+			// aapt resource value: 0x7f050002
+			public const int fab_shadow_size = 2131034114;
 			
-			// aapt resource value: 0x7f040001
-			public const int fab_size_mini = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int fab_size_mini = 2131034113;
 			
-			// aapt resource value: 0x7f040000
-			public const int fab_size_normal = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int fab_size_normal = 2131034112;
 			
 			static Dimension()
 			{
@@ -234,11 +236,11 @@ namespace Peni.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f050001
-			public const int ApplicationName = 2131034113;
+			// aapt resource value: 0x7f030001
+			public const int ApplicationName = 2130903041;
 			
-			// aapt resource value: 0x7f050000
-			public const int Hello = 2131034112;
+			// aapt resource value: 0x7f030000
+			public const int Hello = 2130903040;
 			
 			static String()
 			{

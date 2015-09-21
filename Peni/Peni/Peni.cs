@@ -1,15 +1,46 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using Peni.Data;
+using GalaSoft.MvvmLight.Ioc;
+using Peni.Data.ViewModel;
+using System.Diagnostics;
 
 namespace Peni
 {
     public class App : Application
     {
+
+		private static ViewModelLocator _locator;
+		private static NavigationService nav;
+		public static ViewModelLocator Locator
+		{
+			get
+			{
+				return _locator ?? (_locator = new ViewModelLocator());
+			}
+		}
+
         public App()
         {
-			MainPage = new Login();
+			MainPage = GetMainPage();
         }
+
+		public Page GetMainPage()
+		{
+			nav = new NavigationService ();
+
+			// Configure rest of apps navigation
+			nav.Configure (ViewModelLocator.LoginPageKey, typeof(Login));
+			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMasterDetail));
+			nav.Configure (ViewModelLocator.PeniMasterDetail, typeof(PeniMasterDetail));
+			nav.Configure (ViewModelLocator.ForumsPageKey, typeof(Forums));
+			nav.Configure (ViewModelLocator.ForumsNewThreadPageKey, typeof(ForumsNewThread));
+			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
+			var navPage = new NavigationPage(new Login());
+			nav.Initialize (navPage);
+			return navPage;
+		}
 
 
         protected override void OnStart()

@@ -7,7 +7,10 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Peni.Data;
+using Peni.Data.ViewModel;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Microsoft.Practices.ServiceLocation;
 
 
 namespace Peni
@@ -18,8 +21,10 @@ namespace Peni
 		/// </summary>
 		public Forums ()
 		{
+			BindingContext = App.Locator.ForumsListPage;
 			InitializeComponent ();
 
+			/*
 			var fab = new FloatingActionButtonView() {
 				ImageName = "ic_add.png",
 				ColorNormal = Color.FromHex("f16378"),
@@ -29,6 +34,14 @@ namespace Peni
 				{
 					MenuButtonPressed();
 				},
+			};
+			*/
+
+			var fab = new Button () {
+				Text = "+",
+				Command = ForumPageViewModel.NewThreadCommand,
+				BackgroundColor = Color.FromHex ("F16378"),
+				BorderRadius = 5,
 			};
 
 
@@ -41,8 +54,6 @@ namespace Peni
 			AbsoluteLayout.SetLayoutFlags(fab, AbsoluteLayoutFlags.PositionProportional);
 			AbsoluteLayout.SetLayoutBounds(fab, new Rectangle(1f, 1f, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 			test.Children.Add (fab);
-
-			UpdateList ();
 		}
 
 		/// <summary>
@@ -94,19 +105,11 @@ namespace Peni
 			Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 
-		public void UpdateList() {
-			var Database = new ForumsDatabase ();
-			ForumListView.ItemsSource = Database.GetAll();
-		}
-
-		protected override void OnAppearing()
+		protected override void OnAppearing ()
 		{
-			base.OnAppearing();
-		}
-
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
+			base.OnAppearing ();
+			var vm = ServiceLocator.Current.GetInstance<ForumPageViewModel> ();
+			vm.OnAppearing();
 		}
 	}
 }

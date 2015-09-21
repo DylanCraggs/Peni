@@ -1,7 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Linq;
-
+using System.Diagnostics;
+using Peni.Data.ViewModel;
 
 namespace Peni
 {
@@ -107,10 +108,22 @@ namespace Peni
         {
             menuPage = new MenuPage();
 
-            menuPage.Menu.ItemSelected += (sender, e) => NavigateTo(e.SelectedItem as MenuItem);
+
+			menuPage.Menu.ItemSelected += (sender, e) => {
+				//NavigateTo(e.SelectedItem as MenuItem);
+				MenuItem item = e.SelectedItem as MenuItem;
+
+				try {
+					this.Detail.BindingContext = item.BindingContext;
+				} catch (Exception ex) {
+					Debug.WriteLine(ex.Message.ToString());
+				}
+
+				Debug.WriteLine("Debug-Context: " + this.Detail.BindingContext);
+			};
 
             Master = menuPage;
-            Detail = new NavigationPage(new PeniMainContet());
+			Detail = new NavigationPage(new PeniMainContet());
         }
 
         void NavigateTo(MenuItem menu)

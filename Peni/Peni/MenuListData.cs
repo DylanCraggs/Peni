@@ -12,40 +12,46 @@ namespace Peni
 			this.Add (new MenuItem () { 
 				Title = "Home", 
 				IconSource = "ic_home_white_48dp.png", 
-				TargetType = typeof(PeniMainContet)
+				TargetType = typeof(PeniMainContet),
+				BindingContext = null,
 			});
 
             this.Add (new MenuItem () { 
 				Title = "Health", 
 				IconSource = "ic_favorite_white_48dp.png", 
-				TargetType = typeof(HealthGoalSettings)
+				TargetType = typeof(HealthGoalSettings),
+				BindingContext = null,
 			});
 
 			this.Add (new MenuItem () { 
 				Title = "Forum", 
 				IconSource = "ic_question_answer_white_48dp.png", 
-				TargetType = typeof(Forums)
+				TargetType = typeof(Forums),
+				BindingContext = App.Locator.ForumsListPage,
 			});
 
             this.Add(new MenuItem()
             {
                 Title = "Resources",
                 IconSource = "ic_local_library_white_48dp.png",
-                TargetType = typeof(DummyPage)
+                TargetType = typeof(DummyPage),
+				BindingContext = null,
             });
 
             this.Add(new MenuItem()
             {
                 Title = "My Account",
                 IconSource = "ic_account_circle_white_48dp.png",
-                TargetType = typeof(DummyPage)
+                TargetType = typeof(DummyPage),
+				BindingContext = null,
             });
 
             this.Add(new MenuItem()
             {
                 Title = "Logout",
                 IconSource = "ic_power_settings_new_white_48dp.png",
-                TargetType = typeof(DummyPage)
+                TargetType = typeof(DummyPage),
+				BindingContext = null,
             });
 
         }

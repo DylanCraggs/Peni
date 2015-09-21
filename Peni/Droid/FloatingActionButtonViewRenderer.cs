@@ -9,6 +9,7 @@ using Peni.Droid;
 using com.refractored.fab;
 using Android.Views;
 using System.IO;
+using System.Windows.Input;
 
 [assembly: ExportRenderer (typeof (FloatingActionButtonView), typeof (FloatingActionButtonViewRenderer))]
 

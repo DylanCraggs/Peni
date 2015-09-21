@@ -25,7 +25,15 @@ namespace Peni.Data.ViewModel
     public class ViewModelLocator
     {
 
+		public const string SideMenuPageKey = "MenuPage";
+		public const string SideMenuListView = "MenuPageList";
+
+
+		public const string LoginPageKey = "Login";
+		public const string MainPageKey = "PeniMainContet";
+		public const string PeniMasterDetail = "PeniMasterDetail";
 		public const string ForumsPageKey = "Forums";
+		public const string ForumsNewThreadPageKey = "ForumsNewThread";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -34,28 +42,50 @@ namespace Peni.Data.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+			SimpleIoc.Default.Register<ForumPageViewModel>(() => 
+			{
+				return new ForumPageViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
 
-            SimpleIoc.Default.Register<MainViewModel>();
+			SimpleIoc.Default.Register<ForumNewThreadViewModel> (() => {
+				return new ForumNewThreadViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<LoginViewModel> (() => {
+				return new LoginViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
         }
 
-        public MainViewModel Main
-        {
-            get
-            {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
-            }
-        }
-        
+		public ForumPageViewModel ForumsListPage
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ForumPageViewModel>();
+			}
+		}
+
+		public ForumNewThreadViewModel ForumNewThread
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<ForumNewThreadViewModel>();
+			}
+		}
+
+		public LoginViewModel LoginPage
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<LoginViewModel>();
+			}
+		}
+			
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
