@@ -60,6 +60,12 @@ namespace Peni.Data.ViewModel
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
+
+			SimpleIoc.Default.Register<SideMenuViewModel> (() => {
+				return new SideMenuViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
         }
 
 		public ForumPageViewModel ForumsListPage
@@ -83,6 +89,14 @@ namespace Peni.Data.ViewModel
 			get
 			{
 				return ServiceLocator.Current.GetInstance<LoginViewModel>();
+			}
+		}
+
+		public SideMenuViewModel SideMenu
+		{
+			get
+			{
+				return ServiceLocator.Current.GetInstance<SideMenuViewModel>();
 			}
 		}
 			

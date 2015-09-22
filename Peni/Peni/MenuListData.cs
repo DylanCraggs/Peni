@@ -1,6 +1,7 @@
 using System;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using Peni.Data;
 
 namespace Peni
 {
@@ -13,21 +14,21 @@ namespace Peni
 				Title = "Home", 
 				IconSource = "ic_home_white_48dp.png", 
 				TargetType = typeof(PeniMainContet),
-				BindingContext = null,
+				Command = SideMenuViewModel.NavigateToHome,
 			});
 
             this.Add (new MenuItem () { 
 				Title = "Health", 
 				IconSource = "ic_favorite_white_48dp.png", 
 				TargetType = typeof(HealthGoalSettings),
-				BindingContext = null,
+				Command = SideMenuViewModel.NavigateToHealth,
 			});
 
 			this.Add (new MenuItem () { 
 				Title = "Forum", 
 				IconSource = "ic_question_answer_white_48dp.png", 
 				TargetType = typeof(Forums),
-				BindingContext = App.Locator.ForumsListPage,
+				Command = SideMenuViewModel.NavigateToForums,
 			});
 
             this.Add(new MenuItem()
@@ -35,7 +36,7 @@ namespace Peni
                 Title = "Resources",
                 IconSource = "ic_local_library_white_48dp.png",
                 TargetType = typeof(DummyPage),
-				BindingContext = null,
+				Command = SideMenuViewModel.NavigateToResources,
             });
 
             this.Add(new MenuItem()
@@ -43,7 +44,7 @@ namespace Peni
                 Title = "My Account",
                 IconSource = "ic_account_circle_white_48dp.png",
                 TargetType = typeof(DummyPage),
-				BindingContext = null,
+				Command = SideMenuViewModel.NavigateToMyAccount,
             });
 
             this.Add(new MenuItem()
@@ -51,7 +52,7 @@ namespace Peni
                 Title = "Logout",
                 IconSource = "ic_power_settings_new_white_48dp.png",
                 TargetType = typeof(DummyPage),
-				BindingContext = null,
+				Command = SideMenuViewModel.NavigateToLogout,
             });
 
         }

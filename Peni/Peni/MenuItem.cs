@@ -2,6 +2,9 @@ using System;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Windows.Input;
+using Peni.Data;
+using Peni.Data.ViewModel;
+using Peni;
 
 namespace Peni
 {
@@ -14,7 +17,6 @@ namespace Peni
 
 		public Type TargetType { get; set; }
 
-		public object BindingContext { get; set; }
+		public ICommand Command { get; set; }
 	}
-	
 }

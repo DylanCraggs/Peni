@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-public class MenuCell :ImageCell
+public class MenuCell : ImageCell
 {
 	public MenuCell () : base ()
 	{

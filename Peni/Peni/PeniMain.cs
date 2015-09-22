@@ -111,15 +111,27 @@ namespace Peni
 
 			menuPage.Menu.ItemSelected += (sender, e) => {
 				//NavigateTo(e.SelectedItem as MenuItem);
+				BindingContext = App.Locator.SideMenu;
 				MenuItem item = e.SelectedItem as MenuItem;
 
+				/*
+				if(item.Command != null) {
+					item.Command.Execute(item.Command);
+				}
+
+				*/
+				Debug.WriteLine(item.Title.ToString());// + " " + item.Command.ToString());
+
+				//item.BindingContext.Execute(this);
+				/*
 				try {
 					this.Detail.BindingContext = item.BindingContext;
 				} catch (Exception ex) {
 					Debug.WriteLine(ex.Message.ToString());
 				}
 
-				Debug.WriteLine("Debug-Context: " + this.Detail.BindingContext);
+				Debug.WriteLine("ClickedItemBindingContext: " + item.BindingContext);
+*/
 			};
 
             Master = menuPage;

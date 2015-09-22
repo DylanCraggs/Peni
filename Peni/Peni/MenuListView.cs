@@ -9,6 +9,7 @@ namespace Peni
 	{
 		public MenuListView ()
 		{
+			BindingContext = App.Locator.SideMenu;
 			List<MenuItem> data = new MenuListData ();
 
 			ItemsSource = data;
@@ -19,6 +20,7 @@ namespace Peni
 			var cell = new DataTemplate (typeof(MenuCell));
 			cell.SetBinding (MenuCell.TextProperty, "Title");
 			cell.SetBinding (MenuCell.ImageSourceProperty, "IconSource");
+			cell.SetBinding (MenuCell.CommandProperty, "Command");
 
 			ItemTemplate = cell;
 		}
