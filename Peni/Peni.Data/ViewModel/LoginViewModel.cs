@@ -46,7 +46,7 @@ namespace Peni.Data
 				} else {
 					this.errorMessage = null;
 					RaisePropertyChanged(() => ErrorMessage);
-					this.navigationService.NavigateToModal(ViewModelLocator.MainPageKey);
+					this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
 				}
 			});
 		}

@@ -32,7 +32,7 @@ namespace Peni
 
 			// Configure rest of apps navigation
 			nav.Configure (ViewModelLocator.LoginPageKey, typeof(Login));
-			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMasterDetail));
+			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMainContet));
 			nav.Configure (ViewModelLocator.PeniMasterDetail, typeof(PeniMasterDetail));
 			nav.Configure (ViewModelLocator.ForumsPageKey, typeof(Forums));
 			nav.Configure (ViewModelLocator.ForumsNewThreadPageKey, typeof(ForumsNewThread));

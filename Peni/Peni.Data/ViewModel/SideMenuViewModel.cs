@@ -26,32 +26,32 @@ namespace Peni.Data
 			// Implement the commands
 			NavigateToHome = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.HomePageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToHome");
+				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToHealth = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.HealthPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToHealth");
+				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToForums = new Command (() => {
 				this.navigationService.NavigateTo(ViewModelLocator.ForumsPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToForums");
+				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToResources = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.ResourcesPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToResources");
+				Debug.WriteLine("SideMenuViewModel : NavigateToResources " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToMyAccount = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.MyAccountPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount");
+				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToLogout = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToLayout");
+				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
 			});
 		}
 	}
