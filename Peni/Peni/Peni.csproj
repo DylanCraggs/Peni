@@ -32,8 +32,6 @@
   <ItemGroup>
     <Compile Include="DummyPage.cs" />
     <Compile Include="MenuCell.cs" />
-    <Compile Include="MenuItem.cs" />
-    <Compile Include="MenuListData.cs" />
     <Compile Include="MenuListView.cs" />
     <Compile Include="MenuPage.cs" />
     <Compile Include="Peni.cs" />

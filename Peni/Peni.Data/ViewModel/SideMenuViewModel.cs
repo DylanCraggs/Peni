@@ -4,20 +4,29 @@ using System.Windows.Input;
 using Peni.Data.ViewModel;
 using Xamarin.Forms;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
+using Peni;
+using System.Collections.Generic;
 
 namespace Peni.Data
 {
 	public class SideMenuViewModel : ViewModelBase
 	{
 
-		public static ICommand NavigateToHome { get; private set; }
-		public static ICommand NavigateToHealth { get; private set; }
-		public static ICommand NavigateToForums { get; private set; }
-		public static ICommand NavigateToResources { get; private set; }
-		public static ICommand NavigateToMyAccount { get; private set; }
-		public static ICommand NavigateToLogout { get; private set; }
+		public ICommand NavigateToHome { get; private set; }
+		public ICommand NavigateToHealth { get; private set; }
+		public ICommand NavigateToForums { get; private set; }
+		public ICommand NavigateToResources { get; private set; }
+		public ICommand NavigateToMyAccount { get; private set; }
+		public ICommand NavigateToLogout { get; private set; }
 
 		private IMyNavigationService navigationService;
+
+		private List<MenuItem> menuList = new List<MenuItem> ();
+		public List<MenuItem> MenuList {
+			get { return menuList; }
+			set { ; }
+		}
 
 		public SideMenuViewModel (IMyNavigationService navigationService)
 		{
@@ -52,6 +61,46 @@ namespace Peni.Data
 			NavigateToLogout = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
+			});
+
+			setupMenuNavigation ();
+		}
+
+		private void setupMenuNavigation() {
+			menuList.Add (new MenuItem () { 
+				Title = "Home", 
+				IconSource = "ic_home_white_48dp.png", 
+				Command = NavigateToHome,
+			});
+
+			menuList.Add (new MenuItem () { 
+				Title = "Health", 
+				IconSource = "ic_favorite_white_48dp.png", 
+				Command = NavigateToHealth,
+			});
+
+			menuList.Add (new MenuItem () { 
+				Title = "Forum", 
+				IconSource = "ic_question_answer_white_48dp.png", 
+				Command = NavigateToForums,
+			});
+
+			menuList.Add(new MenuItem() {
+				Title = "Resources",
+				IconSource = "ic_local_library_white_48dp.png",
+				Command = NavigateToResources,
+			});
+
+			menuList.Add(new MenuItem() {
+				Title = "My Account",
+				IconSource = "ic_account_circle_white_48dp.png",
+				Command = NavigateToMyAccount,
+			});
+
+			menuList.Add(new MenuItem() {
+				Title = "Logout",
+				IconSource = "ic_power_settings_new_white_48dp.png",
+				Command = NavigateToLogout,
 			});
 		}
 	}

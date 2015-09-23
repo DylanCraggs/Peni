@@ -102,53 +102,12 @@ namespace Peni
 
     public class PeniMasterDetail : MasterDetailPage
     {
-        MenuPage menuPage;
-
         public PeniMasterDetail()
         {
-            menuPage = new MenuPage();
-
-
-			menuPage.Menu.ItemSelected += (sender, e) => {
-				//NavigateTo(e.SelectedItem as MenuItem);
-				BindingContext = App.Locator.SideMenu;
-				MenuItem item = e.SelectedItem as MenuItem;
-
-				/*
-				if(item.Command != null) {
-					item.Command.Execute(item.Command);
-				}
-
-				*/
-				Debug.WriteLine(item.Title.ToString());// + " " + item.Command.ToString());
-
-				//item.BindingContext.Execute(this);
-				/*
-				try {
-					this.Detail.BindingContext = item.BindingContext;
-				} catch (Exception ex) {
-					Debug.WriteLine(ex.Message.ToString());
-				}
-
-				Debug.WriteLine("ClickedItemBindingContext: " + item.BindingContext);
-*/
-			};
-
+			Title = "Home";
+			MenuPage menuPage = new MenuPage();
             Master = menuPage;
-			Detail = new NavigationPage(new PeniMainContet());
-        }
-
-        void NavigateTo(MenuItem menu)
-        {
-            if (menu == null)
-                return;
-
-            Page displayPage = (Page)Activator.CreateInstance(menu.TargetType);
-
-            Detail = new NavigationPage(displayPage);
-
-            menuPage.Menu.SelectedItem = null;
-            IsPresented = false;
+			Detail = new PeniMainContet();
         }
     }
 

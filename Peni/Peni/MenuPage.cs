@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Peni
 {
+	/// <summary>
+	/// Creates the menu page view
+	/// </summary>
 	public class MenuPage : ContentPage
 	{
 		public ListView Menu { get; set; }
@@ -38,6 +41,7 @@ namespace Peni
                 }
 
             };
+
             var layout = new StackLayout { 
 				Spacing = 0, 
 				VerticalOptions = LayoutOptions.FillAndExpand
