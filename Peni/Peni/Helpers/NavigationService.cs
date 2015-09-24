@@ -61,11 +61,9 @@ namespace Peni
 
 			if (wasModal) {
 				var p = await _navigation.Navigation.PopModalAsync ();
-
+			} else {
+				_navigation.PopAsync ();
 			}
-			else
-				_navigation.PopAsync();
-
 		}
 
 		public void NavigateTo(string pageKey)

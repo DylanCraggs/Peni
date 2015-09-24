@@ -13,21 +13,60 @@ namespace Peni.Data
 	public class SideMenuViewModel : ViewModelBase
 	{
 
+		/// <summary>
+		/// Gets/sets the navigate to home.
+		/// </summary>
+		/// <value>The navigate to home.</value>
 		public ICommand NavigateToHome { get; private set; }
+
+		/// <summary>
+		/// Gets/sets the navigate to health.
+		/// </summary>
+		/// <value>The navigate to health.</value>
 		public ICommand NavigateToHealth { get; private set; }
+
+		/// <summary>
+		/// Gets/sets the navigate to forums.
+		/// </summary>
+		/// <value>The navigate to forums.</value>
 		public ICommand NavigateToForums { get; private set; }
+
+		/// <summary>
+		/// Gets/sets the navigate to resources.
+		/// </summary>
+		/// <value>The navigate to resources.</value>
 		public ICommand NavigateToResources { get; private set; }
+
+		/// <summary>
+		/// Gets/sets the navigate to my account.
+		/// </summary>
+		/// <value>The navigate to my account.</value>
 		public ICommand NavigateToMyAccount { get; private set; }
+
+		/// <summary>
+		/// Gets/sets the navigate to logout.
+		/// </summary>
+		/// <value>The navigate to logout.</value>
 		public ICommand NavigateToLogout { get; private set; }
 
+		/// <summary>
+		/// The navigation service.
+		/// </summary>
 		private IMyNavigationService navigationService;
 
+		/// <summary>
+		/// The side menu item list.
+		/// </summary>
 		private List<MenuItem> menuList = new List<MenuItem> ();
 		public List<MenuItem> MenuList {
 			get { return menuList; }
 			set { ; }
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.Data.SideMenuViewModel"/> class.
+		/// </summary>
+		/// <param name="navigationService">Navigation service.</param>
 		public SideMenuViewModel (IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
@@ -57,7 +96,7 @@ namespace Peni.Data
 				//this.navigationService.NavigateTo(ViewModelLocator.MyAccountPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
-
+				
 			NavigateToLogout = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
@@ -66,6 +105,9 @@ namespace Peni.Data
 			setupMenuNavigation ();
 		}
 
+		/// <summary>
+		/// Setups the menu navigation items.
+		/// </summary>
 		private void setupMenuNavigation() {
 			menuList.Add (new MenuItem () { 
 				Title = "Home", 

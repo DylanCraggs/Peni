@@ -10,10 +10,20 @@ namespace Peni.Data
 	public class LoginViewModel : ViewModelBase
 	{
 
+		/// <summary>
+		/// Gets/sets the submit login command.
+		/// </summary>
+		/// <value>The submit login command.</value>
 		public ICommand SubmitLoginCommand { get; private set; }
 
+		/// <summary>
+		/// The navigation service.
+		/// </summary>
 		private IMyNavigationService navigationService;
 
+		/// <summary>
+		/// The username of person.
+		/// </summary>
 		private string username;
 		public string Username
 		{
@@ -22,6 +32,9 @@ namespace Peni.Data
 				RaisePropertyChanged(() => Username); }
 		}
 
+		/// <summary>
+		/// The password of person.
+		/// </summary>
 		private string password;
 		public string Password
 		{
@@ -30,12 +43,19 @@ namespace Peni.Data
 				RaisePropertyChanged(() => Password); }
 		}
 
+		/// <summary>
+		/// The error message if login fails.
+		/// </summary>
 		private string errorMessage;
 		public string ErrorMessage {
 			get { return errorMessage; }
 			set { ; }
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.Data.LoginViewModel"/> class.
+		/// </summary>
+		/// <param name="navigationService">Navigation service.</param>
 		public LoginViewModel (IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
@@ -46,7 +66,7 @@ namespace Peni.Data
 				} else {
 					this.errorMessage = null;
 					RaisePropertyChanged(() => ErrorMessage);
-					this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
+					this.navigationService.NavigateTo(ViewModelLocator.PeniMasterDetail);
 				}
 			});
 		}
