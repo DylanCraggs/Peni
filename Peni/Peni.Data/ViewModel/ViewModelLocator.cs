@@ -32,8 +32,9 @@ namespace Peni.Data.ViewModel
 		public const string LoginPageKey = "Login";
 		public const string MainPageKey = "PeniMainContet";
 		public const string PeniMasterDetail = "PeniMasterDetail";
-		public const string ForumsPageKey = "Forums";
+		public const string ForumsPageKey = "PeniForums";
 		public const string ForumsNewThreadPageKey = "ForumsNewThread";
+		public const string MyProfilePageKey = "EditProfile";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.

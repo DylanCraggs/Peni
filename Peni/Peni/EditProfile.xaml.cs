@@ -10,6 +10,7 @@ namespace Peni
 		public EditProfile ()
 		{
 			InitializeComponent ();
+			Title = "Edit Profile";
 		}
 
 

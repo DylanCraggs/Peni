@@ -71,9 +71,13 @@ namespace Peni.Data
 		{
 			this.navigationService = navigationService;
 
-			// Implement the commands
-			NavigateToHome = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.HomePageKey);
+			// Start of command actions
+			NavigateToHome = new Command (x => {
+				if(navigationService.CurrentPageKey == ViewModelLocator.PeniMasterDetail) {
+					return;
+				}
+
+				this.navigationService.NavigateTo(ViewModelLocator.PeniMasterDetail);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
@@ -82,18 +86,25 @@ namespace Peni.Data
 				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 
-			NavigateToForums = new Command (() => {
+			NavigateToForums = new Command (x => {
+				// Check if we are already viewing the same page before pushing another to navigation service
+				if(navigationService.CurrentPageKey == ViewModelLocator.ForumsPageKey) {
+					return;
+				}
+
 				this.navigationService.NavigateTo(ViewModelLocator.ForumsPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
 			});
 
 			NavigateToResources = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.ResourcesPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToResources " + navigationService.CurrentPageKey);
 			});
 
-			NavigateToMyAccount = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.MyAccountPageKey);
+			NavigateToMyAccount = new Command (x => {
+				if(navigationService.CurrentPageKey == ViewModelLocator.MyProfilePageKey) {
+					return;
+				}
+				this.navigationService.NavigateTo(ViewModelLocator.MyProfilePageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
 				
@@ -101,6 +112,7 @@ namespace Peni.Data
 				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
 			});
+			// End of command actions
 
 			setupMenuNavigation ();
 		}

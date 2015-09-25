@@ -4,6 +4,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Peni.Data.ViewModel;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace Peni.Data
 {
@@ -59,7 +60,7 @@ namespace Peni.Data
 		public LoginViewModel (IMyNavigationService navigationService)
 		{
 			this.navigationService = navigationService;
-			SubmitLoginCommand = new Command (() => {
+			SubmitLoginCommand = new Command (x => {
 				if(Username == null || Password == null) {
 					this.errorMessage = "Please enter a username and password.";
 					RaisePropertyChanged(() => ErrorMessage);

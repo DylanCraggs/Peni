@@ -64,25 +64,6 @@ namespace Peni
 		}
 
 		/// <summary>
-		/// Favs button pressed.
-		/// </summary>
-		/// <param name="sender">Sender.</param>
-		/// <param name="e">Event.</param>
-		protected void favButtonPressed(object sender, EventArgs e) {
-			Button senderBtn; 
-
-			// Attempt to cast the sending object to a button
-			try {
-				senderBtn = (Button)sender;
-			} catch (Exception ex) {
-				DisplayAlert("Error", "Failed to change value of favorite", "Okay");
-				return;
-			}
-
-			DisplayAlert ("Debug Topic Data", "Your Topic ID: ", "Okay");
-		}
-
-		/// <summary>
 		/// List item clicked.
 		/// </summary>
 		/// <param name="sender">Sender.</param>
@@ -110,6 +91,16 @@ namespace Peni
 			base.OnAppearing ();
 			var vm = ServiceLocator.Current.GetInstance<ForumPageViewModel> ();
 			vm.OnAppearing();
+		}
+	}
+
+	public class PeniForums : MasterDetailPage
+	{
+		public PeniForums()
+		{
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			Detail = new Forums();
 		}
 	}
 }
