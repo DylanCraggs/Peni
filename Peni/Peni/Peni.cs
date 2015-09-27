@@ -40,7 +40,7 @@ namespace Peni
 			nav.Configure (ViewModelLocator.ForumsViewThreadPageKey, typeof(ForumThreadPage));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new PeniForums());
+			var navPage = new NavigationPage(new Login());
 			nav.Initialize (navPage);
 			return navPage;
 		}
