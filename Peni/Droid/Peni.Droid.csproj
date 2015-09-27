@@ -90,13 +90,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Peni\Peni.csproj">
-      <Project>{237E6533-B82F-43AC-86EE-19C9E4FA6A48}</Project>
-      <Name>Peni</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Peni.Data\Peni.Data.csproj">
       <Project>{55CC5260-5009-4B6A-A4A0-81C81678554B}</Project>
       <Name>Peni.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Peni\Peni.csproj">
+      <Project>{237E6533-B82F-43AC-86EE-19C9E4FA6A48}</Project>
+      <Name>Peni</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

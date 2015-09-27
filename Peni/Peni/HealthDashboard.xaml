@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthDashboard">
+	<ContentPage.Content>
+
+	<!-- so health dashboard-->
+		<StackLayout BackgroundColor="White">
+			<ScrollView>
+			<!-- Water -->
+				<StackLayout BackgroundColor="Pink"> 
+					<StackLayout.Children>
+						<Label Text="Water Heading" /> <!-- Water Heading -->
+						</StackLayout.Children>
+				</StackLayout>
+				<StackLayout BackgroundColor="Pink"> <!-- Water -->
+					<StackLayout.Children>
+						<Frame  OutlineColor="Pink"><!-- Daily Information -->
+							<Frame.Content>
+							<Label Text="Daily Information" />
+							<Label Text="there will be a graph/ visual showing the amoutn of water drunk today" />
+							</Frame.Content>
+						</Frame>
+						<Frame OutlineColor="Pink"><!-- Weekly Information -->
+							<Frame.Content>
+							<Label Text="Weekly Information" />
+							<Label Text="there will be a graph/ visual showing the amoutn of water drunk for the week" />
+							</Frame.Content>
+						</Frame>
+					</StackLayout.Children>
+				</StackLayout>
+
+			<!-- Food -->
+
+				<StackLayout BackgroundColor="Pink"> 
+					<StackLayout.Children>
+						<Label Text="Food" /> 
+						</StackLayout.Children>
+				</StackLayout>
+				<StackLayout BackgroundColor="Pink"> 
+					<StackLayout.Children>
+						<Frame  OutlineColor="Pink">
+							<Frame.Content>
+							<Label Text="Daily Information" />
+							<Label Text="there will be a visual representation of todays food. Probably Macros" />
+							</Frame.Content>
+						</Frame>
+						<Frame OutlineColor="Pink">
+							<Frame.Content>
+							<Label Text="Weekly Information" />
+							<Label Text="there will be a graph/ visual showing what has happened for the week" />
+							</Frame.Content>
+						</Frame>
+					</StackLayout.Children>
+				</StackLayout>
+
+
+		<!-- Exersice -->
+
+				<StackLayout BackgroundColor="Pink"> 
+					<StackLayout.Children>
+						<Label Text="Physical Activity" /> 
+					</StackLayout.Children>
+				</StackLayout>
+				<StackLayout BackgroundColor="Pink"> 
+					<StackLayout.Children>
+						<Frame  OutlineColor="Pink">
+							<Frame.Content>
+							<Label Text="Walking" />
+							<Label Text="there will be a graph/ visual showing the amount of steps taken for every day of the week" />
+							</Frame.Content>
+						</Frame>
+						<Frame OutlineColor="Pink">
+							<Frame.Content>
+							<Label Text="Workout Plan" />
+							<Label Text="there will be a graph/ visual showing what has been done/planned for the week" />
+							</Frame.Content>
+						</Frame>
+					</StackLayout.Children>
+				</StackLayout>
+
+			</ScrollView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
