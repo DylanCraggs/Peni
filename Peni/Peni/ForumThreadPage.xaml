@@ -1,49 +1,56 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.ForumThreadPage" Title="{Binding TopicName}">
-	<ContentView BackgroundColor="White" Padding="0">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Peni.ForumThreadPage" Title="{Binding TopicName}" BackgroundColor="White">
+	<StackLayout>
+		<StackLayout Orientation="Vertical" x:Name="Header" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0">
+			<StackLayout Padding="5">
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+					<Label Text="{Binding TopicName}" x:Name="listingTitleLbl" FontAttributes="Bold" FontSize="16" TextColor="#000" HorizontalOptions="StartAndExpand"/>
+					<Label Text="{Binding TopicComments}" x:Name="listingCommentsLbl" TextColor="#000" HorizontalOptions="End"/>
+				</StackLayout>
+				<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+					<Label Text="{Binding TopicAuthor}" x:Name="listingAuthorLbl" TextColor="#000" HorizontalOptions="StartAndExpand"/>
+					<Label Text="{Binding TopicCreationDate}" x:Name="listingDateLbl" TextColor="#000" HorizontalOptions="End"/>
+				</StackLayout>
+			</StackLayout>
+			<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
+		</StackLayout>
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
-			<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="StartAndExpand" Padding="10, 0, 10, 0">
-					<Grid>
-						<Label Text="{Binding TopicName}" x:Name="listingTitleLbl" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="#000"/>
-						<Label Text="{Binding TopicComments}" x:Name="listingCommentsLbl" Grid.Row="0" Grid.Column="1" TextColor="#000"/>
-						<Label Text="{Binding TopicAuthor}" x:Name="listingAuthorLbl" Grid.Row="1" Grid.Column="0" TextColor="#000"/>
-						<Label Text="{Binding TopicCreationDate}" x:Name="listingDateLbl" Grid.Row="1" Grid.Column="1" TextColor="#000"/>
-						<!--<Image Source="notFavorite.png" HeightRequest="35" WidthRequest="35" Grid.Row="0" Grid.Column="2"></Image>-->
-					</Grid>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="1*"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<StackLayout VerticalOptions="Start" Grid.Row="0">
+					<Label Text="{Binding TopicPostContent}" x:Name="listingContentLbl" VerticalOptions="Start" TextColor="Black"/>
 				</StackLayout>
-				<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
-
-				<StackLayout Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
-					<Label Text="{Binding TopicPostContent}" x:Name="listingContentLbl" TextColor="Black"/>
+				<StackLayout Orientation="Vertical" Grid.Row="1">
+					<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
 				</StackLayout>
-				<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="#F16378"/>
-
-				<ListView ItemsSource="{Binding UserComments}" x:Name="CommentList" SeparatorColor="#F16378" SeparatorVisibility="Default">
+				<ListView ItemsSource="{Binding UserComments}" VerticalOptions="Start" x:Name="CommentList" SeparatorColor="#F16378" 
+					SeparatorVisibility="Default" Grid.Row="1" HasUnevenRows="true">
 					<ListView.ItemTemplate>
 						<DataTemplate>
 							<ViewCell>
-								<StackLayout Padding="10, 0, 10, 0" VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-										<Label Text="{Binding Comment}" TextColor="Black"/>
+								<StackLayout Padding="5">
+									<StackLayout Orientation="Horizontal">
+										<Label Text="{Binding Comment}" TextColor="Black"></Label>
 									</StackLayout>
-									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-										<Label Text="{Binding Username}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End"/>
-										<Label Text="{Binding Date}" TextColor="Black" HorizontalOptions="End"/>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+										<Label Text="{Binding Username}" FontAttributes="Bold" TextColor="Black" HorizontalOptions="Start"></Label>
+										<Label Text="{Binding Date}" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
 									</StackLayout>
 								</StackLayout>
 							</ViewCell>
 						</DataTemplate>
 					</ListView.ItemTemplate>
 				</ListView>
-
-				<StackLayout Orientation="Vertical" VerticalOptions="End">
-					<StackLayout Orientation="Horizontal" x:Name="commentBox" Padding="10, 0, 10, 0">
-						<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
-						<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Text="{Binding UserCommentInput}" Placeholder="Leave a comment" TextColor="#C9C9C9" />
-					</StackLayout>
-				</StackLayout>
-			</StackLayout>
+			</Grid>
 		</ScrollView>
-	</ContentView>
+		<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
+		<StackLayout Orientation="Horizontal" VerticalOptions="End" x:Name="commentBox" Padding="10, 0, 10, 0">
+			<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
+			<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Text="{Binding UserCommentInput}" Placeholder="Leave a comment" TextColor="#C9C9C9" />
+		</StackLayout>
+	</StackLayout>
 </ContentPage>
