@@ -35,6 +35,7 @@ namespace Peni.Data.ViewModel
 		public const string ForumsPageKey = "PeniForums";
 		public const string ForumsNewThreadPageKey = "ForumsNewThread";
 		public const string MyProfilePageKey = "EditProfile";
+		public const string ForumsViewThreadPageKey = "ForumThreadPage";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -69,35 +70,27 @@ namespace Peni.Data.ViewModel
 			});
         }
 
-		public ForumPageViewModel ForumsListPage
-		{
-			get
-			{
-				return ServiceLocator.Current.GetInstance<ForumPageViewModel>();
+		public ForumPageViewModel ForumsListPage {
+			get {
+				return ServiceLocator.Current.GetInstance<ForumPageViewModel> ();
 			}
 		}
 
-		public ForumNewThreadViewModel ForumNewThread
-		{
-			get
-			{
-				return ServiceLocator.Current.GetInstance<ForumNewThreadViewModel>();
+		public ForumNewThreadViewModel ForumNewThread {
+			get {
+				return ServiceLocator.Current.GetInstance<ForumNewThreadViewModel> ();
 			}
 		}
 
-		public LoginViewModel LoginPage
-		{
-			get
-			{
-				return ServiceLocator.Current.GetInstance<LoginViewModel>();
+		public LoginViewModel LoginPage {
+			get {
+				return ServiceLocator.Current.GetInstance<LoginViewModel> ();
 			}
 		}
 
-		public SideMenuViewModel SideMenu
-		{
-			get
-			{
-				return ServiceLocator.Current.GetInstance<SideMenuViewModel>();
+		public SideMenuViewModel SideMenu {
+			get {
+				return ServiceLocator.Current.GetInstance<SideMenuViewModel> ();
 			}
 		}
 			

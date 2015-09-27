@@ -10,7 +10,7 @@
 
 			<Label x:Name="xLabel" TextColor="Black" Text="{Binding ErrorMessage}" HorizontalOptions="CenterAndExpand"/>
 
-			<Button Text="Login" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White" Command="{Binding SubmitLoginCommand}" />
+			<Button x:Name="buttonLogin" Text="Login" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White" Command="{Binding SubmitLoginCommand}" />
 
 	</StackLayout>
 </ContentPage>

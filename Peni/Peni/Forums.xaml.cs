@@ -11,6 +11,7 @@ using Peni.Data.ViewModel;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Microsoft.Practices.ServiceLocation;
+using System.Diagnostics;
 
 
 namespace Peni
@@ -24,26 +25,20 @@ namespace Peni
 			BindingContext = App.Locator.ForumsListPage;
 			InitializeComponent ();
 
-			/*
-			var fab = new FloatingActionButtonView() {
+			Command cmd = (Command)App.Locator.ForumsListPage.GetNewThreadCommand();
+
+			// Create the floating action button
+			var fab = new FloatingActionButtonView () {
 				ImageName = "ic_add.png",
-				ColorNormal = Color.FromHex("f16378"),
-				ColorPressed = Color.FromHex("f592a1"),
-				ColorRipple = Color.FromHex("f16378"),
-				Clicked = async (sender, args) => 
-				{
-					MenuButtonPressed();
+				ColorNormal = Color.FromHex ("F16378"),
+				ColorPressed = Color.FromHex ("F592A1"),
+				ColorRipple = Color.FromHex ("F16378"),
+				Clicked = async (sender, args) => {
+					if (cmd.CanExecute (cmd)) {
+						cmd.Execute (cmd);
+					}
 				},
 			};
-			*/
-
-			var fab = new Button () {
-				Text = "+",
-				Command = ForumPageViewModel.NewThreadCommand,
-				BackgroundColor = Color.FromHex ("F16378"),
-				BorderRadius = 5,
-			};
-
 
 			// Position the pageLayout to fill the entire screen.
 			// Manage positioning of child elements on the page by editing the pageLayout.
@@ -54,6 +49,8 @@ namespace Peni
 			AbsoluteLayout.SetLayoutFlags(fab, AbsoluteLayoutFlags.PositionProportional);
 			AbsoluteLayout.SetLayoutBounds(fab, new Rectangle(1f, 1f, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 			test.Children.Add (fab);
+
+			Title = "Forums";
 		}
 
 		/// <summary>
@@ -82,25 +79,37 @@ namespace Peni
 			// Store reference to binding that cell has
 			var thread = (Thread)sendingItem.BindingContext;
 
+			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand (thread);
+			if (cmd.CanExecute (cmd)) {
+				cmd.Execute (cmd);
+			}
+
 			// Show the requested by parsing the object
-			Navigation.PushAsync(new ForumThreadPage(thread));
+			//Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-			var vm = ServiceLocator.Current.GetInstance<ForumPageViewModel> ();
-			vm.OnAppearing();
+			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
 		}
+
 	}
 
 	public class PeniForums : MasterDetailPage
 	{
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
+		}
+
 		public PeniForums()
 		{
+			Detail = new Forums();
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
-			Detail = new Forums();
+			Title = "Forums";
 		}
 	}
 }

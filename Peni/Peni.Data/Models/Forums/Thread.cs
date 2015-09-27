@@ -1,14 +1,22 @@
 ﻿using System;
+using SQLite.Net.Attributes;
 
 namespace Peni
 {
 	public class Thread
 	{
+		[PrimaryKey, AutoIncrement]
+		public int id { get; set; }
 		public string TopicName { get; set; }
 		public string TopicComments { get; set; }
 		public string TopicAuthor { get; set; }
 		public string TopicCreationDate { get; set; }
 		public string TopicPostContent { get; set; }
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.Thread"/> class.
+		/// </summary>
+		public Thread() {}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Thread"/> class.
@@ -26,11 +34,6 @@ namespace Peni
 			this.TopicCreationDate = TopicCreationDate;
 			this.TopicPostContent = TopicPostContent;
 		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Peni.Thread"/> class.
-		/// </summary>
-		public Thread() {}
 	}
 }
 

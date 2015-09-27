@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.ForumThreadPage" Title="{Binding TopicName}">
-	<ContentView BackgroundColor="White" Padding="5">
+	<ContentView BackgroundColor="White" Padding="0">
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
 			<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
-				<!--- Start of Topic Header Bar -->
-				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="Start" Padding="10, 0, 10, 0">
+				<StackLayout Orientation="Vertical" x:Name="Header" VerticalOptions="StartAndExpand" Padding="10, 0, 10, 0">
 					<Grid>
 						<Label Text="{Binding TopicName}" x:Name="listingTitleLbl" Grid.Row="0" Grid.Column="0" FontAttributes="Bold" FontSize="16" TextColor="#000"/>
 						<Label Text="{Binding TopicComments}" x:Name="listingCommentsLbl" Grid.Row="0" Grid.Column="1" TextColor="#000"/>
@@ -13,41 +12,38 @@
 						<!--<Image Source="notFavorite.png" HeightRequest="35" WidthRequest="35" Grid.Row="0" Grid.Column="2"></Image>-->
 					</Grid>
 				</StackLayout>
-				<!-- Used to identify seperation between header data from content data -->
-				<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="#F16378" />
-				<!--- End of Topic Header Bar -->
-				<!--- Start of Post Content -->
-				<StackLayout Padding="10, 0, 10, 0" VerticalOptions="StartAndExpand">
-					<!-- Find a way to apply anything below here to black text -->
+				<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
+
+				<StackLayout Padding="0" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
 					<Label Text="{Binding TopicPostContent}" x:Name="listingContentLbl" TextColor="Black"/>
-					<!-- End that above definition here -->
 				</StackLayout>
-				<!--- End of Post Content -->
 				<BoxView WidthRequest="1" HeightRequest="1" BackgroundColor="#F16378"/>
-				<!--- Start of Replies -->
-				<StackLayout Padding="10, 0, 10, 0" VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-					<!-- Find a way to apply anything below here to black text -->
-					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-						<Label Text="This is a comment..." TextColor="Black"/>
-					</StackLayout>
-					<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
-						<Label Text="John Doe" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End"/>
-						<Label Text="7 Sep 2015" TextColor="Black" HorizontalOptions="End"/>
-					</StackLayout>
-				</StackLayout>
-				<!--- End of Replies -->
-				<!--- Start of Comment Bar -->
+
+				<ListView ItemsSource="{Binding UserComments}" x:Name="CommentList" SeparatorColor="#F16378" SeparatorVisibility="Default">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout Padding="10, 0, 10, 0" VerticalOptions="End" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+										<Label Text="{Binding Comment}" TextColor="Black"/>
+									</StackLayout>
+									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+										<Label Text="{Binding Username}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="End"/>
+										<Label Text="{Binding Date}" TextColor="Black" HorizontalOptions="End"/>
+									</StackLayout>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+
 				<StackLayout Orientation="Vertical" VerticalOptions="End">
-					<!--- Adds a line above the comment field -->
-						<!-- Putting as gray background for now as I can't figure out how to change placeholder color and underline of entry -->
-						<StackLayout Orientation="Horizontal" x:Name="commentBox" Padding="10, 0, 10, 0">
-							<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
-							<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Placeholder="Leave a comment" TextColor="#C9C9C9" />
-						</StackLayout>
+					<StackLayout Orientation="Horizontal" x:Name="commentBox" Padding="10, 0, 10, 0">
+						<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
+						<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Text="{Binding UserCommentInput}" Placeholder="Leave a comment" TextColor="#C9C9C9" />
+					</StackLayout>
 				</StackLayout>
-				<!--- End of Comment Bar -->
 			</StackLayout>
 		</ScrollView>
-
 	</ContentView>
 </ContentPage>

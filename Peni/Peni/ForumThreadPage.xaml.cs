@@ -6,6 +6,10 @@ using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Windows.Input;
+using System.Diagnostics;
+using Microsoft.Practices.ServiceLocation;
+using Peni.Data;
 
 namespace Peni
 {
@@ -14,15 +18,32 @@ namespace Peni
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.ForumThreadPage"/> class.
 		/// </summary>
-		public ForumThreadPage (Thread thread) {
+		public ForumThreadPage () {
 			InitializeComponent ();
-			BindingContext = thread;
+			BindingContext = App.Locator.ForumsListPage;
 
-			// -- NOTES DYLAN CRAGGS -- //
+			// Attempts to execute the leave comment comment from the view model
+			CommentBox.Completed += (sender, e) => {
+				// Check if there's input
+				if(CommentBox.Text.Length <= 0)
+					return;
 
-			// * PostContent needs to be black text on white background instead of white on white //
-			// * CommentBox needs to be in a fixed location when scrolling //
-			// * Placeholder text needs to be black (currently white and on a white background you obviously can't see it..) //
+				// Add the comment to the database
+				Command cmd = (Command)App.Locator.ForumsListPage.GetLeaveCommentCommand ();
+				if (cmd.CanExecute (cmd)) {
+					cmd.Execute (cmd);
+					UpdateView();
+				}
+			};
+		}
+
+		/// <summary>
+		/// Updates the view.
+		/// </summary>
+		private void UpdateView()
+		{
+			CommentBox.Text = "";
+			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
 		}
 	}
 }
