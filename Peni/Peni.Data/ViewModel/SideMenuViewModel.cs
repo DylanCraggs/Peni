@@ -77,7 +77,7 @@ namespace Peni.Data
 					return;
 				}
 
-				this.navigationService.NavigateTo(ViewModelLocator.PeniMasterDetail);
+				this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
@@ -92,7 +92,7 @@ namespace Peni.Data
 					return;
 				}
 
-				this.navigationService.NavigateTo(ViewModelLocator.ForumsPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.ForumsPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
 			});
 
@@ -104,7 +104,7 @@ namespace Peni.Data
 				if(navigationService.CurrentPageKey == ViewModelLocator.MyProfilePageKey) {
 					return;
 				}
-				this.navigationService.NavigateTo(ViewModelLocator.MyProfilePageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.MyProfilePageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
 				
