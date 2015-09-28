@@ -11,19 +11,22 @@ namespace Peni
 		{
 			BindingContext = App.Locator.LoginPage;
 			InitializeComponent ();
-
-			// Event handler for when user completes username entry
-			entryUsername.Completed += (sender, e) => {
-				entryPassword.Focus();
-			};
-
-			// Event handler for when user completes password entry
-			entryPassword.Completed += (sender, e) => {
-				if(buttonLogin.Command.CanExecute(BindingContext)) {
-					buttonLogin.Command.Execute(BindingContext);
-				}
-			};
 		}
+
+		protected void ButtonClicked(object sender, EventArgs e)
+		{
+			// These conditions need to be changed once the database is setup
+			if (entryUsername.Text != null) {
+				if (entryPassword.Text != null) {
+					Navigation.PushModalAsync( new PeniMasterDetail ());
+				} else {
+					xLabel.Text = "Please Enter Username and / or Password Again";
+				}
+			} else {
+				xLabel.Text = "Please Enter Username and / or Password Again";
+			}
+		}
+
 	}
 }
 
