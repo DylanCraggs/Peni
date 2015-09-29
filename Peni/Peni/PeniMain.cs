@@ -108,6 +108,11 @@ namespace Peni
 			MenuPage menuPage = new MenuPage();
             Master = menuPage;
 			Detail = new PeniMainContet();
+
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
         }
     }
 

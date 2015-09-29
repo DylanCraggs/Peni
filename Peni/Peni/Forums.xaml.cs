@@ -54,7 +54,7 @@ namespace Peni
 		}
 
 		/// <summary>
-		/// Menu button pressed.
+		/// Menu button pressed event handler.
 		/// </summary>
 		private void MenuButtonPressed() {
 			Navigation.PushAsync (new ForumsNewThread ());
@@ -79,6 +79,7 @@ namespace Peni
 			// Store reference to binding that cell has
 			var thread = (Thread)sendingItem.BindingContext;
 
+			// Grab the command interface and create a command from it
 			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand (thread);
 			if (cmd.CanExecute (cmd)) {
 				cmd.Execute (cmd);
@@ -88,6 +89,9 @@ namespace Peni
 			//Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 
+		/// <summary>
+		/// Raises the appearing event.
+		/// </summary>
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
@@ -96,20 +100,35 @@ namespace Peni
 
 	}
 
+	/// <summary>
+	/// Peni forums master view (side menu + content)
+	/// </summary>
 	public class PeniForums : MasterDetailPage
 	{
+		/// <summary>
+		/// Raises the appearing event.
+		/// </summary>
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
 			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
 		}
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
+		/// </summary>
 		public PeniForums()
 		{
 			Detail = new Forums();
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
 			Title = "Forums";
+
+			// ItemTapped event handler for the side menu
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
 		}
 	}
 }
