@@ -32,7 +32,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Gets all forum threads in the database
+		/// Gets all results in the Thread table and returns a list of threads
 		/// </summary>
 		/// <returns>A List of Threads</returns>
 		public List<Thread> GetAll() {
@@ -41,13 +41,12 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Inserts the or update thread.
+		/// Inserts a thread into the database
 		/// </summary>
 		/// <returns>true if successful, false otherwise.</returns>
 		/// <param name="thread">Thread.</param>
-		public int InsertOrUpdateThread(Thread thread) {
-			return Connection.Table<Thread> ().Where (x => x.id == thread.id).Count () > 0 
-				? Connection.Update (thread) : Connection.Insert (thread);
+		public int InsertThread(Thread thread) {
+			return Connection.Insert (thread);
 		}
 
 		/// <summary>
@@ -64,10 +63,10 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Gets the thread comments.
+		/// Gets all comments left on a given thread id
 		/// </summary>
-		/// <returns>A list of user comments.</returns>
-		/// <param name="ThreadID">Thread ID of comments to retrieve</param>
+		/// <returns>A list of user comments relating to the threadid parsed.</returns>
+		/// <param name="ThreadID">The ID of the thread to get the comments from</param>
 		public List<UserComment> GetThreadComments(int ThreadID) {
 			var comments = Connection.Table<UserComment> ().Where (x => x.ThreadID == ThreadID).ToList();
 			return comments;

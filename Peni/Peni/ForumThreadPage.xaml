@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="Peni.ForumThreadPage" Title="{Binding TopicName}" BackgroundColor="White">
 	<StackLayout>
+
+		<!-- The thread details located at the top which is retrieved from our view model via data binding -->
 		<StackLayout Orientation="Vertical" x:Name="Header" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0">
 			<StackLayout Padding="5">
 				<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
@@ -15,18 +17,26 @@
 			</StackLayout>
 			<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
 		</StackLayout>
+
+		<!-- Scroll view for our thread content and comments -->
 		<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
 			<Grid>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="1*"/>
 					<RowDefinition Height="Auto"/>
 				</Grid.RowDefinitions>
+
+				<!-- The content of thread that the owner has inputted which is retrieved from our viewmodel.TopicPostContent variable -->
 				<StackLayout VerticalOptions="Start" Grid.Row="0">
 					<Label Text="{Binding TopicPostContent}" x:Name="listingContentLbl" VerticalOptions="Start" TextColor="Black"/>
 				</StackLayout>
+
+				<!-- Add a line separator -->
 				<StackLayout Orientation="Vertical" Grid.Row="1">
 					<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
 				</StackLayout>
+
+				<!-- List view containing comments other users have left which is retrieved from our viewmodel.UserComments -->
 				<ListView ItemsSource="{Binding UserComments}" VerticalOptions="Start" x:Name="CommentList" SeparatorColor="#F16378" 
 					SeparatorVisibility="Default" Grid.Row="1" HasUnevenRows="true">
 					<ListView.ItemTemplate>
@@ -47,7 +57,11 @@
 				</ListView>
 			</Grid>
 		</ScrollView>
+
+		<!-- Add a line separator -->
 		<BoxView WidthRequest="1" HeightRequest="2" BackgroundColor="#F16378" />
+
+		<!-- Input field for a user to leave a comment which is updated in our viewmodel.UserCommentInput -->
 		<StackLayout Orientation="Horizontal" VerticalOptions="End" x:Name="commentBox" Padding="10, 0, 10, 0">
 			<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
 			<Entry HorizontalOptions="FillAndExpand" x:Name="CommentBox" Text="{Binding UserCommentInput}" Placeholder="Leave a comment" TextColor="#C9C9C9" />

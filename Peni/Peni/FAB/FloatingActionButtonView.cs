@@ -6,6 +6,9 @@ namespace Peni
 {
 	public class FloatingActionButtonView : View
 	{
+		/// <summary>
+		/// The image name property.
+		/// </summary>
 		public static readonly BindableProperty ImageNameProperty = BindableProperty.Create<FloatingActionButtonView,string>( p => p.ImageName, string.Empty);
 		public string ImageName 
 		{
@@ -13,6 +16,9 @@ namespace Peni
 			set { SetValue (ImageNameProperty, value); } 
 		}
 
+		/// <summary>
+		/// The color normal property.
+		/// </summary>
 		public static readonly BindableProperty ColorNormalProperty = BindableProperty.Create<FloatingActionButtonView,Color>( p => p.ColorNormal, Color.White);
 		public Color ColorNormal 
 		{
@@ -20,6 +26,9 @@ namespace Peni
 			set { SetValue (ColorNormalProperty, value); } 
 		}
 
+		/// <summary>
+		/// The color pressed property.
+		/// </summary>
 		public static readonly BindableProperty ColorPressedProperty = BindableProperty.Create<FloatingActionButtonView,Color>( p => p.ColorPressed, Color.White);
 		public Color ColorPressed 
 		{
@@ -27,6 +36,9 @@ namespace Peni
 			set { SetValue (ColorPressedProperty, value); } 
 		}
 
+		/// <summary>
+		/// The color ripple property.
+		/// </summary>
 		public static readonly BindableProperty ColorRippleProperty = BindableProperty.Create<FloatingActionButtonView,Color>( p => p.ColorRipple, Color.White);
 		public Color ColorRipple 
 		{
@@ -34,6 +46,9 @@ namespace Peni
 			set { SetValue (ColorRippleProperty, value); } 
 		}
 
+		/// <summary>
+		/// The size property.
+		/// </summary>
 		public static readonly BindableProperty SizeProperty = BindableProperty.Create<FloatingActionButtonView,FloatingActionButtonSize>( p => p.Size, FloatingActionButtonSize.Normal);
 		public FloatingActionButtonSize Size 
 		{
@@ -41,12 +56,16 @@ namespace Peni
 			set { SetValue (SizeProperty, value); } 
 		}
 
+		/// <summary>
+		/// The has shadow property.
+		/// </summary>
 		public static readonly BindableProperty HasShadowProperty = BindableProperty.Create<FloatingActionButtonView,bool>( p => p.HasShadow, true);
 		public bool HasShadow 
 		{
 			get { return (bool)GetValue (HasShadowProperty); } 
 			set { SetValue (HasShadowProperty, value); } 
 		}
+
 
 		public delegate void ShowHideDelegate(bool animate = true);
 		public delegate void AttachToListViewDelegate(ListView listView);

@@ -12,26 +12,23 @@ namespace Peni.Data
 	public class ForumPageViewModel : ViewModelBase
 	{
 		/// <summary>
-		/// The requested thread.
+		/// Variable holding the thread that a user has requested
 		/// </summary>
 		private Thread RequestedThread;
 
 		/// <summary>
-		/// Gets/sets the new thread command.
+		/// ICommand which navigates user to the thread creation
 		/// </summary>
-		/// <value>The new thread command.</value>
 		public static ICommand NewThreadCommand { get; private set; }
 
 		/// <summary>
-		/// Navigates the user to requested thread
+		/// ICommand which navigates the user to requested thread
 		/// </summary>
-		/// <value>The goto thread command.</value>
 		public static ICommand GoToThreadCommand { get; private set; }
 
 		/// <summary>
-		/// Command to leave a comment on the current thread
+		/// ICommand to leave a comment on the current thread
 		/// </summary>
-		/// <value>The leave comment command.</value>
 		public static ICommand LeaveCommentCommand { get; private set; }
 
 		/// <summary>
@@ -40,9 +37,8 @@ namespace Peni.Data
 		private IMyNavigationService navigationService;
 
 		/// <summary>
-		/// Gets/sets the forum list.
+		/// Stores a list of Threads to bind to a list from our view
 		/// </summary>
-		/// <value>The forum list.</value>
 		public ObservableCollection<Thread> ForumList {
 			get { 
 				var database = new ForumsDatabase(); 
@@ -51,7 +47,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Gets the user comments.
+		/// Stores a list of user comments to display in a binding list from our view
 		/// </summary>
 		/// <value>The user comments.</value>
 		public ObservableCollection<UserComment> UserComments {
@@ -62,7 +58,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The current thread being viewed.
+		/// Stores the thread that we are viewing.
 		/// </summary>
 		private ObservableCollection<Thread> currentViewingThread = new ObservableCollection<Thread>();
 		public ObservableCollection<Thread> CurrentViewingThread {
@@ -74,7 +70,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The name of the topic.
+		/// Data binding for the thread/topic name
 		/// </summary>
 		private string topicName;
 		public string TopicName
@@ -87,7 +83,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The topic comments.
+		/// Data binding for the number of comments the thread contains
 		/// </summary>
 		private string topicComments;
 		public string TopicComments {
@@ -99,7 +95,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The topic author.
+		/// Data binding for the author of the thread
 		/// </summary>
 		private string topicAuthor;
 		public string TopicAuthor {
@@ -111,7 +107,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The topic creation date.
+		/// Data binding for the date the thread was created
 		/// </summary>
 		private string topicCreationDate;
 		public string TopicCreationDate {
@@ -123,7 +119,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The content of the topic.
+		/// Data binding for the main details about the thread / threa content / what the user wants to say
 		/// </summary>
 		private string topicContent;
 		public string TopicPostContent {
@@ -135,7 +131,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The user comment input.
+		/// Data binding for user comment input
 		/// </summary>
 		private string userCommentInput;
 		public string UserCommentInput {
@@ -147,7 +143,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The thread comments.
+		/// Contains a list of user comments related to a thread
 		/// </summary>
 		private List<UserComment> threadComments;
 		public List<UserComment> ThreadComments {
@@ -166,6 +162,7 @@ namespace Peni.Data
 		public ForumPageViewModel(IMyNavigationService navigationService) {
 			this.navigationService = navigationService;
 
+			// Add commands to our ICommands defined above so they actually do something
 			NewThreadCommand = new Command (() => {
 				this.navigationService.NavigateTo(ViewModelLocator.ForumsNewThreadPageKey);
 			});
@@ -185,9 +182,9 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Gets the new thread command.
+		/// Gets the new thread ICommand.
 		/// </summary>
-		/// <returns>The new thread command.</returns>
+		/// <returns>The NewThreadCommand ICommand.</returns>
 		public ICommand GetNewThreadCommand() {
 			return NewThreadCommand;
 		}
@@ -195,8 +192,8 @@ namespace Peni.Data
 		/// <summary>
 		/// Returns the command that loads the thread and corresponding data
 		/// </summary>
-		/// <returns>The go to thread command.</returns>
-		/// <param name="RequestedThread">Requested thread.</param>
+		/// <returns>The GetGoToThreadCommand ICommand.</returns>
+		/// <param name="RequestedThread">The thread object of the thread a user has requested.</param>
 		public ICommand GetGoToThreadCommand(Thread RequestedThread) {
 			this.RequestedThread = RequestedThread;
 
@@ -217,7 +214,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Updates the thread comments list given the thread id.
+		/// Updates the thread comments given the thread id.
 		/// </summary>
 		/// <param name="threadid">ThreadID for comments to update on.</param>
 		private void UpdateThreadComments(int threadid) {
@@ -230,15 +227,15 @@ namespace Peni.Data
 		/// <summary>
 		/// Gets the requested thread.
 		/// </summary>
-		/// <returns>The requested thread.</returns>
+		/// <returns>Thread object of the current RequestedThread variable.</returns>
 		public Thread GetRequestedThread() {
 			return RequestedThread;
 		}
 
 		/// <summary>
-		/// Gets the leave comment command.
+		/// Gets the ICommand for our LeaveCommentCommand
 		/// </summary>
-		/// <returns>The leave comment command.</returns>
+		/// <returns>LeaveCommentCommand ICommand.</returns>
 		public ICommand GetLeaveCommentCommand() {
 			return LeaveCommentCommand;
 		}

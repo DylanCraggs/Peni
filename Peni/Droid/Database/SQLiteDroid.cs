@@ -15,6 +15,10 @@ namespace Peni.Droid
 
 		#region ISQLite implementation
 
+		/// <summary>
+		/// Gets the database connection in the Android OS
+		/// </summary>
+		/// <returns>The connection.</returns>
 		public SQLiteConnection GetConnection ()
 		{
 			const string DatabaseFilename = "PeniDatabase.db3";

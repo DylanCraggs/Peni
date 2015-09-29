@@ -25,17 +25,24 @@ namespace Peni.Data.ViewModel
     public class ViewModelLocator
     {
 
+		// Side Menu Page Keys
 		public const string SideMenuPageKey = "MenuPage";
 		public const string SideMenuListView = "MenuPageList";
 
-
-		public const string LoginPageKey = "Login";
-		public const string MainPageKey = "PeniMainContet";
-		public const string PeniMasterDetail = "PeniMasterDetail";
+		// Forum Page Keys
 		public const string ForumsPageKey = "PeniForums";
 		public const string ForumsNewThreadPageKey = "ForumsNewThread";
-		public const string MyProfilePageKey = "EditProfile";
 		public const string ForumsViewThreadPageKey = "ForumThreadPage";
+
+		// Login Page Keys
+		public const string LoginPageKey = "Login";
+
+		// Main Screen Keys
+		public const string MainPageKey = "PeniMainContet";
+		public const string PeniMasterDetail = "PeniMasterDetail";
+
+		// Profile Page Keys
+		public const string MyProfilePageKey = "EditProfile";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
@@ -44,6 +51,7 @@ namespace Peni.Data.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+			// Register our view models
 			SimpleIoc.Default.Register<ForumPageViewModel>(() => 
 			{
 				return new ForumPageViewModel(
@@ -70,30 +78,46 @@ namespace Peni.Data.ViewModel
 			});
         }
 
+		/// <summary>
+		/// Gets the ForumPage View Model
+		/// </summary>
 		public ForumPageViewModel ForumsListPage {
 			get {
 				return ServiceLocator.Current.GetInstance<ForumPageViewModel> ();
 			}
 		}
 
+		/// <summary>
+		/// Gets the ForumNewThread View Model.
+		/// </summary>
 		public ForumNewThreadViewModel ForumNewThread {
 			get {
 				return ServiceLocator.Current.GetInstance<ForumNewThreadViewModel> ();
 			}
 		}
 
+		/// <summary>
+		/// Gets the Login View Model
+		/// </summary>
 		public LoginViewModel LoginPage {
 			get {
 				return ServiceLocator.Current.GetInstance<LoginViewModel> ();
 			}
 		}
 
+		/// <summary>
+		/// Gets the side menu view model
+		/// </summary>
+		/// <value>The side menu.</value>
 		public SideMenuViewModel SideMenu {
 			get {
 				return ServiceLocator.Current.GetInstance<SideMenuViewModel> ();
 			}
 		}
-			
+
+		/// <summary>
+		/// Cleanup this instance.
+		/// </summary>
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

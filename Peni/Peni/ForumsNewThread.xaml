@@ -1,8 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <BaseView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.ForumsNewThread" Title="New Thread">
 	<StackLayout HorizontalOptions="FillAndExpand">
+
+		<!-- Thread title entry which binds to ThreadTitle -->
 		<Entry Placeholder="Title" x:Name="Title" TextColor="#F16378" Text="{Binding ThreadTitle}"></Entry>
+
+		<!-- Thread details entry which binds to ThreadDetails -->
 		<Editor VerticalOptions="FillAndExpand" x:Name="Content" Text="{Binding ThreadDetails}"></Editor>
+
+		<!-- StackLayout containg our button which binds to SaveThreadCommand in our View Model -->
 		<StackLayout VerticalOptions="End" Padding="0, 0, 0, 10" HorizontalOptions="Fill">
 			<Button Text="Post" BackgroundColor="#F16378" HorizontalOptions="Fill" TextColor="White" Command="{Binding SaveThreadCommand}"></Button>
 		</StackLayout>

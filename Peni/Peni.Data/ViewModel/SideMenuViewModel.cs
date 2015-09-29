@@ -14,37 +14,37 @@ namespace Peni.Data
 	{
 
 		/// <summary>
-		/// Gets/sets the navigate to home.
+		/// Gets/sets the navigate to home menu item action
 		/// </summary>
 		/// <value>The navigate to home.</value>
 		public ICommand NavigateToHome { get; private set; }
 
 		/// <summary>
-		/// Gets/sets the navigate to health.
+		/// Gets/sets the navigate to health menu item action
 		/// </summary>
 		/// <value>The navigate to health.</value>
 		public ICommand NavigateToHealth { get; private set; }
 
 		/// <summary>
-		/// Gets/sets the navigate to forums.
+		/// Gets/sets the navigate to forums menu item action
 		/// </summary>
 		/// <value>The navigate to forums.</value>
 		public ICommand NavigateToForums { get; private set; }
 
 		/// <summary>
-		/// Gets/sets the navigate to resources.
+		/// Gets/sets the navigate to resources menu item action
 		/// </summary>
 		/// <value>The navigate to resources.</value>
 		public ICommand NavigateToResources { get; private set; }
 
 		/// <summary>
-		/// Gets/sets the navigate to my account.
+		/// Gets/sets the navigate to my account menu item action
 		/// </summary>
 		/// <value>The navigate to my account.</value>
 		public ICommand NavigateToMyAccount { get; private set; }
 
 		/// <summary>
-		/// Gets/sets the navigate to logout.
+		/// Gets/sets the navigate to logout menu item action
 		/// </summary>
 		/// <value>The navigate to logout.</value>
 		public ICommand NavigateToLogout { get; private set; }
@@ -55,7 +55,7 @@ namespace Peni.Data
 		private IMyNavigationService navigationService;
 
 		/// <summary>
-		/// The side menu item list.
+		/// List containing the items to be displayed in the side menu
 		/// </summary>
 		private List<MenuItem> menuList = new List<MenuItem> ();
 		public List<MenuItem> MenuList {
@@ -71,7 +71,7 @@ namespace Peni.Data
 		{
 			this.navigationService = navigationService;
 
-			// Start of command actions
+			// Add a command to our home navigation ICommand
 			NavigateToHome = new Command (x => {
 				if(navigationService.CurrentPageKey == ViewModelLocator.PeniMasterDetail) {
 					return;
@@ -81,11 +81,13 @@ namespace Peni.Data
 				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
+			// Add a command to our health navigation ICommand
 			NavigateToHealth = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.HealthPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 
+			// Add a command to our forum navigation ICommand
 			NavigateToForums = new Command (x => {
 				// Check if we are already viewing the same page before pushing another to navigation service
 				if(navigationService.CurrentPageKey == ViewModelLocator.ForumsPageKey) {
@@ -96,10 +98,12 @@ namespace Peni.Data
 				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
 			});
 
+			// Add a command to our resources navigation ICommand
 			NavigateToResources = new Command (() => {
 				Debug.WriteLine("SideMenuViewModel : NavigateToResources " + navigationService.CurrentPageKey);
 			});
 
+			// Add a command to our account navigation ICommand
 			NavigateToMyAccount = new Command (x => {
 				if(navigationService.CurrentPageKey == ViewModelLocator.MyProfilePageKey) {
 					return;
@@ -107,7 +111,8 @@ namespace Peni.Data
 				this.navigationService.NavigateToModal(ViewModelLocator.MyProfilePageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
-				
+
+			// Add a command to our logout navigation ICommand
 			NavigateToLogout = new Command (() => {
 				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
@@ -118,7 +123,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// Setups the menu navigation items.
+		/// Adds our navigation items to our navigation ListView.
 		/// </summary>
 		private void setupMenuNavigation() {
 			menuList.Add (new MenuItem () { 

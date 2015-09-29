@@ -7,11 +7,11 @@ namespace Peni.Data
 {
 	public class ForumNewThreadViewModel : ViewModelBase
 	{
-		// Command to bind to button which saves thread
+		// ICommand to bind to button which saves thread
 		public ICommand SaveThreadCommand { get; private set; }
 
 		/// <summary>
-		/// The thread title.
+		/// Data binding the title of the thread
 		/// </summary>
 		private String threadTitle;
 		public String ThreadTitle
@@ -22,7 +22,7 @@ namespace Peni.Data
 		}
 
 		/// <summary>
-		/// The thread details (thread post content you could also call it)
+		/// Data binding for the details on the thread (post content)
 		/// </summary>
 		private string threadDetails;
 		public string ThreadDetails
@@ -38,11 +38,19 @@ namespace Peni.Data
 		/// <param name="navigationService">Navigation service.</param>
 		public ForumNewThreadViewModel (IMyNavigationService navigationService)
 		{
+			// Create our forums database object
 			var database = new ForumsDatabase();
+
+			// Add  a new command to our ICommand
 			SaveThreadCommand = new Command (() => {
-				database.InsertOrUpdateThread(new Thread(ThreadTitle, "Anonymous", DateTime.Now.ToString(), ThreadDetails));
+				// Insert the thread into the database
+				database.InsertThread(new Thread(ThreadTitle, "Anonymous", DateTime.Now.ToString(), ThreadDetails));
+
+				// Set the data bindings to null as we have entered the new thread
 				threadTitle = null;
 				threadDetails = null;
+
+				// Go back a page
 				navigationService.GoBack();
 			});
 		}

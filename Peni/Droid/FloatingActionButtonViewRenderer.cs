@@ -27,6 +27,9 @@ namespace Peni.Droid
 		private readonly Android.Content.Context context;
 		private readonly FloatingActionButton fab;
 
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.Droid.FloatingActionButtonViewRenderer"/> class.
+		/// </summary>
 		public FloatingActionButtonViewRenderer()
 		{
 			context = Xamarin.Forms.Forms.Context;
@@ -44,6 +47,10 @@ namespace Peni.Droid
 			fab.LayoutParameters = lp;
 		}
 
+		/// <summary>
+		/// Raises the element changed event.
+		/// </summary>
+		/// <param name="e">E.</param>
 		protected override void OnElementChanged(ElementChangedEventArgs<FloatingActionButtonView> e)
 		{
 			base.OnElementChanged(e);
@@ -78,16 +85,29 @@ namespace Peni.Droid
 			SetNativeControl (frame);
 		}
 
+		/// <summary>
+		/// Show the specified animate.
+		/// </summary>
+		/// <param name="animate">If set to <c>true</c> animate.</param>
 		public void Show(bool animate = true)
 		{
 			fab.Show(animate);
 		}
 
+		/// <summary>
+		/// Hide the specified animate.
+		/// </summary>
+		/// <param name="animate">If set to <c>true</c> animate.</param>
 		public void Hide(bool animate = true)
 		{
 			fab.Hide(animate);
 		}
 
+		/// <summary>
+		/// Handles the property changed.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		void HandlePropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			if (e.PropertyName == "Content") {
@@ -119,6 +139,10 @@ namespace Peni.Droid
 			}
 		}
 
+		/// <summary>
+		/// Sets the fab image.
+		/// </summary>
+		/// <param name="imageName">Image name.</param>
 		void SetFabImage(string imageName)
 		{
 			if(!string.IsNullOrWhiteSpace(imageName))
@@ -137,6 +161,10 @@ namespace Peni.Droid
 			}
 		}
 
+		/// <summary>
+		/// Sets the size of the fab.
+		/// </summary>
+		/// <param name="size">Size.</param>
 		void SetFabSize(FloatingActionButtonSize size)
 		{
 			if(size == FloatingActionButtonSize.Mini)
@@ -153,6 +181,11 @@ namespace Peni.Droid
 			}
 		}
 
+		/// <summary>
+		/// Fabs the click.
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="e">E.</param>
 		void Fab_Click (object sender, EventArgs e)
 		{
 			var clicked = Element.Clicked;
