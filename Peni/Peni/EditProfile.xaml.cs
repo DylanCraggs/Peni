@@ -11,6 +11,8 @@ namespace Peni
 		{
 			InitializeComponent ();
 			Title = "Edit Profile";
+
+
 		}
 
 

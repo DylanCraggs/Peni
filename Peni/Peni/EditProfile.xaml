@@ -1,41 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.EditProfile">
-	<StackLayout BackgroundColor="White" Padding="10">
-		<ScrollView>
-			<TableView>
-				<TableView.Root>
-					<TableSection>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.EditProfile"> <!---
+<StackLayout BackgroundColor="White" Padding="10"> 		 			<TableView> 				<TableRoot> 					<TableSection> 						<ViewCell> 							<RelativeLayout HorizontalOptions="Center"> 								<Image Source="/Resources/drawable/peni_small.png" x:Name="imageUser" /> 							</RelativeLayout> 						</ViewCell>  						<TextCell Text="User's Name" x:Name="labelUsersFirstName" TextColor="Black" />  						<ViewCell> 							<StackLayout Orientation="Horizontal"> 								<Label Text="User's Name" x:Name="labelName"/> 								</StackLayout> 						</ViewCell> 											 						<ViewCell> 							<StackLayout Orientation="Horizontal"> 								<Label Text="Age" x:Name="labelAge"/> 								<Label Text="Stage" x:Name="labelStage" HorizontalOptions="EndAndExpand" /> 							</StackLayout> 						</ViewCell>
 						<ViewCell>
-							<RelativeLayout HorizontalOptions="Center">
-								<Image Source="/Resources/drawable/peni_small.png" x:Name="imageUser" />
-							</RelativeLayout>
-						</ViewCell>
-
-						<TextCell Text="User's Name" x:Name="labelUsersFirstName" />
-									
-						<ViewCell>
-							<StackLayout Orientation="Horizontal">
-								<Label Text="Age" x:Name="labelAge"/>
-								<Label Text="Stage" x:Name="labelStage" HorizontalOptions="EndAndExpand" />
-							</StackLayout>
-						</ViewCell>
-
-						<ViewCell>
-							<StackLayout VerticalOptions="Fill">
-								<Entry Placeholder="Enter Bio Here" x:Name="entryBio"/>
-							</StackLayout>
-						</ViewCell>
-
-						<ViewCell>
-							<StackLayout Orientation="Horizontal">
-								<Label Text="Appear in Other Gardens?"/>
-								<Switch HorizontalOptions="EndAndExpand" x:Name="appearGardens"/>
-							</StackLayout>
-						</ViewCell>
-
-					</TableSection>
-				</TableView.Root>
-			</TableView>
-		</ScrollView>
-	</StackLayout>
-</ContentPage>
+						<Editor VerticalOptions="FillAndExpand" Text="Cli To Control Drag, hold down the control key then click and hold over the user interface object that you are creating the outlet (or action) for. Keep holding down the Control key while you drag into the header file. Finish dragging below the @interface definition. A blue line should appear with a caption Insert Outlet or Outlet Collection, as illustrated in the screenshot below." />
+		</ViewCell>  						<ViewCell> 							<StackLayout Orientation="Horizontal"> 								<Label Text="Appear in Other Gardens?"/> 								<Switch HorizontalOptions="EndAndExpand" x:Name="appearGardens"/> 							</StackLayout> 						</ViewCell> 					</TableSection> 				</TableRoot> 			</TableView>
+		 	</StackLayout>
+</ContentPage.Content>--> </ContentPage>
