@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using 
 
 namespace Peni
 {
@@ -14,4 +13,3 @@ namespace Peni
 		}
 	}
 }
-

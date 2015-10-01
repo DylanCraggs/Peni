@@ -8,9 +8,9 @@
 
 			<Entry x:Name="entryPassword" Placeholder="Password" Keyboard="Default" IsPassword="true" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
 
-			<Label x:Name="xLabel" />
+			<Label x:Name="loginLabel" />
 
-			<Button Text="Login" Clicked = "ButtonClicked" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
+			<Button x:Name="tryLogin" Clicked = "ButtonClicked" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
 
 	</StackLayout>
 </ContentPage>
