@@ -135,6 +135,10 @@
     <AndroidResource Include="Resources\drawable\peni_thirsty.png" />
     <AndroidResource Include="Resources\drawable\some_cloud.png" />
     <AndroidResource Include="Resources\drawable\water_cloud.png" />
+    <AndroidResource Include="Resources\drawable\mfp_icon.jpeg" />
+    <AndroidResource Include="Resources\drawable\temp_piechart.jpg" />
+    <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
+    <AndroidResource Include="Resources\drawable\temp_linegraph.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\peni_small.png" />

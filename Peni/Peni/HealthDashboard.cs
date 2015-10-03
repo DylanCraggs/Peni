@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 
 using Xamarin.Forms;
 
@@ -9,6 +9,7 @@ namespace Peni
 		public HealthDashboard ()
 		{
 
+			// Water !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 			int numbercups = 0;
 
@@ -31,7 +32,7 @@ namespace Peni
 
 					new Label { 
 						Text = "Today",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.SubtitleStyle 
 					},
 
@@ -39,7 +40,6 @@ namespace Peni
 
 					new Entry { Text = "? Cups" },
 
-					// progress bar
 
 				}, // ends children
 
@@ -101,17 +101,21 @@ namespace Peni
 
 					new Label { 
 						Text = "Water",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.TitleStyle
 					},
-					// title
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
+					},
 
 					gridwater,
 
 					// weekly information
 					new Label { 
 						Text = "Week",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.SubtitleStyle
 					},
 
@@ -123,30 +127,58 @@ namespace Peni
 
 			}; // ends water-stacklayout
 
-			// FOOD!!!
+			// FOOD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+			Grid gridfoodintake = new Grid {
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center,
+				RowDefinitions = {
+					new RowDefinition { Height = GridLength.Auto },
+					new RowDefinition { Height = GridLength.Auto },
+				},
+				ColumnDefinitions = {
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+				},
+
+			};
+
+			gridfoodintake.Children.Add(new Label { Text = "Protein",  HorizontalOptions = LayoutOptions.Center},0,0);
+			gridfoodintake.Children.Add(new Entry { Text = "30" },0,1);  
+
+			gridfoodintake.Children.Add(new Label { Text = "Carbs", HorizontalOptions = LayoutOptions.Center },1,0);
+			gridfoodintake.Children.Add(new Entry { Text = "30" },1,1);  
+
+			gridfoodintake.Children.Add(new Label { Text = "Fat", HorizontalOptions = LayoutOptions.Center },2,0);
+			gridfoodintake.Children.Add(new Entry { Text = "40" },2,1); 
 
 			StackLayout foodstack1 = new StackLayout {
 
 
-				Children = { // Daily Water
+				Children = { // food intake
 
 					new Label { 
 						Text = "Today",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.SubtitleStyle 
 					},
 
-					new Label { Text = "Protein" },  
+					new Image
+					{
+						// Will link to my fitness pal
+						Source = ImageSource.FromFile("mfp_icon.jpeg"),
+						VerticalOptions = LayoutOptions.Center,
+						HorizontalOptions = LayoutOptions.Center,
+						HeightRequest = 50,
+							
+					},
 
-					new Entry { Text = "30" },
-
-					new Label { Text = "Carbs" },  
-
-					new Entry { Text = "30" },
-
-					new Label { Text = "Fat" },  
-
-					new Entry { Text = "40" },
+					//grid intake
+					gridfoodintake,
 					// progress bar
 
 				}, // ends children
@@ -155,16 +187,28 @@ namespace Peni
 
 			StackLayout foodstack2 = new StackLayout {
 
+				VerticalOptions = LayoutOptions.Center,
+				HorizontalOptions = LayoutOptions.Center,
 
 				Children = {
-					new Label { Text = "beautiful macro graph" }, 
+
+					new Image
+					{
+						Source = ImageSource.FromFile("temp_piechart.jpg"),
+						HeightRequest = 150,
+
+					},
+
 				}, // ends children
 
 			}; // ends food stack 2
 
+		
+
 			Grid gridfood = new Grid {
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				RowDefinitions = {
+					new RowDefinition { Height = GridLength.Auto },
 					new RowDefinition { Height = GridLength.Auto },
 				},
 				ColumnDefinitions = {
@@ -173,9 +217,9 @@ namespace Peni
 				},
 
 			}; // ends water grid
-
-			gridfood.Children.Add(foodstack1,0,0);
-			gridfood.Children.Add(foodstack2,1,0);
+					
+			gridfood.Children.Add(foodstack1,0,0); // food intake
+			gridfood.Children.Add(foodstack2,1,0); // macros graph
 
 			StackLayout stacklayoutfood = new StackLayout {
 
@@ -185,14 +229,145 @@ namespace Peni
 
 					new Label { 
 						Text = "Food",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.TitleStyle
+					},
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
 					},
 
 					gridfood,
 				}, // ends children
 
 			}; // ends Food-stacklayout
+
+			// Exercise !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+			StackLayout stacklayoutmon = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+					
+					new Label { 
+						Text = "Yoga",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayouttue = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutwed = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Yoga",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutthurs = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutfri = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutsteps = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Current steps", // need to get this from the goal page
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry {
+						Text = "0 steps",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+
+				},
+
+			};
+
+			ProgressBar progresssteps = new ProgressBar {
+
+				Progress = .2,
+
+			};
+
+			Frame frameprogress = new Frame {
+
+				Content = progresssteps,
+
+			};
+						
 
 			StackLayout stacklayoutexercise = new StackLayout {
 
@@ -203,53 +378,251 @@ namespace Peni
 
 					new Label { 
 						Text = "Exercise",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.TitleStyle
+					},
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
 					},
 
 					// today
 
 					new Label { 
 						Text = "Today",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.SubtitleStyle 
+					},
+
+					// DAILY STEPS GOAL
+
+					new Label { 
+						Text = "Daily Steps Goal: 10 000", // need to get this from the goal page
+					},
+
+
+					// INSERT PROGRESS BAR
+
+					frameprogress,
+					// INSERT CURRENT STEPS AMOUNT
+
+					stacklayoutsteps,
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
 					},
 
 					// weekly
 
 					new Label { 
 						Text = "This Week",
-						TextColor = Color.Blue,
+						TextColor = Color.FromHex ("002351"),
 						Style = Device.Styles.SubtitleStyle 
 					},
+
+					// INSERT LIST FOR WORKOUTS
+					new Label { 
+						Text = "Monday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutmon,
+
+					new Label { 
+						Text = "Tuesday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayouttue,
+
+					new Label { 
+						Text = "Wednesday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutwed,
+
+					new Label { 
+						Text = "Thursday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutthurs,
+
+					new Label { 
+						Text = "Friday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutfri,
+
+
+
+
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
+					},
+
+					new Image
+					{
+						Source = ImageSource.FromFile("temp_linegraph.jpg"),
+						WidthRequest = 300,
+
+					},
+
+
+				}, // ends children
+
+			}; // ends exersice stacklayout
+
+			// Weight !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+			StackLayout weightstack1 = new StackLayout {
+
+				HorizontalOptions = LayoutOptions.Center,
+
+				Children = { // Daily Water
+
+					new Label { 
+						Text = "Weigh In",
+						TextColor = Color.FromHex ("002351"),
+						Style = Device.Styles.SubtitleStyle 
+					},
+
+					new Entry { Text = "? kg" },
+
+
+				}, // ends children
+
+			}; // ends weightstack 1
+
+			StackLayout weightstack2 = new StackLayout {
+
+				Children = { 
+
+					new Label { 
+						Text = "Goal Weight",
+						TextColor = Color.FromHex ("002351"),
+						Style = Device.Styles.SubtitleStyle 
+					},
+
+					new Image
+					{
+						Source = ImageSource.FromFile("temp_goalweight.jpg"),
+						HeightRequest = 100,
+
+					},
+
+
+				}, // ends children
+
+			}; // ends water stack 1
+
+
+			Grid gridweight = new Grid {
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+
+				RowDefinitions = {
+					new RowDefinition { Height = GridLength.Auto },
+				},
+				ColumnDefinitions = {
+					new ColumnDefinition { Width = GridLength.Auto },
+					new ColumnDefinition { Width = GridLength.Auto },
+				},
+
+			}; // ends water grid
+
+			gridweight.Children.Add(weightstack1,0,0);
+			gridweight.Children.Add(weightstack2,1,0);
+
+			StackLayout stacklayoutweight = new StackLayout {
+
+
+
+				BackgroundColor = Color.FromHex("F16379"),
+
+				Children = {
+
+					new Label { 
+						Text = "Weight",
+						TextColor = Color.FromHex ("002351"),
+						Style = Device.Styles.TitleStyle
+					},
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
+					},
+
+					gridweight,
+
+					new BoxView {
+						Color = Color.White,
+						HeightRequest = 3,
+					},
+
+					new Label { 
+						Text = "Monthly Progress",
+						TextColor = Color.FromHex ("002351"),
+						Style = Device.Styles.SubtitleStyle 
+					},
+
+					new Image
+					{
+						Source = ImageSource.FromFile("temp_linegraph.jpg"),
+						WidthRequest = 300,
+
+					},
+
 
 				}, // ends children
 
 			}; // ends Food-stacklayout
+
+
+			// Dashboard !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+			Frame framefood = new Frame {
+				Content = stacklayoutfood,
+			};
+
+			Frame framewater = new Frame {
+				Content = stacklayoutwater,
+			};
+
+			Frame frameexercise = new Frame {
+				Content = stacklayoutexercise,
+			};
+
+			Frame frameweight = new Frame {
+				Content = stacklayoutweight,
+			};
+
 			StackLayout stackLayout = new StackLayout { // Main Stacklayout
 
 				BackgroundColor = Color.White,
 
 				Children = {
 
+					//settingsbutton, 
 					// Health Dashboard
 					// Water
-					stacklayoutwater,
+					framewater,
 
 					// Food
-					stacklayoutfood,
+					framefood,
 
 					// Exersice
-					stacklayoutexercise,
+					frameexercise,
+
+					// Weightloss
+					frameweight,
+
+
 
 				}, // ends children
 
 
 			}; // ends stacklayout 
-
-			// Water Stacklayout
-
-
 
 			Content = new ScrollView { 
 

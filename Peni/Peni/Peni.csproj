@@ -45,7 +45,6 @@
     <Compile Include="ForumFavorites.xaml.cs">
       <DependentUpon>ForumFavorites.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HealthGoalSettings.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -64,7 +63,11 @@
     </Compile>
     <Compile Include="HealthDashboard.cs" />
     <Compile Include="PeniMain.xaml.cs">
-      <DependentUpon>PeniMain.xaml</DependentUpon>
+    <DependentUpon>PeniMain.xaml</DependentUpon>
+</Compile>
+<Compile Include="HealthGoalSettings.cs" />
+    <Compile Include="HealthGoalsTest.xaml.cs">
+      <DependentUpon>HealthGoalsTest.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -127,11 +130,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <EmbeddedResource Include="HealthGoalsTest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Peni.Data\Peni.Data.csproj">
       <Project>{55CC5260-5009-4B6A-A4A0-81C81678554B}</Project>
       <Name>Peni.Data</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

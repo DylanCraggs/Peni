@@ -29,13 +29,7 @@ namespace Peni.Data
 				Connection.CreateTable<UserComment> ();
 				Connection.Commit ();
 			}
-
-			/// Profile page table!!!!!!!!
-			// Check if Thread table exists, if not create it
-		//	if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(userProfileDB).Name)) {
-		//		Connection.CreateTable<userProfileDB> ();
-		//		Connection.Commit ();
-		//	}
+				
 		}
 
 		/// <summary>
@@ -78,12 +72,6 @@ namespace Peni.Data
 			var comments = Connection.Table<UserComment> ().Where (x => x.ThreadID == ThreadID).ToList();
 			return comments;
 
-		
-	//	public int updateUserBio 
-	//			return Connection.Table<UserComment> ().Where (x => x.id == comment.id).Count () > 0
-	//			? Connection.Update (comment) : Connection.Insert (comment);
-				
-	//			return Connection.Insert (entrySuccessful);
 
 
 		

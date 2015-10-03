@@ -5,14 +5,13 @@ using Xamarin.Forms;
 
 namespace Peni
 {
-	public partial class Profile : ContentPage
+	public partial class HealthGoalsTest : ContentPage
 	{
-		public Profile ()
+		public HealthGoalsTest ()
 		{
 			InitializeComponent ();
 		}
 
-	
-
 	}
 }
+
