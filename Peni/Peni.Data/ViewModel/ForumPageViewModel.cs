@@ -164,11 +164,11 @@ namespace Peni.Data
 
 			// Add commands to our ICommands defined above so they actually do something
 			NewThreadCommand = new Command (() => {
-				this.navigationService.NavigateTo(ViewModelLocator.ForumsNewThreadPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.ForumsNewThreadPageKey);
 			});
 
 			GoToThreadCommand = new Command (() => {
-				this.navigationService.NavigateTo(ViewModelLocator.ForumsViewThreadPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.ForumsViewThreadPageKey);
 			});
 
 			LeaveCommentCommand = new Command (() => {
@@ -244,6 +244,7 @@ namespace Peni.Data
 		/// Raises the appearing event.
 		/// </summary>
 		public void OnAppearing(){
+			Debug.WriteLine ("ForumPageViewModel : OnAppearing");
 			RaisePropertyChanged (() => ForumList);
 			RaisePropertyChanged (() => UserComments);
 		}

@@ -41,8 +41,11 @@ namespace Peni.Data.ViewModel
 		public const string MainPageKey = "PeniMainContet";
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
+		// Health Screen Keys
+		public const string HealthPageKey = "HealthDashboard";
+
 		// Profile Page Keys
-		public const string MyProfilePageKey = "EditProfile";
+		public const string MyProfilePageKey = "Profile";
 
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.

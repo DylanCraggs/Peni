@@ -30,18 +30,21 @@ namespace Peni
 		{
 			nav = new NavigationService ();
 
-			// Configure rest of apps navigation
+			// Configure the page keys in ViewModelLocator with the classes
 			nav.Configure (ViewModelLocator.LoginPageKey, typeof(Login));
 			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMainContet));
 			nav.Configure (ViewModelLocator.PeniMasterDetail, typeof(PeniMasterDetail));
 			nav.Configure (ViewModelLocator.ForumsPageKey, typeof(PeniForums));
 			nav.Configure (ViewModelLocator.ForumsNewThreadPageKey, typeof(ForumsNewThread));
-			nav.Configure (ViewModelLocator.MyProfilePageKey, typeof(EditProfile));
+			nav.Configure (ViewModelLocator.MyProfilePageKey, typeof(Profile));
 			nav.Configure (ViewModelLocator.ForumsViewThreadPageKey, typeof(ForumThreadPage));
+			nav.Configure (ViewModelLocator.HealthPageKey, typeof(HealthDashboard));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new Profile());
+			var navPage = new NavigationPage(new PeniMasterDetail());
+
 			nav.Initialize (navPage);
+
 			return navPage;
 		}
 

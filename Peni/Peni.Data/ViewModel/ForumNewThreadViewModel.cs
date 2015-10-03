@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Peni.Data.ViewModel;
 
 namespace Peni.Data
 {
@@ -51,7 +52,7 @@ namespace Peni.Data
 				threadDetails = null;
 
 				// Go back a page
-				navigationService.GoBack();
+				navigationService.NavigateToModal(ViewModelLocator.ForumsPageKey);
 			});
 		}
 	}
