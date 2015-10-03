@@ -120,6 +120,7 @@
     <ProjectReference Include="..\Peni.Data\Peni.Data.csproj">
       <Project>{55CC5260-5009-4B6A-A4A0-81C81678554B}</Project>
       <Name>Peni.Data</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
