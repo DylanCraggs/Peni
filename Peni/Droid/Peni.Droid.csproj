@@ -130,6 +130,10 @@
     <AndroidResource Include="Resources\drawable\logo_app.png" />
     <AndroidResource Include="Resources\drawable\peni_grande.png" />
     <AndroidResource Include="Resources\drawable\ic_add.png" />
+    <AndroidResource Include="Resources\drawable\mfp_icon.jpeg" />
+    <AndroidResource Include="Resources\drawable\temp_piechart.jpg" />
+    <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
+    <AndroidResource Include="Resources\drawable\temp_linegraph.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\peni_small.png" />

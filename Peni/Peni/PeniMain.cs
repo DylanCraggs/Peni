@@ -6,6 +6,9 @@ using Peni.Data.ViewModel;
 
 namespace Peni
 {
+	// for Reference
+	// F16379 - Pink
+	// F6905D - Orange
     
 	public class PeniMainContet : ContentPage
 	{
@@ -31,8 +34,6 @@ namespace Peni
 
                     image,
 
-					new Label { Text = "this is the home page!!!!!!!!!!!" }
-	
 				} // ends children
 					
 

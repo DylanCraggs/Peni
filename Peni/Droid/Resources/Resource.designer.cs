@@ -190,19 +190,31 @@ namespace Peni.Droid
 			public const int logo_app = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int notFavorite = 2130837517;
+			public const int mfp_icon = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int peni_grande = 2130837518;
+			public const int notFavorite = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int peni_small = 2130837519;
+			public const int peni_grande = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int settings = 2130837520;
+			public const int peni_small = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int ThreadCommentIcon = 2130837521;
+			public const int settings = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int temp_goalweight = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int temp_linegraph = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int temp_piechart = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int ThreadCommentIcon = 2130837525;
 			
 			static Drawable()
 			{
