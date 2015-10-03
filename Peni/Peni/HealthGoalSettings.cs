@@ -84,6 +84,12 @@ namespace Peni
 
 					goalgrid,
 
+					new Label { 
+						Text = "Data Binding Tests",
+						TextColor = Color.Blue,
+						Style = Device.Styles.TitleStyle 
+					},
+
 				},
 		
 
@@ -100,5 +106,7 @@ namespace Peni
 		}
 	}
 }
+
+
 
 

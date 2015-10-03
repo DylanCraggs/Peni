@@ -247,13 +247,85 @@ namespace Peni
 
 
 
-			StackLayout stacklayoutworkouts = new StackLayout {
+			StackLayout stacklayoutmon = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 
 				Children = {
 					
 					new Label { 
 						Text = "Yoga",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayouttue = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutwed = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Yoga",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutthurs = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
+						HorizontalOptions = LayoutOptions.StartAndExpand,
+					},
+
+					new Entry { 
+						Text = "mins",
+						HorizontalOptions = LayoutOptions.EndAndExpand,
+					},
+				},
+
+			};
+
+			StackLayout stacklayoutfri = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+
+				Children = {
+
+					new Label { 
+						Text = "Running",
 						HorizontalOptions = LayoutOptions.StartAndExpand,
 					},
 
@@ -355,7 +427,35 @@ namespace Peni
 						Text = "Monday",
 						TextColor = Color.FromHex ("002351"),
 					},
-					stacklayoutworkouts,
+					stacklayoutmon,
+
+					new Label { 
+						Text = "Tuesday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayouttue,
+
+					new Label { 
+						Text = "Wednesday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutwed,
+
+					new Label { 
+						Text = "Thursday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutthurs,
+
+					new Label { 
+						Text = "Friday",
+						TextColor = Color.FromHex ("002351"),
+					},
+					stacklayoutfri,
+
+
+
+
 
 					new BoxView {
 						Color = Color.White,
