@@ -1,35 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.Profile">
 	<StackLayout BackgroundColor="White" Padding="15">
-		<ScrollView>
-			<StackLayout>
 			<Image Source="/Resources/drawable/peni_small.png" x:Name="imageUser" HeightRequest="100" />
 				<TableView>
 					<TableRoot>
 						<TableSection>
 							<ViewCell>
-								<Label Text="User's Name" x:Name="labelName"/>
-							</ViewCell>
+								<StackLayout Orientation="Horizontal">
+									<Label Text="User's Name" x:Name="labelName"/>
 
-							<ViewCell>
-								<Label Text="Age" x:Name="labelAge"/>
+									<Label Text="Stage" x:Name="labelStage" HorizontalOptions="EndAndExpand" />
+								</StackLayout>
 							</ViewCell>
-
-							<ViewCell>
-								<Label Text="Stage" x:Name="labelStage" HorizontalOptions="EndAndExpand" />
-							</ViewCell>
-
 						</TableSection>
 					</TableRoot>
 				</TableView>
 
-				<Editor VerticalOptions="FillAndExpand" Text="Cli To Control Drag, hold down the control key then click and hold over the user interface object that you are creating the outlet (or action) for. Keep holding down the Control key while you drag into the header file. Finish dragging below the @interface definition. A blue line should appear with a caption Insert Outlet or Outlet Collection, as illustrated in the screenshot below." />
+				<Label Text="Your Bio:" />
 
-				<Label Text="Appear in Other Gardens?"/>
+				<Editor VerticalOptions="Start" Text="the outlet (or action) for. Keep holding down the Control key while you drag into the header file. Finish dragging below the @interface definition. A blue line should appear with a caption Insert Outlet or Outlet Collection, as illustrated in the screenshot below." />
 
-				<Switch  HorizontalOptions="EndAndExpand" x:Name="appearGardens"/>
-								
-			</StackLayout>			
-		</ScrollView>
+				<TableView>
+					<TableRoot> 
+						<TableSection>
+								<SwitchCell Text="Appear in Other Gardens?" />
+						</TableSection>
+					</TableRoot>
+				</TableView>		
 	</StackLayout>
 </ContentPage>
