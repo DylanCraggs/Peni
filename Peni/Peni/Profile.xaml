@@ -23,7 +23,7 @@
 				<TableView>
 					<TableRoot> 
 						<TableSection>
-								<SwitchCell Text="Appear in Other Gardens?" />
+								<SwitchCell Text="Appear in Other Gardens?" x:Name="switchPrivacy" />
 						</TableSection>
 					</TableRoot>
 				</TableView>		
