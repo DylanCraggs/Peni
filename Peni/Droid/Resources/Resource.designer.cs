@@ -60,23 +60,35 @@ namespace Peni.Droid
 		public partial class Attribute
 		{
 			
-			// aapt resource value: 0x7f010002
-			public const int fab_colorDisabled = 2130771970;
-			
-			// aapt resource value: 0x7f010001
-			public const int fab_colorNormal = 2130771969;
-			
-			// aapt resource value: 0x7f010000
-			public const int fab_colorPressed = 2130771968;
-			
-			// aapt resource value: 0x7f010003
-			public const int fab_colorRipple = 2130771971;
-			
-			// aapt resource value: 0x7f010004
-			public const int fab_shadow = 2130771972;
+			// aapt resource value: 0x7f010006
+			public const int fab_colorDisabled = 2130771974;
 			
 			// aapt resource value: 0x7f010005
-			public const int fab_size = 2130771973;
+			public const int fab_colorNormal = 2130771973;
+			
+			// aapt resource value: 0x7f010004
+			public const int fab_colorPressed = 2130771972;
+			
+			// aapt resource value: 0x7f010007
+			public const int fab_colorRipple = 2130771975;
+			
+			// aapt resource value: 0x7f010008
+			public const int fab_shadow = 2130771976;
+			
+			// aapt resource value: 0x7f010009
+			public const int fab_size = 2130771977;
+			
+			// aapt resource value: 0x7f010000
+			public const int layoutManager = 2130771968;
+			
+			// aapt resource value: 0x7f010002
+			public const int reverseLayout = 2130771970;
+			
+			// aapt resource value: 0x7f010001
+			public const int spanCount = 2130771969;
+			
+			// aapt resource value: 0x7f010003
+			public const int stackFromEnd = 2130771971;
 			
 			static Attribute()
 			{
@@ -91,23 +103,23 @@ namespace Peni.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f040004
-			public const int accent = 2130968580;
+			// aapt resource value: 0x7f060004
+			public const int accent = 2131099652;
 			
-			// aapt resource value: 0x7f040000
-			public const int fab_material_blue_500 = 2130968576;
+			// aapt resource value: 0x7f060000
+			public const int fab_material_blue_500 = 2131099648;
 			
-			// aapt resource value: 0x7f040003
-			public const int navigation_bar = 2130968579;
+			// aapt resource value: 0x7f060003
+			public const int navigation_bar = 2131099651;
 			
-			// aapt resource value: 0x7f040002
-			public const int primary_color = 2130968578;
+			// aapt resource value: 0x7f060002
+			public const int primary_color = 2131099650;
 			
-			// aapt resource value: 0x7f040001
-			public const int status_bar = 2130968577;
+			// aapt resource value: 0x7f060001
+			public const int status_bar = 2131099649;
 			
-			// aapt resource value: 0x7f040005
-			public const int textColorPrimary = 2130968581;
+			// aapt resource value: 0x7f060005
+			public const int textColorPrimary = 2131099653;
 			
 			static Color()
 			{
@@ -122,20 +134,23 @@ namespace Peni.Droid
 		public partial class Dimension
 		{
 			
-			// aapt resource value: 0x7f050004
-			public const int fab_elevation_lollipop = 2131034116;
+			// aapt resource value: 0x7f030005
+			public const int fab_elevation_lollipop = 2130903045;
 			
-			// aapt resource value: 0x7f050003
-			public const int fab_scroll_threshold = 2131034115;
+			// aapt resource value: 0x7f030004
+			public const int fab_scroll_threshold = 2130903044;
 			
-			// aapt resource value: 0x7f050002
-			public const int fab_shadow_size = 2131034114;
+			// aapt resource value: 0x7f030003
+			public const int fab_shadow_size = 2130903043;
 			
-			// aapt resource value: 0x7f050001
-			public const int fab_size_mini = 2131034113;
+			// aapt resource value: 0x7f030002
+			public const int fab_size_mini = 2130903042;
 			
-			// aapt resource value: 0x7f050000
-			public const int fab_size_normal = 2131034112;
+			// aapt resource value: 0x7f030001
+			public const int fab_size_normal = 2130903041;
+			
+			// aapt resource value: 0x7f030000
+			public const int item_touch_helper_max_drag_scroll_per_frame = 2130903040;
 			
 			static Dimension()
 			{
@@ -163,46 +178,58 @@ namespace Peni.Droid
 			public const int favorite = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_account_circle_white_48dp = 2130837508;
+			public const int food_cloud = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_add = 2130837509;
+			public const int ic_account_circle_white_48dp = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_favorite_white_48dp = 2130837510;
+			public const int ic_add = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_home_white_48dp = 2130837511;
+			public const int ic_favorite_white_48dp = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ic_local_library_white_48dp = 2130837512;
+			public const int ic_home_white_48dp = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int ic_power_settings_new_white_48dp = 2130837513;
+			public const int ic_local_library_white_48dp = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int ic_question_answer_white_48dp = 2130837514;
+			public const int ic_power_settings_new_white_48dp = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int icon = 2130837515;
+			public const int ic_question_answer_white_48dp = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int logo_app = 2130837516;
+			public const int icon = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int notFavorite = 2130837517;
+			public const int logo_app = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int peni_grande = 2130837518;
+			public const int notFavorite = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int peni_small = 2130837519;
+			public const int peni_grande = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int settings = 2130837520;
+			public const int peni_small = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int ThreadCommentIcon = 2130837521;
+			public const int peni_thirsty = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int settings = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int some_cloud = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int ThreadCommentIcon = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int water_cloud = 2130837525;
 			
 			static Drawable()
 			{
@@ -217,11 +244,14 @@ namespace Peni.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070000
-			public const int mini = 2131165184;
+			// aapt resource value: 0x7f040000
+			public const int item_touch_helper_previous_elevation = 2130968576;
 			
-			// aapt resource value: 0x7f070001
-			public const int normal = 2131165185;
+			// aapt resource value: 0x7f040001
+			public const int mini = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int normal = 2130968578;
 			
 			static Id()
 			{
@@ -236,11 +266,11 @@ namespace Peni.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030001
-			public const int ApplicationName = 2130903041;
+			// aapt resource value: 0x7f050001
+			public const int ApplicationName = 2131034113;
 			
-			// aapt resource value: 0x7f030000
-			public const int Hello = 2130903040;
+			// aapt resource value: 0x7f050000
+			public const int Hello = 2131034112;
 			
 			static String()
 			{
@@ -255,8 +285,8 @@ namespace Peni.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int PeniTheme = 2131099648;
+			// aapt resource value: 0x7f070000
+			public const int PeniTheme = 2131165184;
 			
 			static Style()
 			{
@@ -272,12 +302,12 @@ namespace Peni.Droid
 		{
 			
 			public static int[] FloatingActionButton = new int[] {
-					2130771968,
-					2130771969,
-					2130771970,
-					2130771971,
 					2130771972,
-					2130771973};
+					2130771973,
+					2130771974,
+					2130771975,
+					2130771976,
+					2130771977};
 			
 			// aapt resource value: 2
 			public const int FloatingActionButton_fab_colorDisabled = 2;
@@ -296,6 +326,28 @@ namespace Peni.Droid
 			
 			// aapt resource value: 5
 			public const int FloatingActionButton_fab_size = 5;
+			
+			public static int[] RecyclerView = new int[] {
+					16842948,
+					2130771968,
+					2130771969,
+					2130771970,
+					2130771971};
+			
+			// aapt resource value: 0
+			public const int RecyclerView_android_orientation = 0;
+			
+			// aapt resource value: 1
+			public const int RecyclerView_layoutManager = 1;
+			
+			// aapt resource value: 3
+			public const int RecyclerView_reverseLayout = 3;
+			
+			// aapt resource value: 2
+			public const int RecyclerView_spanCount = 2;
+			
+			// aapt resource value: 4
+			public const int RecyclerView_stackFromEnd = 4;
 			
 			static Styleable()
 			{
