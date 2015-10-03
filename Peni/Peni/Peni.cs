@@ -41,7 +41,7 @@ namespace Peni
 			nav.Configure (ViewModelLocator.HealthPageKey, typeof(HealthDashboard));
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new HealthGoalSettings () );
+			var navPage = new NavigationPage(new PeniMasterDetail () );
 
 
 			nav.Initialize (navPage);
