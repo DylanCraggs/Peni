@@ -42,7 +42,6 @@
     <Compile Include="ForumThreadPage.xaml.cs">
       <DependentUpon>ForumThreadPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PeniMain.cs" />
     <Compile Include="ForumFavorites.xaml.cs">
       <DependentUpon>ForumFavorites.xaml</DependentUpon>
     </Compile>
@@ -63,7 +62,10 @@
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
     <Compile Include="HealthDashboard.cs" />
-    <Compile Include="HealthGoalSettings.cs" />
+    <Compile Include="PeniMain.xaml.cs">
+    <DependentUpon>PeniMain.xaml</DependentUpon>
+</Compile>
+<Compile Include="HealthGoalSettings.cs" />
     <Compile Include="HealthGoalsTest.xaml.cs">
       <DependentUpon>HealthGoalsTest.xaml</DependentUpon>
     </Compile>
@@ -119,6 +121,15 @@
     <EmbeddedResource Include="Profile.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="PeniMain.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="HealthGoalSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <EmbeddedResource Include="HealthGoalsTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

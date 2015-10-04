@@ -13,7 +13,7 @@
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
 										<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
-										<!--<Button Text="FAV" x:Name="IsFav" Clicked="favButtonPressed" />-->
+										<!--<Button Text="{Binding id}" x:Name="IsFav" />-->
 
 										<!-- Add Thread name and author under each other -->
 										<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">

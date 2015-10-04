@@ -25,6 +25,36 @@ namespace Peni
 			BindingContext = App.Locator.ForumsListPage;
 			InitializeComponent ();
 
+			CreateToolbar ();
+			CreateFAB ();
+
+			Title = "Forums";
+		}
+
+		/// <summary>
+		/// Creates the toolbar.
+		/// </summary>
+		public void CreateToolbar() {
+			ToolbarItems.Add (new ToolbarItem("My Home", "My Home", () => {
+				Debug.WriteLine("My Home Pressed");
+				// Run command to show all threads from the forum view model
+			}, ToolbarItemOrder.Secondary, 0));
+
+			ToolbarItems.Add (new ToolbarItem("My Favorites", "My Favorites", () => {
+				Debug.WriteLine("My Favorites Pressed");
+				// Run command to show users favorite threads from the forum view model
+			}, ToolbarItemOrder.Secondary, 0));
+
+			ToolbarItems.Add (new ToolbarItem("My Threads", "My Threads", () => {
+				Debug.WriteLine("My Threads Pressed");
+				// Run command to show users threads from the forum view model
+			}, ToolbarItemOrder.Secondary, 0));
+		}
+
+		/// <summary>
+		/// Creates the floating action button (FAB).
+		/// </summary>
+		public void CreateFAB() {
 			Command cmd = (Command)App.Locator.ForumsListPage.GetNewThreadCommand();
 
 			// Create the floating action button
@@ -49,8 +79,6 @@ namespace Peni
 			AbsoluteLayout.SetLayoutFlags(fab, AbsoluteLayoutFlags.PositionProportional);
 			AbsoluteLayout.SetLayoutBounds(fab, new Rectangle(1f, 1f, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 			test.Children.Add (fab);
-
-			Title = "Forums";
 		}
 
 		/// <summary>
