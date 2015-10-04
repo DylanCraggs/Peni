@@ -134,6 +134,7 @@
     <AndroidResource Include="Resources\drawable\temp_piechart.jpg" />
     <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
     <AndroidResource Include="Resources\drawable\temp_linegraph.jpg" />
+    <AndroidResource Include="Resources\drawable\drop_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\peni_small.png" />

@@ -6,6 +6,7 @@ namespace Peni
 {
 	public class HealthGoalSettings : ContentPage
 	{
+
 		public HealthGoalSettings ()
 
 		{

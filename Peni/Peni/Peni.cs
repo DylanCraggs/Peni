@@ -43,7 +43,6 @@ namespace Peni
 
 			var navPage = new NavigationPage(new PeniMasterDetail() );
 
-
 			nav.Initialize (navPage);
 
 			return navPage;

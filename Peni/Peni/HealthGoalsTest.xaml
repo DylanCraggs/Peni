@@ -1,10 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthGoalsTest">
-	 <StackLayout>
-        <Label Text="Health Goals" />
-        <Label Text="Steps Goal" />
-        <Entry Text="steps" />
-        <ProgressBar Progress="0.5"/>
-        <Label Text="Step goals is now 0" />
-  </StackLayout>
+	<StackLayout>
+		<!-- Ideal Daily Water Intake -->
+		<Label Text="Ideal Daily Water Intake" FontSize="Medium">
+		</Label>
+			<!-- black size medium-->
+		<!-- Water Image -->
+		<Image Source="/Resources/drawable/logo_app.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+		<!-- Water Picker -->
+			<!-- litre picker-->
+			<!-- Mililiter picker-->
+		<!-- Daily Notifications -->
+			<!-- black size medium-->
+		<!-- Daily notifcations Switch -->
+
+		<SwitchCell Text="Appear in Other Gardens?" x:Name="switchwaternotifications" />
+		<!-- Save Button -->
+
+  	</StackLayout>
 </ContentPage>
