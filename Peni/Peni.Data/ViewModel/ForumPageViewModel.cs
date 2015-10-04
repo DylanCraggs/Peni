@@ -70,6 +70,18 @@ namespace Peni.Data
 		}
 
 		/// <summary>
+		/// Data binding for the topic identifier number.
+		/// </summary>
+		private int topicId;
+		public int id {
+			get { return topicId; }
+			set { 
+				topicId = value;
+				RaisePropertyChanged(() => id);
+			}
+		}
+
+		/// <summary>
 		/// Data binding for the thread/topic name
 		/// </summary>
 		private string topicName;
