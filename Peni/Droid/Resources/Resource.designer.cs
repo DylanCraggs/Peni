@@ -300,6 +300,9 @@ namespace Peni.Droid
 		public partial class Style
 		{
 			
+			// aapt resource value: 0x7f070001
+			public const int MyActionBar = 2131165185;
+			
 			// aapt resource value: 0x7f070000
 			public const int PeniTheme = 2131165184;
 			
