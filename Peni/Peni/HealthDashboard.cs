@@ -99,7 +99,8 @@ namespace Peni
 					new Label { 
 						Text = "Water",
 						TextColor = Color.Black,
-						Style = Device.Styles.TitleStyle
+						Style = Device.Styles.TitleStyle,
+						FontAttributes = FontAttributes.Bold,
 					},
 
 					new BoxView {
@@ -263,7 +264,8 @@ namespace Peni
 					new Label { 
 						Text = "Food Intake",
 						TextColor = Color.Black,
-						Style = Device.Styles.TitleStyle
+						Style = Device.Styles.TitleStyle,
+						FontAttributes = FontAttributes.Bold,
 					},
 
 					new BoxView {
@@ -463,7 +465,8 @@ namespace Peni
 					new Label { 
 						Text = "Exercise",
 						TextColor = Color.Black,
-						Style = Device.Styles.TitleStyle
+						Style = Device.Styles.TitleStyle,
+						FontAttributes = FontAttributes.Bold,
 					},
 
 					new BoxView {
@@ -678,7 +681,8 @@ namespace Peni
 					new Label { 
 						Text = "Weight",
 						TextColor = Color.Black,
-						Style = Device.Styles.TitleStyle
+						Style = Device.Styles.TitleStyle,
+						FontAttributes = FontAttributes.Bold,
 					},
 
 					new BoxView {
