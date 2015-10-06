@@ -9,7 +9,9 @@ namespace Peni
 	{
 		public HealthGoalsTest ()
 		{
+			//BindingContext = App.Locator.NewStepGoal;
 			InitializeComponent ();
+
 		}
 
 	}

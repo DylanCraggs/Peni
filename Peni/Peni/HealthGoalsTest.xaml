@@ -1,68 +1,95 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthGoalsTest" Title="Health Goals">
 	<ScrollView>
-	<StackLayout Padding="20" BackgroundColor="#F16379" >
-
-	<!-- Water Goals -->
-
-		<Label Text="Ideal Daily Water Intake" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+		<StackLayout Padding="20" BackgroundColor="Gray" >
+			<!-- Water Goals -->
+			<Label Text="Ideal Daily Water Intake" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+			<Entry Placeholder= "Steps"  /> <!---Text="{Binding WaterGoal}" --> <!-- 1111111111111111111111111111111111111111111111111111111111 -->
 
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center"  >
 
 				<Image Source="/Resources/drawable/drop_icon.png" x:Name="imageUser" HeightRequest="100" />
-				<!-- Picker -->
-				<Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="0" >
-					<Picker.Items>
-						<x:String>1</x:String>
-						<x:String>2</x:String>
-						<x:String>3</x:String>
-						<x:String>4</x:String>
-						<x:String>5</x:String>
-					</Picker.Items>
-				</Picker>
+					<Picker Title="0" >
+						<Picker.Items>
+							<x:String>1</x:String>
+							<x:String>2</x:String>
+							<x:String>3</x:String>
+							<x:String>4</x:String>
+							<x:String>5</x:String>
+						</Picker.Items>
+					</Picker>
 				<Label Text="." FontSize="Medium" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" />
-				<Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="0" >
-					<Picker.Items>
-						<x:String>0</x:String>
-						<x:String>25</x:String>
-						<x:String>5</x:String>
-						<x:String>75</x:String>
-					</Picker.Items>
-				</Picker>
+					<Picker Title="0" >
+						<Picker.Items>
+							<x:String>0</x:String>
+							<x:String>25</x:String>
+							<x:String>5</x:String>
+							<x:String>75</x:String>
+						</Picker.Items>
+					</Picker>
 
 			</StackLayout>
+
+		<!-- Peni Notifications? -->
 
 			<TableView>
 				<TableRoot> 
 					<TableSection>
-							<SwitchCell Text="Daily Notifications?" x:Name="switchWater" />
+							<SwitchCell Text="Daily Notifications?" x:Name="switchFood" />
 					</TableSection>
 				</TableRoot>
 			</TableView>
 
-			<!-- End Water Goals -->
+			<!-- Food Goals -->
 
-			<!-- Weight Goals -->
+			<Label Text="Food Intake Goals" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
 
-				<!-- (picker) weight at a rate of (picker) per (picker) -->
+			<StackLayout Orientation="Horizontal">
 
-			<Label Text="Weight Goals" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+				<Label Text="Daily Calories" TextColor="Black" HorizontalOptions="StartAndExpand"/>
+				<Entry  TextColor="Black" HorizontalOptions="EndAndExpand" /> <!---Text="{Binding WaterGoal}" --> <!-- 1111111111111111111111111111111111111111111111111111111111 -->
+			</StackLayout>
 
-				<StackLayout HorizontalOptions="Center"  >
+		<!---Peni Notifications? -->
 
-					<StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
-				 <Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="Goal" >
+			<TableView>
+				<TableRoot> 
+					<TableSection>
+							<SwitchCell Text="Daily Notifications?" />
+					</TableSection>
+				</TableRoot>
+			</TableView>
+
+		<!-- Diary Goals -->
+
+				<!-- Frequency -->
+				<!-- Peni Notifications -->
+		
+		<!-- Weight Goals -->
+
+
+		<Label Text="Weight Goals" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
+
+			<StackLayout HorizontalOptions="Center"  >
+
+				<StackLayout Orientation="Horizontal"  HorizontalOptions="Center">
+				 <Picker Title="Goal" >
 					<Picker.Items>
 						<x:String>Lose</x:String>
 						<x:String>Gain</x:String>
 						<x:String>Maintain</x:String>
 					</Picker.Items>
 				</Picker>
+
 				<Label Text="Weight" FontSize="Medium" TextColor="White" VerticalOptions="Center" />
+
 				</StackLayout>
+
 				<StackLayout Orientation="Horizontal"  HorizontalOptions="Center" >
+
 				<Label Text="at a Rate of" FontSize="Medium" TextColor="White" VerticalOptions="Center" />
-				<Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="Weight" >
+
+				<Picker Title="Weight" >
 					<Picker.Items>
 						<x:String>0.0</x:String>
 						<x:String>0.25</x:String>
@@ -71,174 +98,36 @@
 						<x:String>1</x:String>
 					</Picker.Items>
 				</Picker>
+
 				<Label Text="kg Per" FontSize="Medium" TextColor="White"  VerticalOptions="Center" />
+
 				</StackLayout>
+
 				<StackLayout Orientation="Horizontal"  HorizontalOptions="Center" >
 				<Label Text="Per" FontSize="Medium" TextColor="White"  VerticalOptions="Center" />
-				<Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="Time" >
+				<Picker Title="Time" >
 					<Picker.Items>
 						<x:String>Week</x:String>
 						<x:String>Month</x:String>
 						<x:String>3 Months</x:String>
 					</Picker.Items>
 				</Picker>
-			</StackLayout>
-			</StackLayout>
-
-			<!-- End Weight Goals -->
-
-			<!-- Food Goals -->
-
-			<Label Text="Food Intake Goals" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
-			<StackLayout HorizontalOptions="Center">
-					<Grid>
-   						 <Grid.RowDefinitions>
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-    					</Grid.RowDefinitions>
-
-   						 <Grid.ColumnDefinitions>
-     						 <ColumnDefinition Width="*" />
-     						 <ColumnDefinition Width="*" />
-     					 	 <ColumnDefinition Width="*" />
-   						 </Grid.ColumnDefinitions>
-
-   						 <Label Text="Protein"
-         					 Grid.Row="0" Grid.Column="0"
-          					TextColor="Black" />
-
-   						<Label Text="Carbs"
-           					Grid.Row="0" Grid.Column="1"
-           					TextColor="Black" />
-
-   						<Label Text="Fat"
-           					Grid.Row="0" Grid.Column="2"
-           					TextColor="Black" />
-
-           				<Entry Text="%"
-           					Grid.Row="1" Grid.Column="0"
-           					TextColor="Black" />
-
-           				<Entry Text="%"
-           					Grid.Row="1" Grid.Column="1"
-           					TextColor="Black" />
-
-           			    <Entry Text="%"
-           					Grid.Row="1" Grid.Column="2"
-           					TextColor="Black" />
- 					</Grid>
- 				</StackLayout>
-			<!-- End Food Goals -->
-
-			<!-- Exercise Goals -->
-
-			<Label Text="Exersice Goals" FontSize="Medium" TextColor="Black" FontAttributes="Bold"/>
-
-			<StackLayout HorizontalOptions="Center">
-
-			<StackLayout Orientation="Horizontal">
-
-				<Label Text="Daily Step Goal" FontSize="Medium" TextColor="White"  VerticalOptions="Center" />
-
-				<Picker SelectedIndex="{Binding NewCriterion.Importance}" Title="Steps" >
-					<Picker.Items>
-						<x:String>1000</x:String>
-						<x:String>2000</x:String>
-						<x:String>3000</x:String>
-						<x:String>4000</x:String>
-						<x:String>5000</x:String>
-						<x:String>6000</x:String>
-						<x:String>7000</x:String>
-						<x:String>8000</x:String>
-						<x:String>9000</x:String>
-						<x:String>10 000</x:String>
-						<x:String>12 000</x:String>
-						<x:String>15 000</x:String>
-						<x:String>20 000</x:String>
-					</Picker.Items>
-				</Picker>
-
 				</StackLayout>
 
-					<Grid>
-   						 <Grid.RowDefinitions>
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-      						<RowDefinition Height="*" />
-    					</Grid.RowDefinitions>
+			</StackLayout> 
 
-   						 <Grid.ColumnDefinitions>
-     						 <ColumnDefinition Width="*" />
-     						 <ColumnDefinition Width="*" />
-   						 </Grid.ColumnDefinitions>
-
-   						<Label Text="Monday"
-           					Grid.Row="0" Grid.Column="0"
-           					TextColor="Black" />
-
-   						<Label Text="Tuesday"
-           					Grid.Row="1" Grid.Column="0"
-           					TextColor="Black" />
-
-   						<Label Text="Wednesday"
-           					Grid.Row="2" Grid.Column="0"
-           					TextColor="Black" />
-
-   						<Label Text="Thursday"
-           					Grid.Row="3" Grid.Column="0"
-           					TextColor="Black" />
-
-           				 <Label Text="Friday"
-           					Grid.Row="4" Grid.Column="0"
-           					TextColor="Black" />
-
-           				 <Label Text="Saturday"
-           					Grid.Row="5" Grid.Column="0"
-           					TextColor="Black" />
-
-           				 <Label Text="Sunday"
-           					Grid.Row="6" Grid.Column="0"
-           					TextColor="Black" />
-
-           				<Entry Text="Workout"
-           					Grid.Row="0" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="1" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="2" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="3" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="4" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="5" Grid.Column="1"
-           					TextColor="Black" />
-           				<Entry Text="Workout"
-           					Grid.Row="6" Grid.Column="1"
-           					TextColor="Black" />
-
- 					</Grid>
- 				</StackLayout>
+				<TableView>
+					<TableRoot> 
+						<TableSection>
+							<SwitchCell Text="Daily Notifications?" x:Name="switchWater" />
+						</TableSection>
+					</TableRoot>
+				</TableView>
 
 
+			<!-- Other -->
 
-
-			<!-- End Exercise Goals -->
-
-
-
-
-		<Button Text="SAVE" HorizontalOptions="Center" BackgroundColor="#F6905D" />	
-			
-  	</StackLayout>
+			<Button Text="SAVE" HorizontalOptions="Center" BackgroundColor="#F6905D"  />	<!---Command="{Binding SaveGoalsCommand}"--> <!-- 1111111111111111111111111111111111111111111111111111111111 -->
+		</StackLayout>
   	</ScrollView>
 </ContentPage>

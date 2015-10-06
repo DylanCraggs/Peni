@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthDashboardTest">
+	<ContentPage.Content>
+	 <ScrollView>
+		<StackLayout BackgroundColor="White" Padding="20"> 
+
+			<!--
+			<Label Text = "Today" TextColor="Black" Style = Device.Styles.SubtitleStyle />
+			<Label Text = "Water Goal 8 Cups" TextColor="Black" Style = Device.Styles.SubtitleStyle HorizontalOptions = LayoutOptions.EndAndExpand />
+			-->
+
+			<!-- Weight -->
+
+
+
+			<StackLayout BackgroundColor="White">
+				<BoxView Color="#F16379" HeightRequest="2" />
+				<Label Text="Weight" TextColor="Black" Style="{DynamicResource TitleStyle}" FontAttributes="Bold" />
+				<BoxView Color="#F16379" HeightRequest="2" />
+
+				<!--- Grid Goes here --> 
+
+				<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"> <!--- horizontal--> 
+					<StackLayout HorizontalOptions="Center">
+						<Label Text="Weigh In" TextColor="Black" Style="{DynamicResource SubtitleStyle}"/>
+						<BoxView Color="#F6905D" HeightRequest="2" />
+						<Entry Text="? kg" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center" />
+					</StackLayout>
+
+					<StackLayout HorizontalOptions="Center">
+						<Label Text="Goal Weight" TextColor="Black" Style="{DynamicResource SubtitleStyle}"/>
+						<BoxView Color="#F6905D" HeightRequest="2" />
+						<Image Source="/Resources/drawable/temp_goalweight.jpg" HeightRequest="100" />
+					</StackLayout>
+				</StackLayout>
+
+				<Label Text="MonthlyProgress" TextColor="Black" Style="{DynamicResource SubtitleStyle}" />
+				<BoxView Color="#F6905D" HeightRequest="2" />
+				<Image Source="/Resources/drawable/temp_linegraph.jpg" WidthRequest="300" />
+
+			</StackLayout>
+
+			<!-- Water -->
+
+			<StackLayout BackgroundColor="White">
+
+						<BoxView Color="#F16379" HeightRequest="2" />
+						<Label Text="Water" TextColor="Black" Style="{DynamicResource TitleStyle}" FontAttributes="Bold"/>
+						<BoxView Color="#F16379" HeightRequest="2" />
+							<StackLayout Orientation="Horizontal" >
+								<Label Text="Today" TextColor="Black" Style="{DynamicResource SubtitleStyle}"  />
+								<Label Text="WaterGoal:" TextColor="Black" Style="{DynamicResource SubtitleStyle}" HorizontalOptions="EndAndExpand" />
+								<Label Text="0" TextColor="Black" Style="{DynamicResource SubtitleStyle}" HorizontalOptions="EndAndExpand" />
+							</StackLayout>
+						<BoxView Color="#F6905D" HeightRequest="2" />
+							<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+								<Button Text="+" x:Name="AddWater" HorizontalOptions="Center" BackgroundColor="#F6905D"  />
+								<Label Text=" numberof cups. to string" TextColor="Black" Style="{DynamicResource TitleStyle}"  />
+								<Button Text="-" x:Name="RemoveWater" HorizontalOptions="Center" BackgroundColor="#F6905D"  />	
+							</StackLayout>
+
+							<Label Text="Week" TextColor="Black" Style="{DynamicResource SubtitileStyle}" />
+							<BoxView Color="#F6905D" HeightRequest="2" />
+							<Image Source="/Resources/drawable/temp_linegraph.jpg" WidthRequest="300" />
+			</StackLayout>
+
+
+
+
+		</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>
+
+
+
+
+
+
