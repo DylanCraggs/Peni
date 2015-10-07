@@ -129,12 +129,8 @@
     <AndroidResource Include="Resources\drawable\notFavorite.png" />
     <AndroidResource Include="Resources\drawable\favorite.png" />
     <AndroidResource Include="Resources\drawable\logo_app.png" />
-    <AndroidResource Include="Resources\drawable\peni_grande.png" />
     <AndroidResource Include="Resources\drawable\ic_add.png" />
-    <AndroidResource Include="Resources\drawable\food_cloud.png" />
     <AndroidResource Include="Resources\drawable\peni_thirsty.png" />
-    <AndroidResource Include="Resources\drawable\some_cloud.png" />
-    <AndroidResource Include="Resources\drawable\water_cloud.png" />
     <AndroidResource Include="Resources\drawable\mfp_icon.jpeg" />
     <AndroidResource Include="Resources\drawable\temp_piechart.jpg" />
     <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
@@ -143,9 +139,12 @@
     <AndroidResource Include="Resources\values\style.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\peni_small.png" />
+    <AndroidResource Include="Resources\drawable\cloud_feelings.png" />
+    <AndroidResource Include="Resources\drawable\cloud_food.png" />
+    <AndroidResource Include="Resources\drawable\cloud_water.png" />
+    <AndroidResource Include="Resources\drawable\peni_feelings.png" />
+    <AndroidResource Include="Resources\drawable\peni_happy.png" />
+    <AndroidResource Include="Resources\drawable\peni_hungry.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />

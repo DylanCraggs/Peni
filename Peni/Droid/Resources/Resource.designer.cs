@@ -169,82 +169,85 @@ namespace Peni.Droid
 			public const int app_large_icon = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int drop_icon = 2130837505;
+			public const int cloud_feelings = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int fab_shadow = 2130837506;
+			public const int cloud_food = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int fab_shadow_mini = 2130837507;
+			public const int cloud_water = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int favorite = 2130837508;
+			public const int drop_icon = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int food_cloud = 2130837509;
+			public const int fab_shadow = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_account_circle_white_48dp = 2130837510;
+			public const int fab_shadow_mini = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int ic_add = 2130837511;
+			public const int favorite = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int ic_favorite_white_48dp = 2130837512;
+			public const int ic_account_circle_white_48dp = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int ic_home_white_48dp = 2130837513;
+			public const int ic_add = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int ic_local_library_white_48dp = 2130837514;
+			public const int ic_favorite_white_48dp = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int ic_power_settings_new_white_48dp = 2130837515;
+			public const int ic_home_white_48dp = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int ic_question_answer_white_48dp = 2130837516;
+			public const int ic_local_library_white_48dp = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int icon = 2130837517;
+			public const int ic_power_settings_new_white_48dp = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int logo_app = 2130837518;
+			public const int ic_question_answer_white_48dp = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int mfp_icon = 2130837519;
+			public const int icon = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int notFavorite = 2130837520;
+			public const int logo_app = 2130837520;
 			
 			// aapt resource value: 0x7f020011
-			public const int peni_grande = 2130837521;
+			public const int mfp_icon = 2130837521;
 			
 			// aapt resource value: 0x7f020012
-			public const int peni_small = 2130837522;
+			public const int notFavorite = 2130837522;
 			
 			// aapt resource value: 0x7f020013
-			public const int peni_thirsty = 2130837523;
+			public const int peni_feelings = 2130837523;
 			
 			// aapt resource value: 0x7f020014
-			public const int settings = 2130837524;
+			public const int peni_happy = 2130837524;
 			
 			// aapt resource value: 0x7f020015
-			public const int some_cloud = 2130837525;
+			public const int peni_hungry = 2130837525;
 			
 			// aapt resource value: 0x7f020016
-			public const int temp_goalweight = 2130837526;
+			public const int peni_thirsty = 2130837526;
 			
 			// aapt resource value: 0x7f020017
-			public const int temp_linegraph = 2130837527;
+			public const int settings = 2130837527;
 			
 			// aapt resource value: 0x7f020018
-			public const int temp_piechart = 2130837528;
+			public const int temp_goalweight = 2130837528;
 			
 			// aapt resource value: 0x7f020019
-			public const int ThreadCommentIcon = 2130837529;
+			public const int temp_linegraph = 2130837529;
 			
 			// aapt resource value: 0x7f02001a
-			public const int water_cloud = 2130837530;
+			public const int temp_piechart = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int ThreadCommentIcon = 2130837531;
 			
 			static Drawable()
 			{
