@@ -39,9 +39,12 @@ namespace Peni
 			nav.Configure (ViewModelLocator.MyProfilePageKey, typeof(Profile));
 			nav.Configure (ViewModelLocator.ForumsViewThreadPageKey, typeof(ForumThreadPage));
 			nav.Configure (ViewModelLocator.HealthPageKey, typeof(HealthDashboardMasterDetail));
+			nav.Configure (ViewModelLocator.HealthTestKey, typeof(HealthDashboardTest));
+			nav.Configure (ViewModelLocator.HealthSettingsKey, typeof(HealthGoalsTest));
+
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new  PeniMasterDetail() );
+			var navPage = new NavigationPage(new PeniMasterDetail() );
 
 			nav.Initialize (navPage);
 

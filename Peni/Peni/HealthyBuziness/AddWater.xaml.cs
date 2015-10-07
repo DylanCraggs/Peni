@@ -5,15 +5,12 @@ using Xamarin.Forms;
 
 namespace Peni
 {
-	public partial class HealthGoalsTest : ContentPage
+	public partial class AddWater : ContentPage
 	{
-		public HealthGoalsTest ()
+		public AddWater ()
 		{
-			//BindingContext = App.Locator.NewStepGoal;
 			InitializeComponent ();
-
 		}
-
 	}
 }
 

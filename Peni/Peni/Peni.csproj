@@ -63,11 +63,17 @@
     </Compile>
     <Compile Include="HealthDashboard.cs" />
     <Compile Include="PeniMain.xaml.cs">
-    <DependentUpon>PeniMain.xaml</DependentUpon>
-</Compile>
-<Compile Include="HealthGoalSettings.cs" />
+      <DependentUpon>PeniMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HealthGoalSettings.cs" />
     <Compile Include="HealthGoalsTest.xaml.cs">
       <DependentUpon>HealthGoalsTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HealthDashboardTest.xaml.cs">
+      <DependentUpon>HealthDashboardTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HealthyBuziness\AddWater.xaml.cs">
+      <DependentUpon>AddWater.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -124,6 +130,12 @@
     <EmbeddedResource Include="PeniMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="HealthDashboardTest.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HealthyBuziness\AddWater.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Page Include="HealthGoalSettings.xaml">
@@ -144,5 +156,6 @@
   <ItemGroup>
     <Folder Include="FAB\" />
     <Folder Include="Helpers\" />
+    <Folder Include="HealthyBuziness\" />
   </ItemGroup>
 </Project>

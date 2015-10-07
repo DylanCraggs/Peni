@@ -43,11 +43,11 @@ namespace Peni.Data
 			var database = new HealthDatabase();
 
 			// Add  a new command to our ICommand
-			SaveThreadCommand = new Command (() => {
+			//SaveThreadCommand = new Command (() => {
 				// Insert the thread into the database
-				database.InsertWaterIntake(new DailyWaterIntake());
+				//database.InsertWaterIntake(new DailyWaterIntake());
 
-			});
+			//});
 		}
 	}
 }

@@ -15,6 +15,7 @@ namespace Peni.Data
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Data.HealthDatabase"/> class.
 		/// </summary>
+		/// 
 		public HealthDatabase () {
 			Connection = DependencyService.Get<ISQLite> ().GetConnection ();
 
@@ -35,20 +36,35 @@ namespace Peni.Data
 		/// Gets water intake
 		/// </summary>
 		/// <returns>Water Intake</returns>
-			public List<DailyWaterIntake> GetIntake(DateTime date) {
-			var value = Connection.Query<DailyWaterIntake> ("Select * from DailyWaterIntake where DateTime like ?", date).ToList();
-				return value;
-		}
+			//public List<DailyWaterIntake> GetIntake(DateTime date) {
+			//var value = Connection.Query<DailyWaterIntake> ("Select * from DailyWaterIntake where DateTime like ?", date).ToList();
+				//return value;
+		//}
 
 		/// <summary>
 		/// Inserts water intake
 		/// </summary>
 		/// <returns>true if successful, false otherwise.</returns>
 		/// <param name="thread">Thread.</param>
-			public int InsertWaterIntake(DailyWaterIntake intake) {
-			return Connection.Table<DailyWaterIntake> ().Where (x => x.date == intake.date).Any() 
-				? Connection.Update (intake) : Connection.Insert (intake);
+			//public int InsertWaterIntake(DailyWaterIntake intake) {
+			//return Connection.Table<DailyWaterIntake> ().Where (x => x.date == intake.date).Any() 
+				//? Connection.Update (intake) : Connection.Insert (intake);
+		//}
+
+
+
+		//
+		public int InsertGoals(Goals goals) {
+			return Connection.Insert (goals);
 		}
+
+		public List<Goals> GetGoals() {
+			var items = Connection.Table<Goals>().ToList();
+			return items;
+		}
+
+
+
 
 	}
 }

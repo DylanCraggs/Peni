@@ -30,8 +30,8 @@ namespace Peni.Data.ViewModel
 		public const string SideMenuListView = "MenuPageList";
 
 		// Forum Page Keys
-		public const string ForumsPageKey = "PeniForums";
-		public const string ForumsNewThreadPageKey = "ForumsNewThread";
+		public const string ForumsPageKey = "PeniForums"; // wat
+		public const string ForumsNewThreadPageKey = "ForumsNewThread"; //this one
 		public const string ForumsViewThreadPageKey = "ForumThreadPage";
 
 		// Login Page Keys
@@ -43,6 +43,9 @@ namespace Peni.Data.ViewModel
 
 		// Health Screen Keys
 		public const string HealthPageKey = "HealthDashboard";
+		public const string HealthSettingsKey = "HealthGoalsTest";
+		public const string HealthTestKey = "HealthDashboardTest";
+
 
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
@@ -79,7 +82,18 @@ namespace Peni.Data.ViewModel
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
+
+			// Health Pages 
+
+			SimpleIoc.Default.Register<HealthTestViewModel> (() => {
+				return new HealthTestViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
         }
+
+
 
 		/// <summary>
 		/// Gets the ForumPage View Model
@@ -117,6 +131,27 @@ namespace Peni.Data.ViewModel
 				return ServiceLocator.Current.GetInstance<SideMenuViewModel> ();
 			}
 		}
+
+		/// <summary>
+		/// Gets the new step goal.
+		/// </summary>
+		/// <value>The new step goal.</value>
+		public HealthTestViewModel NewStepGoal{
+			get {
+				return ServiceLocator.Current.GetInstance<HealthTestViewModel> ();
+			}
+		}
+
+
+		/// <summary>
+		/// Gets the display goals.
+		/// </summary>
+		/// <value>The display goals.</value>
+		//public HealthVeiwGoalsModel DisplayGoals {
+			//get {
+				//return ServiceLocator.Current.GetInstance<HealthVeiwGoalsModel> ();
+			//}
+		//}
 
 		/// <summary>
 		/// Cleanup this instance.
