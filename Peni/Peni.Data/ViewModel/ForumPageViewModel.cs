@@ -190,6 +190,7 @@ namespace Peni.Data
 				UserComment comment = new UserComment(RequestedThread.id, "Anonymous", userCommentInput, DateTime.Now.ToString());
 				database.InsertComment(comment);
 				UpdateThreadComments(this.RequestedThread.id);
+				userCommentInput = "test";
 			});
 		}
 

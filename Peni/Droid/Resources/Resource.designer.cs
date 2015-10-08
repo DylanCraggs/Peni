@@ -55,6 +55,9 @@ namespace Peni.Droid
 			global::GalaSoft.MvvmLight.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.library_name = global::Peni.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Attribute
@@ -281,11 +284,14 @@ namespace Peni.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f050002
+			public const int ApplicationName = 2131034114;
+			
 			// aapt resource value: 0x7f050001
-			public const int ApplicationName = 2131034113;
+			public const int Hello = 2131034113;
 			
 			// aapt resource value: 0x7f050000
-			public const int Hello = 2131034112;
+			public const int library_name = 2131034112;
 			
 			static String()
 			{
