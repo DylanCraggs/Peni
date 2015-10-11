@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using Peni.Data.ViewModel;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Peni.Data
 {
@@ -39,10 +40,12 @@ namespace Peni.Data
 		/// <summary>
 		/// Stores a list of Threads to bind to a list from our view
 		/// </summary>
+		private ObservableCollection<Thread> forumList { get; set; }
 		public ObservableCollection<Thread> ForumList {
-			get { 
-				var database = new ForumsDatabase(); 
-				return new ObservableCollection<Thread>(database.GetAll());
+			get { return forumList; }
+			set { 
+				forumList = value;
+				RaisePropertyChanged (() => ForumList);
 			}
 		}
 
@@ -50,10 +53,12 @@ namespace Peni.Data
 		/// Stores a list of user comments to display in a binding list from our view
 		/// </summary>
 		/// <value>The user comments.</value>
+		private ObservableCollection<UserComment> userComments { get; set; }
 		public ObservableCollection<UserComment> UserComments {
-			get {
-				var database = new ForumsDatabase ();
-				return new ObservableCollection<UserComment>(database.GetThreadComments(this.RequestedThread.id));
+			get { return userComments; }
+			set {
+				userComments = value;
+				RaisePropertyChanged (() => UserComments);
 			}
 		}
 
@@ -183,7 +188,7 @@ namespace Peni.Data
 				this.navigationService.NavigateToModal(ViewModelLocator.ForumsViewThreadPageKey);
 			});
 
-			LeaveCommentCommand = new Command (() => {
+			LeaveCommentCommand = new Command (x => {
 				if(RequestedThread == null)
 					return;
 				var database = new ForumsDatabase();
@@ -229,9 +234,9 @@ namespace Peni.Data
 		/// Updates the thread comments given the thread id.
 		/// </summary>
 		/// <param name="threadid">ThreadID for comments to update on.</param>
-		private void UpdateThreadComments(int threadid) {
+		private async void UpdateThreadComments(Guid threadid) {
 			ForumsDatabase database = new ForumsDatabase ();
-			this.threadComments = database.GetThreadComments (threadid);
+			this.threadComments = await database.GetThreadComments (threadid);
 			this.userCommentInput = null;
 			RaisePropertyChanged (() => ThreadComments);
 		}
@@ -255,10 +260,15 @@ namespace Peni.Data
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		public void OnAppearing(){
+		public async void OnAppearing(){
 			Debug.WriteLine ("ForumPageViewModel : OnAppearing");
-			RaisePropertyChanged (() => ForumList);
-			RaisePropertyChanged (() => UserComments);
+			ForumsDatabase database = new ForumsDatabase ();
+			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
+			try {
+				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
+			}
 		}
 	}
 }

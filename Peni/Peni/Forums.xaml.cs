@@ -94,6 +94,9 @@ namespace Peni
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">Event.</param>
 		protected void listItemClicked(object sender, EventArgs e) {
+			// Stop the orange background showing up
+			ForumListView.SelectedItem = null;
+
 			Cell sendingItem; 
 
 			// Attempt to store cell requested in sendingItem
@@ -133,14 +136,6 @@ namespace Peni
 	/// </summary>
 	public class PeniForums : MasterDetailPage
 	{
-		/// <summary>
-		/// Raises the appearing event.
-		/// </summary>
-		protected override void OnAppearing ()
-		{
-			base.OnAppearing ();
-			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
