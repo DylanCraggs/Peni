@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -15,11 +15,8 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Peni.Droid</AssemblyName>
-<<<<<<< HEAD
     <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
-=======
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
->>>>>>> bd7185d51ae73ef1d96dcd254f49edfde2d0e234
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -168,31 +165,12 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_power_settings_new_white_48dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_question_answer_white_48dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-<<<<<<< HEAD
-    <AndroidResource Include="Resources\drawable\ThreadCommentIcon.png" />
-    <AndroidResource Include="Resources\drawable\notFavorite.png" />
-    <AndroidResource Include="Resources\drawable\favorite.png" />
-    <AndroidResource Include="Resources\drawable\logo_app.png" />
-    <AndroidResource Include="Resources\drawable\peni_grande.png" />
-    <AndroidResource Include="Resources\drawable\ic_add.png" />
-    <AndroidResource Include="Resources\drawable\food_cloud.png" />
-    <AndroidResource Include="Resources\drawable\peni_thirsty.png" />
-    <AndroidResource Include="Resources\drawable\some_cloud.png" />
-    <AndroidResource Include="Resources\drawable\water_cloud.png" />
-    <AndroidResource Include="Resources\drawable\mfp_icon.jpeg" />
-    <AndroidResource Include="Resources\drawable\temp_piechart.jpg" />
-    <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
-    <AndroidResource Include="Resources\drawable\temp_linegraph.jpg" />
-    <AndroidResource Include="Resources\drawable\drop_icon.png" />
     <AndroidResource Include="Resources\drawable\minus.png" />
     <AndroidResource Include="Resources\drawable\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\peni_small.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
-=======
     <AndroidResource Include="Resources\drawable-xxhdpi\img_bottle.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\img_glass.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_app.png" />
@@ -207,7 +185,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\temp_linegraph.jpg" />
     <AndroidResource Include="Resources\drawable-xxhdpi\temp_piechart.jpg" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ThreadCommentIcon.png" />
->>>>>>> bd7185d51ae73ef1d96dcd254f49edfde2d0e234
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-v21\style.xml">

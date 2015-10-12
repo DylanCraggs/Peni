@@ -69,7 +69,7 @@ namespace Peni.Data
 
 			MinusCupWater = new Command (() => {
 				CurrIntake = CurrIntake - 250;
-				if (CurrIntake>0)
+				if (CurrIntake<0)
 					{CurrIntake=0;}
 				RaisePropertyChanged (() => stringCurrIntake);
 				RaisePropertyChanged (() => lastWater);
@@ -85,7 +85,7 @@ namespace Peni.Data
 
 			MinusBottleWater = new Command (() => {
 				CurrIntake = CurrIntake - 600;
-				if (CurrIntake>0)
+				if (CurrIntake<0)
 					{CurrIntake=0;}
 				RaisePropertyChanged (() => stringCurrIntake);
 				RaisePropertyChanged (() => lastWater);
@@ -101,7 +101,7 @@ namespace Peni.Data
 
 			MinusAmountWater = new Command (() => {
 				CurrIntake = CurrIntake - 250;
-				if (CurrIntake>0)
+				if (CurrIntake<0)
 					{CurrIntake=0;}
 				RaisePropertyChanged (() => stringCurrIntake);
 				RaisePropertyChanged (() => lastWater);
