@@ -15,7 +15,7 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Peni.Droid</AssemblyName>
-    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -140,6 +140,8 @@
     <AndroidResource Include="Resources\drawable\temp_goalweight.jpg" />
     <AndroidResource Include="Resources\drawable\temp_linegraph.jpg" />
     <AndroidResource Include="Resources\drawable\drop_icon.png" />
+    <AndroidResource Include="Resources\drawable\minus.png" />
+    <AndroidResource Include="Resources\drawable\plus.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\peni_small.png" />

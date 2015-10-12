@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddWaterPage" BackgroundColor="White">
+	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+	<Label Text="{Binding stringCurrIntake}" /> 
+
+		<Grid>
+    		<Grid.RowDefinitions>
+     			<RowDefinition Height="Auto" />
+     			<RowDefinition Height="Auto" />
+     			<RowDefinition Height="Auto" />
+     			<RowDefinition Height="40" />
+    		</Grid.RowDefinitions>
+
+    		<Grid.ColumnDefinitions>
+      			<ColumnDefinition Width="40" />
+      			<ColumnDefinition Width="40" />
+      			<ColumnDefinition Width="40" />
+      			<ColumnDefinition Width="40" />
+      			<ColumnDefinition Width="40" />
+      			<ColumnDefinition Width="40" />
+    		</Grid.ColumnDefinitions>
+
+    		<Label Text="250 ml" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+    		<Label Text="600 ml" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+    		<Label Text="Custom" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2" HorizontalOptions="Center" />
+
+    		<Button Image="plus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="0" Command="{Binding AddCupWater}" />
+    		<Button Image="minus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="1" Command="{Binding MinusCupWater}"/>
+    		<Button Image="plus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="2" Command="{Binding AddBottleWater}"/>
+    		<Button Image="minus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White"  Grid.Row="4" Grid.Column="3" Command="{Binding MinusBottleWater}"/>
+    		<Button Image="plus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="4" Command="{Binding AddAmountWater}"/>
+    		<Button Image="minus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="5" Command="{Binding MinusAmountWater}"/>
+
+	<!--		<Button Text="+" Command="{Binding AddGlassWater}" />
+			-->
+	</Grid>
+	</StackLayout>
+</ContentPage>
