@@ -7,6 +7,10 @@ using System.Diagnostics;
 using Peni.Data.ViewModel;
 using System.Collections.Generic;
 
+using Peni.Data;
+using Microsoft.Practices.ServiceLocation;
+using System.Diagnostics;
+
 namespace Peni.Data
 {
 	public class AddWaterViewModel : ViewModelBase
@@ -46,8 +50,21 @@ namespace Peni.Data
 		{
 			get { return CurrIntake.ToString(); }
 			set { CurrIntake = int.Parse(value);
-			//	RaisePropertyChanged(() => stringCurrIntake.ToString()); 
 			}
+		}
+
+		private int waterAmount 
+		{
+			get { return Convert.ToInt32(waterAmountString); }
+			set { waterAmount = value; }
+		}
+
+		private string waterAmountString;
+
+		public string WaterAmountString { 
+			get { return waterAmountString; } 
+			set { waterAmountString = value; 
+				RaisePropertyChanged (() => WaterAmountString);}
 		}
 
 		public AddWaterViewModel (IMyNavigationService navigationService)
@@ -93,14 +110,15 @@ namespace Peni.Data
 			});
 
 			AddAmountWater = new Command (() => {
-				CurrIntake = CurrIntake + 250;
+
+				CurrIntake = CurrIntake + waterAmount;
 				RaisePropertyChanged (() => stringCurrIntake);
 				RaisePropertyChanged (() => lastWater);
 				SaveWaterCommand.Execute(this);
 			});
 
 			MinusAmountWater = new Command (() => {
-				CurrIntake = CurrIntake - 250;
+				CurrIntake = CurrIntake - waterAmount;
 				if (CurrIntake<0)
 					{CurrIntake=0;}
 				RaisePropertyChanged (() => stringCurrIntake);

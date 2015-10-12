@@ -20,7 +20,6 @@ namespace Peni
 			InitializeComponent();
 			BindingContext = App.Locator.AddWater;
 
-
 		}
 	}
 
