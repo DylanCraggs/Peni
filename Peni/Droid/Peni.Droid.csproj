@@ -15,7 +15,11 @@
     <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AssemblyName>Peni.Droid</AssemblyName>
+<<<<<<< HEAD
     <TargetFrameworkVersion>v5.1</TargetFrameworkVersion>
+=======
+    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+>>>>>>> bd7185d51ae73ef1d96dcd254f49edfde2d0e234
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -29,7 +33,7 @@
     <AndroidLinkMode>None</AndroidLinkMode>
     <ConsolePause>false</ConsolePause>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
-    <AndroidSupportedAbis>x86</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -120,11 +124,51 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\layout\" />
+    <Folder Include="Resources\drawable\" />
+    <Folder Include="Resources\drawable-hdpi\" />
+    <Folder Include="Resources\drawable-xhdpi\" />
+    <Folder Include="Resources\drawable-xxhdpi\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\values\style.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\app_large_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_extremely_happy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_extremely_sad.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_happy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_none.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_ok.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_emotion_sad.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_food_0.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_food_25.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_food_50.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_food_75.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_food_100.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_water_0.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_water_25.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_water_50.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_water_75.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\card_water_100.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cloud_feelings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cloud_food.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\cloud_water.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\drop_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emotion_ex_happy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emotion_ex_sad.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emotion_happy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emotion_ok.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emotion_sad.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\favorite.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_circle_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_add.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_favorite_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_home_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_local_library_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_power_settings_new_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_question_answer_white_48dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+<<<<<<< HEAD
     <AndroidResource Include="Resources\drawable\ThreadCommentIcon.png" />
     <AndroidResource Include="Resources\drawable\notFavorite.png" />
     <AndroidResource Include="Resources\drawable\favorite.png" />
@@ -148,6 +192,22 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
+=======
+    <AndroidResource Include="Resources\drawable-xxhdpi\img_bottle.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\img_glass.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo_app.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\mfp_icon.jpeg" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\notFavorite.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\peni_feelings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\peni_happy.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\peni_hungry.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\peni_thirsty.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\settings.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\temp_goalweight.jpg" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\temp_linegraph.jpg" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\temp_piechart.jpg" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ThreadCommentIcon.png" />
+>>>>>>> bd7185d51ae73ef1d96dcd254f49edfde2d0e234
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values-v21\style.xml">
@@ -158,30 +218,6 @@
     <AndroidResource Include="Resources\values\colors.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_favorite_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_home_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_local_library_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_power_settings_new_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_question_answer_white_48dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\app_large_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\ic_account_circle_white_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6447\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6447\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
