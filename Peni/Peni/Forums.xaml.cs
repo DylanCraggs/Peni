@@ -23,6 +23,7 @@ namespace Peni
 		public Forums ()
 		{
 			BindingContext = App.Locator.ForumsListPage;
+			ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing().Wait();
 			InitializeComponent ();
 
 			CreateToolbar ();
@@ -115,20 +116,7 @@ namespace Peni
 			if (cmd.CanExecute (cmd)) {
 				cmd.Execute (cmd);
 			}
-
-			// Show the requested by parsing the object
-			//Navigation.PushAsync(new ForumThreadPage(thread));
 		}
-
-		/// <summary>
-		/// Raises the appearing event.
-		/// </summary>
-		protected override void OnAppearing ()
-		{
-			base.OnAppearing ();
-			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
-		}
-
 	}
 
 	/// <summary>

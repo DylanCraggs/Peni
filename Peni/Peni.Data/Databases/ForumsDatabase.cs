@@ -56,7 +56,16 @@ namespace Peni.Data
 				Connection.CreateTable<UserComment> ();
 				Connection.Commit ();
 			}
+
+			OnRefreshItems ();
 				
+		}
+
+		/// <summary>
+		/// Raises the refresh items event.
+		/// </summary>
+		public async Task OnRefreshItems () {
+			await SyncAsync ();
 		}
 
 		/// <summary>
@@ -75,6 +84,7 @@ namespace Peni.Data
 		public async Task SyncAsync() {
 			try {
 				await client.SyncContext.PushAsync();
+				await threadsTable.PullAsync("allThreads", threadsTable.CreateQuery());
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}

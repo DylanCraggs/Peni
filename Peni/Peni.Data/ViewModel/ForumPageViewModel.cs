@@ -40,7 +40,7 @@ namespace Peni.Data
 		/// <summary>
 		/// Stores a list of Threads to bind to a list from our view
 		/// </summary>
-		private ObservableCollection<Thread> forumList { get; set; }
+		private ObservableCollection<Thread> forumList = new ObservableCollection<Thread>();
 		public ObservableCollection<Thread> ForumList {
 			get { return forumList; }
 			set { 
@@ -238,7 +238,6 @@ namespace Peni.Data
 			ForumsDatabase database = new ForumsDatabase ();
 			this.threadComments = await database.GetThreadComments (threadid);
 			this.userCommentInput = null;
-			RaisePropertyChanged (() => ThreadComments);
 		}
 
 		/// <summary>
@@ -260,10 +259,18 @@ namespace Peni.Data
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		public async void OnAppearing(){
+		public async Task OnAppearing() {
 			Debug.WriteLine ("ForumPageViewModel : OnAppearing");
+
+			ForumList.Clear ();
+
 			ForumsDatabase database = new ForumsDatabase ();
-			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
+			List<Thread> threadlist = database.GetAll().Result;
+
+			foreach (Thread thread in threadlist) {
+				ForumList.Add (thread);
+			}
+
 			try {
 				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
 			} catch (Exception ex) {
