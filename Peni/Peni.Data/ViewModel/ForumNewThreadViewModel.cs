@@ -46,7 +46,7 @@ namespace Peni.Data
 			// Add  a new command to our ICommand
 			SaveThreadCommand = new Command (() => {
 				// Insert the thread into the database
-				database.InsertThread(new Thread(ThreadTitle, "Anonymous", DateTime.Now.ToString(), ThreadDetails)).Wait();
+				database.InsertThread(new Thread(ThreadTitle, "Anonymous", DateTime.Now.ToString(), ThreadDetails));
 
 				// Set the data bindings to null as we have entered the new thread
 				threadTitle = null;

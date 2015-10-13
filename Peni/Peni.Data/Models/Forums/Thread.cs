@@ -12,7 +12,6 @@ namespace Peni
 		public string TopicAuthor { get; set; }
 		public string TopicCreationDate { get; set; }
 		public string TopicPostContent { get; set; }
-		public static DateTime test { get; set; }
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Thread"/> class.

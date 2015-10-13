@@ -1,7 +1,7 @@
 ﻿using System;
 using SQLite.Net.Attributes;
 
-namespace Peni.Data
+namespace Peni
 {
 	public class UserComment
 	{

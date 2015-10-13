@@ -22,14 +22,13 @@ namespace Peni
 		/// </summary>
 		public Forums ()
 		{
-			BindingContext = App.Locator.ForumsListPage;
-			ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing().Wait();
 			InitializeComponent ();
+			BindingContext = App.Locator.ForumsListPage;
 
 			CreateToolbar ();
 			CreateFAB ();
 
-			Title = "Forums";
+			this.Title = "Forums";
 		}
 
 		/// <summary>
@@ -112,10 +111,19 @@ namespace Peni
 			var thread = (Thread)sendingItem.BindingContext;
 
 			// Grab the command interface and create a command from it
-			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand (thread);
+			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand(thread);
 			if (cmd.CanExecute (cmd)) {
 				cmd.Execute (cmd);
 			}
+		}
+
+		/// <summary>
+		/// Raises the appearing event.
+		/// </summary>
+		protected override void OnAppearing() {
+			base.OnAppearing ();
+			var viewmodel = ServiceLocator.Current.GetInstance<ForumPageViewModel>();
+			viewmodel.OnAppearing();
 		}
 	}
 
@@ -133,7 +141,7 @@ namespace Peni
 			Detail = new Forums();
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
-			Title = "Forums";
+			this.Title = "Forums";
 
 			// ItemTapped event handler for the side menu
 			menuPage.Menu.ItemTapped += (sender, e) => {

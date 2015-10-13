@@ -75,6 +75,7 @@ namespace Peni.Data
 			var store = new MobileServiceSQLiteStore (DependencyService.Get<ISQLite>().GetPath());
 			store.DefineTable<Thread> ();
 			store.DefineTable<UserComment> ();
+
 			await client.SyncContext.InitializeAsync (store, new MobileServiceSyncHandler());
 		}
 
@@ -84,9 +85,8 @@ namespace Peni.Data
 		public async Task SyncAsync() {
 			try {
 				await client.SyncContext.PushAsync();
-				await threadsTable.PullAsync("allThreads", threadsTable.CreateQuery());
-			} catch (Exception ex) {
-				Debug.WriteLine (ex.Message.ToString ());
+			} catch (MobileServicePushFailedException ex) {
+				Debug.WriteLine ("SyncAsync Error: " + ex.ToString());
 			}
 		}
 
@@ -95,7 +95,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>A List of Threads</returns>
 		public async Task<List<Thread>> GetAll() {
-			var items = await threadsTable.ToListAsync ();
+			var items = await threadsTable.ToListAsync();
 			return items;
 		}
 
@@ -143,7 +143,7 @@ namespace Peni.Data
 		/// <returns>A list of user comments relating to the threadid parsed.</returns>
 		/// <param name="ThreadID">The ID of the thread to get the comments from</param>
 		public async Task<List<UserComment>> GetThreadComments(Guid ThreadID) {
-			var comments = await commentsTable.Where (x => x.ThreadID == ThreadID).ToListAsync ();
+			var comments = await commentsTable.Where(x => x.ThreadID == ThreadID).ToListAsync();
 			return comments;
 		}
 	}

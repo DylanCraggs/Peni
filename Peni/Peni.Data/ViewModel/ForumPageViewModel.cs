@@ -53,7 +53,7 @@ namespace Peni.Data
 		/// Stores a list of user comments to display in a binding list from our view
 		/// </summary>
 		/// <value>The user comments.</value>
-		private ObservableCollection<UserComment> userComments { get; set; }
+		private ObservableCollection<UserComment> userComments = new ObservableCollection<UserComment>();
 		public ObservableCollection<UserComment> UserComments {
 			get { return userComments; }
 			set {
@@ -90,8 +90,7 @@ namespace Peni.Data
 		/// Data binding for the thread/topic name
 		/// </summary>
 		private string topicName;
-		public string TopicName
-		{
+		public string TopicName {
 			get { return topicName; }
 			set { 
 				topicName = value;
@@ -192,7 +191,7 @@ namespace Peni.Data
 				if(RequestedThread == null)
 					return;
 				var database = new ForumsDatabase();
-				UserComment comment = new UserComment(RequestedThread.id, "Anonymous", userCommentInput, DateTime.Now.ToString());
+				UserComment comment = new UserComment(this.RequestedThread.id, "Anonymous", userCommentInput, DateTime.Now.ToString());
 				database.InsertComment(comment);
 				UpdateThreadComments(this.RequestedThread.id);
 			});
@@ -259,23 +258,21 @@ namespace Peni.Data
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		public async Task OnAppearing() {
-			Debug.WriteLine ("ForumPageViewModel : OnAppearing");
+		public async void OnAppearing() {
+			Debug.WriteLine ("HI");
 
-			ForumList.Clear ();
-
+			// Create connection toe database and get all threads
 			ForumsDatabase database = new ForumsDatabase ();
-			List<Thread> threadlist = database.GetAll().Result;
-
-			foreach (Thread thread in threadlist) {
-				ForumList.Add (thread);
-			}
-
+			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
+		
+			// Try and pull comments relating to a thread
 			try {
 				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}
+
+			Debug.WriteLine ("BI");
 		}
 	}
 }
