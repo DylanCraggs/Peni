@@ -121,6 +121,9 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f060005
 			public const int textColorPrimary = 2131099653;
 			
+			// aapt resource value: 0x7f060006
+			public const int white = 2131099654;
+			
 			static Color()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

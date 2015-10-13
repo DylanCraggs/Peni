@@ -126,8 +126,6 @@ namespace Peni
 						if (modal)
 						{
 							wasModal = true;
-							//_navigation.Navigation.PushModalAsync(page);
-							//NavigationPage.SetHasNavigationBar(_navigation, true);
 							NavigationPage.SetHasBackButton(page, false);
 							_navigation.PushAsync(page);
 						}

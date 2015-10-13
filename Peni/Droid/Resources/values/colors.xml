@@ -5,4 +5,5 @@
   <color name="navigation_bar">#214576</color>
   <color name="accent">#F16378</color>
   <color name="textColorPrimary">#214576</color> <!--- Original Colour #FFFFFF, changed for editors -->
+  <color name="white">#FFFFFF</color>
 </resources>
