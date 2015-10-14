@@ -259,8 +259,6 @@ namespace Peni.Data
 		/// Raises the appearing event.
 		/// </summary>
 		public async void OnAppearing() {
-			Debug.WriteLine ("HI");
-
 			// Create connection toe database and get all threads
 			ForumsDatabase database = new ForumsDatabase ();
 			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
@@ -269,10 +267,8 @@ namespace Peni.Data
 			try {
 				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
 			} catch (Exception ex) {
-				Debug.WriteLine (ex.Message.ToString ());
+				Debug.WriteLine (ex.Message.ToString());
 			}
-
-			Debug.WriteLine ("BI");
 		}
 	}
 }

@@ -38,24 +38,12 @@ namespace Peni.Data
 
 			// Create the mobile service client instance using the provided url and key
 			client = new MobileServiceClient (applicationURL, applicationKey);
-			Task task = Init ();
-			task.Wait ();
+
+			Init ().Wait ();
 
 			// Get the mobile service sync table instaces to use
 			threadsTable = client.GetSyncTable<Thread> ();
 			commentsTable = client.GetSyncTable<UserComment> ();                                                                                           
-
-			// Check if Thread table exists, if not create it
-			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(Thread).Name)) {
-				Connection.CreateTable<Thread> ();
-				Connection.Commit ();
-			}
-
-			// Check if UserComment table exists, if not create it
-			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(UserComment).Name)) {
-				Connection.CreateTable<UserComment> ();
-				Connection.Commit ();
-			}
 
 			OnRefreshItems ();
 				
@@ -73,10 +61,11 @@ namespace Peni.Data
 		/// </summary>
 		public async Task Init() {
 			var store = new MobileServiceSQLiteStore (DependencyService.Get<ISQLite>().GetPath());
+
 			store.DefineTable<Thread> ();
 			store.DefineTable<UserComment> ();
 
-			await client.SyncContext.InitializeAsync (store, new MobileServiceSyncHandler());
+			await client.SyncContext.InitializeAsync (store);
 		}
 
 		/// <summary>
@@ -95,7 +84,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>A List of Threads</returns>
 		public async Task<List<Thread>> GetAll() {
-			var items = await threadsTable.ToListAsync();
+			var items = await client.GetTable<Thread>().ToListAsync();
 			return items;
 		}
 
