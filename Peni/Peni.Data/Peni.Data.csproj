@@ -47,7 +47,6 @@
     <Compile Include="Models\Health\Goals.cs" />
     <Compile Include="Databases\HealthDatabase.cs" />
     <Compile Include="ViewModel\DailyWaterIntakeViewModel.cs" />
-    <Compile Include="Models\Profile\UserProfile.cs" />
     <Compile Include="Databases\ProfileDatabase.cs" />
     <Compile Include="ViewModel\HealthTestViewModel.cs" />
     <Compile Include="Models\Profile\Account.cs" />
@@ -98,9 +97,6 @@
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile.SQLiteStore">
       <HintPath>..\packages\WindowsAzure.MobileServices.SQLiteStore.1.0.4\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Security">
-      <HintPath>..\..\..\..\Downloads\System.Security.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
