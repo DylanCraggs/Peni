@@ -27,15 +27,10 @@ namespace Peni.Data
 		// Mobile Service Sync Table Used To Access Data
 		private IMobileServiceSyncTable<UserComment> commentsTable;
 
-
-		SQLiteConnection Connection;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Data.ForumsDatabase"/> class.
 		/// </summary>
 		public ForumsDatabase () {
-			Connection = DependencyService.Get<ISQLite>().GetConnection();
-
 			// Create the mobile service client instance using the provided url and key
 			client = new MobileServiceClient (applicationURL, applicationKey);
 
@@ -60,7 +55,7 @@ namespace Peni.Data
 		/// Initalises the Azure Services
 		/// </summary>
 		public async Task Init() {
-			var store = new MobileServiceSQLiteStore (DependencyService.Get<ISQLite>().GetPath());
+			var store = new MobileServiceSQLiteStore (DependencyService.Get<IAzureDatabase>().GetPath());
 
 			store.DefineTable<Thread> ();
 			store.DefineTable<UserComment> ();

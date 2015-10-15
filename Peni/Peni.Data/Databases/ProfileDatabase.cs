@@ -26,14 +26,10 @@ namespace Peni.Data
 		// Mobile Service Sync Table Used To Access Data
 		private IMobileServiceSyncTable<UserComment> commentsTable;
 
-		SQLiteConnection Connection;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Data.ProfileDatabase"/> class.
 		/// </summary>
 		public ProfileDatabase () {
-			Connection = DependencyService.Get<ISQLite>().GetConnection();
-
 			client = new MobileServiceClient (applicationURL, applicationKey);
 
 			Init().Wait();
@@ -58,7 +54,7 @@ namespace Peni.Data
 		/// Init this instance.
 		/// </summary>
 		public async Task Init() {
-			var store = new MobileServiceSQLiteStore (DependencyService.Get<ISQLite> ().GetPath ());
+			var store = new MobileServiceSQLiteStore (DependencyService.Get<IAzureDatabase>().GetPath());
 			store.DefineTable<Account> ();
 			store.DefineTable<Thread> ();
 			store.DefineTable<UserComment> ();
@@ -101,11 +97,8 @@ namespace Peni.Data
 		/// <returns>The thread comments.</returns>
 		/// <param name="ThreadID">Thread I.</param>
 		public async Task<List<Account>> AttemptLogin(string email, string password) {
-			var comments = await client.GetTable<Account>().Where(x => x.Email == email && x.Password == password).ToListAsync();
-			if (comments.Capacity <= 0)
-				return null;
-			else
-				return comments;
+			var account = await client.GetTable<Account>().Where(x => x.Email == email && x.Password == password).ToListAsync();
+			return account;
 		}
 
 	}
