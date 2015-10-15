@@ -35,23 +35,6 @@ namespace Peni.Droid
 			return connection;
 		}
 
-		/// <summary>
-		/// Database setup.
-		/// </summary>
-		public void DatabaseSetup() {
-			const string DatabaseFilename = "PeniDatabase.db3";
-			var DocumentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
-			DatabaseLocationPath = Path.Combine (DocumentsPath, DatabaseFilename);
-		}
-
-		/// <summary>
-		/// Returns the Documents Path.
-		/// </summary>
-		/// <returns>String containing the documents path</returns>
-		public string GetPath() {
-			return DatabaseLocationPath;
-		}
-
 		#endregion
 	}
 }

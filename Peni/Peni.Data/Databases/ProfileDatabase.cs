@@ -49,7 +49,6 @@ namespace Peni.Data
 			var account = await client.GetTable<Account>().Where(x => x.Email == email && x.Password == password).ToListAsync();
 			return account;
 		}
-
 	}
 }
 
