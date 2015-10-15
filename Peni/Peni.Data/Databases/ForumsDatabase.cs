@@ -132,7 +132,7 @@ namespace Peni.Data
 		/// <returns>A list of user comments relating to the threadid parsed.</returns>
 		/// <param name="ThreadID">The ID of the thread to get the comments from</param>
 		public async Task<List<UserComment>> GetThreadComments(Guid ThreadID) {
-			var comments = await commentsTable.Where(x => x.ThreadID == ThreadID).ToListAsync();
+			var comments = await client.GetTable<UserComment>().Where(x => x.ThreadID == ThreadID).ToListAsync();
 			return comments;
 		}
 	}
