@@ -12,64 +12,13 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 
 namespace Peni.Data
 {
-	public class ProfileDatabase
+	public class ProfileDatabase : CloudDatabase
 	{
-		const string applicationURL = @"https://peni.azure-mobile.net/";
-		const string applicationKey = @"KrjkaEtTeCpgBsdnXbzWfBJoEYUxju50";
-
-		//Mobile Service Client reference
-		private MobileServiceClient client;
-
-		private IMobileServiceSyncTable<Account> accountTable;
-		// Mobile Service Sync Table Used To Access Data
-		private IMobileServiceSyncTable<Thread> threadsTable;
-		// Mobile Service Sync Table Used To Access Data
-		private IMobileServiceSyncTable<UserComment> commentsTable;
-
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Data.ProfileDatabase"/> class.
 		/// </summary>
 		public ProfileDatabase () {
-			client = new MobileServiceClient (applicationURL, applicationKey);
-
-			Init().Wait();
-
-			// Get the mobile service sync table instaces to use
-			accountTable = client.GetSyncTable<Account> ();
-			threadsTable = client.GetSyncTable<Thread> ();
-			commentsTable = client.GetSyncTable<UserComment> ();       
-
-			// Refresh Items
-			OnRefreshItems();
-		}
-
-		/// <summary>
-		/// Raises the refresh items event.
-		/// </summary>
-		public async Task OnRefreshItems () {
-			await SyncAsync ();
-		}
-
-		/// <summary>
-		/// Init this instance.
-		/// </summary>
-		public async Task Init() {
-			var store = new MobileServiceSQLiteStore (DependencyService.Get<IAzureDatabase>().GetPath());
-			store.DefineTable<Account> ();
-			store.DefineTable<Thread> ();
-			store.DefineTable<UserComment> ();
-			await client.SyncContext.InitializeAsync (store);
-		}
-
-		/// <summary>
-		/// Pushes changes to the mobile service
-		/// </summary>
-		public async Task SyncAsync() {
-			try {
-				await client.SyncContext.PushAsync();
-			} catch (MobileServicePushFailedException ex) {
-				Debug.WriteLine ("SyncAsync Error: " + ex.ToString());
-			}
+			base.Init ();
 		}
 
 		/// <summary>
