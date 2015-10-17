@@ -9,6 +9,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
+using System.Collections.ObjectModel;
 
 namespace Peni.Data
 {
@@ -45,9 +46,28 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>The thread comments.</returns>
 		/// <param name="ThreadID">Thread I.</param>
-		public async Task<List<Account>> AttemptLogin(string email, string password) {
+		private async Task<List<Account>> AttemptLogin(string email, string password) {
 			var account = await client.GetTable<Account>().Where(x => x.Email == email && x.Password == password).ToListAsync();
 			return account;
+		}
+
+		/// <summary>
+		/// Gets all.
+		/// </summary>
+		/// <returns>The all.</returns>
+		private async Task<List<Account>> GetAll() {
+			var result = await client.GetTable<Account>().ToListAsync();
+			return result;
+		}
+
+		public async Task<bool> AttemptLoginAuth(string email, string password) {
+			List<Account> accs = new List<Account> (await AttemptLogin(email, password));
+
+			if (accs.Count == 1)
+				return true;
+			
+				
+			return false;
 		}
 	}
 }

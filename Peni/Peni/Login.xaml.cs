@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Peni.Data;
+using System.Diagnostics;
 
 namespace Peni
 {
@@ -23,7 +25,15 @@ namespace Peni
 				}
 
 			}
+		}
 
+		public async void AttemptLogin() {
+			ProfileDatabase database = new ProfileDatabase ();
+
+			if (await database.AttemptLoginAuth ("admin@admin.com", "password"))
+				Debug.WriteLine ("Login Success");
+			else
+				Debug.WriteLine ("Login Failed");
 		}
 	}
 

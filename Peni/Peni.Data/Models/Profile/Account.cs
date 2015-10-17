@@ -20,8 +20,8 @@ namespace Peni.Data
 		public Account(string Email, string Password, int UserStage, 
 			string UserBio, string UserStatus, bool UserPrivacy) {
 
-			this.Email = Email;
-			this.Password = Password;
+			this.Email = Email.ToLower();
+			this.Password = Password.ToLower();
 			this.UserStage = UserStage;
 			this.UserBio = UserBio;
 			this.UserStatus = UserStatus;
