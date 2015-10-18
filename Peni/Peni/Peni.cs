@@ -10,7 +10,6 @@ namespace Peni
 {
     public class App : Application
     {
-
 		private static ViewModelLocator _locator;
 		private static NavigationService nav;
 		public static ViewModelLocator Locator

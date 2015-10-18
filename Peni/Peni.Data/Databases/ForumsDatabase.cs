@@ -32,6 +32,16 @@ namespace Peni.Data
 		}
 
 		/// <summary>
+		/// Gets the threads by user.
+		/// </summary>
+		/// <returns>The threads by user.</returns>
+		/// <param name="username">Username.</param>
+		public async Task<List<Thread>> GetThreadsByUser(string author) {
+			var items = await client.GetTable<Thread> ().Where (x => x.TopicAuthor == author).ToListAsync ();
+			return items;
+		}
+
+		/// <summary>
 		/// Inserts a thread into the database
 		/// </summary>
 		/// <returns>true if successful, false otherwise.</returns>

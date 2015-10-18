@@ -63,8 +63,11 @@ namespace Peni.Data
 		public async Task<bool> AttemptLoginAuth(string email, string password) {
 			List<Account> accs = new List<Account> (await AttemptLogin(email, password));
 
-			if (accs.Count == 1)
+			if (accs.Count == 1) {
+				Globals.UserSession = accs[0];
+				Debug.WriteLine (Globals.UserSession.Email.ToString ());
 				return true;
+			}
 			
 				
 			return false;

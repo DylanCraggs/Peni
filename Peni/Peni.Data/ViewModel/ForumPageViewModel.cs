@@ -7,6 +7,7 @@ using System.Diagnostics;
 using Peni.Data.ViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Peni;
 
 namespace Peni.Data
 {
@@ -268,6 +269,16 @@ namespace Peni.Data
 				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString());
+			}
+		}
+
+		public async void ViewMyThreads() {
+			ForumsDatabase database = new ForumsDatabase ();
+
+			try {
+				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Email.ToLower()));
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
 			}
 		}
 	}

@@ -31,6 +31,7 @@ namespace Peni
 			this.Title = "Forums";
 		}
 
+
 		/// <summary>
 		/// Creates the toolbar.
 		/// </summary>
@@ -38,6 +39,7 @@ namespace Peni
 			ToolbarItems.Add (new ToolbarItem("My Home", "My Home", () => {
 				Debug.WriteLine("My Home Pressed");
 				// Run command to show all threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing();
 			}, ToolbarItemOrder.Secondary, 0));
 
 			ToolbarItems.Add (new ToolbarItem("My Favorites", "My Favorites", () => {
@@ -48,6 +50,7 @@ namespace Peni
 			ToolbarItems.Add (new ToolbarItem("My Threads", "My Threads", () => {
 				Debug.WriteLine("My Threads Pressed");
 				// Run command to show users threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().ViewMyThreads();
 			}, ToolbarItemOrder.Secondary, 0));
 		}
 
