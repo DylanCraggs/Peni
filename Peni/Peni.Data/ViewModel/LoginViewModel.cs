@@ -50,7 +50,10 @@ namespace Peni.Data
 		private string errorMessage;
 		public string ErrorMessage {
 			get { return errorMessage; }
-			set { ; }
+			set { 
+				errorMessage = value;
+				RaisePropertyChanged (() => ErrorMessage);
+			}
 		}
 
 		/// <summary>
@@ -61,15 +64,28 @@ namespace Peni.Data
 		{
 			this.navigationService = navigationService;
 			SubmitLoginCommand = new Command (x => {
-				if(Username == null || Password == null) {
-					this.errorMessage = "Please enter a username and password.";
-					RaisePropertyChanged(() => ErrorMessage);
-				} else {
-					this.errorMessage = null;
-					RaisePropertyChanged(() => ErrorMessage);
-					this.navigationService.NavigateTo(ViewModelLocator.PeniMasterDetail);
-				}
+				AttemptLogin();
 			});
+		}
+
+		/// <summary>
+		/// Attempts the login using supplied username and password.
+		/// </summary>
+		private async void AttemptLogin() {
+			// Check input has been entered 
+			if (Username == null || Password == null) {
+				ErrorMessage = "Please enter a username and password.";
+				return;
+			}
+
+			// Validate details that were entered
+			ProfileDatabase database = new ProfileDatabase ();
+			if (await database.AttemptLoginAuth (Username, Password)) {
+				ErrorMessage = null;
+				this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
+			} else {
+				ErrorMessage = "Invalid username or password.";
+			}
 		}
 	}
 }

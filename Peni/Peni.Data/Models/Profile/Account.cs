@@ -9,6 +9,7 @@ namespace Peni.Data
 		[PrimaryKey, AutoIncrement]
 		public Guid id { get; set; }
 		public string Email { get; set; }
+		public string Username { get; set; }
 		public string Password { get; set; }
 		public int UserStage { get; set; }
 		public string UserBio { get; set; }
@@ -17,10 +18,11 @@ namespace Peni.Data
 
 		public Account () { }
 
-		public Account(string Email, string Password, int UserStage, 
+		public Account(string Email, string Username, string Password, int UserStage, 
 			string UserBio, string UserStatus, bool UserPrivacy) {
 
 			this.Email = Email.ToLower();
+			this.Username = Username;
 			this.Password = Password.ToLower();
 			this.UserStage = UserStage;
 			this.UserBio = UserBio;

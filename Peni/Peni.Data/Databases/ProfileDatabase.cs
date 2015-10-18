@@ -33,6 +33,11 @@ namespace Peni.Data
 				return;
 			}
 
+			if (await ExistingUser (Profile.Email, Profile.Password)) {
+				Debug.WriteLine ("Username or email already in use.");
+				return;
+			}
+
 			try {
 				await accountTable.InsertAsync(Profile); // Inserts into the local database
 				await SyncAsync(); // Sends to the mobile service
@@ -60,12 +65,27 @@ namespace Peni.Data
 			return result;
 		}
 
+		private async Task<bool> ExistingUser(string email, string username) {
+			List<Account> accs = new List<Account> (await client.GetTable<Account> ().Where (x => x.Email.ToLower () == email).ToListAsync ());
+
+			if (accs == null || accs.Count == 0)
+				return false;
+			else
+				return true;
+		}
+
+		/// <summary>
+		/// Attempts to create a Globals.UserSession using the supplied parameters
+		/// </summary>
+		/// <returns>True if username and password was valid, false otherwise.</returns>
+		/// <param name="email">Email Address.</param>
+		/// <param name="password">Password.</param>
 		public async Task<bool> AttemptLoginAuth(string email, string password) {
 			List<Account> accs = new List<Account> (await AttemptLogin(email, password));
 
 			if (accs.Count == 1) {
 				Globals.UserSession = accs[0];
-				Debug.WriteLine (Globals.UserSession.Email.ToString ());
+				Debug.WriteLine (Globals.UserSession.Username);
 				return true;
 			}
 			

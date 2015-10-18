@@ -192,7 +192,7 @@ namespace Peni.Data
 				if(RequestedThread == null)
 					return;
 				var database = new ForumsDatabase();
-				UserComment comment = new UserComment(this.RequestedThread.id, "Anonymous", userCommentInput, DateTime.Now.ToString());
+				UserComment comment = new UserComment(this.RequestedThread.id, Globals.UserSession.Username, userCommentInput, DateTime.Now.ToString());
 				database.InsertComment(comment);
 				UpdateThreadComments(this.RequestedThread.id);
 			});
@@ -272,11 +272,14 @@ namespace Peni.Data
 			}
 		}
 
+		/// <summary>
+		/// Views a users threads based on their username.
+		/// </summary>
 		public async void ViewMyThreads() {
 			ForumsDatabase database = new ForumsDatabase ();
 
 			try {
-				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Email.ToLower()));
+				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Username.ToLower()));
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}
