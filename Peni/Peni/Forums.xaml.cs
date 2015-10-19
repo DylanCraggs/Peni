@@ -31,6 +31,18 @@ namespace Peni
 			this.Title = "Forums";
 		}
 
+		/// <summary>
+		/// Adds or removes a thread from a users favorite list
+		/// </summary>
+		/// <param name="sender">Sending object.</param>
+		/// <param name="e">Event arguments.</param>
+		public void FavTapped(object sender, EventArgs e)
+		{
+			var button = sender as Image;
+			var buttonParent = button.Parent;// as Thread;
+			var source = (Thread)buttonParent.BindingContext;
+			DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
+		}
 
 		/// <summary>
 		/// Creates the toolbar.

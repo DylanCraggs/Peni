@@ -12,8 +12,12 @@
 								<Grid>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
-										<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
-										<!--<Button Text="{Binding id}" x:Name="IsFav" />-->
+
+										<Image Source="notFavorite.png" x:Name="favoriteBtn" HeightRequest="35" WidthRequest="35">
+											<Image.GestureRecognizers>
+												<TapGestureRecognizer Tapped="FavTapped"/>
+											</Image.GestureRecognizers>
+										</Image>
 
 										<!-- Add Thread name and author under each other -->
 										<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
