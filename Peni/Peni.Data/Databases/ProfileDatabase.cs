@@ -52,6 +52,9 @@ namespace Peni.Data
 		/// <returns>The thread comments.</returns>
 		/// <param name="ThreadID">Thread I.</param>
 		private async Task<List<Account>> AttemptLogin(string email, string password) {
+			if (client == null) {
+				return null;
+			}
 			var account = await client.GetTable<Account>().Where(x => x.Email == email && x.Password == password).ToListAsync();
 			return account;
 		}
@@ -65,6 +68,12 @@ namespace Peni.Data
 			return result;
 		}
 
+		/// <summary>
+		/// Checks if there are any existing users.
+		/// </summary>
+		/// <returns>True if matched either or all parameters, false otherwise.</returns>
+		/// <param name="email">Email to match.</param>
+		/// <param name="username">Username to match.</param>
 		private async Task<bool> ExistingUser(string email, string username) {
 			List<Account> accs = new List<Account> (await client.GetTable<Account> ().Where (x => x.Email.ToLower () == email).ToListAsync ());
 
@@ -85,7 +94,6 @@ namespace Peni.Data
 
 			if (accs.Count == 1) {
 				Globals.UserSession = accs[0];
-				Debug.WriteLine (Globals.UserSession.Username);
 				return true;
 			}
 			

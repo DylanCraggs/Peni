@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Diagnostics;
 using Peni.Data.ViewModel;
+using Peni.Data;
 
 namespace Peni
 {

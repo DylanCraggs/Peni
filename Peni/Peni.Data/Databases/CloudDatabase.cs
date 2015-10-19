@@ -17,6 +17,7 @@ namespace Peni.Data
 		public IMobileServiceSyncTable<Account> accountTable;
 		public IMobileServiceSyncTable<Thread> threadsTable;
 		public IMobileServiceSyncTable<UserComment> commentsTable;
+		public IMobileServiceSyncTable<LocProfile> locationTable;
 
 		// Connection Strings
 		const string applicationURL = @"https://peni.azure-mobile.net/";
@@ -42,12 +43,14 @@ namespace Peni.Data
 			store.DefineTable<Account> ();
 			store.DefineTable<Thread> ();
 			store.DefineTable<UserComment> ();
+			store.DefineTable<LocProfile> ();
 			await client.SyncContext.InitializeAsync (store);
 
 			// Assign out sync tables
 			accountTable = client.GetSyncTable<Account> ();
 			threadsTable = client.GetSyncTable<Thread> ();
-			commentsTable = client.GetSyncTable<UserComment> ();  
+			commentsTable = client.GetSyncTable<UserComment> (); 
+			locationTable = client.GetSyncTable<LocProfile> ();
 		}
 
 		/// <summary>
