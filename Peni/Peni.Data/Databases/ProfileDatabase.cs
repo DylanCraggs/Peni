@@ -75,6 +75,7 @@ namespace Peni.Data
 		/// <param name="email">Email to match.</param>
 		/// <param name="username">Username to match.</param>
 		private async Task<bool> ExistingUser(string email, string username) {
+
 			List<Account> accs = new List<Account> (await client.GetTable<Account> ().Where (x => x.Email.ToLower () == email).ToListAsync ());
 
 			if (accs == null || accs.Count == 0)

@@ -80,6 +80,65 @@ namespace Peni.Data
 		}
 
 		/// <summary>
+		/// Adds the or update favorite.
+		/// </summary>
+		/// <returns>The or update favorite.</returns>
+		/// <param name="thread">Thread.</param>
+		public async Task AddOrUpdateFavorite(ThreadFavorite thread) {
+			if (client == null) {
+				Debug.WriteLine ("Client was null.");
+				return;
+			}
+
+			// grab results from favorite table using user id
+				// iterate through results looking at thread id
+					// if thread id == thread.threadid
+						// remove from favorite
+						// return
+
+			// otherwise add a new favorite
+
+			try {
+				await favoriteTable.InsertAsync(thread);
+				await SyncAsync();
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
+			}
+		}
+
+		/// <summary>
+		/// Gets the user favorites from the database.
+		/// </summary>
+		/// <returns>A list containing threads that the user favorited.</returns>
+		public async Task<List<Thread>> GetUserFavorites() {
+			if (client == null) {
+				Debug.WriteLine ("Client was null.");
+				return null;
+			}
+				
+			// Get results from favorites table which contain the users id.
+			var favsResults = await client.GetSyncTable<ThreadFavorite>().Where(x => x.UserID == Globals.UserSession.id).ToListAsync();
+
+			// Get all threads from the database
+			var allThreads = await GetAll ();
+
+			// Create a list to store favorited threads
+			List<Thread> favs = new List<Thread> ();
+
+			// Loop through each thread
+			foreach (Thread thread in allThreads) {
+				// Loop through each favorited thread
+				foreach (ThreadFavorite fav in favsResults) {
+					// Check that the two ID's match and add to our favs list
+					if (thread.id == fav.ThreadID) {
+						favs.Add (thread);
+					}
+				}
+			}
+			return favs;
+		}
+
+		/// <summary>
 		/// Gets all comments left on a given thread id
 		/// </summary>
 		/// <returns>A list of user comments relating to the threadid parsed.</returns>

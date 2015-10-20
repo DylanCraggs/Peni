@@ -41,7 +41,11 @@ namespace Peni
 			var button = sender as Image;
 			var buttonParent = button.Parent;// as Thread;
 			var source = (Thread)buttonParent.BindingContext;
-			DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
+
+			ForumsDatabase database = new ForumsDatabase ();
+			database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+
+			//DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
 		}
 
 		/// <summary>
@@ -57,6 +61,7 @@ namespace Peni
 			ToolbarItems.Add (new ToolbarItem("My Favorites", "My Favorites", () => {
 				Debug.WriteLine("My Favorites Pressed");
 				// Run command to show users favorite threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().ViewMyFavorites();
 			}, ToolbarItemOrder.Secondary, 0));
 
 			ToolbarItems.Add (new ToolbarItem("My Threads", "My Threads", () => {

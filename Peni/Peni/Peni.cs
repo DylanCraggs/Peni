@@ -64,6 +64,7 @@ namespace Peni
 			profileDb.InsertProfile(new Account("yuet@admin.com", "Yuet", "password", 5, "Admin Account Bio", "Admin Account Status", true));
 			profileDb.InsertProfile(new Account("leandro@admin.com", "Leandro", "password", 1, "Admin Account Bio", "Admin Account Status", false));
 			profileDb.InsertProfile(new Account("michaela@admin.com", "Michaela", "password", 2, "Admin Account Bio", "Admin Account Status", false));
+
 		}
 
 

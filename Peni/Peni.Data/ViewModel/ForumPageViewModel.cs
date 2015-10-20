@@ -284,6 +284,19 @@ namespace Peni.Data
 				Debug.WriteLine (ex.Message.ToString ());
 			}
 		}
+
+		/// <summary>
+		/// Shows user threads based on their favorites.
+		/// </summary>
+		public async void ViewMyFavorites() {
+			ForumsDatabase database = new ForumsDatabase ();
+
+			try {
+				ForumList = new ObservableCollection<Thread> (await database.GetUserFavorites());
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
+			}
+		}
 	}
 }
 
