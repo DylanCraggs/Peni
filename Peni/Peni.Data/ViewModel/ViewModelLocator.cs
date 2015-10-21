@@ -42,10 +42,7 @@ namespace Peni.Data.ViewModel
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
 		// Health Screen Keys
-		public const string HealthPageKey = "HealthDashboard";
-		public const string HealthSettingsKey = "HealthGoalsTest";
-		public const string HealthTestKey = "HealthDashboardTest";
-
+		public const string WaterPageKey = "AddWater";
 
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
@@ -87,6 +84,12 @@ namespace Peni.Data.ViewModel
 
 			SimpleIoc.Default.Register<HealthTestViewModel> (() => {
 				return new HealthTestViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
+				return new AddWaterViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
@@ -136,9 +139,9 @@ namespace Peni.Data.ViewModel
 		/// Gets the new step goal.
 		/// </summary>
 		/// <value>The new step goal.</value>
-		public HealthTestViewModel NewStepGoal{
+		public AddWaterViewModel AddWater{
 			get {
-				return ServiceLocator.Current.GetInstance<HealthTestViewModel> ();
+				return ServiceLocator.Current.GetInstance<AddWaterViewModel> ();
 			}
 		}
 

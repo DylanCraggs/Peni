@@ -72,8 +72,8 @@
     <Compile Include="HealthDashboardTest.xaml.cs">
       <DependentUpon>HealthDashboardTest.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HealthyBuziness\AddWater.xaml.cs">
-      <DependentUpon>AddWater.xaml</DependentUpon>
+    <Compile Include="AddWater.xaml.cs">
+      <DependentUpon>AddWaterPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
@@ -148,7 +148,7 @@
     <EmbeddedResource Include="HealthDashboardTest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="HealthyBuziness\AddWater.xaml">
+    <EmbeddedResource Include="AddWaterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
