@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Peni.Data
 {
 	public interface ILocation
 	{
-		double GetLat();
-		double GetLng();
+		Task<double> GetLat();
+		Task<double> GetLng();
 	}
 }
 

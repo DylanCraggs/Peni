@@ -144,13 +144,17 @@ namespace Peni
 			Master = menuPage;
 			Detail = new MapPage();
 
-			Debug.WriteLine (DependencyService.Get<ILocation> ().GetLat ());
-			Debug.WriteLine (DependencyService.Get<ILocation> ().GetLng ());
+			PrintPosition ();
 
 			menuPage.Menu.ItemTapped += (sender, e) => {
 				menuPage.Menu.SelectedItem = null;
 				this.IsPresented = false;
 			};
+		}
+
+		private async void PrintPosition() {
+			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
+			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
 		}
 	}
 }

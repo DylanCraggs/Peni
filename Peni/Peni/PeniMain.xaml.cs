@@ -43,7 +43,7 @@ namespace Peni
 
 			mapIcon.Clicked+= async (sender, e) => 
 			{
-				await Navigation.PushAsync(new MapPage());
+				await Navigation.PushAsync(new MapPageMasterDetail());
 			};
 
 			//Logic to change peni expression (img). Must be finished after implementing health database and logic
