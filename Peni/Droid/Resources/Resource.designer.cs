@@ -1854,82 +1854,85 @@ namespace Peni.Droid
 			public const int logo_app = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int mfp_icon = 2130837654;
+			public const int maps_icon = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int minus = 2130837655;
+			public const int mfp_icon = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int mr_ic_cast_dark = 2130837656;
+			public const int minus = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int mr_ic_cast_light = 2130837657;
+			public const int mr_ic_cast_dark = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int mr_ic_media_route_connecting_mono_dark = 2130837658;
+			public const int mr_ic_cast_light = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int mr_ic_media_route_connecting_mono_light = 2130837659;
+			public const int mr_ic_media_route_connecting_mono_dark = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int mr_ic_media_route_mono_dark = 2130837660;
+			public const int mr_ic_media_route_connecting_mono_light = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int mr_ic_media_route_mono_light = 2130837661;
+			public const int mr_ic_media_route_mono_dark = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int mr_ic_pause_dark = 2130837662;
+			public const int mr_ic_media_route_mono_light = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int mr_ic_pause_light = 2130837663;
+			public const int mr_ic_pause_dark = 2130837663;
 			
 			// aapt resource value: 0x7f0200a0
-			public const int mr_ic_play_dark = 2130837664;
+			public const int mr_ic_pause_light = 2130837664;
 			
 			// aapt resource value: 0x7f0200a1
-			public const int mr_ic_play_light = 2130837665;
+			public const int mr_ic_play_dark = 2130837665;
 			
 			// aapt resource value: 0x7f0200a2
-			public const int mr_ic_settings_dark = 2130837666;
+			public const int mr_ic_play_light = 2130837666;
 			
 			// aapt resource value: 0x7f0200a3
-			public const int mr_ic_settings_light = 2130837667;
+			public const int mr_ic_settings_dark = 2130837667;
 			
 			// aapt resource value: 0x7f0200a4
-			public const int notFavorite = 2130837668;
-			
-			// aapt resource value: 0x7f0200af
-			public const int notification_template_icon_bg = 2130837679;
+			public const int mr_ic_settings_light = 2130837668;
 			
 			// aapt resource value: 0x7f0200a5
-			public const int peni_feelings = 2130837669;
+			public const int notFavorite = 2130837669;
+			
+			// aapt resource value: 0x7f0200b0
+			public const int notification_template_icon_bg = 2130837680;
 			
 			// aapt resource value: 0x7f0200a6
-			public const int peni_happy = 2130837670;
+			public const int peni_feelings = 2130837670;
 			
 			// aapt resource value: 0x7f0200a7
-			public const int peni_hungry = 2130837671;
+			public const int peni_happy = 2130837671;
 			
 			// aapt resource value: 0x7f0200a8
-			public const int peni_thirsty = 2130837672;
+			public const int peni_hungry = 2130837672;
 			
 			// aapt resource value: 0x7f0200a9
-			public const int plus = 2130837673;
+			public const int peni_thirsty = 2130837673;
 			
 			// aapt resource value: 0x7f0200aa
-			public const int settings = 2130837674;
+			public const int plus = 2130837674;
 			
 			// aapt resource value: 0x7f0200ab
-			public const int temp_goalweight = 2130837675;
+			public const int settings = 2130837675;
 			
 			// aapt resource value: 0x7f0200ac
-			public const int temp_linegraph = 2130837676;
+			public const int temp_goalweight = 2130837676;
 			
 			// aapt resource value: 0x7f0200ad
-			public const int temp_piechart = 2130837677;
+			public const int temp_linegraph = 2130837677;
 			
 			// aapt resource value: 0x7f0200ae
-			public const int ThreadCommentIcon = 2130837678;
+			public const int temp_piechart = 2130837678;
+			
+			// aapt resource value: 0x7f0200af
+			public const int ThreadCommentIcon = 2130837679;
 			
 			static Drawable()
 			{
@@ -1944,8 +1947,8 @@ namespace Peni.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f090062
-			public const int action0 = 2131296354;
+			// aapt resource value: 0x7f090065
+			public const int action0 = 2131296357;
 			
 			// aapt resource value: 0x7f090045
 			public const int action_bar = 2131296325;
@@ -1971,8 +1974,8 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f090046
 			public const int action_context_bar = 2131296326;
 			
-			// aapt resource value: 0x7f090066
-			public const int action_divider = 2131296358;
+			// aapt resource value: 0x7f090069
+			public const int action_divider = 2131296361;
 			
 			// aapt resource value: 0x7f090003
 			public const int action_menu_divider = 2131296259;
@@ -1992,6 +1995,9 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09002b
 			public const int activity_chooser_view_content = 2131296299;
 			
+			// aapt resource value: 0x7f090056
+			public const int address_text = 2131296342;
+			
 			// aapt resource value: 0x7f09000f
 			public const int adjust_height = 2131296271;
 			
@@ -2004,8 +2010,8 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f090021
 			public const int always = 2131296289;
 			
-			// aapt resource value: 0x7f09005a
-			public const int art = 2131296346;
+			// aapt resource value: 0x7f09005d
+			public const int art = 2131296349;
 			
 			// aapt resource value: 0x7f09001e
 			public const int beginning = 2131296286;
@@ -2013,17 +2019,17 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09003b
 			public const int buttonPanel = 2131296315;
 			
-			// aapt resource value: 0x7f09005f
-			public const int buttons = 2131296351;
+			// aapt resource value: 0x7f090062
+			public const int buttons = 2131296354;
 			
-			// aapt resource value: 0x7f090063
-			public const int cancel_action = 2131296355;
+			// aapt resource value: 0x7f090066
+			public const int cancel_action = 2131296358;
 			
 			// aapt resource value: 0x7f09003d
 			public const int checkbox = 2131296317;
 			
-			// aapt resource value: 0x7f090069
-			public const int chronometer = 2131296361;
+			// aapt resource value: 0x7f09006c
+			public const int chronometer = 2131296364;
 			
 			// aapt resource value: 0x7f090022
 			public const int collapseActionView = 2131296290;
@@ -2043,14 +2049,14 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09002e
 			public const int default_activity_button = 2131296302;
 			
-			// aapt resource value: 0x7f090059
-			public const int default_control_frame = 2131296345;
+			// aapt resource value: 0x7f09005c
+			public const int default_control_frame = 2131296348;
 			
 			// aapt resource value: 0x7f090013
 			public const int disableHome = 2131296275;
 			
-			// aapt resource value: 0x7f090060
-			public const int disconnect = 2131296352;
+			// aapt resource value: 0x7f090063
+			public const int disconnect = 2131296355;
 			
 			// aapt resource value: 0x7f090047
 			public const int edit_query = 2131296327;
@@ -2058,14 +2064,17 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09001f
 			public const int end = 2131296287;
 			
-			// aapt resource value: 0x7f09006e
-			public const int end_padder = 2131296366;
+			// aapt resource value: 0x7f090071
+			public const int end_padder = 2131296369;
 			
 			// aapt resource value: 0x7f09002c
 			public const int expand_activities_button = 2131296300;
 			
 			// aapt resource value: 0x7f09003c
 			public const int expanded_menu = 2131296316;
+			
+			// aapt resource value: 0x7f090055
+			public const int get_address_button = 2131296341;
 			
 			// aapt resource value: 0x7f090005
 			public const int home = 2131296261;
@@ -2085,17 +2094,17 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09002d
 			public const int image = 2131296301;
 			
-			// aapt resource value: 0x7f09006d
-			public const int info = 2131296365;
+			// aapt resource value: 0x7f090070
+			public const int info = 2131296368;
 			
 			// aapt resource value: 0x7f090000
 			public const int item_touch_helper_previous_elevation = 2131296256;
 			
-			// aapt resource value: 0x7f090067
-			public const int line1 = 2131296359;
+			// aapt resource value: 0x7f09006a
+			public const int line1 = 2131296362;
 			
-			// aapt resource value: 0x7f09006b
-			public const int line3 = 2131296363;
+			// aapt resource value: 0x7f09006e
+			public const int line3 = 2131296366;
 			
 			// aapt resource value: 0x7f090011
 			public const int listMode = 2131296273;
@@ -2103,20 +2112,23 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09002f
 			public const int list_item = 2131296303;
 			
-			// aapt resource value: 0x7f090065
-			public const int media_actions = 2131296357;
-			
-			// aapt resource value: 0x7f090058
-			public const int media_route_control_frame = 2131296344;
-			
 			// aapt resource value: 0x7f090054
-			public const int media_route_list = 2131296340;
+			public const int location_text = 2131296340;
 			
-			// aapt resource value: 0x7f09005d
-			public const int media_route_volume_layout = 2131296349;
+			// aapt resource value: 0x7f090068
+			public const int media_actions = 2131296360;
 			
-			// aapt resource value: 0x7f09005e
-			public const int media_route_volume_slider = 2131296350;
+			// aapt resource value: 0x7f09005b
+			public const int media_route_control_frame = 2131296347;
+			
+			// aapt resource value: 0x7f090057
+			public const int media_route_list = 2131296343;
+			
+			// aapt resource value: 0x7f090060
+			public const int media_route_volume_layout = 2131296352;
+			
+			// aapt resource value: 0x7f090061
+			public const int media_route_volume_slider = 2131296353;
 			
 			// aapt resource value: 0x7f090020
 			public const int middle = 2131296288;
@@ -2139,8 +2151,8 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f090032
 			public const int parentPanel = 2131296306;
 			
-			// aapt resource value: 0x7f09005b
-			public const int play_pause = 2131296347;
+			// aapt resource value: 0x7f09005e
+			public const int play_pause = 2131296350;
 			
 			// aapt resource value: 0x7f090006
 			public const int progress_circular = 2131296262;
@@ -2151,8 +2163,8 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09003f
 			public const int radio = 2131296319;
 			
-			// aapt resource value: 0x7f090056
-			public const int route_name = 2131296342;
+			// aapt resource value: 0x7f090059
+			public const int route_name = 2131296345;
 			
 			// aapt resource value: 0x7f09000d
 			public const int satellite = 2131296269;
@@ -2196,8 +2208,8 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f090053
 			public const int select_dialog_listview = 2131296339;
 			
-			// aapt resource value: 0x7f090057
-			public const int settings = 2131296343;
+			// aapt resource value: 0x7f09005a
+			public const int settings = 2131296346;
 			
 			// aapt resource value: 0x7f09003e
 			public const int shortcut = 2131296318;
@@ -2223,17 +2235,17 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09001d
 			public const int src_over = 2131296285;
 			
-			// aapt resource value: 0x7f090064
-			public const int status_bar_latest_event_content = 2131296356;
+			// aapt resource value: 0x7f090067
+			public const int status_bar_latest_event_content = 2131296359;
 			
-			// aapt resource value: 0x7f090061
-			public const int stop = 2131296353;
+			// aapt resource value: 0x7f090064
+			public const int stop = 2131296356;
 			
 			// aapt resource value: 0x7f090050
 			public const int submit_area = 2131296336;
 			
-			// aapt resource value: 0x7f09005c
-			public const int subtitle = 2131296348;
+			// aapt resource value: 0x7f09005f
+			public const int subtitle = 2131296351;
 			
 			// aapt resource value: 0x7f090012
 			public const int tabMode = 2131296274;
@@ -2241,23 +2253,23 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f09000e
 			public const int terrain = 2131296270;
 			
-			// aapt resource value: 0x7f09006c
-			public const int text = 2131296364;
+			// aapt resource value: 0x7f09006f
+			public const int text = 2131296367;
 			
-			// aapt resource value: 0x7f09006a
-			public const int text2 = 2131296362;
+			// aapt resource value: 0x7f09006d
+			public const int text2 = 2131296365;
 			
 			// aapt resource value: 0x7f090038
 			public const int textSpacerNoButtons = 2131296312;
 			
-			// aapt resource value: 0x7f090068
-			public const int time = 2131296360;
+			// aapt resource value: 0x7f09006b
+			public const int time = 2131296363;
 			
 			// aapt resource value: 0x7f090031
 			public const int title = 2131296305;
 			
-			// aapt resource value: 0x7f090055
-			public const int title_bar = 2131296341;
+			// aapt resource value: 0x7f090058
+			public const int title_bar = 2131296344;
 			
 			// aapt resource value: 0x7f090034
 			public const int title_template = 2131296308;
@@ -2394,49 +2406,52 @@ namespace Peni.Droid
 			public const int abc_select_dialog_material = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int mr_media_route_chooser_dialog = 2130903064;
+			public const int Main = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int mr_media_route_controller_material_dialog_b = 2130903065;
+			public const int mr_media_route_chooser_dialog = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int mr_media_route_list_item = 2130903066;
+			public const int mr_media_route_controller_material_dialog_b = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int notification_media_action = 2130903067;
+			public const int mr_media_route_list_item = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int notification_media_cancel_action = 2130903068;
+			public const int notification_media_action = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int notification_template_big_media = 2130903069;
+			public const int notification_media_cancel_action = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int notification_template_big_media_narrow = 2130903070;
+			public const int notification_template_big_media = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int notification_template_lines = 2130903071;
+			public const int notification_template_big_media_narrow = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int notification_template_media = 2130903072;
+			public const int notification_template_lines = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int notification_template_part_chronometer = 2130903073;
+			public const int notification_template_media = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int notification_template_part_time = 2130903074;
+			public const int notification_template_part_chronometer = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int select_dialog_item_material = 2130903075;
+			public const int notification_template_part_time = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int select_dialog_multichoice_material = 2130903076;
+			public const int select_dialog_item_material = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int select_dialog_singlechoice_material = 2130903077;
+			public const int select_dialog_multichoice_material = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int support_simple_spinner_dropdown_item = 2130903078;
+			public const int select_dialog_singlechoice_material = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int support_simple_spinner_dropdown_item = 2130903079;
 			
 			static Layout()
 			{

@@ -3,6 +3,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using System.Diagnostics;
 using Geolocator;
+using XLabs.Platform.Device;
+using XLabs.Platform;
+using XLabs.Ioc;
+using XLabs.Platform.Services.Geolocation; 
+
 
 namespace Peni
 {
@@ -12,6 +17,7 @@ namespace Peni
 
 		public MapPage ()
 		{
+			
 			map = new Map { 
 				IsShowingUser = true,
 				HeightRequest = 100,
@@ -23,22 +29,65 @@ namespace Peni
 //			map.MoveToRegion (MapSpan.FromCenterAndRadius (
 //				new Position (37, -122), Distance.FromMiles (0.3)));
 			// or create a new MapSpan object directly
+			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (-27.471011, 153.023449), Distance.FromMiles (4.2)));
+			//map.MoveToRegion (new MapSpan (new Xamarin.Forms.Maps.Position (-27.3971367,153.0194722), 500, 360) );
 
-			map.MoveToRegion (new MapSpan (new Position (36.9628066,-122.0194722), 360, 360) );
-
-
-			//Geocoder geocoder = new Geocoder (this);
-			var position = new Position(36.9628066,-122.0194722); // Latitude, Longitude
-			var pin = new Pin {
-				Type = PinType.Place,
+			var position = new Xamarin.Forms.Maps.Position(-27.471011, 153.023449); // Latitude, Longitude
+			var userPin = new Pin {
+				Type = PinType.Generic,
 				//Resource = "",
 				Position = position,
-				Label = "Santa Cruz",
-				Address = "custom detail info"
+				Label = "This user",
+				Address = "Stage 3"
 			};
-			map.Pins.Add(pin);
+			map.Pins.Add(userPin);
 
-			/*/ create map style buttons
+
+			var latitudeUser = userPin.Position.Latitude;
+			var longitudeUser = userPin.Position.Longitude;
+			var km = 5;
+			var longitudeMin = longitudeUser - (km/111.321);
+			var longitudeMax = longitudeUser + (km/111.321);
+			var latitudeMin = latitudeUser - (km/111.0);
+			var latitudeMax = latitudeUser + (km/111.0);
+			Pin[] pinSet = {
+				new Pin {
+					Type = PinType.Generic,
+					//Resource = "",
+					Position = new Xamarin.Forms.Maps.Position(-27.468931, 153.028457),
+					Label = "User Name 1 ",
+					Address = "Stage 3"
+				},
+				new Pin {
+					Type = PinType.Generic,
+					//Resource = "",
+					Position = new Xamarin.Forms.Maps.Position(-27.474642, 153.019316),
+					Label = "User Name 2",
+					Address = "Stage 3"
+				},
+				new Pin {
+					Type = PinType.Generic,
+					//Resource = "",
+					Position = new Xamarin.Forms.Maps.Position(-27.482866, 153.032877),
+					Label = "User Name 3",
+					Address = "Stage 3"
+				},
+				new Pin {
+					Type = PinType.Generic,
+					//Resource = "",
+					Position = new Xamarin.Forms.Maps.Position(-27.451866, 153.043585),
+					Label = "User Name 4",
+					Address = "Stage 3"
+				}
+
+			};
+			foreach (var myPin in pinSet) {
+				if(((myPin.Position.Latitude >= latitudeMin) && (myPin.Position.Latitude <= latitudeMax)) && ((myPin.Position.Longitude >= longitudeMin) && (myPin.Position.Longitude <= longitudeMax)))
+					map.Pins.Add(myPin);
+			}
+			
+
+			/* create map style buttons
 			var street = new Button { Text = "Street" };
 			var hybrid = new Button { Text = "Hybrid" };
 			var satellite = new Button { Text = "Satellite" };
@@ -59,12 +108,12 @@ namespace Peni
 			Content = stack;
 
 
-			// for debugging output only
+			/* for debugging output only
 			map.PropertyChanged += (sender, e) => {
 				Debug.WriteLine(e.PropertyName + " just changed!");
 				if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
 					CalculateBoundingCoordinates (map.VisibleRegion);
-			};
+			};*/
 		}
 
 		void HandleClicked (object sender, EventArgs e)
@@ -82,35 +131,22 @@ namespace Peni
 				break;
 			}
 		}
+	
+	}
 
-
-
-		/// <summary>
-		/// In response to this forum question http://forums.xamarin.com/discussion/22493/maps-visibleregion-bounds
-		/// Useful if you need to send the bounds to a web service or otherwise calculate what
-		/// pins might need to be drawn inside the currently visible viewport.
-		/// </summary>
-		static void CalculateBoundingCoordinates (MapSpan region)
+	public class MapPageMasterDetail : MasterDetailPage
+	{
+		public MapPageMasterDetail()
 		{
-			// WARNING: I haven't tested the correctness of this exhaustively!
-			var center = region.Center;
-			var halfheightDegrees = region.LatitudeDegrees / 2;
-			var halfwidthDegrees = region.LongitudeDegrees / 2;
+			Title = "Peni Garden";
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			Detail = new MapPage();
 
-			var left = center.Longitude - halfwidthDegrees;
-			var right = center.Longitude + halfwidthDegrees;
-			var top = center.Latitude + halfheightDegrees;
-			var bottom = center.Latitude - halfheightDegrees;
-
-			// Adjust for Internation Date Line (+/- 180 degrees longitude)
-			if (left < -180) left = 180 + (180 + left);
-			if (right > 180) right = (right - 180) - 180;
-			// I don't wrap around north or south; I don't think the map control allows this anyway
-
-			Debug.WriteLine ("Bounding box:");
-			Debug.WriteLine ("                    " + top);
-			Debug.WriteLine ("  " + left + "                " + right);
-			Debug.WriteLine ("                    " + bottom);
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
 		}
 	}
 }

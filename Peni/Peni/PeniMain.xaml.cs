@@ -20,11 +20,31 @@ namespace Peni
 			Image peni = new Image
 			{
 				
-				HeightRequest = 400,
+				HeightRequest = 420,
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
 				BackgroundColor = Color.White
 			};
+
+
+
+			Button mapIcon = new Button
+			{
+
+				HeightRequest = 80,
+				WidthRequest = 100,
+				VerticalOptions = LayoutOptions.End,
+				HorizontalOptions = LayoutOptions.End,
+				BackgroundColor = Color.Transparent,
+				Image = "maps_icon.png",
+
+			};
+
+			mapIcon.Clicked+= async (sender, e) => 
+			{
+				await Navigation.PushAsync(new MapPage());
+			};
+
 			//Logic to change peni expression (img). Must be finished after implementing health database and logic
 			//1 == Defaul expression (Happy)/ 2 == thirsty / 3 == Hungry / 4 == Feelings (Journal)
 			int expression = 1;
@@ -55,14 +75,26 @@ namespace Peni
 			Grid.SetColumn (peni, 0);
 			Grid.SetColumnSpan (peni, 3);
 
+			myGrid.Children.Add (mapIcon);
+			Grid.SetRow (mapIcon, 1);
+			Grid.SetColumn (mapIcon, 2);
+
 			//If there's water notification, then display image. Must be finished the logic with the database
 			if (true) {
-				Image waterNotification = new Image {
-					Source = ImageSource.FromFile ("cloud_water.png"),
+				Button waterNotification = new Button
+				{
+
 					HeightRequest = 100,
-					VerticalOptions = LayoutOptions.Center,
-					HorizontalOptions = LayoutOptions.Center,
-					BackgroundColor = Color.White
+					VerticalOptions = LayoutOptions.End,
+					HorizontalOptions = LayoutOptions.End,
+					BackgroundColor = Color.Transparent,
+					Image = "cloud_water.png",
+
+				};
+
+				waterNotification.Clicked+= async (sender, e) => 
+				{
+					await Navigation.PushAsync(new AddWaterPage());
 				};
 
 				myGrid.Children.Add (waterNotification);
@@ -72,14 +104,21 @@ namespace Peni
 
 			//If there's food notification, then display image. Must be finished the logic with the database
 			if (true) {
-				Image foodNotification = new Image {
-					Source = ImageSource.FromFile ("cloud_food.png"),
+				Button foodNotification = new Button
+				{
+
 					HeightRequest = 100,
-					VerticalOptions = LayoutOptions.Center,
-					HorizontalOptions = LayoutOptions.Center,
-					BackgroundColor = Color.White
+					VerticalOptions = LayoutOptions.End,
+					HorizontalOptions = LayoutOptions.End,
+					BackgroundColor = Color.Transparent,
+					Image = "cloud_food.png",
+
 				};
 
+				foodNotification.Clicked+= async (sender, e) => 
+				{
+					await Navigation.PushAsync(new HealthDashboard());
+				};
 
 				myGrid.Children.Add (foodNotification);
 				Grid.SetRow (foodNotification, 0);
@@ -88,17 +127,25 @@ namespace Peni
 
 			//If there's other notification, then display image. Must be finished the logic with the database
 			if (true) {
-				Image otherNotification = new Image {
-					Source = ImageSource.FromFile ("cloud_feelings.png"),
+				Button feelingsNotification = new Button
+				{
+
 					HeightRequest = 100,
-					VerticalOptions = LayoutOptions.Center,
-					HorizontalOptions = LayoutOptions.Center,
-					BackgroundColor = Color.White
+					VerticalOptions = LayoutOptions.End,
+					HorizontalOptions = LayoutOptions.End,
+					BackgroundColor = Color.Transparent,
+					Image = "cloud_feelings.png",
+
 				};
 
-				myGrid.Children.Add (otherNotification);
-				Grid.SetRow (otherNotification, 0);
-				Grid.SetColumn (otherNotification, 1);
+				feelingsNotification.Clicked+= async (sender, e) => 
+				{
+					await Navigation.PushAsync(new HealthDashboard());
+				};
+
+				myGrid.Children.Add (feelingsNotification);
+				Grid.SetRow (feelingsNotification, 0);
+				Grid.SetColumn (feelingsNotification, 1);
 			}
 
 
