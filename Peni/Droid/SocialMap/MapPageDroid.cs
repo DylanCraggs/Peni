@@ -12,11 +12,14 @@ using Android.Util;
 using Android.Widget;
 
 //[assembly: ExportRenderer (typeof (MapPage), typeof (MapPageDroid))]
+using Peni.Data;
+
+
 [assembly: Dependency (typeof (MapPageDroid))]
 namespace Peni.Droid
 {
 	[Activity(Label = "Get Location")]
-	public class MapPageDroid : Activity, ILocationListener
+	public class MapPageDroid : Activity, ILocationListener, ILocation
 	{
 		static readonly string LogTag = "GetLocation";
 		TextView _addressText;
