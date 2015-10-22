@@ -6,7 +6,8 @@ using Geolocator;
 using XLabs.Platform.Device;
 using XLabs.Platform;
 using XLabs.Ioc;
-using XLabs.Platform.Services.Geolocation; 
+using XLabs.Platform.Services.Geolocation;
+using Peni.Data; 
 
 
 namespace Peni
@@ -142,6 +143,9 @@ namespace Peni
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
 			Detail = new MapPage();
+
+			Debug.WriteLine (DependencyService.Get<ILocation> ().GetLat ());
+			Debug.WriteLine (DependencyService.Get<ILocation> ().GetLng ());
 
 			menuPage.Menu.ItemTapped += (sender, e) => {
 				menuPage.Menu.SelectedItem = null;

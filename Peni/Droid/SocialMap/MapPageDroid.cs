@@ -12,6 +12,7 @@ using Android.Util;
 using Android.Widget;
 
 //[assembly: ExportRenderer (typeof (MapPage), typeof (MapPageDroid))]
+[assembly: Dependency (typeof (MapPageDroid))]
 namespace Peni.Droid
 {
 	[Activity(Label = "Get Location")]
@@ -24,6 +25,14 @@ namespace Peni.Droid
 
 		string _locationProvider;
 		TextView _locationText;
+
+		public double GetLat() {
+			return _currentLocation.Latitude;
+		}
+
+		public double GetLng() {
+			return _currentLocation.Longitude;
+		}
 
 		public void OnLocationChanged(Location location)
 		{
