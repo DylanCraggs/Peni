@@ -6,7 +6,7 @@ namespace Peni
 	public class Thread
 	{
 		[PrimaryKey, AutoIncrement]
-		public int id { get; set; }
+		public Guid id { get; set; }
 		public string TopicName { get; set; }
 		public string TopicComments { get; set; }
 		public string TopicAuthor { get; set; }
@@ -28,7 +28,7 @@ namespace Peni
 		/// <param name="number_of_comments">Number of comments.</param>
 		/// <param name="listing_date">Listing date.</param>
 		public Thread (string TopicName, string TopicAuthor,
-						string TopicCreationDate, string TopicPostContent) {
+			string TopicCreationDate, string TopicPostContent) {
 			this.TopicName = TopicName;
 			this.TopicAuthor = TopicAuthor;
 			this.TopicCreationDate = TopicCreationDate;

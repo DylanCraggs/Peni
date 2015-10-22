@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using Peni.Data.ViewModel;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Peni;
 
 namespace Peni.Data
 {
@@ -39,10 +41,12 @@ namespace Peni.Data
 		/// <summary>
 		/// Stores a list of Threads to bind to a list from our view
 		/// </summary>
+		private ObservableCollection<Thread> forumList = new ObservableCollection<Thread>();
 		public ObservableCollection<Thread> ForumList {
-			get { 
-				var database = new ForumsDatabase(); 
-				return new ObservableCollection<Thread>(database.GetAll());
+			get { return forumList; }
+			set { 
+				forumList = value;
+				RaisePropertyChanged (() => ForumList);
 			}
 		}
 
@@ -50,10 +54,12 @@ namespace Peni.Data
 		/// Stores a list of user comments to display in a binding list from our view
 		/// </summary>
 		/// <value>The user comments.</value>
+		private ObservableCollection<UserComment> userComments = new ObservableCollection<UserComment>();
 		public ObservableCollection<UserComment> UserComments {
-			get {
-				var database = new ForumsDatabase ();
-				return new ObservableCollection<UserComment>(database.GetThreadComments(this.RequestedThread.id));
+			get { return userComments; }
+			set {
+				userComments = value;
+				RaisePropertyChanged (() => UserComments);
 			}
 		}
 
@@ -85,8 +91,7 @@ namespace Peni.Data
 		/// Data binding for the thread/topic name
 		/// </summary>
 		private string topicName;
-		public string TopicName
-		{
+		public string TopicName {
 			get { return topicName; }
 			set { 
 				topicName = value;
@@ -183,11 +188,11 @@ namespace Peni.Data
 				this.navigationService.NavigateToModal(ViewModelLocator.ForumsViewThreadPageKey);
 			});
 
-			LeaveCommentCommand = new Command (() => {
+			LeaveCommentCommand = new Command (x => {
 				if(RequestedThread == null)
 					return;
 				var database = new ForumsDatabase();
-				UserComment comment = new UserComment(RequestedThread.id, "Anonymous", userCommentInput, DateTime.Now.ToString());
+				UserComment comment = new UserComment(this.RequestedThread.id, Globals.UserSession.Username, userCommentInput, DateTime.Now.ToString());
 				database.InsertComment(comment);
 				UpdateThreadComments(this.RequestedThread.id);
 			});
@@ -229,11 +234,10 @@ namespace Peni.Data
 		/// Updates the thread comments given the thread id.
 		/// </summary>
 		/// <param name="threadid">ThreadID for comments to update on.</param>
-		private void UpdateThreadComments(int threadid) {
+		private async void UpdateThreadComments(Guid threadid) {
 			ForumsDatabase database = new ForumsDatabase ();
-			this.threadComments = database.GetThreadComments (threadid);
+			this.threadComments = await database.GetThreadComments (threadid);
 			this.userCommentInput = null;
-			RaisePropertyChanged (() => ThreadComments);
 		}
 
 		/// <summary>
@@ -255,10 +259,43 @@ namespace Peni.Data
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		public void OnAppearing(){
-			Debug.WriteLine ("ForumPageViewModel : OnAppearing");
-			RaisePropertyChanged (() => ForumList);
-			RaisePropertyChanged (() => UserComments);
+		public async void OnAppearing() {
+			// Create connection toe database and get all threads
+			ForumsDatabase database = new ForumsDatabase ();
+			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
+		
+			// Try and pull comments relating to a thread
+			try {
+				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString());
+			}
+		}
+
+		/// <summary>
+		/// Views a users threads based on their username.
+		/// </summary>
+		public async void ViewMyThreads() {
+			ForumsDatabase database = new ForumsDatabase ();
+
+			try {
+				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Username.ToLower()));
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
+			}
+		}
+
+		/// <summary>
+		/// Shows user threads based on their favorites.
+		/// </summary>
+		public async void ViewMyFavorites() {
+			ForumsDatabase database = new ForumsDatabase ();
+
+			try {
+				ForumList = new ObservableCollection<Thread> (await database.GetUserFavorites());
+			} catch (Exception ex) {
+				Debug.WriteLine (ex.Message.ToString ());
+			}
 		}
 	}
 }

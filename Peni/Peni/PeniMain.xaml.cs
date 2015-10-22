@@ -1,3 +1,4 @@
+
 ﻿using System;
 using Xamarin.Forms;
 using System.Linq;
@@ -171,5 +172,5 @@ namespace Peni
 			};
 		}
 	}
-
-}// ends namespace
+}
+// ends namespace

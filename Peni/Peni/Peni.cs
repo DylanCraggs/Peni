@@ -10,7 +10,6 @@ namespace Peni
 {
     public class App : Application
     {
-
 		private static ViewModelLocator _locator;
 		private static NavigationService nav;
 		public static ViewModelLocator Locator
@@ -30,6 +29,12 @@ namespace Peni
 		{
 			nav = new NavigationService ();
 
+			// If we are running in debug mode attempt to setup our inital data
+			// Condition is done inside methods/function so we prevent duplicate entries
+			#if DEBUG
+			SetupDeveloperAccounts();
+			#endif
+
 			// Configure the page keys in ViewModelLocator with the classes
 			nav.Configure (ViewModelLocator.LoginPageKey, typeof(Login));
 			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMainContet));
@@ -43,11 +48,22 @@ namespace Peni
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new PeniMasterDetail() );
+			var navPage = new NavigationPage(new Login() );
 
 			nav.Initialize (navPage);
 
 			return navPage;
+		}
+
+		private void SetupDeveloperAccounts() {
+			ProfileDatabase profileDb = new ProfileDatabase();
+
+			profileDb.InsertProfile(new Account("dylan@admin.com", "Dylan", "password", 3, "Admin Account Bio", "Admin Account Status", true));
+			profileDb.InsertProfile(new Account("sarah@admin.com", "Sarah", "password", 7, "Admin Account Bio", "Admin Account Status", true));
+			profileDb.InsertProfile(new Account("yuet@admin.com", "Yuet", "password", 5, "Admin Account Bio", "Admin Account Status", true));
+			profileDb.InsertProfile(new Account("leandro@admin.com", "Leandro", "password", 1, "Admin Account Bio", "Admin Account Status", false));
+			profileDb.InsertProfile(new Account("michaela@admin.com", "Michaela", "password", 2, "Admin Account Bio", "Admin Account Status", false));
+
 		}
 
 

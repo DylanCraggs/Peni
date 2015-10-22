@@ -22,13 +22,30 @@ namespace Peni
 		/// </summary>
 		public Forums ()
 		{
-			BindingContext = App.Locator.ForumsListPage;
 			InitializeComponent ();
+			BindingContext = App.Locator.ForumsListPage;
 
 			CreateToolbar ();
 			CreateFAB ();
 
-			Title = "Forums";
+			this.Title = "Forums";
+		}
+
+		/// <summary>
+		/// Adds or removes a thread from a users favorite list
+		/// </summary>
+		/// <param name="sender">Sending object.</param>
+		/// <param name="e">Event arguments.</param>
+		public void FavTapped(object sender, EventArgs e)
+		{
+			var button = sender as Image;
+			var buttonParent = button.Parent;// as Thread;
+			var source = (Thread)buttonParent.BindingContext;
+
+			ForumsDatabase database = new ForumsDatabase ();
+			database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+
+			//DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
 		}
 
 		/// <summary>
@@ -38,16 +55,19 @@ namespace Peni
 			ToolbarItems.Add (new ToolbarItem("My Home", "My Home", () => {
 				Debug.WriteLine("My Home Pressed");
 				// Run command to show all threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing();
 			}, ToolbarItemOrder.Secondary, 0));
 
 			ToolbarItems.Add (new ToolbarItem("My Favorites", "My Favorites", () => {
 				Debug.WriteLine("My Favorites Pressed");
 				// Run command to show users favorite threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().ViewMyFavorites();
 			}, ToolbarItemOrder.Secondary, 0));
 
 			ToolbarItems.Add (new ToolbarItem("My Threads", "My Threads", () => {
 				Debug.WriteLine("My Threads Pressed");
 				// Run command to show users threads from the forum view model
+				ServiceLocator.Current.GetInstance<ForumPageViewModel>().ViewMyThreads();
 			}, ToolbarItemOrder.Secondary, 0));
 		}
 
@@ -94,6 +114,9 @@ namespace Peni
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">Event.</param>
 		protected void listItemClicked(object sender, EventArgs e) {
+			// Stop the orange background showing up
+			ForumListView.SelectedItem = null;
+
 			Cell sendingItem; 
 
 			// Attempt to store cell requested in sendingItem
@@ -108,24 +131,20 @@ namespace Peni
 			var thread = (Thread)sendingItem.BindingContext;
 
 			// Grab the command interface and create a command from it
-			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand (thread);
+			Command cmd = (Command)App.Locator.ForumsListPage.GetGoToThreadCommand(thread);
 			if (cmd.CanExecute (cmd)) {
 				cmd.Execute (cmd);
 			}
-
-			// Show the requested by parsing the object
-			//Navigation.PushAsync(new ForumThreadPage(thread));
 		}
 
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		protected override void OnAppearing ()
-		{
+		protected override void OnAppearing() {
 			base.OnAppearing ();
-			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
+			var viewmodel = ServiceLocator.Current.GetInstance<ForumPageViewModel>();
+			viewmodel.OnAppearing();
 		}
-
 	}
 
 	/// <summary>
@@ -133,14 +152,6 @@ namespace Peni
 	/// </summary>
 	public class PeniForums : MasterDetailPage
 	{
-		/// <summary>
-		/// Raises the appearing event.
-		/// </summary>
-		protected override void OnAppearing ()
-		{
-			base.OnAppearing ();
-			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
@@ -150,7 +161,7 @@ namespace Peni
 			Detail = new Forums();
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
-			Title = "Forums";
+			this.Title = "Forums";
 
 			// ItemTapped event handler for the side menu
 			menuPage.Menu.ItemTapped += (sender, e) => {

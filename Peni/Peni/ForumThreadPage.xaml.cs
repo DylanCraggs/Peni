@@ -40,8 +40,13 @@ namespace Peni
 		/// <summary>
 		/// Updates the view.
 		/// </summary>
-		private void UpdateView()
+		protected override void OnAppearing()
 		{
+			CommentBox.Text = "";
+			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
+		}
+
+		private void UpdateView() {
 			CommentBox.Text = "";
 			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
 		}

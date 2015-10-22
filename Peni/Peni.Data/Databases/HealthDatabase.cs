@@ -10,6 +10,7 @@ namespace Peni.Data
 	public class HealthDatabase
 	{
 		
+		SQLiteConnection Connection;
 		SQLiteConnection database;
 
 		/// <summary>
@@ -17,6 +18,19 @@ namespace Peni.Data
 		/// </summary>
 		/// 
 		public HealthDatabase () {
+			Connection = DependencyService.Get<ISQLite> ().GetConnection ();
+
+			// Check if Thread table exists, if not create it
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(DWI).Name)) {
+				Connection.CreateTable<DWI> ();
+				Connection.Commit ();
+			}
+
+			// Check if UserComment table exists, if not create it
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(Goals).Name)) {
+				Connection.CreateTable<Goals> ();
+				Connection.Commit ();
+			}
 			database = DependencyService.Get<ISQLite> ().GetConnection ();
 
 			// Check if Thread table exists, if not create it
@@ -52,11 +66,15 @@ namespace Peni.Data
 
 
 
+		//
+		public int InsertGoals(Goals goals) {
+			return Connection.Insert (goals);
+		}
 
-
-
-
-
+		public List<Goals> GetGoals() {
+			var items = Connection.Table<Goals>().ToList();
+			return items;
+		}
 	}
 }
 

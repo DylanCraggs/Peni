@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Peni.Data;
+using System.Diagnostics;
 
 namespace Peni
 {
@@ -10,20 +12,7 @@ namespace Peni
 		public Login ()
 		{
 			InitializeComponent ();
-		}
-
-		protected void ButtonClicked(object sender, EventArgs e)
-		{
-			// These conditions need to be changed once the database is setup
-			if (entryUsername.Text != null) {
-				if (entryPassword.Text != null) {
-					Navigation.PushModalAsync (new PeniMasterDetail ());
-				} else {
-					loginLabel.Text = "Please Enter Username and / or Password Again";
-				}
-
-			}
-
+			BindingContext = App.Locator.LoginPage;
 		}
 	}
 
