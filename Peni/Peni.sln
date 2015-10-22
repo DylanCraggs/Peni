@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peni.Droid", "Droid\Peni.Dr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peni.Data", "Peni.Data\Peni.Data.csproj", "{55CC5260-5009-4B6A-A4A0-81C81678554B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peni.Tests", "Peni.Tests\Peni.Tests.csproj", "{68CB588A-C057-4465-93E4-C6A674391F27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{55CC5260-5009-4B6A-A4A0-81C81678554B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55CC5260-5009-4B6A-A4A0-81C81678554B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55CC5260-5009-4B6A-A4A0-81C81678554B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68CB588A-C057-4465-93E4-C6A674391F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68CB588A-C057-4465-93E4-C6A674391F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68CB588A-C057-4465-93E4-C6A674391F27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68CB588A-C057-4465-93E4-C6A674391F27}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC85F74-177E-4DB7-96A4-92998DFCF0DB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
