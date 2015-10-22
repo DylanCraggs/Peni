@@ -87,6 +87,15 @@ namespace Peni.Data
 				ErrorMessage = "Invalid username or password.";
 			}
 		}
+
+		public ICommand GetLoginCommand() {
+			return SubmitLoginCommand;
+		}
+
+		public void SetLogin(string username, string password) {
+			Username = username;
+			Password = password;
+		}
 	}
 }
 
