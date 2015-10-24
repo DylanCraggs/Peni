@@ -97,7 +97,7 @@ namespace Peni.Data
 
 			// Add a command to our logout navigation ICommand
 			NavigateToLogout = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.LoginPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
 			});
 			// End of command actions

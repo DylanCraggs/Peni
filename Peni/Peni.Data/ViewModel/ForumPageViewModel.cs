@@ -277,7 +277,6 @@ namespace Peni.Data
 		/// </summary>
 		public async void ViewMyThreads() {
 			ForumsDatabase database = new ForumsDatabase ();
-
 			try {
 				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Username.ToLower()));
 			} catch (Exception ex) {
@@ -290,7 +289,6 @@ namespace Peni.Data
 		/// </summary>
 		public async void ViewMyFavorites() {
 			ForumsDatabase database = new ForumsDatabase ();
-
 			try {
 				ForumList = new ObservableCollection<Thread> (await database.GetUserFavorites());
 			} catch (Exception ex) {

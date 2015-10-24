@@ -37,14 +37,12 @@ namespace Peni
 
 			// Configure the page keys in ViewModelLocator with the classes
 			nav.Configure (ViewModelLocator.LoginPageKey, typeof(Login));
-			nav.Configure (ViewModelLocator.MainPageKey, typeof(PeniMainContet));
 			nav.Configure (ViewModelLocator.PeniMasterDetail, typeof(PeniMasterDetail));
 			nav.Configure (ViewModelLocator.ForumsPageKey, typeof(PeniForums));
 			nav.Configure (ViewModelLocator.ForumsNewThreadPageKey, typeof(ForumsNewThread));
 			nav.Configure (ViewModelLocator.MyProfilePageKey, typeof(Profile));
 			nav.Configure (ViewModelLocator.ForumsViewThreadPageKey, typeof(ForumThreadPage));
 			nav.Configure (ViewModelLocator.WaterPageKey, typeof(PeniWater));
-
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
