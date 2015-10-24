@@ -4,6 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Queries;
+using Peni.Data;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace Peni.Tests
 {

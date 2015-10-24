@@ -25,12 +25,10 @@ namespace Peni.Data
 		/// <summary>
 		/// Inserts the profile.
 		/// </summary>
-		/// <returns>The profile.</returns>
-		/// <param name="Profile">Profile.</param>
+		/// <param name="Profile">Profile to add.</param>
 		public async Task InsertProfile(Account Profile) {
 			if (client == null) {
-				Debug.WriteLine ("AddItem Error: Client was null.");
-				return;
+				throw base.CreateClientNullException();
 			}
 
 			if (await ExistingUser (Profile.Email, Profile.Password)) {
@@ -47,11 +45,56 @@ namespace Peni.Data
 		}
 
 		/// <summary>
+		/// Deletes a user profile.
+		/// </summary>
+		/// <param name="Profile">Profile to delete.</param>
+		private async Task DeleteProfile(Account Profile) {
+			if (client == null) {
+				throw base.CreateClientNullException();
+			}
+
+			try {
+				await accountTable.DeleteAsync(Profile);
+				await SyncAsync();
+			} catch (Exception ex) {
+				Debug.WriteLine ("DeleteProfile Error: " + ex.ToString ());
+			}
+		}
+
+		/// <summary>
+		/// Attempts the delete profile.
+		/// </summary>
+		/// <returns>True if profile was delete, false otherwise.</returns>
+		/// <param name="email">Email to search for.</param>
+		/// <param name="password">Password to search for.</param>
+		public async Task<bool> AttemptDeleteProfile(string email, string password) {
+			if (client == null) {
+				throw base.CreateClientNullException ();
+			}
+				
+			List<Account> AccToDelete = new List<Account> (await AttemptLogin (email, password));
+
+			// No account was found to delete
+			if (AccToDelete.Count == 0)
+				return false;
+
+			await DeleteProfile (AccToDelete [0]);
+
+			// Attempt to get the profile (should return nothing)
+			AccToDelete = new List<Account> (await AttemptLogin (email, password));
+			if (AccToDelete.Count != 0 || AccToDelete != null)
+				return false;
+
+			// Nothing was returned
+			return true;
+		}
+
+		/// <summary>
 		/// Gets the thread comments.
 		/// </summary>
 		/// <returns>The thread comments.</returns>
 		/// <param name="ThreadID">Thread I.</param>
-		private async Task<List<Account>> AttemptLogin(string email, string password) {
+		public async Task<List<Account>> AttemptLogin(string email, string password) {
 			if (client == null) {
 				return null;
 			}
@@ -64,6 +107,10 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>The all.</returns>
 		private async Task<List<Account>> GetAll() {
+			if (client == null) {
+				throw base.CreateClientNullException();
+			}
+
 			var result = await client.GetTable<Account>().ToListAsync();
 			return result;
 		}
@@ -75,6 +122,9 @@ namespace Peni.Data
 		/// <param name="email">Email to match.</param>
 		/// <param name="username">Username to match.</param>
 		private async Task<bool> ExistingUser(string email, string username) {
+			if (client == null) {
+				throw base.CreateClientNullException();
+			}
 
 			List<Account> accs = new List<Account> (await client.GetTable<Account> ().Where (x => x.Email.ToLower () == email).ToListAsync ());
 
@@ -91,6 +141,10 @@ namespace Peni.Data
 		/// <param name="email">Email Address.</param>
 		/// <param name="password">Password.</param>
 		public async Task<bool> AttemptLoginAuth(string email, string password) {
+			if (client == null) {
+				throw base.CreateClientNullException();
+			}
+
 			List<Account> accs = new List<Account> (await AttemptLogin(email, password));
 
 			if (accs.Count == 1) {

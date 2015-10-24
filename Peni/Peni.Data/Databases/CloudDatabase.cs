@@ -74,6 +74,14 @@ namespace Peni.Data
 		public async Task OnRefreshItems () {
 			await SyncAsync ();
 		}
+
+		/// <summary>
+		/// Creates the client null exception.
+		/// </summary>
+		/// <returns>New Client null exception.</returns>
+		public Exception CreateClientNullException() {
+			return new Exception ("CloudDatabase Exception: Client was null.");
+		}
 	}
 }
 
