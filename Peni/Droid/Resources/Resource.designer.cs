@@ -253,79 +253,73 @@ namespace Peni.Droid
 			public const int fab_shadow_mini = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int favorite = 2130837532;
+			public const int ic_account_circle_white_48dp = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
-			public const int ic_account_circle_white_48dp = 2130837533;
+			public const int ic_add = 2130837533;
 			
 			// aapt resource value: 0x7f02001e
-			public const int ic_add = 2130837534;
+			public const int ic_favorite_white_48dp = 2130837534;
 			
 			// aapt resource value: 0x7f02001f
-			public const int ic_favorite_white_48dp = 2130837535;
+			public const int ic_home_white_48dp = 2130837535;
 			
 			// aapt resource value: 0x7f020020
-			public const int ic_home_white_48dp = 2130837536;
+			public const int ic_local_library_white_48dp = 2130837536;
 			
 			// aapt resource value: 0x7f020021
-			public const int ic_local_library_white_48dp = 2130837537;
+			public const int ic_power_settings_new_white_48dp = 2130837537;
 			
 			// aapt resource value: 0x7f020022
-			public const int ic_power_settings_new_white_48dp = 2130837538;
+			public const int ic_question_answer_white_48dp = 2130837538;
 			
 			// aapt resource value: 0x7f020023
-			public const int ic_question_answer_white_48dp = 2130837539;
+			public const int icon = 2130837539;
 			
 			// aapt resource value: 0x7f020024
-			public const int icon = 2130837540;
+			public const int img_bottle = 2130837540;
 			
 			// aapt resource value: 0x7f020025
-			public const int img_bottle = 2130837541;
+			public const int img_glass = 2130837541;
 			
 			// aapt resource value: 0x7f020026
-			public const int img_glass = 2130837542;
+			public const int logo_app = 2130837542;
 			
 			// aapt resource value: 0x7f020027
-			public const int logo_app = 2130837543;
+			public const int mfp_icon = 2130837543;
 			
 			// aapt resource value: 0x7f020028
-			public const int mfp_icon = 2130837544;
+			public const int minus = 2130837544;
 			
 			// aapt resource value: 0x7f020029
-			public const int minus = 2130837545;
+			public const int peni_feelings = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int notFavorite = 2130837546;
+			public const int peni_happy = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
-			public const int peni_feelings = 2130837547;
+			public const int peni_hungry = 2130837547;
 			
 			// aapt resource value: 0x7f02002c
-			public const int peni_happy = 2130837548;
+			public const int peni_thirsty = 2130837548;
 			
 			// aapt resource value: 0x7f02002d
-			public const int peni_hungry = 2130837549;
+			public const int plus = 2130837549;
 			
 			// aapt resource value: 0x7f02002e
-			public const int peni_thirsty = 2130837550;
+			public const int settings = 2130837550;
 			
 			// aapt resource value: 0x7f02002f
-			public const int plus = 2130837551;
+			public const int temp_goalweight = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int settings = 2130837552;
+			public const int temp_linegraph = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int temp_goalweight = 2130837553;
+			public const int temp_piechart = 2130837553;
 			
 			// aapt resource value: 0x7f020032
-			public const int temp_linegraph = 2130837554;
-			
-			// aapt resource value: 0x7f020033
-			public const int temp_piechart = 2130837555;
-			
-			// aapt resource value: 0x7f020034
-			public const int ThreadCommentIcon = 2130837556;
+			public const int ThreadCommentIcon = 2130837554;
 			
 			static Drawable()
 			{

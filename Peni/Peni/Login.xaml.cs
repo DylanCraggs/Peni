@@ -29,7 +29,7 @@ namespace Peni
 			};
 
 			Command cmd = (Command)App.Locator.LoginPage.GetLoginCommand();
-			App.Locator.LoginPage.SetLogin (usernameList[rand.Next(0, usernameList.Count) - 1], "password"); // rand num from 0 to usernameList.Count - 1
+			App.Locator.LoginPage.SetLogin (usernameList[rand.Next(0, usernameList.Count)], "password"); // rand num from 0 to usernameList.Count - 1
 			if (cmd.CanExecute (cmd))
 				cmd.Execute (cmd);
 		}

@@ -1,9 +1,11 @@
 ﻿using System;
 using SQLite.Net.Attributes;
+using Xamarin.Forms;
+using Peni.Data;
 
 namespace Peni
 {
-	public class Thread
+	public class Thread : FavoriteImage
 	{
 		[PrimaryKey, AutoIncrement]
 		public Guid id { get; set; }

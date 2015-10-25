@@ -259,11 +259,13 @@ namespace Peni.Data
 		/// <summary>
 		/// Raises the appearing event.
 		/// </summary>
-		public async void OnAppearing() {
+		public async Task OnAppearing() {
 			// Create connection toe database and get all threads
 			ForumsDatabase database = new ForumsDatabase ();
 			ForumList = new ObservableCollection<Thread> (await database.GetAll ());
 		
+			await SetupFavIcons ();
+
 			// Try and pull comments relating to a thread
 			try {
 				UserComments = new ObservableCollection<UserComment> (await database.GetThreadComments(this.RequestedThread.id));
@@ -273,12 +275,34 @@ namespace Peni.Data
 		}
 
 		/// <summary>
+		/// Sets up1 the favorite icon images.
+		/// </summary>
+		/// <returns></returns>
+		private async Task SetupFavIcons() {
+			ForumsDatabase database = new ForumsDatabase ();
+			List<Thread> favorites = new List<Thread> (await database.GetUserFavorites ());
+			foreach (var thread in ForumList) {
+				thread.FavIcon = ImageSource.FromResource("Peni.Data.notFavorite.png");
+				foreach (var favorite in favorites) {
+					if (thread.id == favorite.id) {
+						thread.FavIcon = ImageSource.FromResource ("Peni.Data.favorite.png");
+						Debug.WriteLine ("The thread " + thread.TopicName + " is a favorite.");
+					}
+				}
+			}
+
+			RaisePropertyChanged (() => ForumList);
+
+		}
+
+		/// <summary>
 		/// Views a users threads based on their username.
 		/// </summary>
 		public async void ViewMyThreads() {
 			ForumsDatabase database = new ForumsDatabase ();
 			try {
 				ForumList = new ObservableCollection<Thread> (await database.GetThreadsByUser(Globals.UserSession.Username.ToLower()));
+				await SetupFavIcons();
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}
@@ -291,6 +315,7 @@ namespace Peni.Data
 			ForumsDatabase database = new ForumsDatabase ();
 			try {
 				ForumList = new ObservableCollection<Thread> (await database.GetUserFavorites());
+				await SetupFavIcons();
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}

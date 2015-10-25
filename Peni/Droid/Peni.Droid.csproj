@@ -178,7 +178,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\emotion_happy.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\emotion_ok.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\emotion_sad.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\favorite.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_account_circle_white_48dp.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_add.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_favorite_white_48dp.png" />
@@ -197,7 +196,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\img_glass.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\logo_app.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\mfp_icon.jpeg" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\notFavorite.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\peni_feelings.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\peni_happy.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\peni_hungry.png" />

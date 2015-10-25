@@ -4,7 +4,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using GalaSoft.MvvmLight;
 using Xamarin.Forms;
 using Peni.Data;
 using Peni.Data.ViewModel;
@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Microsoft.Practices.ServiceLocation;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 
 namespace Peni
@@ -44,8 +45,6 @@ namespace Peni
 
 			ForumsDatabase database = new ForumsDatabase ();
 			database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
-
-			//DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
 		}
 
 		/// <summary>
@@ -142,8 +141,11 @@ namespace Peni
 		/// </summary>
 		protected override void OnAppearing() {
 			base.OnAppearing ();
-			var viewmodel = ServiceLocator.Current.GetInstance<ForumPageViewModel>();
-			viewmodel.OnAppearing();
+			ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing();
+			ForumListView.ItemAppearing += (sender, e) => {
+				var item = (Thread)e.Item;
+				Debug.WriteLine(item.TopicName);
+			};
 		}
 	}
 
