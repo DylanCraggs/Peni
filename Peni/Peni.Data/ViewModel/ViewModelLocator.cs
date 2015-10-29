@@ -42,6 +42,7 @@ namespace Peni.Data.ViewModel
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
 		// Health Screen Keys
+		public const string DashboardKey = "Dashboard";
 		public const string WaterPageKey = "AddWater";
 
 		// Profile Page Keys
@@ -81,15 +82,14 @@ namespace Peni.Data.ViewModel
 			});
 
 			// Health Pages 
-
-			SimpleIoc.Default.Register<HealthTestViewModel> (() => {
-				return new HealthTestViewModel(
+			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
+				return new AddWaterViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
 
-			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
-				return new AddWaterViewModel(
+			SimpleIoc.Default.Register<HealthDashboardViewModel> (() => {
+				return new HealthDashboardViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
@@ -145,16 +145,11 @@ namespace Peni.Data.ViewModel
 			}
 		}
 
-
-		/// <summary>
-		/// Gets the display goals.
-		/// </summary>
-		/// <value>The display goals.</value>
-		//public HealthVeiwGoalsModel DisplayGoals {
-			//get {
-				//return ServiceLocator.Current.GetInstance<HealthVeiwGoalsModel> ();
-			//}
-		//}
+		public HealthDashboardViewModel Dashboard{
+			get {
+				return ServiceLocator.Current.GetInstance<HealthDashboardViewModel> ();
+			}
+		}
 
 		/// <summary>
 		/// Cleanup this instance.

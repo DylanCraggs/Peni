@@ -83,7 +83,7 @@ namespace Peni.Data
 
 			// Add a command to our health navigation ICommand
 			NavigateToHealth = new Command (() => {
-				this.navigationService.NavigateToModal(ViewModelLocator.WaterPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.DashboardKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 

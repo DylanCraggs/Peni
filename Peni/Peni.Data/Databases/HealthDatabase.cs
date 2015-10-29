@@ -30,30 +30,18 @@ namespace Peni.Data
 			return database.Table<DWI> ().Where (x => x.TheDate == DateTime.Today).Any() 
 				? database.Update (log) : database.Insert (log);
 		}
+			
+		public List<DWI> WaterDrunk() {
+			return database.Query<DWI> ("Select WaterIntake from DWI where TheDate is ?", DateTime.Now.Date).ToList();
+		}
 
-		/// <summary>
-		/// Gets water intake
-		/// </summary>
-		/// <returns>Water Intake</returns>
-			//public List<DailyWaterIntake> GetIntake(DateTime date) {
-			//var value = Connection.Query<DailyWaterIntake> ("Select * from DailyWaterIntake where DateTime like ?", date).ToList();
-				//return value;
-		//}
+		public List<DWI> AnyWaterToday() {
+			return database.Query<DWI> ("Select a1.TheDate TheDate from DWI a1 inner join (select max(TheDate) TheDate from DWI) ij on a1.TheDate = ij.TheDate").ToList();
+		}
 
-		/// <summary>
-		/// Inserts water intake
-		/// </summary>
-		/// <returns>true if successful, false otherwise.</returns>
-		/// <param name="thread">Thread.</param>
-			//public int InsertWaterIntake(DailyWaterIntake intake) {
-			//return Connection.Table<DailyWaterIntake> ().Where (x => x.date == intake.date).Any() 
-				//? Connection.Update (intake) : Connection.Insert (intake);
-		//}
-
-
-
-
-
+		public List<DWI> AnyWaterTodayDB() {
+			return database.Query<DWI> ("Select a1.TheDate from DWI a1 inner join (Select max(TheDate) as TheDate from DWI) ij on a1.TheDate = ij.TheDate").ToList();
+		}
 
 
 

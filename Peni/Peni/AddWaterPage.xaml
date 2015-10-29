@@ -4,7 +4,7 @@
 
 	<Label Text="Your Daily Target is 2000mls" FontSize="18" HorizontalOptions="Center" />
 	<Label Text="You have drunk" FontSize="18" HorizontalOptions="Center" />
-	<Label Text="{Binding stringCurrIntake}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" /> 
+	<Label Text="{Binding HowMuchWater}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" /> 
 	<Label />
 	<Label />
 	<Label />
