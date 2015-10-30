@@ -46,8 +46,8 @@ namespace Peni
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
-			var navPage = new NavigationPage(new HealthHome());
-			//var navPage = new NavigationPage(new Login() );
+			//var navPage = new NavigationPage(new HealthHome());
+			var navPage = new NavigationPage(new Login() );
 
 			nav.Initialize (navPage);
 

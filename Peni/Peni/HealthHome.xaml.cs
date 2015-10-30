@@ -132,7 +132,6 @@ namespace Peni
 				VerticalOptions = LayoutOptions.End,
 				//HorizontalOptions = LayoutOptions.Fill,
 			};
-
 			main.Children.Add (view, 0, 2);
 
 

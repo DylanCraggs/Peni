@@ -6,7 +6,7 @@ namespace Peni
 	public class ThreadFavorite
 	{
 		[PrimaryKey, AutoIncrement]
-		public Guid id { get; set; }
+		public string id { get; set; }
 		public Guid ThreadID { get; set; }
 		public Guid UserID { get; set; }
 
