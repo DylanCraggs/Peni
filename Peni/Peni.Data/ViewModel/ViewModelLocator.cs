@@ -38,14 +38,10 @@ namespace Peni.Data.ViewModel
 		public const string LoginPageKey = "Login";
 
 		// Main Screen Keys
-		public const string MainPageKey = "PeniMainContet";
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
 		// Health Screen Keys
-		public const string HealthPageKey = "HealthDashboard";
-		public const string HealthSettingsKey = "HealthGoalsTest";
-		public const string HealthTestKey = "HealthDashboardTest";
-
+		public const string WaterPageKey = "AddWater";
 
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
@@ -83,17 +79,30 @@ namespace Peni.Data.ViewModel
 				);
 			});
 
-			// Health Pages 
-
 			SimpleIoc.Default.Register<HealthTestViewModel> (() => {
 				return new HealthTestViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
 
+			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
+				return new AddWaterViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<ProfilePageViewModel> (() => {
+				return new ProfilePageViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<PeniMainViewModel> (() => {
+				return new PeniMainViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
         }
-
-
 
 		/// <summary>
 		/// Gets the ForumPage View Model
@@ -136,22 +145,31 @@ namespace Peni.Data.ViewModel
 		/// Gets the new step goal.
 		/// </summary>
 		/// <value>The new step goal.</value>
-		public HealthTestViewModel NewStepGoal{
+		public AddWaterViewModel AddWater{
 			get {
-				return ServiceLocator.Current.GetInstance<HealthTestViewModel> ();
+				return ServiceLocator.Current.GetInstance<AddWaterViewModel> ();
 			}
 		}
 
+		/// <summary>
+		/// Gets the profile page.
+		/// </summary>
+		/// <value>The profile page.</value>
+		public ProfilePageViewModel ProfilePage {
+			get {
+				return ServiceLocator.Current.GetInstance<ProfilePageViewModel> ();
+			}
+		}
 
 		/// <summary>
-		/// Gets the display goals.
+		/// Gets the main page.
 		/// </summary>
-		/// <value>The display goals.</value>
-		//public HealthVeiwGoalsModel DisplayGoals {
-			//get {
-				//return ServiceLocator.Current.GetInstance<HealthVeiwGoalsModel> ();
-			//}
-		//}
+		/// <value>The main page.</value>
+		public PeniMainViewModel MainPage {
+			get {
+				return ServiceLocator.Current.GetInstance<PeniMainViewModel> ();
+			}
+		}
 
 		/// <summary>
 		/// Cleanup this instance.

@@ -73,48 +73,31 @@ namespace Peni.Data
 
 			// Add a command to our home navigation ICommand
 			NavigateToHome = new Command (x => {
-				if(navigationService.CurrentPageKey == ViewModelLocator.PeniMasterDetail) {
-					return;
-				}
-
 				this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our health navigation ICommand
 			NavigateToHealth = new Command (() => {
-				this.navigationService.NavigateToModal(ViewModelLocator.HealthPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.WaterPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our forum navigation ICommand
 			NavigateToForums = new Command (x => {
-				// Check if we are already viewing the same page before pushing another to navigation service
-				if(navigationService.CurrentPageKey == ViewModelLocator.ForumsPageKey) {
-					return;
-				}
-
 				this.navigationService.NavigateToModal(ViewModelLocator.ForumsPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
 			});
 
-			// Add a command to our resources navigation ICommand
-			NavigateToResources = new Command (() => {
-				Debug.WriteLine("SideMenuViewModel : NavigateToResources " + navigationService.CurrentPageKey);
-			});
-
 			// Add a command to our account navigation ICommand
 			NavigateToMyAccount = new Command (x => {
-				if(navigationService.CurrentPageKey == ViewModelLocator.MyProfilePageKey) {
-					return;
-				}
 				this.navigationService.NavigateToModal(ViewModelLocator.MyProfilePageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our logout navigation ICommand
 			NavigateToLogout = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.LoginPageKey);
 				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
 			});
 			// End of command actions
@@ -142,12 +125,6 @@ namespace Peni.Data
 				Title = "Forum", 
 				IconSource = "ic_question_answer_white_48dp.png", 
 				Command = NavigateToForums,
-			});
-
-			menuList.Add(new MenuItem() {
-				Title = "Resources",
-				IconSource = "ic_local_library_white_48dp.png",
-				Command = NavigateToResources,
 			});
 
 			menuList.Add(new MenuItem() {

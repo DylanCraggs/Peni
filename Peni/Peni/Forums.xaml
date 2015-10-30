@@ -5,6 +5,7 @@
 			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="5">
 
 				<!-- The list of threads which is retrieved from our data binding stated by ItemsSource, see .cs for viewmodel that is doing the binding -->
+
 				<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50" SeparatorColor="#F16378" SeparatorVisibility="Default" ItemsSource="{Binding ForumList}">
 					<ListView.ItemTemplate>
 						<DataTemplate>
@@ -12,8 +13,12 @@
 								<Grid>
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<!-- Customise button to display as star icon, filling with image for every result seems unreasonable? (ask josh regarding this) -->
-										<!--<Image Source="notFavorite.png"  HeightRequest="35" WidthRequest="35" />-->
-										<!--<Button Text="{Binding id}" x:Name="IsFav" />-->
+
+										<Image Source="{Binding FavIcon}" x:Name="favoriteBtn" HeightRequest="35" WidthRequest="35">
+											<Image.GestureRecognizers>
+												<TapGestureRecognizer Tapped="FavTapped"/>
+											</Image.GestureRecognizers>
+										</Image>
 
 										<!-- Add Thread name and author under each other -->
 										<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">

@@ -754,6 +754,23 @@ namespace Peni
 
 		}
 	}
+
+	public class HealthDashboardMasterDetail : MasterDetailPage
+	{
+		public HealthDashboardMasterDetail()
+		{
+			Title = "Health";
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			Detail = new HealthDashboard();
+
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
+		}
+	}
+
 }
 
 

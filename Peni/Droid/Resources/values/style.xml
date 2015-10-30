@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!-- Inherit from the light Material Theme -->
+    <style name="PeniTheme" parent="android:Theme.Holo.Light">
+     	<!-- Override the app bar color -->
+        <item name="android:colorPrimary">@color/primary_color</item>
+        <!-- Override the color of UI controls -->
+        <item name="android:colorAccent">@color/accent</item>
+        <!-- Override the color of status bar color-->
+        <item name="android:colorPrimaryDark">@color/status_bar</item>
+        <item name="android:navigationBarColor">@color/navigation_bar</item>
+      	<item name = "android:icon" >@android:color/transparent</item >
+      	<item name="android:textColorPrimary">@color/status_bar</item>
+      	<item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/primary_color</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+</resources>
+

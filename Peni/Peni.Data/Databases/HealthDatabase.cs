@@ -11,6 +11,7 @@ namespace Peni.Data
 	{
 		
 		SQLiteConnection Connection;
+		SQLiteConnection database;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.Data.HealthDatabase"/> class.
@@ -20,8 +21,8 @@ namespace Peni.Data
 			Connection = DependencyService.Get<ISQLite> ().GetConnection ();
 
 			// Check if Thread table exists, if not create it
-			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(DailyWaterIntake).Name)) {
-				Connection.CreateTable<DailyWaterIntake> ();
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(DWI).Name)) {
+				Connection.CreateTable<DWI> ();
 				Connection.Commit ();
 			}
 
@@ -30,6 +31,18 @@ namespace Peni.Data
 				Connection.CreateTable<Goals> ();
 				Connection.Commit ();
 			}
+			database = DependencyService.Get<ISQLite> ().GetConnection ();
+
+			// Check if Thread table exists, if not create it
+			if (database.TableMappings.All(t => t.MappedType.Name != typeof(DWI).Name)) {
+				database.CreateTable<DWI> ();
+				database.Commit ();
+			}
+		}
+
+		public int InsertOrUpdateDWI(DWI log){
+			return database.Table<DWI> ().Where (x => x.TheDate == DateTime.Today).Any() 
+				? database.Update (log) : database.Insert (log);
 		}
 
 		/// <summary>
@@ -62,10 +75,6 @@ namespace Peni.Data
 			var items = Connection.Table<Goals>().ToList();
 			return items;
 		}
-
-
-
-
 	}
 }
 

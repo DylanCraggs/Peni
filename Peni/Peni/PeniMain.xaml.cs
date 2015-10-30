@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Linq;
 using System.Diagnostics;
 using Peni.Data.ViewModel;
+using Peni.Data;
 
 namespace Peni
 {
@@ -12,6 +13,7 @@ namespace Peni
 		public PeniMainContet()
 		{
 			InitializeComponent();
+			//this.BindingContext = App.Locator.MainPage;
 
 			Grid myGrid = new Grid();
 			myGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
@@ -26,18 +28,27 @@ namespace Peni
 				BackgroundColor = Color.White
 			};
 			//Logic to change peni expression (img). Must be finished after implementing health database and logic
-			//1 == Defaul expression (Happy)/ 2 == thirsty
-			int expression = 2;
+			//1 == Defaul expression (Happy)/ 2 == thirsty / 3 == Hungry / 4 == Feelings (Journal)
+			int expression = 1;
+			Random randomValue = new Random();
+			expression = randomValue.Next(1,5); 
+		
 
 			switch (expression) {
 			case 1:
-				peni.Source = "peni_small.png";
+				peni.Source = "peni_happy.png";
 				break;
 			case 2:
 				peni.Source = "peni_thirsty.png";
 				break;
+			case 3:
+				peni.Source = "peni_hungry.png";
+				break;
+			case 4:
+				peni.Source = "peni_feelings.png";
+				break;
 			default:
-				peni.Source = "peni_small.png";
+				peni.Source = "peni_happy.png";
 				break;
 			}
 
@@ -49,7 +60,7 @@ namespace Peni
 			//If there's water notification, then display image. Must be finished the logic with the database
 			if (true) {
 				Image waterNotification = new Image {
-					Source = ImageSource.FromFile ("water_cloud.png"),
+					Source = ImageSource.FromFile ("cloud_water.png"),
 					HeightRequest = 100,
 					VerticalOptions = LayoutOptions.Center,
 					HorizontalOptions = LayoutOptions.Center,
@@ -64,7 +75,7 @@ namespace Peni
 			//If there's food notification, then display image. Must be finished the logic with the database
 			if (true) {
 				Image foodNotification = new Image {
-					Source = ImageSource.FromFile ("food_cloud.png"),
+					Source = ImageSource.FromFile ("cloud_food.png"),
 					HeightRequest = 100,
 					VerticalOptions = LayoutOptions.Center,
 					HorizontalOptions = LayoutOptions.Center,
@@ -80,7 +91,7 @@ namespace Peni
 			//If there's other notification, then display image. Must be finished the logic with the database
 			if (true) {
 				Image otherNotification = new Image {
-					Source = ImageSource.FromFile ("some_cloud.png"),
+					Source = ImageSource.FromFile ("cloud_feelings.png"),
 					HeightRequest = 100,
 					VerticalOptions = LayoutOptions.Center,
 					HorizontalOptions = LayoutOptions.Center,

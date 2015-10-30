@@ -43,17 +43,8 @@ namespace Peni.Data
 			var database = new HealthDatabase();
 
 			// Add  a new command to our ICommand
-			SaveGoalsCommand = new Command (() => {
-				// Insert the thread into the database
 
-				database.InsertGoals(new Goals(stepGoal, waterGoal));
-				// Set the data bindings to null as we have entered the new thread
-					stepGoal = null;
-				    waterGoal = null;
 
-				// Go back a page
-				navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
-			});
 		}
 	}
 }
