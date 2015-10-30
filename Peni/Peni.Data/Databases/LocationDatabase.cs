@@ -40,12 +40,31 @@ namespace Peni.Data
 				return;
 			}
 
+			bool updating = false;
+			if (await UserLocExists (record)) {
+				updating = true;
+			}
+
 			try {
-				await locationTable.InsertAsync(record);
+				if(updating)
+					await locationTable.UpdateAsync(record);
+				else
+					await locationTable.InsertAsync(record);
 				await SyncAsync();
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());
 			}
+		}
+
+		private async Task<bool> UserLocExists(LocProfile profile) {
+			List<LocProfile> accs = new List<LocProfile> (await client.GetTable<LocProfile> ().Where(x => x.Account == profile.Account).ToListAsync ());
+
+			if (accs == null || accs.Count == 0) {
+				return false;
+			} else {
+				return true;
+			}
+		
 		}
 	}
 }
