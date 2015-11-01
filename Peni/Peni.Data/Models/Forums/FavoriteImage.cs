@@ -13,6 +13,15 @@ namespace Peni.Data
 				RaisePropertyChanged (() => FavIcon);
 			}
 		}
+
+		private bool isFav;
+		public bool IsFav {
+			get { return isFav; }
+			set { 
+				isFav = value;
+				RaisePropertyChanged (() => IsFav);
+			}
+		}
 	}
 }
 

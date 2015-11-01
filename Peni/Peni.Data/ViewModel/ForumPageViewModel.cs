@@ -286,6 +286,7 @@ namespace Peni.Data
 				foreach (var favorite in favorites) {
 					if (thread.id == favorite.id) {
 						thread.FavIcon = ImageSource.FromResource ("Peni.Data.favorite.png");
+						thread.IsFav = true;
 						Debug.WriteLine ("The thread " + thread.TopicName + " is a favorite.");
 					}
 				}

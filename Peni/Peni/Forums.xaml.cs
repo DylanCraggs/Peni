@@ -37,14 +37,22 @@ namespace Peni
 		/// </summary>
 		/// <param name="sender">Sending object.</param>
 		/// <param name="e">Event arguments.</param>
-		public void FavTapped(object sender, EventArgs e)
+		public async void FavTapped(object sender, EventArgs e)
 		{
 			var button = sender as Image;
 			var buttonParent = button.Parent;// as Thread;
 			var source = (Thread)buttonParent.BindingContext;
 
 			ForumsDatabase database = new ForumsDatabase ();
-			database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+			await database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+
+			if (source.IsFav) {
+				source.FavIcon = ImageSource.FromResource ("Peni.notFavorite.png");
+				source.IsFav = false;
+			} else {
+				source.FavIcon = ImageSource.FromResource ("Peni.favorite.png");
+				source.IsFav = true;
+			}
 		}
 
 		/// <summary>
