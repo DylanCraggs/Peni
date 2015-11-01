@@ -12,8 +12,11 @@ using Peni.Data;
 
 namespace Peni
 {
+
+
 	public class MapPage : ContentPage
 	{
+
 		Map map;
 
 		public MapPage ()
@@ -122,6 +125,20 @@ namespace Peni
 			};
 		}
 
+		private async void PrintPosition() {
+			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
+			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
+		}
 
+		private async void InsertUsersLocationToDatabase() {
+			Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			LocationDatabase database = new LocationDatabase();
+			database.InsertRecord(location);
+		}
+
+		private async void GetAll() {
+			LocationDatabase database = new LocationDatabase();
+			var locatioProfiles = await database.GetAll ();
+		}
 	}
 }
