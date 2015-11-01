@@ -78,6 +78,14 @@ namespace Peni.Data
 				return;
 			}
 
+			var network = DependencyService.Get<INetworkConnection>();
+			network.CheckNetworkConnection ();
+
+			if (!network.IsConnected) {
+				ErrorMessage = "Failed to get valid internet connection.";
+				return;
+			}
+
 			// Validate details that were entered
 			ProfileDatabase database = new ProfileDatabase ();
 			if (await database.AttemptLoginAuth (Username, Password)) {
@@ -88,10 +96,19 @@ namespace Peni.Data
 			}
 		}
 
+		/// <summary>
+		/// Gets the login command.
+		/// </summary>
+		/// <returns>The login command.</returns>
 		public ICommand GetLoginCommand() {
 			return SubmitLoginCommand;
 		}
 
+		/// <summary>
+		/// Sets the login.
+		/// </summary>
+		/// <param name="username">Username.</param>
+		/// <param name="password">Password.</param>
 		public void SetLogin(string username, string password) {
 			Username = username;
 			Password = password;

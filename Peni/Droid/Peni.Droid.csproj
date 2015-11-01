@@ -146,6 +146,7 @@
     <Compile Include="Database\SQLiteDroid.cs" />
     <Compile Include="FloatingActionButtonViewRenderer.cs" />
     <Compile Include="Database\AzureDatabaseDroid.cs" />
+    <Compile Include="NetworkConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
