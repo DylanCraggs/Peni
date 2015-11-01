@@ -55,6 +55,9 @@ namespace Peni.Droid
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
 			global::Xamarin.Forms.Platform.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
 			global::Xamarin.Forms.Platform.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.ApplicationName = global::Peni.Droid.Resource.String.ApplicationName;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.Hello = global::Peni.Droid.Resource.String.Hello;
+			global::OxyPlot.Xamarin.Forms.Platform.Android.Resource.String.library_name = global::Peni.Droid.Resource.String.library_name;
 		}
 		
 		public partial class Animation
@@ -312,6 +315,75 @@ namespace Peni.Droid
 			
 			// aapt resource value: 0x7f0100df
 			public const int collapseIcon = 2130772191;
+		
+			// aapt resource value: 0x7f02001c
+			public const int ic_account_circle_white_48dp = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int ic_add = 2130837533;
+			
+			// aapt resource value: 0x7f02001e
+			public const int ic_favorite_white_48dp = 2130837534;
+			
+			// aapt resource value: 0x7f02001f
+			public const int ic_home_white_48dp = 2130837535;
+			
+			// aapt resource value: 0x7f020020
+			public const int ic_local_library_white_48dp = 2130837536;
+			
+			// aapt resource value: 0x7f020021
+			public const int ic_power_settings_new_white_48dp = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public const int ic_question_answer_white_48dp = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int icon = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int img_bottle = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int img_glass = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int logo_app = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int mfp_icon = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int minus = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int peni_feelings = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int peni_happy = 2130837546;
+			
+			// aapt resource value: 0x7f02002b
+			public const int peni_hungry = 2130837547;
+			
+			// aapt resource value: 0x7f02002c
+			public const int peni_thirsty = 2130837548;
+			
+			// aapt resource value: 0x7f02002d
+			public const int plus = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int settings = 2130837550;
+			
+			// aapt resource value: 0x7f02002f
+			public const int temp_goalweight = 2130837551;
+			
+			// aapt resource value: 0x7f020030
+			public const int temp_linegraph = 2130837552;
+			
+			// aapt resource value: 0x7f020031
+			public const int temp_piechart = 2130837553;
+			
+			// aapt resource value: 0x7f020032
+			public const int ThreadCommentIcon = 2130837554;
 			
 			// aapt resource value: 0x7f010047
 			public const int color = 2130772039;
@@ -339,6 +411,15 @@ namespace Peni.Droid
 			
 			// aapt resource value: 0x7f0100c3
 			public const int colorSwitchThumbNormal = 2130772163;
+
+			// aapt resource value: 0x7f050002
+			public const int ApplicationName = 2131034114;
+			
+			// aapt resource value: 0x7f050001
+			public const int Hello = 2131034113;
+			
+			// aapt resource value: 0x7f050000
+			public const int library_name = 2131034112;
 			
 			// aapt resource value: 0x7f010062
 			public const int commitIcon = 2130772066;

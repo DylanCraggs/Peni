@@ -26,6 +26,8 @@ namespace Peni.Droid
 //            base.OnCreate(bundle);
 
 //			CurrentPlatform.Init ();
+			OxyPlot.Xamarin.Forms.Platform.Android.Forms.Init();
+			CurrentPlatform.Init ();
 
   //          global::Xamarin.Forms.Forms.Init(this, bundle);
 

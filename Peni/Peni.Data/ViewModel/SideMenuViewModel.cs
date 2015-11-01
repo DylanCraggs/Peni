@@ -35,7 +35,7 @@ namespace Peni.Data
 		/// Gets/sets the navigate to resources menu item action
 		/// </summary>
 		/// <value>The navigate to resources.</value>
-		public ICommand NavigateToResources { get; private set; }
+		public ICommand NavigateToMessages { get; private set; }
 
 		/// <summary>
 		/// Gets/sets the navigate to my account menu item action
@@ -74,31 +74,30 @@ namespace Peni.Data
 			// Add a command to our home navigation ICommand
 			NavigateToHome = new Command (x => {
 				this.navigationService.NavigateToModal(ViewModelLocator.PeniMasterDetail);
-				Debug.WriteLine("SideMenuViewModel : NavigateToHome " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our health navigation ICommand
 			NavigateToHealth = new Command (() => {
 				this.navigationService.NavigateToModal(ViewModelLocator.WaterPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToHealth " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our forum navigation ICommand
 			NavigateToForums = new Command (x => {
 				this.navigationService.NavigateToModal(ViewModelLocator.ForumsPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToForums " + navigationService.CurrentPageKey);
+			});
+
+			NavigateToMessages = new Command (x => {
+				this.navigationService.NavigateToModal(ViewModelLocator.MessageMainKey);
 			});
 
 			// Add a command to our account navigation ICommand
 			NavigateToMyAccount = new Command (x => {
 				this.navigationService.NavigateToModal(ViewModelLocator.MyProfilePageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToMyAccount " + navigationService.CurrentPageKey);
 			});
 
 			// Add a command to our logout navigation ICommand
 			NavigateToLogout = new Command (() => {
-				//this.navigationService.NavigateTo(ViewModelLocator.LogoutPageKey);
-				Debug.WriteLine("SideMenuViewModel : NavigateToLayout " + navigationService.CurrentPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.LoginPageKey);
 			});
 			// End of command actions
 
@@ -125,6 +124,12 @@ namespace Peni.Data
 				Title = "Forum", 
 				IconSource = "ic_question_answer_white_48dp.png", 
 				Command = NavigateToForums,
+			});
+
+			menuList.Add (new MenuItem () {
+				Title = "Messages",
+				IconSource = "ic_question_answer_white_48dp.png", 
+				Command = NavigateToMessages,
 			});
 
 			menuList.Add(new MenuItem() {

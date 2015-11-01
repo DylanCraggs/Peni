@@ -58,6 +58,14 @@
     <Compile Include="ViewModel\AddWaterViewModel.cs" />
     <Compile Include="Models\Health\DWI.cs" />
     <Compile Include="Interfaces\ILocation.cs" />
+    <Compile Include="ViewModel\ProfilePageViewModel.cs" />
+    <Compile Include="ViewModel\PeniMainViewModel.cs" />
+    <Compile Include="Models\Forums\FavoriteImage.cs" />
+    <Compile Include="Models\Messaging\Message.cs" />
+    <Compile Include="Databases\MessagingDatabase.cs" />
+    <Compile Include="ViewModel\MessagingViewModel.cs" />
+    <Compile Include="ViewModel\MessageMainViewModel.cs" />
+    <Compile Include="Interfaces\INetworkConnection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -119,5 +127,10 @@
     <Folder Include="Models\Health\" />
     <Folder Include="Models\Profile\" />
     <Folder Include="Models\Location\" />
+    <Folder Include="Models\Messaging\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="favorite.png" />
+    <EmbeddedResource Include="notFavorite.png" />
   </ItemGroup>
 </Project>

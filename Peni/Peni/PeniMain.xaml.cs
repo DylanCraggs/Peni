@@ -13,6 +13,7 @@ namespace Peni
 		public PeniMainContet()
 		{
 			InitializeComponent();
+			//this.BindingContext = App.Locator.MainPage;
 
 			Grid myGrid = new Grid();
 			myGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
@@ -153,7 +154,6 @@ namespace Peni
 			Content = new Frame { 
 				Content = myGrid
 			};
-
 		}
 	}// ends public class
 

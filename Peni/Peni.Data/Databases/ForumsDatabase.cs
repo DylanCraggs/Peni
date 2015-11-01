@@ -10,6 +10,8 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
+using Microsoft.Practices.ServiceLocation;
+using System.Collections.ObjectModel;
 
 namespace Peni.Data
 {
@@ -90,16 +92,24 @@ namespace Peni.Data
 				return;
 			}
 
-			// grab results from favorite table using user id
-				// iterate through results looking at thread id
-					// if thread id == thread.threadid
-						// remove from favorite
-						// return
-
-			// otherwise add a new favorite
-
+			var favs = await GetUserFavorites ();
+			bool removingFromFavs = false;
+			foreach (Thread favorite in favs) {
+				if (favorite.id == thread.ThreadID) {
+					removingFromFavs = true;
+					var item = await favoriteTable.Where (x => x.ThreadID == thread.ThreadID).ToListAsync ();
+					thread.id = item [0].id;
+				} else {
+					removingFromFavs = false;
+				}
+			}
+				
 			try {
-				await favoriteTable.InsertAsync(thread);
+				if(!removingFromFavs) {
+					await favoriteTable.InsertAsync(thread);
+				} else {
+					await favoriteTable.DeleteAsync(thread);
+				}
 				await SyncAsync();
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());

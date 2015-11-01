@@ -4,7 +4,7 @@
 
 using System;
 using System.Collections.Generic;
-
+using GalaSoft.MvvmLight;
 using Xamarin.Forms;
 using Peni.Data;
 using Peni.Data.ViewModel;
@@ -12,6 +12,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Microsoft.Practices.ServiceLocation;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 
 namespace Peni
@@ -36,16 +37,22 @@ namespace Peni
 		/// </summary>
 		/// <param name="sender">Sending object.</param>
 		/// <param name="e">Event arguments.</param>
-		public void FavTapped(object sender, EventArgs e)
+		public async void FavTapped(object sender, EventArgs e)
 		{
 			var button = sender as Image;
 			var buttonParent = button.Parent;// as Thread;
 			var source = (Thread)buttonParent.BindingContext;
 
 			ForumsDatabase database = new ForumsDatabase ();
-			database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+			await database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
 
-			//DisplayAlert ("Hello", "You clicked id: " + source.TopicName + " which contains id of: " + source.id.ToString(), "Close");
+			if (source.IsFav) {
+				source.FavIcon = ImageSource.FromResource ("Peni.notFavorite.png");
+				source.IsFav = false;
+			} else {
+				source.FavIcon = ImageSource.FromResource ("Peni.favorite.png");
+				source.IsFav = true;
+			}
 		}
 
 		/// <summary>
@@ -142,8 +149,11 @@ namespace Peni
 		/// </summary>
 		protected override void OnAppearing() {
 			base.OnAppearing ();
-			var viewmodel = ServiceLocator.Current.GetInstance<ForumPageViewModel>();
-			viewmodel.OnAppearing();
+			ServiceLocator.Current.GetInstance<ForumPageViewModel>().OnAppearing();
+			ForumListView.ItemAppearing += (sender, e) => {
+				var item = (Thread)e.Item;
+				Debug.WriteLine(item.TopicName);
+			};
 		}
 	}
 

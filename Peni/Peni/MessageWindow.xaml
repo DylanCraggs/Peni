@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.MessageWindow">
+	<StackLayout BackgroundColor="White">
+
+		<ListView x:Name="MessageList" ItemsSource="{Binding MessageList}" BackgroundColor="White" RowHeight="50" SeparatorColor="#F16378" SeparatorVisibility="Default" HasUnevenRows="true">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+					<Grid>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+							<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+								<Label Text="{Binding MessageContent}" LineBreakMode="WordWrap"/>
+							</StackLayout>
+							<StackLayout Orientation="Vertical">
+								<Label Text="{Binding SendingUserUsername}" FontAttributes="Bold" LineBreakMode="WordWrap"/>
+							</StackLayout>
+						</StackLayout>
+					</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<StackLayout Orientation="Horizontal" VerticalOptions="End" x:Name="commentBox" Padding="10, 0, 10, 0">
+			<Image Source="ThreadCommentIcon.png" HorizontalOptions="Start" HeightRequest="35" WidthRequest="35"></Image>
+			<Entry HorizontalOptions="FillAndExpand" x:Name="Response" Text="{Binding Message}" Placeholder="Send A Message..." TextColor="#C9C9C9" />
+		</StackLayout>
+	</StackLayout>
+</ContentPage>
