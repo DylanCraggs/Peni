@@ -107,7 +107,6 @@ namespace Peni
 			Content = new Frame { 
 				Content = myGrid
 			};
-
 		}
 	}// ends public class
 

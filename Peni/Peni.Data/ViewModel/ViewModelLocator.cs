@@ -46,6 +46,10 @@ namespace Peni.Data.ViewModel
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
 
+		// Messaging Page Keys
+		public const string MessagingPageKey = "MessageWindow";
+		public const string MessageMainKey = "MessageMain";
+
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
@@ -99,6 +103,12 @@ namespace Peni.Data.ViewModel
 
 			SimpleIoc.Default.Register<PeniMainViewModel> (() => {
 				return new PeniMainViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<MessageMainViewModel> (() => {
+				return new MessageMainViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
@@ -168,6 +178,12 @@ namespace Peni.Data.ViewModel
 		public PeniMainViewModel MainPage {
 			get {
 				return ServiceLocator.Current.GetInstance<PeniMainViewModel> ();
+			}
+		}
+
+		public MessageMainViewModel MessagingMain {
+			get {
+				return ServiceLocator.Current.GetInstance<MessageMainViewModel> ();
 			}
 		}
 

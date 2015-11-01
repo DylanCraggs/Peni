@@ -105,10 +105,11 @@ namespace Peni.Data
 			}
 				
 			try {
-				if(!removingFromFavs)
+				if(!removingFromFavs) {
 					await favoriteTable.InsertAsync(thread);
-				else
+				} else {
 					await favoriteTable.DeleteAsync(thread);
+				}
 				await SyncAsync();
 			} catch (Exception ex) {
 				Debug.WriteLine (ex.Message.ToString ());

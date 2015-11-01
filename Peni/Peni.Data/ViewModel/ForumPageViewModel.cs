@@ -195,7 +195,6 @@ namespace Peni.Data
 				UserComment comment = new UserComment(this.RequestedThread.id, Globals.UserSession.Username, userCommentInput, DateTime.Now.ToString());
 				database.InsertComment(comment);
 				UpdateThreadComments(this.RequestedThread.id);
-				userCommentInput = "test";
 			});
 		}
 
