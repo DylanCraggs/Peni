@@ -101,7 +101,7 @@ namespace Peni.Data
 
 			SendMessageCommand = new Command(x => {
 				MessagingDatabase database = new MessagingDatabase();
-				database.InsertMessage(Globals.UserSession.id, Globals.UserSession.Username, ReceivingID, ReceivingUsername, Message);
+				database.InsertMessage(Guid.Parse(Globals.UserSession.id), Globals.UserSession.Username, ReceivingID, ReceivingUsername, Message);
 				UpdateMessages();
 			});
 		}

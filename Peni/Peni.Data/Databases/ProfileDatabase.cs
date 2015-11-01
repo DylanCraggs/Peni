@@ -101,6 +101,25 @@ namespace Peni.Data
 				
 			return false;
 		}
+
+		/// <summary>
+		/// Updates the profile.
+		/// </summary>
+		/// <returns>The profile.</returns>
+		/// <param name="profile">Profile.</param>
+		public async Task UpdateProfile(Account profile) {
+			if (client == null) {
+				Debug.WriteLine ("AddItem Error: Client was null.");
+				return;
+			}
+
+			try {
+				await accountTable.UpdateAsync(profile);
+				await SyncAsync();
+			} catch (Exception e) {
+				Debug.WriteLine (e.Message);
+			}
+		}
 	}
 }
 

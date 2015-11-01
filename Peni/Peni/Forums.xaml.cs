@@ -44,7 +44,7 @@ namespace Peni
 			var source = (Thread)buttonParent.BindingContext;
 
 			ForumsDatabase database = new ForumsDatabase ();
-			await database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Globals.UserSession.id));
+			await database.AddOrUpdateFavorite (new ThreadFavorite (source.id, Guid.Parse(Globals.UserSession.id)));
 
 			if (source.IsFav) {
 				source.FavIcon = ImageSource.FromResource ("Peni.notFavorite.png");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Peni
 {
@@ -11,6 +12,40 @@ namespace Peni
 		{
 			InitializeComponent ();
 			this.BindingContext = App.Locator.ProfilePage;
+
+
+			Bio.Completed += (sender, e) => {
+				Debug.WriteLine("Updated!");
+				Peni.Data.Globals.UserSession.UserBio = Bio.Text;
+				UpdateBio();
+			};
+
+			/*
+			switchPrivacy.OnChanged += (object sender, ToggledEventArgs e) => {
+				Debug.WriteLine(e.Value.ToString());
+				Peni.Data.Globals.UserSession.UserPrivacy = e.Value;
+				UpdatePrivacy();
+			};
+			*/
+		}
+
+		/// <summary>
+		/// Updates the bio.
+		/// </summary>
+		private void UpdateBio() {
+			//var value = (Editor)e;
+			//Peni.Data.Globals.UserSession.UserBio = value.Text.ToString ();
+			Peni.Data.ProfileDatabase database = new Peni.Data.ProfileDatabase ();
+			database.UpdateProfile (Peni.Data.Globals.UserSession);
+		}
+
+		/// <summary>
+		/// Updates the privacy.
+		/// </summary>
+		private async void UpdatePrivacy(object sender, ToggledEventArgs e) {
+			Peni.Data.Globals.UserSession.UserPrivacy = e.Value;
+			Peni.Data.ProfileDatabase database = new Peni.Data.ProfileDatabase ();
+			await database.UpdateProfile (Peni.Data.Globals.UserSession);
 		}
 	}
 

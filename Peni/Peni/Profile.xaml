@@ -8,7 +8,6 @@
 							<ViewCell>
 								<StackLayout Orientation="Horizontal">
 									<Label Text="{Binding Username}" x:Name="labelName"/>
-
 									<Label Text="{Binding Stage}" x:Name="labelStage" HorizontalOptions="EndAndExpand" />
 								</StackLayout>
 							</ViewCell>
@@ -18,12 +17,12 @@
 
 				<Label Text="Your Bio:" />
 
-				<Editor VerticalOptions="Start" Text="{Binding Bio}" />
+				<Editor x:Name="Bio" VerticalOptions="Start" Text="{Binding Bio}" />
 
 				<TableView>
 					<TableRoot> 
 						<TableSection>
-								<SwitchCell Text="Appear in Other Gardens?" x:Name="switchPrivacy" On="{Binding PrivateProfile}" />
+								<SwitchCell Text="Appear in Other Gardens?" OnChanged="UpdatePrivacy" x:Name="switchPrivacy" On="{Binding PrivateProfile}" />
 						</TableSection>
 					</TableRoot>
 				</TableView>		
