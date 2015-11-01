@@ -25,7 +25,7 @@ namespace Peni.Droid
 		/// <returns>Double containing users latitude.</returns>
 		public async Task<double> GetLat() {
 			var locator = CrossGeolocator.Current;
-			locator.DesiredAccuracy = 1000; // 1km accurate
+			locator.DesiredAccuracy = 5000; // 5km accurate
 			var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 			return position.Latitude;
 		}
@@ -36,7 +36,7 @@ namespace Peni.Droid
 		/// <returns>Double containing users longitude.</returns>
 		public async Task<double> GetLng() {
 			var locator = CrossGeolocator.Current;
-			locator.DesiredAccuracy = 1000; // 1km accurate
+			locator.DesiredAccuracy = 5000; // 5km accurate
 			var position = await locator.GetPositionAsync(timeoutMilliseconds: 10000);
 			return position.Longitude;
 		}

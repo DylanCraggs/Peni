@@ -20,101 +20,20 @@ namespace Peni
 		{
 			
 			map = new Map { 
+				MapType = MapType.Hybrid,
 				IsShowingUser = true,
 				HeightRequest = 100,
 				WidthRequest = 960,
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
 
-			// You can use MapSpan.FromCenterAndRadius 
-//			map.MoveToRegion (MapSpan.FromCenterAndRadius (
-//				new Position (37, -122), Distance.FromMiles (0.3)));
-			// or create a new MapSpan object directly
-			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (-27.471011, 153.023449), Distance.FromMiles (4.2)));
-			//map.MoveToRegion (new MapSpan (new Xamarin.Forms.Maps.Position (-27.3971367,153.0194722), 500, 360) );
+			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (-27.4667, 153.0333), Distance.FromMiles (4.2)));
+			addPin (map);
 
-			var position = new Xamarin.Forms.Maps.Position(-27.471011, 153.023449); // Latitude, Longitude
-			var userPin = new Pin {
-				Type = PinType.Generic,
-				//Resource = "",
-				Position = position,
-				Label = "This user",
-				Address = "Stage 3"
-			};
-			map.Pins.Add(userPin);
-
-
-			var latitudeUser = userPin.Position.Latitude;
-			var longitudeUser = userPin.Position.Longitude;
-			var km = 5;
-			var longitudeMin = longitudeUser - (km/111.321);
-			var longitudeMax = longitudeUser + (km/111.321);
-			var latitudeMin = latitudeUser - (km/111.0);
-			var latitudeMax = latitudeUser + (km/111.0);
-			Pin[] pinSet = {
-				new Pin {
-					Type = PinType.Generic,
-					//Resource = "",
-					Position = new Xamarin.Forms.Maps.Position(-27.468931, 153.028457),
-					Label = "User Name 1 ",
-					Address = "Stage 3"
-				},
-				new Pin {
-					Type = PinType.Generic,
-					//Resource = "",
-					Position = new Xamarin.Forms.Maps.Position(-27.474642, 153.019316),
-					Label = "User Name 2",
-					Address = "Stage 3"
-				},
-				new Pin {
-					Type = PinType.Generic,
-					//Resource = "",
-					Position = new Xamarin.Forms.Maps.Position(-27.482866, 153.032877),
-					Label = "User Name 3",
-					Address = "Stage 3"
-				},
-				new Pin {
-					Type = PinType.Generic,
-					//Resource = "",
-					Position = new Xamarin.Forms.Maps.Position(-27.451866, 153.043585),
-					Label = "User Name 4",
-					Address = "Stage 3"
-				}
-
-			};
-			foreach (var myPin in pinSet) {
-				if(((myPin.Position.Latitude >= latitudeMin) && (myPin.Position.Latitude <= latitudeMax)) && ((myPin.Position.Longitude >= longitudeMin) && (myPin.Position.Longitude <= longitudeMax)))
-					map.Pins.Add(myPin);
-			}
-			
-
-			/* create map style buttons
-			var street = new Button { Text = "Street" };
-			var hybrid = new Button { Text = "Hybrid" };
-			var satellite = new Button { Text = "Satellite" };
-			street.Clicked += HandleClicked;
-			hybrid.Clicked += HandleClicked;
-			satellite.Clicked += HandleClicked;
-			var segments = new StackLayout { Spacing = 30,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				Orientation = StackOrientation.Horizontal, 
-				Children = {street, hybrid, satellite}
-			};*/
-
-
-			// put the page together
 			var stack = new StackLayout { Spacing = 0 };
 			stack.Children.Add(map);
-			//stack.Children.Add (segments);
 			Content = stack;
 
-
-			/* for debugging output only
-			map.PropertyChanged += (sender, e) => {
-				Debug.WriteLine(e.PropertyName + " just changed!");
-				if (e.PropertyName == "VisibleRegion" && map.VisibleRegion != null)
-					CalculateBoundingCoordinates (map.VisibleRegion);
-			};*/
 		}
 
 		void HandleClicked (object sender, EventArgs e)
@@ -132,6 +51,59 @@ namespace Peni
 				break;
 			}
 		}
+
+		private async void addPin(Map map) {
+			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (await DependencyService.Get<ILocation> ().GetLat(),  await DependencyService.Get<ILocation> ().GetLng()), Distance.FromMiles (4.2)));
+
+			var position = new Xamarin.Forms.Maps.Position(await DependencyService.Get<ILocation> ().GetLat(), await DependencyService.Get<ILocation> ().GetLng()); // Latitude, Longitude
+			var userPin = new Pin {
+				Type = PinType.Generic,
+				Position = position,
+				Label = "This user",
+				Address = "Stage 3"
+			};
+			map.Pins.Add(userPin);
+
+			var latitudeUser = userPin.Position.Latitude;
+			var longitudeUser = userPin.Position.Longitude;
+			var km = 15;
+			var longitudeMin = longitudeUser - (km/111.321);
+			var longitudeMax = longitudeUser + (km/111.321);
+			var latitudeMin = latitudeUser - (km/111.0);
+			var latitudeMax = latitudeUser + (km/111.0);
+			Pin[] pinSet = {
+				new Pin {
+					Type = PinType.Generic,
+					Position = new Xamarin.Forms.Maps.Position(-27.468931, 153.028457),
+					Label = "User Name 1 ",
+					Address = "Stage 3",
+
+				},
+				new Pin {
+					Type = PinType.Generic,
+					Position = new Xamarin.Forms.Maps.Position(-27.474642, 153.019316),
+					Label = "User Name 2",
+					Address = "Stage 3"
+				},
+				new Pin {
+					Type = PinType.Generic,
+					Position = new Xamarin.Forms.Maps.Position(-27.482866, 153.032877),
+					Label = "User Name 3",
+					Address = "Stage 3"
+				},
+				new Pin {
+					Type = PinType.Generic,
+					Position = new Xamarin.Forms.Maps.Position(-27.451866, 153.043585),
+					Label = "User Name 4",
+					Address = "Stage 3"
+				}
+
+			};
+			foreach (var myPin in pinSet) {
+				if(((myPin.Position.Latitude >= latitudeMin) && (myPin.Position.Latitude <= latitudeMax)) && ((myPin.Position.Longitude >= longitudeMin) && (myPin.Position.Longitude <= longitudeMax)))
+					map.Pins.Add(myPin);
+			}
+		}
 	
 	}
 
@@ -144,17 +116,12 @@ namespace Peni
 			Master = menuPage;
 			Detail = new MapPage();
 
-			PrintPosition ();
-
 			menuPage.Menu.ItemTapped += (sender, e) => {
 				menuPage.Menu.SelectedItem = null;
 				this.IsPresented = false;
 			};
 		}
 
-		private async void PrintPosition() {
-			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
-			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
-		}
+
 	}
 }
