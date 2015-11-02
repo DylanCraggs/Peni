@@ -7,7 +7,9 @@ using XLabs.Platform.Device;
 using XLabs.Platform;
 using XLabs.Ioc;
 using XLabs.Platform.Services.Geolocation;
-using Peni.Data; 
+using Peni.Data;
+using System.Threading.Tasks;
+using System.Collections.Generic; 
 
 
 namespace Peni
@@ -161,14 +163,14 @@ namespace Peni
 		}
 
 		private async void InsertUsersLocationToDatabase() {
-			Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			LocProfile location = new LocProfile (Globals.UserSession, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
 			LocationDatabase database = new LocationDatabase();
-			database.InsertRecord(location);
+			await database.InsertRecord(location);
 		}
 
-		private async void GetAll() {
+		private async Task<List<LocProfile>> GetAll() {
 			LocationDatabase database = new LocationDatabase();
-			var locatioProfiles = await database.GetAll ();
+			return await database.GetAll ();
 		}
 	}
 }
