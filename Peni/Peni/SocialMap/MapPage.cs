@@ -31,7 +31,7 @@ namespace Peni
 			};
 
 			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (-27.4667, 153.0333), Distance.FromMiles (4.2)));
-			addPin (map);
+			addPins (map);
 
 			var stack = new StackLayout { Spacing = 0 };
 			stack.Children.Add(map);
@@ -55,18 +55,26 @@ namespace Peni
 			}
 		}
 
-		private async void addPin(Map map) {
-			map.MoveToRegion (MapSpan.FromCenterAndRadius (new Xamarin.Forms.Maps.Position (await DependencyService.Get<ILocation> ().GetLat(),  await DependencyService.Get<ILocation> ().GetLng()), Distance.FromMiles (4.2)));
+		private async void addPins(Map map) {
 
-			var position = new Xamarin.Forms.Maps.Position(await DependencyService.Get<ILocation> ().GetLat(), await DependencyService.Get<ILocation> ().GetLng()); // Latitude, Longitude
+			var myPosition = new Xamarin.Forms.Maps.Position (await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			map.MoveToRegion (MapSpan.FromCenterAndRadius (myPosition, Distance.FromMiles (4.2)));
+
 			var userPin = new Pin {
 				Type = PinType.Generic,
-				Position = position,
-				Label = "This user",
-				Address = "Stage 3"
+				Position = myPosition,
+				Label = "Hey "+Globals.UserSession.Username.ToString()+", you are here",
+				Address = "Your current stage: "+Globals.UserSession.UserStage.ToString()
 			};
 			map.Pins.Add(userPin);
+			addNearbyUsersPin(userPin);
+			Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession,-27.4667, 153.0333);
+			LocationDatabase database = new LocationDatabase();
+			database.InsertRecord(location);
 
+		}
+
+		private async void addNearbyUsersPin(Pin userPin) {
 			var latitudeUser = userPin.Position.Latitude;
 			var longitudeUser = userPin.Position.Longitude;
 			var km = 15;
@@ -74,40 +82,27 @@ namespace Peni
 			var longitudeMax = longitudeUser + (km/111.321);
 			var latitudeMin = latitudeUser - (km/111.0);
 			var latitudeMax = latitudeUser + (km/111.0);
-			Pin[] pinSet = {
-				new Pin {
-					Type = PinType.Generic,
-					Position = new Xamarin.Forms.Maps.Position(-27.468931, 153.028457),
-					Label = "User Name 1 ",
-					Address = "Stage 3",
 
-				},
-				new Pin {
-					Type = PinType.Generic,
-					Position = new Xamarin.Forms.Maps.Position(-27.474642, 153.019316),
-					Label = "User Name 2",
-					Address = "Stage 3"
-				},
-				new Pin {
-					Type = PinType.Generic,
-					Position = new Xamarin.Forms.Maps.Position(-27.482866, 153.032877),
-					Label = "User Name 3",
-					Address = "Stage 3"
-				},
-				new Pin {
-					Type = PinType.Generic,
-					Position = new Xamarin.Forms.Maps.Position(-27.451866, 153.043585),
-					Label = "User Name 4",
-					Address = "Stage 3"
+			LocationDatabase database = new LocationDatabase();
+			var locatioProfiles = await database.GetAll ();
+			Debug.WriteLine ("Oiee");
+			Debug.WriteLine ("Tchauu: "+locatioProfiles.ToArray().ToString());
+			foreach (var aUserLocation in locatioProfiles) {
+				Debug.WriteLine ("A user: "+aUserLocation.ToString ());
+				if (((aUserLocation.Latitude >= latitudeMin) && (aUserLocation.Latitude <= latitudeMax)) && ((aUserLocation.Longitude >= longitudeMin) && (aUserLocation.Longitude <= longitudeMax))) {
+					Pin aUserPin = 
+						new Pin {
+							Type = PinType.Generic,
+							Position = new Xamarin.Forms.Maps.Position (aUserLocation.Latitude, aUserLocation.Longitude),
+							Label =  aUserLocation.Account.Username.ToString(),
+							Address =  "Stage: "+aUserLocation.Account.UserStage.ToString(),
+						}
+					;
+					map.Pins.Add(aUserPin);
 				}
-
-			};
-			foreach (var myPin in pinSet) {
-				if(((myPin.Position.Latitude >= latitudeMin) && (myPin.Position.Latitude <= latitudeMax)) && ((myPin.Position.Longitude >= longitudeMin) && (myPin.Position.Longitude <= longitudeMax)))
-					map.Pins.Add(myPin);
 			}
+
 		}
-	
 	}
 
 	public class MapPageMasterDetail : MasterDetailPage
@@ -123,22 +118,6 @@ namespace Peni
 				menuPage.Menu.SelectedItem = null;
 				this.IsPresented = false;
 			};
-		}
-
-		private async void PrintPosition() {
-			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
-			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
-		}
-
-		private async void InsertUsersLocationToDatabase() {
-			Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
-			LocationDatabase database = new LocationDatabase();
-			database.InsertRecord(location);
-		}
-
-		private async void GetAll() {
-			LocationDatabase database = new LocationDatabase();
-			var locatioProfiles = await database.GetAll ();
 		}
 	}
 }

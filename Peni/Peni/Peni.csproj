@@ -75,9 +75,7 @@
     <Compile Include="AddWater.xaml.cs">
       <DependentUpon>AddWaterPage.xaml</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="SocialMap\MapPage.cs" />
-=======
     <Compile Include="HealthHome.xaml.cs">
       <DependentUpon>HealthHome.xaml</DependentUpon>
     </Compile>
@@ -87,7 +85,6 @@
     <Compile Include="MessageMain.xaml.cs">
       <DependentUpon>MessageMain.xaml</DependentUpon>
     </Compile>
->>>>>>> ea9f66f7c4b07c0ee2446c2e62aa28b1de8d7f19
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
