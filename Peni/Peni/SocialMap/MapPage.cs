@@ -7,7 +7,9 @@ using XLabs.Platform.Device;
 using XLabs.Platform;
 using XLabs.Ioc;
 using XLabs.Platform.Services.Geolocation;
-using Peni.Data; 
+using Peni.Data;
+using System.Threading.Tasks;
+using System.Collections.Generic; 
 
 
 namespace Peni
@@ -118,6 +120,23 @@ namespace Peni
 				menuPage.Menu.SelectedItem = null;
 				this.IsPresented = false;
 			};
+		}
+
+
+		private async void PrintPosition() {
+			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
+			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
+		}
+
+		private async void InsertUsersLocationToDatabase() {
+			LocProfile location = new LocProfile (Globals.UserSession.id, Globals.UserSession.Username, Globals.UserSession.UserStage, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			LocationDatabase database = new LocationDatabase();
+			await database.InsertRecord(location);
+		}
+
+		private async Task<List<LocProfile>> GetAll() {
+			LocationDatabase database = new LocationDatabase();
+			return await database.GetAll ();
 		}
 	}
 }
