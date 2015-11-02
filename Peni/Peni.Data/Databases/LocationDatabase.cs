@@ -41,6 +41,7 @@ namespace Peni.Data
 			}
 
 			bool updating = false;
+
 			if (await UserLocExists (record)) {
 				updating = true;
 			}
@@ -57,7 +58,7 @@ namespace Peni.Data
 		}
 
 		private async Task<bool> UserLocExists(LocProfile profile) {
-			List<LocProfile> accs = new List<LocProfile> (await client.GetTable<LocProfile> ().Where(x => x.Account == profile.Account).ToListAsync ());
+			List<LocProfile> accs = new List<LocProfile> (await client.GetTable<LocProfile> ().Where(x => x.UserID == profile.UserID).ToListAsync ());
 
 			if (accs == null || accs.Count == 0) {
 				return false;

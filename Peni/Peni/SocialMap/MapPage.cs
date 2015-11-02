@@ -163,7 +163,7 @@ namespace Peni
 		}
 
 		private async void InsertUsersLocationToDatabase() {
-			LocProfile location = new LocProfile (Globals.UserSession, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			LocProfile location = new LocProfile (Globals.UserSession.id, Globals.UserSession.Username, Globals.UserSession.UserStage, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
 			LocationDatabase database = new LocationDatabase();
 			await database.InsertRecord(location);
 		}
