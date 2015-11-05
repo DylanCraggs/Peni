@@ -159,7 +159,7 @@ namespace Peni.Data
 					case "happy.png":
 						combinedFeelings = combinedFeelings + 5;
 						break;
-					case "sadface.png":
+					case "sad.png":
 						combinedFeelings = combinedFeelings + 1;
 						break;
 					default:

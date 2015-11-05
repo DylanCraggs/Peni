@@ -62,7 +62,7 @@ namespace Peni
 			Grid.SetColumnSpan (peni, 3);
 
 			//If there's water notification, then display image. Must be finished the logic with the database
-			if (true) {
+			if (App.Locator.MainPage.WaterNeeded==true) {
 				Image waterNotification = new Image {
 					Source = ImageSource.FromFile ("cloud_water.png"),
 					HeightRequest = 100,
