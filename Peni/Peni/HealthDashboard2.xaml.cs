@@ -11,17 +11,33 @@ using System.Diagnostics;
 
 namespace Peni
 {
-	public partial class HealthDashboard2 : ContentPage
+	public partial class HealthDashboard2Main : ContentPage
 	{
-		public HealthDashboard2 ()
+		public HealthDashboard2Main ()
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.Dashboard;
 		}
+	}
 
+	public class HealthDashboard2 : MasterDetailPage
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
+		/// </summary>
+		public HealthDashboard2()
+		{
+			Detail = new HealthDashboard2Main();
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			this.Title = "Health Dashboard";
 
-
-
+			// ItemTapped event handler for the side menu
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
+		}
 	}
 }
 

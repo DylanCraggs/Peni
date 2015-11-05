@@ -61,17 +61,6 @@ namespace Peni.Data
 								return "card_water_100.png";
 						}}}}}
 
-//-----delete
-
-
-		public string datetest {
-			get { 
-				return WaterAmount [0].TheDate.ToString(); }
-			set { RaisePropertyChanged (() => datetest); }
-		}
-	
-//-----delete
-
 		private List<FoodTable> FoodAmount;
 
 		// How much have you drunk? I bet you were wondering that this morning when you woke up without your undies.

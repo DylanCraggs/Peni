@@ -82,7 +82,7 @@ namespace Peni
 			Grid.SetColumn (mapIcon, 2);
 
 			//If there's water notification, then display image. Must be finished the logic with the database
-			if (true) {
+			if (App.Locator.MainPage.WaterNeeded==true) {
 				Button waterNotification = new Button
 				{
 
@@ -91,21 +91,21 @@ namespace Peni
 					HorizontalOptions = LayoutOptions.End,
 					BackgroundColor = Color.Transparent,
 					Image = "cloud_water.png",
-
+					Command = (Command)App.Locator.MainPage.BeamToWater
 				};
-
+				/*
 				waterNotification.Clicked+= async (sender, e) => 
 				{
 					await Navigation.PushAsync(new AddWaterPage());
 				};
-
+*/
 				myGrid.Children.Add (waterNotification);
 				Grid.SetRow (waterNotification, 0);
 				Grid.SetColumn (waterNotification, 0);
 			}
 
 			//If there's food notification, then display image. Must be finished the logic with the database
-			if (true) {
+			if (App.Locator.MainPage.FoodNeeded==true) {
 				Button foodNotification = new Button
 				{
 
@@ -114,13 +114,10 @@ namespace Peni
 					HorizontalOptions = LayoutOptions.End,
 					BackgroundColor = Color.Transparent,
 					Image = "cloud_food.png",
-
+					Command = (Command)App.Locator.MainPage.BeamToFood
 				};
 
-				foodNotification.Clicked+= async (sender, e) => 
-				{
-					await Navigation.PushAsync(new HealthDashboard2());
-				};
+
 
 				myGrid.Children.Add (foodNotification);
 				Grid.SetRow (foodNotification, 0);
@@ -137,14 +134,10 @@ namespace Peni
 					HorizontalOptions = LayoutOptions.End,
 					BackgroundColor = Color.Transparent,
 					Image = "cloud_feelings.png",
+					Command = (Command)App.Locator.MainPage.BeamToFeels
 
 				};
-
-				feelingsNotification.Clicked+= async (sender, e) => 
-				{
-					await Navigation.PushAsync(new HealthDashboard2());
-				};
-
+						
 				myGrid.Children.Add (feelingsNotification);
 				Grid.SetRow (feelingsNotification, 0);
 				Grid.SetColumn (feelingsNotification, 1);
