@@ -127,7 +127,7 @@ namespace Peni.Data
 			}
 				
 			// Get results from favorites table which contain the users id.
-			var favsResults = await client.GetSyncTable<ThreadFavorite>().Where(x => x.UserID == Globals.UserSession.id).ToListAsync();
+			var favsResults = await client.GetSyncTable<ThreadFavorite>().Where(x => x.UserID.ToString() == Globals.UserSession.id).ToListAsync();
 
 			// Get all threads from the database
 			var allThreads = await GetAll ();
