@@ -40,27 +40,13 @@ namespace Peni
 			Content = stack;
 
 		}
-
-		void HandleClicked (object sender, EventArgs e)
-		{
-			var b = sender as Button;
-			switch (b.Text) {
-			case "Street":
-				map.MapType = MapType.Street;
-				break;
-			case "Hybrid":
-				map.MapType = MapType.Hybrid;
-				break;
-			case "Satellite":
-				map.MapType = MapType.Satellite;
-				break;
-			}
-		}
-
+	
 		private async void addPins(Map map) {
 
 			var myPosition = new Xamarin.Forms.Maps.Position (await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
-			map.MoveToRegion (MapSpan.FromCenterAndRadius (myPosition, Distance.FromMiles (4.2)));
+			map.MoveToRegion (MapSpan.FromCenterAndRadius (myPosition, Distance.FromMiles (2.2)));
+
+			InsertUsersLocationToDatabase();
 
 			var userPin = new Pin {
 				Type = PinType.Generic,
@@ -71,13 +57,13 @@ namespace Peni
 
 
 			map.Pins.Add(userPin);
-			addNearbyUsersPin(userPin);
+			await addNearbyUsersPin(userPin);
 			//Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession,-27.4667, 153.0333);
 			//LocationDatabase database = new LocationDatabase();
 
 		}
 
-		private async void addNearbyUsersPin(Pin userPin) {
+		private async Task addNearbyUsersPin(Pin userPin) {
 			var latitudeUser = userPin.Position.Latitude;
 			var longitudeUser = userPin.Position.Longitude;
 			var km = 15;
@@ -88,10 +74,7 @@ namespace Peni
 
 			LocationDatabase database = new LocationDatabase();
 			var locatioProfiles = await database.GetAll ();
-			Debug.WriteLine ("Oiee");
-			Debug.WriteLine ("Tchauu: "+locatioProfiles.ToArray().ToString());
 			foreach (var aUserLocation in locatioProfiles) {
-				Debug.WriteLine ("A user: "+aUserLocation.ToString ());
 				if (((aUserLocation.Latitude >= latitudeMin) && (aUserLocation.Latitude <= latitudeMax)) && ((aUserLocation.Longitude >= longitudeMin) && (aUserLocation.Longitude <= longitudeMax)) && !(string.Equals(aUserLocation.Username.ToString(), Globals.UserSession.Username.ToString()))) {// 
 					Pin aUserPin = 
 						new Pin {
@@ -103,7 +86,11 @@ namespace Peni
 					;
 					aUserPin.Clicked += async (sender, e) =>
 					{
-						await Navigation.PushAsync(new MessageWindow());
+						Command messagingCmd = (Command)await App.Locator.MessagingMain.GetNavigateToConversation(Guid.Parse(aUserLocation.id), aUserLocation.Username);
+						if(messagingCmd.CanExecute(this)){
+							messagingCmd.Execute(this);
+						}
+
 					};
 					map.Pins.Add(aUserPin);
 				}
@@ -111,10 +98,14 @@ namespace Peni
 
 		}
 
-		private async Task<List<LocProfile>> GetAll() {
+
+		private async void InsertUsersLocationToDatabase() {
+			LocProfile location = new LocProfile (Guid.Parse(Globals.UserSession.id), Globals.UserSession.Username, Globals.UserSession.UserStage,await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
 			LocationDatabase database = new LocationDatabase();
-			return await database.GetAll ();
+			await database.InsertRecord(location);
 		}
+
+
 	}
 
 	public class MapPageMasterDetail : MasterDetailPage
@@ -132,15 +123,9 @@ namespace Peni
 			};
 
 
-			InsertUsersLocationToDatabase();
 		}
 
 
-		private async void InsertUsersLocationToDatabase() {
-			LocProfile location = new LocProfile (Globals.UserSession.id, Globals.UserSession.Username, Globals.UserSession.UserStage, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
-			LocationDatabase database = new LocationDatabase();
-			await database.InsertRecord(location);
-		}
 
 		private async void PrintPosition() {
 			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
