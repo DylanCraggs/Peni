@@ -16,7 +16,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>The all.</returns>
 		public async Task<List<Message>> GetConversation(Guid receivingID) {
-			return await base.messagesTable.Where (x => x.ReceivingUserID == receivingID && x.SendingUserID == Guid.Parse(Globals.UserSession.id) ||
+			return await client.GetTable<Message>().Where (x => x.ReceivingUserID == receivingID && x.SendingUserID == Guid.Parse(Globals.UserSession.id) ||
 				x.SendingUserID == receivingID && x.ReceivingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync();
 		}
 
@@ -29,7 +29,7 @@ namespace Peni.Data
 		/// <param name="receivinguser">Receiving username.</param>
 		/// <param name="message">Message.</param>
 		public async Task InsertMessage(Guid sendingID, string sendingUser, Guid receivingID, string receivinguser, string message) {
-			await base.messagesTable.InsertAsync(new Message(sendingID, sendingUser, receivingID, receivinguser, message));
+			await client.GetTable<Message>().InsertAsync(new Message(sendingID, sendingUser, receivingID, receivinguser, message));
 		}
 
 		/// <summary>
@@ -37,8 +37,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>All conversations</returns>
 		public async Task<List<Message>> GetAllConversations() {
-			var all = await base.messagesTable.Where (x => x.SendingUserID == Guid.Parse(Globals.UserSession.id)
-				|| x.ReceivingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync ();
+			var all = await client.GetTable<Message>().Where (x => x.SendingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync ();
 			List<Message> msg = new List<Message> ();
 
 			// make sure we dont add duplicates of same conversation

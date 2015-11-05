@@ -86,7 +86,7 @@ namespace Peni
 					;
 					aUserPin.Clicked += async (sender, e) =>
 					{
-						Command messagingCmd = (Command)await App.Locator.MessagingMain.GetNavigateToConversation(Guid.Parse(aUserLocation.id), aUserLocation.Username);
+						Command messagingCmd = (Command)await App.Locator.MessagingMain.GetNavigateToConversation(aUserLocation.UserID, aUserLocation.Username);
 						if(messagingCmd.CanExecute(this)){
 							messagingCmd.Execute(this);
 						}
@@ -100,7 +100,7 @@ namespace Peni
 
 
 		private async void InsertUsersLocationToDatabase() {
-			LocProfile location = new LocProfile (Guid.Parse(Globals.UserSession.id), Globals.UserSession.Username, Globals.UserSession.UserStage,await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
+			LocProfile location = new LocProfile (Guid.Parse(Globals.UserSession.id), Globals.UserSession.Username, Globals.UserSession.UserStage, await DependencyService.Get<ILocation>().GetLat(), await DependencyService.Get<ILocation>().GetLng());
 			LocationDatabase database = new LocationDatabase();
 			await database.InsertRecord(location);
 		}

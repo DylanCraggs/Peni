@@ -37,7 +37,7 @@ namespace Peni
 			var sendingItem = (Message)sendingCell.BindingContext;
 
 			// on click go to a conversation with the receiving user ID = x
-			var cmd = (Command)App.Locator.MessagingMain.GetNavigateToConversation(sendingItem.ReceivingUserID, sendingItem.ReceivingUserUsername).Result;
+			var cmd = (Command)await App.Locator.MessagingMain.GetNavigateToConversation(sendingItem.ReceivingUserID, sendingItem.ReceivingUserUsername);
 			if (cmd.CanExecute (this)) {
 				cmd.Execute (this);
 			}
