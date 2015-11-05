@@ -7,12 +7,12 @@ using System.Diagnostics;
 
 namespace Peni
 {
-	public partial class MessageWindow : ContentPage
+	public partial class MessageWindowMain : ContentPage
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.MessageWindow"/> class.
 		/// </summary>
-		public MessageWindow ()
+		public MessageWindowMain ()
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.MessagingMain;
@@ -44,6 +44,26 @@ namespace Peni
 		{
 			base.OnAppearing ();
 			App.Locator.MessagingMain.OnAppearing ();
+		}
+	}
+
+	public class MessageWindow : MasterDetailPage
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
+		/// </summary>
+		public MessageWindow()
+		{
+			Detail = new MessageWindowMain();
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			this.Title = "Messages";
+
+			// ItemTapped event handler for the side menu
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
 		}
 	}
 }
