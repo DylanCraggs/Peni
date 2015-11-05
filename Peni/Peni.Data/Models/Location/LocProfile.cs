@@ -6,7 +6,7 @@ namespace Peni.Data
 	public class LocProfile
 	{
 		[PrimaryKey, AutoIncrement]
-		public Guid id { get; set; }
+		public string id { get; set; }
 		public Guid UserID { get; set; }
 		public string Username { get; set; }
 		public int Stage { get; set; }

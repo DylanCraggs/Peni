@@ -68,11 +68,12 @@ namespace Peni
 				Label = "Hey "+Globals.UserSession.Username.ToString()+", you are here",
 				Address = "Your current stage: "+Globals.UserSession.UserStage.ToString()
 			};
+
+
 			map.Pins.Add(userPin);
 			addNearbyUsersPin(userPin);
-			Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession,-27.4667, 153.0333);
-			LocationDatabase database = new LocationDatabase();
-			database.InsertRecord(location);
+			//Peni.Data.LocProfile location = new Peni.Data.LocProfile (Globals.UserSession,-27.4667, 153.0333);
+			//LocationDatabase database = new LocationDatabase();
 
 		}
 
@@ -91,19 +92,28 @@ namespace Peni
 			Debug.WriteLine ("Tchauu: "+locatioProfiles.ToArray().ToString());
 			foreach (var aUserLocation in locatioProfiles) {
 				Debug.WriteLine ("A user: "+aUserLocation.ToString ());
-				if (((aUserLocation.Latitude >= latitudeMin) && (aUserLocation.Latitude <= latitudeMax)) && ((aUserLocation.Longitude >= longitudeMin) && (aUserLocation.Longitude <= longitudeMax))) {
+				if (((aUserLocation.Latitude >= latitudeMin) && (aUserLocation.Latitude <= latitudeMax)) && ((aUserLocation.Longitude >= longitudeMin) && (aUserLocation.Longitude <= longitudeMax)) && !(string.Equals(aUserLocation.Username.ToString(), Globals.UserSession.Username.ToString()))) {// 
 					Pin aUserPin = 
 						new Pin {
 							Type = PinType.Generic,
 							Position = new Xamarin.Forms.Maps.Position (aUserLocation.Latitude, aUserLocation.Longitude),
-							Label =  aUserLocation.Account.Username.ToString(),
-							Address =  "Stage: "+aUserLocation.Account.UserStage.ToString(),
+						Label =  aUserLocation.Username.ToString()+" is around this area. Click here to send her a message",
+						Address =  "Her Stage: "+aUserLocation.Stage.ToString(),
 						}
 					;
+					aUserPin.Clicked += async (sender, e) =>
+					{
+						await Navigation.PushAsync(new MessageWindow());
+					};
 					map.Pins.Add(aUserPin);
 				}
 			}
 
+		}
+
+		private async Task<List<LocProfile>> GetAll() {
+			LocationDatabase database = new LocationDatabase();
+			return await database.GetAll ();
 		}
 	}
 
@@ -120,13 +130,11 @@ namespace Peni
 				menuPage.Menu.SelectedItem = null;
 				this.IsPresented = false;
 			};
-		}
 
 
-		private async void PrintPosition() {
-			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
-			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
+			InsertUsersLocationToDatabase();
 		}
+
 
 		private async void InsertUsersLocationToDatabase() {
 			LocProfile location = new LocProfile (Globals.UserSession.id, Globals.UserSession.Username, Globals.UserSession.UserStage, await DependencyService.Get<ILocation> ().GetLat (), await DependencyService.Get<ILocation> ().GetLng ());
@@ -134,9 +142,11 @@ namespace Peni
 			await database.InsertRecord(location);
 		}
 
-		private async Task<List<LocProfile>> GetAll() {
-			LocationDatabase database = new LocationDatabase();
-			return await database.GetAll ();
+		private async void PrintPosition() {
+			Debug.WriteLine ("Latitude: " + await DependencyService.Get<ILocation> ().GetLat());
+			Debug.WriteLine ("Longitude: " + await DependencyService.Get<ILocation> ().GetLng());
 		}
+
+
 	}
 }
