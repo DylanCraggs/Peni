@@ -47,6 +47,8 @@ namespace Peni
 			nav.Configure (ViewModelLocator.JournalKey, typeof(Journal));
 			nav.Configure (ViewModelLocator.NewJournalKey, typeof(AddJournel));
 			nav.Configure (ViewModelLocator.FoodKey, typeof(AddFoodPage));
+			nav.Configure (ViewModelLocator.MessageMainKey, typeof(MessageMain));
+			nav.Configure (ViewModelLocator.MessagingPageKey, typeof(MessageWindow));
 
 			SimpleIoc.Default.Register<IMyNavigationService> (()=> nav, true);
 
