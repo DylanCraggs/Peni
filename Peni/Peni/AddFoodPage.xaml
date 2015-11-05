@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddFoodPage" BackgroundColor="White">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddFoodPageMain" BackgroundColor="White">
 	<StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
 
 	<Label Text="Your Daily Target is 1200 calories" FontSize="18" HorizontalOptions="Center" />

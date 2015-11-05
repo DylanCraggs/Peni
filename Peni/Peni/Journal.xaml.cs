@@ -11,12 +11,32 @@ using System.Diagnostics;
 
 namespace Peni
 {
-	public partial class Journal : ContentPage
+	public partial class JournalMain : ContentPage
 	{
-		public Journal ()
+		public JournalMain ()
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.JournalVM;
+		}
+	}
+
+	public class Journal : MasterDetailPage
+	{
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
+		/// </summary>
+		public Journal()
+		{
+			Detail = new JournalMain();
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			this.Title = "Journal";
+
+			// ItemTapped event handler for the side menu
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
 		}
 	}
 }

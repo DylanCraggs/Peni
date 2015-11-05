@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddWaterPage" BackgroundColor="White">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddWaterPageMain" BackgroundColor="White">
 	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
 	<Label Text="Your Daily Target is 2000mls" FontSize="18" HorizontalOptions="Center" />

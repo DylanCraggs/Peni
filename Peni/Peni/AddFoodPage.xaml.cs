@@ -11,12 +11,33 @@ using System.Diagnostics;
 
 namespace Peni
 {
-	public partial class AddFoodPage : ContentPage
+	public partial class AddFoodPageMain : ContentPage
 	{
-		public AddFoodPage ()
+		public AddFoodPageMain ()
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.FoodVM;
+		}
+	}
+
+	public class AddFoodPage : MasterDetailPage
+	{
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
+		/// </summary>
+		public AddFoodPage()
+		{
+			Detail = new AddFoodPageMain();
+			MenuPage menuPage = new MenuPage();
+			Master = menuPage;
+			this.Title = "Add Food";
+
+			// ItemTapped event handler for the side menu
+			menuPage.Menu.ItemTapped += (sender, e) => {
+				menuPage.Menu.SelectedItem = null;
+				this.IsPresented = false;
+			};
 		}
 	}
 }
