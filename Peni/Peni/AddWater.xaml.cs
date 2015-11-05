@@ -15,28 +15,13 @@ namespace Peni
 	{
 		public AddWaterPage()
 		{
-
-
 			InitializeComponent();
 			BindingContext = App.Locator.AddWater;
-
 		}
 	}
-
+	/*
 	public class PeniWater : MasterDetailPage
 	{
-		/// <summary>
-		/// Raises the appearing event.
-		/// </summary>
-		protected override void OnAppearing ()
-		{
-			base.OnAppearing ();
-			ServiceLocator.Current.GetInstance<ForumPageViewModel> ().OnAppearing ();
-		}
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
-		/// </summary>
 		public PeniWater()
 		{
 			Detail = new AddWaterPage();
@@ -51,4 +36,5 @@ namespace Peni
 			};
 		}
 	}
+	*/
 }

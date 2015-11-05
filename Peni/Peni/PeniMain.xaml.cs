@@ -21,7 +21,7 @@ namespace Peni
 
 			Image peni = new Image
 			{
-				
+
 				HeightRequest = 420,
 				VerticalOptions = LayoutOptions.Center,
 				HorizontalOptions = LayoutOptions.Center,
@@ -52,7 +52,7 @@ namespace Peni
 			int expression = 1;
 			Random randomValue = new Random();
 			expression = randomValue.Next(1,5); 
-		
+
 
 			switch (expression) {
 			case 1:
@@ -119,7 +119,7 @@ namespace Peni
 
 				foodNotification.Clicked+= async (sender, e) => 
 				{
-					await Navigation.PushAsync(new HealthDashboard());
+					await Navigation.PushAsync(new HealthDashboard2());
 				};
 
 				myGrid.Children.Add (foodNotification);
@@ -142,7 +142,7 @@ namespace Peni
 
 				feelingsNotification.Clicked+= async (sender, e) => 
 				{
-					await Navigation.PushAsync(new HealthDashboard());
+					await Navigation.PushAsync(new HealthDashboard2());
 				};
 
 				myGrid.Children.Add (feelingsNotification);

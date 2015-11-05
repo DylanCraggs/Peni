@@ -41,7 +41,11 @@ namespace Peni.Data.ViewModel
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
 		// Health Screen Keys
+		public const string DashboardKey = "Dashboard";
 		public const string WaterPageKey = "AddWater";
+		public const string JournalKey = "JournalVM";
+		public const string NewJournalKey = "NewJournalEntryVM";
+		public const string FoodKey = "FoodVM";
 
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
@@ -89,8 +93,34 @@ namespace Peni.Data.ViewModel
 				);
 			});
 
+			// Health Pages 
 			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
 				return new AddWaterViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<AddFoodViewModel> (() => {
+				return new AddFoodViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<JournalViewModel> (() => {
+				return new JournalViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<JournalEntryViewModel> (() => {
+				return new JournalEntryViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+
+			SimpleIoc.Default.Register<HealthDashboardViewModel> (() => {
+				return new HealthDashboardViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
@@ -184,6 +214,30 @@ namespace Peni.Data.ViewModel
 		public MessageMainViewModel MessagingMain {
 			get {
 				return ServiceLocator.Current.GetInstance<MessageMainViewModel> ();
+			}
+		}
+
+		public JournalViewModel JournalVM {
+			get {
+				return ServiceLocator.Current.GetInstance<JournalViewModel> ();
+			}
+		}
+
+		public AddFoodViewModel FoodVM {
+			get {
+				return ServiceLocator.Current.GetInstance<AddFoodViewModel> ();
+			}
+		}
+
+		public JournalEntryViewModel NewJournalEntryVM {
+			get {
+				return ServiceLocator.Current.GetInstance<JournalEntryViewModel> ();
+			}
+		} 
+
+		public HealthDashboardViewModel Dashboard {
+			get {
+				return ServiceLocator.Current.GetInstance<HealthDashboardViewModel> ();
 			}
 		}
 

@@ -34,7 +34,6 @@
     <Compile Include="MenuCell.cs" />
     <Compile Include="MenuListView.cs" />
     <Compile Include="MenuPage.cs" />
-    <Compile Include="Peni.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forums.xaml.cs">
       <DependentUpon>Forums.xaml</DependentUpon>
@@ -65,7 +64,9 @@
     <Compile Include="PeniMain.xaml.cs">
       <DependentUpon>PeniMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HealthGoalSettings.cs" />
+    <Compile Include="HealthGoalSettings.cs">
+      <DependentUpon>HealthGoalSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HealthGoalsTest.xaml.cs">
       <DependentUpon>HealthGoalsTest.xaml</DependentUpon>
     </Compile>
@@ -85,6 +86,16 @@
     <Compile Include="MessageMain.xaml.cs">
       <DependentUpon>MessageMain.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddFoodPage.xaml.cs">
+      <DependentUpon>AddFoodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddJournel.xaml.cs">
+      <DependentUpon>AddJournel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HealthDashboard2.xaml.cs">
+      <DependentUpon>HealthDashboard2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Peni.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -169,6 +180,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="PluginsHelp\GeolocatorReadme.txt" />
+    <Compile Include="Journal.xaml.cs">
+      <DependentUpon>Journal.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forums.xaml">
@@ -212,6 +226,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="favorite.png" />
     <EmbeddedResource Include="notFavorite.png" />
+    <EmbeddedResource Include="AddFoodPage.xaml" />
+    <EmbeddedResource Include="AddJournel.xaml" />
+    <EmbeddedResource Include="HealthDashboard2.xaml" />
+    <EmbeddedResource Include="Journal.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="HealthGoalSettings.xaml">
@@ -223,16 +241,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Peni.Data\Peni.Data.csproj">
-      <Project>{55CC5260-5009-4B6A-A4A0-81C81678554B}</Project>
-      <Name>Peni.Data</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="FAB\" />
     <Folder Include="Helpers\" />
     <Folder Include="HealthyBuziness\" />
     <Folder Include="SocialMap\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Peni.Data\Peni.Data.csproj">
+      <Project>{55CC5260-5009-4B6A-A4A0-81C81678554B}</Project>
+      <Name>Peni.Data</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

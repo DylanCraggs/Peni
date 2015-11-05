@@ -4,7 +4,7 @@
 
 	<Label Text="Your Daily Target is 2000mls" FontSize="18" HorizontalOptions="Center" />
 	<Label Text="You have drunk" FontSize="18" HorizontalOptions="Center" />
-	<Label Text="{Binding stringCurrIntake}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" /> 
+	<Label Text="{Binding HowMuchWater}" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" /> 
 	<Label />
 	<Label />
 	<Label />
@@ -43,5 +43,7 @@
     		<Button Image="minus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="5" Command="{Binding MinusAmountWater}"/>
 
 	</Grid>
+
+    <Button Text="Return to Dashboard" Command="{Binding GoToDashCommand}" />
 	</StackLayout>
 </ContentPage>

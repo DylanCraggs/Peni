@@ -238,6 +238,9 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_message_white_48dp.png" />
+    <AndroidResource Include="Resources\drawable\happy.png" />
+    <AndroidResource Include="Resources\drawable\nullface.png" />
+    <AndroidResource Include="Resources\drawable\sad.png" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

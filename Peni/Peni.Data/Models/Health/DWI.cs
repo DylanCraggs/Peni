@@ -8,15 +8,15 @@ namespace Peni
 
 		[PrimaryKey]
 		public DateTime TheDate { get; set;}
-		public int CurrIntake { get; set; }
+		public int WaterIntake { get; set; }
 
 		public DWI(){
 		}
 
-		public DWI (DateTime TheDate, int CurrIntake)
+		public DWI (DateTime TheDate, int WaterIntake)
 		{
-			this.TheDate = DateTime.Now.Date;
-			this.CurrIntake = CurrIntake;
+			this.TheDate = TheDate;
+			this.WaterIntake = WaterIntake;
 		}
 	}
 }

@@ -43,11 +43,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Forums\Thread.cs" />
     <Compile Include="Models\Forums\UserComment.cs" />
-    <Compile Include="Models\Health\Goals.cs" />
-    <Compile Include="Databases\HealthDatabase.cs" />
-    <Compile Include="ViewModel\DailyWaterIntakeViewModel.cs" />
     <Compile Include="Databases\ProfileDatabase.cs" />
-    <Compile Include="ViewModel\HealthTestViewModel.cs" />
     <Compile Include="Models\Profile\Account.cs" />
     <Compile Include="Interfaces\IAzureDatabase.cs" />
     <Compile Include="Databases\CloudDatabase.cs" />
@@ -55,8 +51,6 @@
     <Compile Include="Databases\LocationDatabase.cs" />
     <Compile Include="Models\Location\LocProfile.cs" />
     <Compile Include="Models\Forums\ThreadFavorite.cs" />
-    <Compile Include="ViewModel\AddWaterViewModel.cs" />
-    <Compile Include="Models\Health\DWI.cs" />
     <Compile Include="Interfaces\ILocation.cs" />
     <Compile Include="ViewModel\ProfilePageViewModel.cs" />
     <Compile Include="ViewModel\PeniMainViewModel.cs" />
@@ -66,6 +60,20 @@
     <Compile Include="ViewModel\MessagingViewModel.cs" />
     <Compile Include="ViewModel\MessageMainViewModel.cs" />
     <Compile Include="Interfaces\INetworkConnection.cs" />
+    <Compile Include="Databases\HealthDatabase.cs" />
+    <Compile Include="Models\Health\DWI.cs" />
+    <Compile Include="Models\Health\FoodTable.cs" />
+    <Compile Include="Models\Health\Goals.cs" />
+    <Compile Include="Models\Health\JournalTable.cs" />
+    <Compile Include="ViewModel\AddFoodViewModel.cs" />
+    <Compile Include="ViewModel\AddWaterViewModel.cs" />
+    <Compile Include="ViewModel\ClockTestVeiwModel.cs" />
+    <Compile Include="ViewModel\DailyWaterIntakeViewModel.cs" />
+    <Compile Include="ViewModel\HealthDashboardViewModel.cs" />
+    <Compile Include="ViewModel\HealthTestViewModel.cs" />
+    <Compile Include="ViewModel\HealthVeiwGoalsModel.cs" />
+    <Compile Include="ViewModel\JournalEntryViewModel.cs" />
+    <Compile Include="ViewModel\JournalViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

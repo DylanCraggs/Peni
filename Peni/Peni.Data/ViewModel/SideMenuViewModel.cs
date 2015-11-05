@@ -78,7 +78,7 @@ namespace Peni.Data
 
 			// Add a command to our health navigation ICommand
 			NavigateToHealth = new Command (() => {
-				this.navigationService.NavigateToModal(ViewModelLocator.WaterPageKey);
+				this.navigationService.NavigateToModal(ViewModelLocator.DashboardKey);
 			});
 
 			// Add a command to our forum navigation ICommand

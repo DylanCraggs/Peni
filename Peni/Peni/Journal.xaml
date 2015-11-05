@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.Journal">
+	<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+		<StackLayout BackgroundColor="White" x:Name="pageLayout">
+			<ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand" Padding="5">
+				<ListView x:Name="ForumListView" BackgroundColor="White" RowHeight="50" SeparatorColor="#F16378" ItemsSource="{Binding AllDeEntries}" >
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell><!---Tapped="listItemClicked"-->
+									<StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+										<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+											<Image Source="{Binding Rank}"/>
+											<Label Text="{Binding EntryDate}" FontAttributes="Bold" VerticalOptions="Center"/>
+										</StackLayout>
+									</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</ScrollView>
+			<Button Command="{Binding AddNewEntryPage}"/>
+		</StackLayout>
+	</AbsoluteLayout>
+</ContentPage>

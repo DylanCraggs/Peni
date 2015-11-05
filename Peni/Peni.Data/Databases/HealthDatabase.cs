@@ -1,4 +1,8 @@
-﻿using System;
+﻿// I AM THE QUEEN OF SQL
+// BOW DOWN BITCHES
+// #FLAWLESS
+
+using System;
 using SQLite.Net;
 using Xamarin.Forms;
 using System.Linq;
@@ -13,68 +17,98 @@ namespace Peni.Data
 		SQLiteConnection Connection;
 		SQLiteConnection database;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Peni.Data.HealthDatabase"/> class.
-		/// </summary>
-		/// 
+		// Initializes a new instance of the <see cref="Peni.Data.HealthDatabase"/> class.
 		public HealthDatabase () {
 			Connection = DependencyService.Get<ISQLite> ().GetConnection ();
 
-			// Check if Thread table exists, if not create it
+			// Check if the DWI (DailyWaterIntake) table exists, if not create it
 			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(DWI).Name)) {
 				Connection.CreateTable<DWI> ();
 				Connection.Commit ();
 			}
 
-			// Check if UserComment table exists, if not create it
+			// Check if the JournalTable exists, if not create it
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(JournalTable).Name)) {
+				Connection.CreateTable<JournalTable> ();
+				Connection.Commit ();
+			}
+
+			// Check if the FoodTable exists, if not create it
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(FoodTable).Name)) {
+				Connection.CreateTable<FoodTable> ();
+				Connection.Commit ();
+			}
+
+			// Check if the Goals table exists, if not create it
 			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(Goals).Name)) {
 				Connection.CreateTable<Goals> ();
 				Connection.Commit ();
 			}
+
+			// Stuff and things
 			database = DependencyService.Get<ISQLite> ().GetConnection ();
 
-			// Check if Thread table exists, if not create it
-			if (database.TableMappings.All(t => t.MappedType.Name != typeof(DWI).Name)) {
-				database.CreateTable<DWI> ();
-				database.Commit ();
-			}
+		}
+// Water functions
+		// Instead of using the update function, I have chosen to use Delete and Insert
+		// SQL and Xamarin are behind the times (literally) with DateTime, and store all dates
+		// and times at 1400 for the previous date. WTF you guys?! Don't you learn this shit in primary school?!
+		// This correlates with checking that the dates are the same in the VM.
+		// #queenofSQL
+		public void UpdateDateUp (int waterintakeagain) {
+			database.Query<DWI> ("Delete from DWI where TheDate is ?", DateTime.Now.Date);
+			var newrecord = new DWI { TheDate=DateTime.Now.AddHours(10), WaterIntake=waterintakeagain };
+			database.Insert (newrecord);
 		}
 
-		public int InsertOrUpdateDWI(DWI log){
-			return database.Table<DWI> ().Where (x => x.TheDate == DateTime.Today).Any() 
-				? database.Update (log) : database.Insert (log);
+		// Creates a new record in the DWI Table
+		public void NewDay () {
+			var newrecord = new DWI { TheDate=DateTime.Now.AddHours(10), WaterIntake=0 };
+			database.Insert (newrecord);
 		}
 
-		/// <summary>
-		/// Gets water intake
-		/// </summary>
-		/// <returns>Water Intake</returns>
-			//public List<DailyWaterIntake> GetIntake(DateTime date) {
-			//var value = Connection.Query<DailyWaterIntake> ("Select * from DailyWaterIntake where DateTime like ?", date).ToList();
-				//return value;
-		//}
-
-		/// <summary>
-		/// Inserts water intake
-		/// </summary>
-		/// <returns>true if successful, false otherwise.</returns>
-		/// <param name="thread">Thread.</param>
-			//public int InsertWaterIntake(DailyWaterIntake intake) {
-			//return Connection.Table<DailyWaterIntake> ().Where (x => x.date == intake.date).Any() 
-				//? Connection.Update (intake) : Connection.Insert (intake);
-		//}
-
-
-
-		//
-		public int InsertGoals(Goals goals) {
-			return Connection.Insert (goals);
+		// Returns how much you drunk on the last day you were drinking.
+		// This would be cooler if it was called TequilaDrunk
+		public List<DWI> WaterDrunk(){
+			return database.Query<DWI> ("Select TheDate, WaterIntake from DWI Order by TheDate DESC Limit 1").ToList ();
 		}
 
-		public List<Goals> GetGoals() {
-			var items = Connection.Table<Goals>().ToList();
+// Food Functions
+		public void FoodUpdate (int infoodintake) {
+			database.Query<FoodTable> ("Delete from FoodTable where FoodDate is ?", DateTime.Now.Date);
+			var newrecord = new FoodTable { FoodDate=DateTime.Now.AddHours(10), CalorieIntake=infoodintake };
+			database.Insert (newrecord);
+		}
+
+		// Creates a new record in the DWI Table
+		public void NewFoodDay () {
+			var newrecord = new FoodTable { FoodDate=DateTime.Now.AddHours(10), CalorieIntake=0 };
+			database.Insert (newrecord);
+		}
+
+		// Returns how much you drunk on the last day you were drinking.
+		// This would be cooler if it was called TequilaDrunk
+		public List<FoodTable> FoodQuery(){
+			return database.Query<FoodTable> ("Select FoodDate, CalorieIntake from FoodTable Order by FoodDate DESC Limit 1").ToList ();
+		}
+
+
+// Feelings Functions
+
+		public List<JournalTable> AllEntries(){
+			var items = database.Table<JournalTable> ().ToList<JournalTable>();
 			return items;
 		}
+
+		public void NewJournalEntry (string stringDate, string inRank, string inEntry) {
+			var newentry = new JournalTable { EntryDate=stringDate, Rank=inRank, JournalEntry=inEntry, RecentEntry=DateTime.Now.AddHours(10) };
+			database.Insert (newentry);
+		}
+
+		public List<JournalTable> AvgFeeling(){
+			return database.Query<JournalTable> ("Select Rank from JournalTable Order by DBID DESC").ToList ();
+		}
+
 	}
 }
 
