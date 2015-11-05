@@ -57,7 +57,6 @@
     <Compile Include="Models\Forums\FavoriteImage.cs" />
     <Compile Include="Models\Messaging\Message.cs" />
     <Compile Include="Databases\MessagingDatabase.cs" />
-    <Compile Include="ViewModel\MessagingViewModel.cs" />
     <Compile Include="ViewModel\MessageMainViewModel.cs" />
     <Compile Include="Interfaces\INetworkConnection.cs" />
     <Compile Include="Databases\HealthDatabase.cs" />
