@@ -129,7 +129,7 @@ namespace Peni.Data
 
 			menuList.Add (new MenuItem () {
 				Title = "Messages",
-				IconSource = "ic_question_answer_white_48dp.png", 
+				IconSource = "ic_message_white_48dp.png", 
 				Command = NavigateToMessages,
 			});
 
