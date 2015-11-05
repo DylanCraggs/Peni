@@ -121,6 +121,9 @@ namespace Peni.Droid
 			// aapt resource value: 0x7f060005
 			public const int textColorPrimary = 2131099653;
 			
+			// aapt resource value: 0x7f060006
+			public const int white = 2131099654;
+			
 			static Color()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -250,7 +253,7 @@ namespace Peni.Droid
 			public const int fab_shadow_mini = 2130837531;
 			
 			// aapt resource value: 0x7f02001c
-			public const int favorite = 2130837532;
+			public const int happy = 2130837532;
 			
 			// aapt resource value: 0x7f02001d
 			public const int ic_account_circle_white_48dp = 2130837533;
@@ -292,7 +295,7 @@ namespace Peni.Droid
 			public const int minus = 2130837545;
 			
 			// aapt resource value: 0x7f02002a
-			public const int notFavorite = 2130837546;
+			public const int nullface = 2130837546;
 			
 			// aapt resource value: 0x7f02002b
 			public const int peni_feelings = 2130837547;
@@ -310,19 +313,22 @@ namespace Peni.Droid
 			public const int plus = 2130837551;
 			
 			// aapt resource value: 0x7f020030
-			public const int settings = 2130837552;
+			public const int sad = 2130837552;
 			
 			// aapt resource value: 0x7f020031
-			public const int temp_goalweight = 2130837553;
+			public const int settings = 2130837553;
 			
 			// aapt resource value: 0x7f020032
-			public const int temp_linegraph = 2130837554;
+			public const int temp_goalweight = 2130837554;
 			
 			// aapt resource value: 0x7f020033
-			public const int temp_piechart = 2130837555;
+			public const int temp_linegraph = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int ThreadCommentIcon = 2130837556;
+			public const int temp_piechart = 2130837556;
+			
+			// aapt resource value: 0x7f020035
+			public const int ThreadCommentIcon = 2130837557;
 			
 			static Drawable()
 			{

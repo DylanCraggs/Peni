@@ -43,5 +43,7 @@
     		<Button Image="minus.png" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="White" Grid.Row="4" Grid.Column="5" Command="{Binding MinusAmountWater}"/>
 
 	</Grid>
+
+    <Button Text="Return to Dashboard" Command="{Binding GoToDashCommand}" />
 	</StackLayout>
 </ContentPage>

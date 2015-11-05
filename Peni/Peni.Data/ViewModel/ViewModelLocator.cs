@@ -38,12 +38,14 @@ namespace Peni.Data.ViewModel
 		public const string LoginPageKey = "Login";
 
 		// Main Screen Keys
-		public const string MainPageKey = "PeniMainContet";
 		public const string PeniMasterDetail = "PeniMasterDetail";
 
 		// Health Screen Keys
 		public const string DashboardKey = "Dashboard";
 		public const string WaterPageKey = "AddWater";
+		public const string JournalKey = "JournalVM";
+		public const string NewJournalKey = "NewJournalEntryVM";
+		public const string FoodKey = "FoodVM";
 
 		// Profile Page Keys
 		public const string MyProfilePageKey = "Profile";
@@ -81,6 +83,7 @@ namespace Peni.Data.ViewModel
 				);
 			});
 
+
 			// Health Pages 
 			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
 				return new AddWaterViewModel(
@@ -88,15 +91,43 @@ namespace Peni.Data.ViewModel
 				);
 			});
 
+			SimpleIoc.Default.Register<AddFoodViewModel> (() => {
+				return new AddFoodViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<JournalViewModel> (() => {
+				return new JournalViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<JournalEntryViewModel> (() => {
+				return new JournalEntryViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+				
+
 			SimpleIoc.Default.Register<HealthDashboardViewModel> (() => {
 				return new HealthDashboardViewModel(
 					SimpleIoc.Default.GetInstance<IMyNavigationService>()
 				);
 			});
 
+			SimpleIoc.Default.Register<ProfilePageViewModel> (() => {
+				return new ProfilePageViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
+
+			SimpleIoc.Default.Register<PeniMainViewModel> (() => {
+				return new PeniMainViewModel(
+					SimpleIoc.Default.GetInstance<IMyNavigationService>()
+				);
+			});
         }
-
-
 
 		/// <summary>
 		/// Gets the ForumPage View Model
@@ -135,19 +166,54 @@ namespace Peni.Data.ViewModel
 			}
 		}
 
-		/// <summary>
-		/// Gets the new step goal.
-		/// </summary>
-		/// <value>The new step goal.</value>
 		public AddWaterViewModel AddWater{
 			get {
 				return ServiceLocator.Current.GetInstance<AddWaterViewModel> ();
 			}
 		}
 
-		public HealthDashboardViewModel Dashboard{
+		public JournalViewModel JournalVM {
+			get {
+				return ServiceLocator.Current.GetInstance<JournalViewModel> ();
+			}
+		}
+
+		public AddFoodViewModel FoodVM {
+			get {
+				return ServiceLocator.Current.GetInstance<AddFoodViewModel> ();
+			}
+		}
+
+		public JournalEntryViewModel NewJournalEntryVM {
+			get {
+				return ServiceLocator.Current.GetInstance<JournalEntryViewModel> ();
+			}
+		} 
+
+
+
+		public HealthDashboardViewModel Dashboard {
 			get {
 				return ServiceLocator.Current.GetInstance<HealthDashboardViewModel> ();
+			}
+		}
+		/// <summary>
+		/// Gets the profile page.
+		/// </summary>
+		/// <value>The profile page.</value>
+		public ProfilePageViewModel ProfilePage {
+			get {
+				return ServiceLocator.Current.GetInstance<ProfilePageViewModel> ();
+			}
+		}
+
+		/// <summary>
+		/// Gets the main page.
+		/// </summary>
+		/// <value>The main page.</value>
+		public PeniMainViewModel MainPage {
+			get {
+				return ServiceLocator.Current.GetInstance<PeniMainViewModel> ();
 			}
 		}
 

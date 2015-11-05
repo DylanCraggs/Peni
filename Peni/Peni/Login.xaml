@@ -4,13 +4,13 @@
 
 			<Image Source="/Resources/drawable/logo_app.png" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
 
-			<Entry x:Name="entryUsername" Placeholder="Username" Keyboard="Default" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
+			<Entry x:Name="entryUsername" Text="{Binding Username}" Placeholder="Username" Keyboard="Default" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
 
-			<Entry x:Name="entryPassword" Placeholder="Password" Keyboard="Default" IsPassword="true" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
+			<Entry x:Name="entryPassword" Text="{Binding Password}" Placeholder="Password" Keyboard="Default" IsPassword="true" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" TextColor="#C9C9C9"/>
 
-			<Label x:Name="loginLabel" />
+			<Label x:Name="loginLabel" Text="{Binding ErrorMessage}" HorizontalOptions="Center" />
 
-			<Button x:Name="tryLogin" Clicked = "ButtonClicked" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
+			<Button x:Name="tryLogin" Text="Login" Command="{Binding SubmitLoginCommand}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand" BackgroundColor="#F6905D" TextColor="White"/>
 
 	</StackLayout>
 </ContentPage>

@@ -17,8 +17,6 @@ namespace Peni
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.Dashboard;
-
-			//dashboardWaterImage.GestureRecognizers.Add (new TapGestureRecognizer (OnTap));
 		}
 
 

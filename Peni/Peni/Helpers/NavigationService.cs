@@ -122,11 +122,14 @@ namespace Peni
 						}
 
 						var page = constructor.Invoke(parameters) as Page;
+						_navigation.BarTextColor = Color.White;
 						if (modal)
 						{
 							wasModal = true;
-							_navigation.Navigation.PushModalAsync(page);
-							NavigationPage.SetHasNavigationBar(_navigation, true);
+							//_navigation.Navigation.PushModalAsync(page);
+//							NavigationPage.SetHasNavigationBar(_navigation, true);
+							NavigationPage.SetHasBackButton(page, false);
+							_navigation.PushAsync(page);
 						}
 						else
 						{
@@ -171,7 +174,6 @@ namespace Peni
 			_navigation = navigation;
 
 			_navigation.Popped += (object sender, NavigationEventArgs e) => {
-
 				Debug.WriteLine(e);
 			};
 		}

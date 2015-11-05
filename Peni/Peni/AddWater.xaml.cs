@@ -19,14 +19,9 @@ namespace Peni
 			BindingContext = App.Locator.AddWater;
 		}
 	}
-
+	/*
 	public class PeniWater : MasterDetailPage
 	{
-
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
-		/// </summary>\
 		public PeniWater()
 		{
 			Detail = new AddWaterPage();
@@ -41,4 +36,5 @@ namespace Peni
 			};
 		}
 	}
+	*/
 }

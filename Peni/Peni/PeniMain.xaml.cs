@@ -1,8 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using Xamarin.Forms;
-using System.Linq;
-using System.Diagnostics;
+using Peni.Data;
 using Peni.Data.ViewModel;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Microsoft.Practices.ServiceLocation;
+using System.Diagnostics;
 
 namespace Peni
 {
@@ -12,6 +17,7 @@ namespace Peni
 		public PeniMainContet()
 		{
 			InitializeComponent();
+			BindingContext = App.Locator.MainPage;
 
 			Grid myGrid = new Grid();
 			myGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });

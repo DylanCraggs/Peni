@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.AddJournel" BackgroundColor="White">
+	<StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="White">
+
+	<Grid>
+    		<Grid.RowDefinitions>
+     			<RowDefinition Height="50" />
+     			<RowDefinition Height="Auto" />
+     			<RowDefinition Height="175" />
+    		</Grid.RowDefinitions>
+
+    		<Grid.ColumnDefinitions>
+      			<ColumnDefinition Width="30" />
+      			<ColumnDefinition Width="69" />
+      			<ColumnDefinition Width="69" />
+      			<ColumnDefinition Width="69" />
+      			<ColumnDefinition Width="30" />
+    		</Grid.ColumnDefinitions>
+
+    		<Label Text="{Binding StringTimeStamp}" FontSize="16" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="CenterAndExpand"/>
+
+    		<Button Image="happy.png" Command="{Binding ImaHappy}" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{Binding HappyBackground}" Grid.Row="1" Grid.Column="1" />
+    		<Button Image="nullface.png" Command="{Binding ImaNothing}" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{Binding NothingBackground}" Grid.Row="1" Grid.Column="2" />
+    		<Button Image="sad.png" Command="{Binding ImaSad}" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="{Binding SadBackground}" Grid.Row="1" Grid.Column="3" />
+
+			<Editor Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" Text="{Binding EntryFromEntry}"  />
+
+    		</Grid >
+
+    		<Grid HorizontalOptions="Center">
+    		<Grid.RowDefinitions>
+     			<RowDefinition Height="Auto" />
+    		</Grid.RowDefinitions>
+
+    		<Grid.ColumnDefinitions>
+      			<ColumnDefinition Width="Auto" />
+      			<ColumnDefinition Width="Auto" />
+    		</Grid.ColumnDefinitions>
+
+
+		<Button Text="Save" Command="{Binding SaveEntryCommand}" Grid.Row="0" Grid.Column="0" />
+		<Button Text="Cancel" Command="{Binding CancelCommand}" Grid.Row="0" Grid.Column="1" />
+
+    		</Grid >
+	</StackLayout>
+</ContentPage>

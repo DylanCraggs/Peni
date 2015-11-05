@@ -4,6 +4,7 @@ using SQLite.Net;
 using System.IO;
 using Xamarin.Forms;
 using Peni.Droid;
+using System.Threading.Tasks;
 
 [assembly: Dependency (typeof (SQLiteDroid))]
 
@@ -15,6 +16,8 @@ namespace Peni.Droid
 
 		#region ISQLite implementation
 
+		string DatabaseLocationPath;
+
 		/// <summary>
 		/// Gets the database connection in the Android OS
 		/// </summary>
@@ -23,7 +26,7 @@ namespace Peni.Droid
 		{
 			const string DatabaseFilename = "PeniDatabase.db3";
 			var DocumentsPath = Environment.GetFolderPath (Environment.SpecialFolder.Personal);
-			var DatabaseLocationPath = Path.Combine (DocumentsPath, DatabaseFilename);
+			DatabaseLocationPath = Path.Combine (DocumentsPath, DatabaseFilename);
 			var plat = new SQLite.Net.Platform.XamarinAndroid.SQLitePlatformAndroid();
 
 			//Create the connection

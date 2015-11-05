@@ -5,7 +5,6 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using Xamarin.Forms;
-using System.Diagnostics;
 using Peni.Data.ViewModel;
 using System.Collections.Generic;
 
@@ -19,7 +18,10 @@ namespace Peni.Data
 	{
 		// ICommand to bind to button which saves water input
 		public ICommand SaveWaterCommand { get; private set; }
+		public ICommand GoToDashCommand { get; set; }
 
+		//Le Database
+		private HealthDatabase database;
 
 		// Commands that are bound to buttons
 		public ICommand AddCupWater { get; private set; }
@@ -27,21 +29,19 @@ namespace Peni.Data
 		public ICommand AddBottleWater { get; private set; }
 		public ICommand MinusBottleWater { get; private set; }
 		public ICommand MinusAmountWater { get; private set; }
+
 		public ICommand AddAmountWater { get; private set; }
 
 		// Tardis?
 		private IMyNavigationService navigationService;
 
+		//Used to store query results from le database
 		public List<DWI> ListAmountDrunk;
 
+		//Bound to a label that tells the user how much water they have drunk
 		public string HowMuchWater {
-		get	{
-				return CurrIntake.ToString ();
-			}
-
-			set{
-				RaisePropertyChanged (() => HowMuchWater); 
-			}
+			get	{ return CurrIntake.ToString (); }
+			set	{ RaisePropertyChanged (() => HowMuchWater); }
 		}
 
 		// The almighty CurrIntake, that measures how much water you have consumed.
@@ -50,7 +50,7 @@ namespace Peni.Data
 		// Collects the user's input
 		private string waterAmountString;
 		public string WaterAmountString { 
-			get { return waterAmountString; } 
+			get { return waterAmountString;	} 
 			set { waterAmountString = value; 
 				RaisePropertyChanged (() => WaterAmountString);}
 		}
@@ -58,7 +58,7 @@ namespace Peni.Data
 		// Changes user's input into an int because the user is stupid as fuck
 		private int waterAmount 
 		{
-			get { return Convert.ToInt32(Convert.ToDouble(waterAmountString)); }
+			get { return Convert.ToInt32(Convert.ToDouble(waterAmountString))				; }
 			set { waterAmount = value; }
 		}
 
@@ -68,22 +68,23 @@ namespace Peni.Data
 				this.navigationService = navigationService;
 
 				// Establishing the Database because YOLO 
-				var database = new HealthDatabase();
+				database = new HealthDatabase();
 
 				// This code happens when the page loads. It's here because it kept producing errors when in the get set for each variable.
 				// It pulls the amount of water drunk for the day from the database.
-				// If no water has been drunk, it returns a 0 until something happens...
+				// If no water has been drunk, it returns a 0 and creates a new record!
 				ListAmountDrunk = new List<DWI> (database.WaterDrunk());
-				if (ListAmountDrunk.Count == 0) {
+			if (ListAmountDrunk.Count==0 || ListAmountDrunk[0].TheDate.Date != DateTime.Now.Date) {
+					database.NewDay ();
 					CurrIntake = 0;
 					} else {
-					CurrIntake = Convert.ToInt32 (ListAmountDrunk [0].WaterIntake);
+					CurrIntake = ListAmountDrunk [0].WaterIntake;
 					}
 
 				// Saves stuff in the database
 				SaveWaterCommand = new Command (() => {
-				database.InsertOrUpdateDWI(new DWI(DateTime.Now.Date, CurrIntake));
-				RaisePropertyChanged (() => HowMuchWater);
+					database.UpdateDateUp(CurrIntake);
+					RaisePropertyChanged (() => HowMuchWater);
 				} );
 
 
@@ -123,6 +124,10 @@ namespace Peni.Data
 						{CurrIntake=0;}
 					SaveWaterCommand.Execute(this);
 				});
+
+			GoToDashCommand = new Command (() => {
+				this.navigationService.NavigateToModal(ViewModelLocator.DashboardKey);
+			});
 		}
 	
 	}

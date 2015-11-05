@@ -1,13 +1,25 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthDashboard2">
-	<ContentPage.Content>
+	<ScrollView>
 		<StackLayout>
+	
 			<Image Source="{Binding WaterImage}">
    				 	<Image.GestureRecognizers>
         				<TapGestureRecognizer Command="{Binding GoToWaterCommand}" NumberOfTapsRequired="1" />
   					</Image.GestureRecognizers>
 			</Image>
-			<Label Text="{Binding LabelText}" FontSize="100" TextColor="Blue" />
+			<Image Source="{Binding FoodImage}">
+   				 	<Image.GestureRecognizers>
+        				<TapGestureRecognizer Command="{Binding GoToFoodCommand}" NumberOfTapsRequired="1" />
+  					</Image.GestureRecognizers>
+			</Image>
+			<Image Source="{Binding FeelingImage}">
+   				 	<Image.GestureRecognizers>
+        				<TapGestureRecognizer Command="{Binding GoToJourCommand}" NumberOfTapsRequired="1" />
+  					</Image.GestureRecognizers>
+			</Image>
+			<Label Text="{Binding datetest}" />
 		</StackLayout>
-	</ContentPage.Content>
+
+			</ScrollView>
 </ContentPage>

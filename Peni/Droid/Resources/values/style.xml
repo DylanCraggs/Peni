@@ -13,9 +13,11 @@
       	<item name="android:textColorPrimary">@color/status_bar</item>
       	<item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
-    <style name="MyActionBar"
-           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@color/primary_color</item>
-    </style> 
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
 </resources>
 
