@@ -37,7 +37,8 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>All conversations</returns>
 		public async Task<List<Message>> GetAllConversations() {
-			var all = await base.messagesTable.Where (x => x.SendingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync ();
+			var all = await base.messagesTable.Where (x => x.SendingUserID == Guid.Parse(Globals.UserSession.id)
+				|| x.ReceivingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync ();
 			List<Message> msg = new List<Message> ();
 
 			// make sure we dont add duplicates of same conversation

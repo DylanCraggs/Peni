@@ -25,7 +25,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>All the location profiles.</returns>
 		public async Task<List<LocProfile>> GetAll() {
-			var items = await client.GetSyncTable<LocProfile> ().ToListAsync ();
+			var items = await client.GetTable<LocProfile>().ToListAsync ();
 			return items;
 		}
 
