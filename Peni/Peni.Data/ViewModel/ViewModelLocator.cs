@@ -87,12 +87,6 @@ namespace Peni.Data.ViewModel
 				);
 			});
 
-			SimpleIoc.Default.Register<HealthTestViewModel> (() => {
-				return new HealthTestViewModel(
-					SimpleIoc.Default.GetInstance<IMyNavigationService>()
-				);
-			});
-
 			// Health Pages 
 			SimpleIoc.Default.Register<AddWaterViewModel> (() => {
 				return new AddWaterViewModel(

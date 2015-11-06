@@ -60,7 +60,6 @@
     <Compile Include="Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HealthDashboard.cs" />
     <Compile Include="PeniMain.xaml.cs">
       <DependentUpon>PeniMain.xaml</DependentUpon>
     </Compile>
@@ -69,9 +68,6 @@
     </Compile>
     <Compile Include="HealthGoalsTest.xaml.cs">
       <DependentUpon>HealthGoalsTest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="HealthDashboardTest.xaml.cs">
-      <DependentUpon>HealthDashboardTest.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddWater.xaml.cs">
       <DependentUpon>AddWaterPage.xaml</DependentUpon>
@@ -96,6 +92,9 @@
       <DependentUpon>HealthDashboard2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Peni.cs" />
+    <Compile Include="EditGoals.xaml.cs">
+      <DependentUpon>EditGoals.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -209,9 +208,6 @@
     <EmbeddedResource Include="PeniMain.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="HealthDashboardTest.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddWaterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -230,6 +226,9 @@
     <EmbeddedResource Include="AddJournel.xaml" />
     <EmbeddedResource Include="HealthDashboard2.xaml" />
     <EmbeddedResource Include="Journal.xaml" />
+    <EmbeddedResource Include="EditGoals.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Page Include="HealthGoalSettings.xaml">

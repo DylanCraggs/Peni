@@ -12,15 +12,14 @@ namespace Peni
 	{
 		public PeniMainContet()
 		{
-			InitializeComponent();
+			InitializeComponent ();
 			//this.BindingContext = App.Locator.MainPage;
 
-			Grid myGrid = new Grid();
-			myGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-			myGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+			Grid myGrid = new Grid ();
+			myGrid.RowDefinitions.Add (new RowDefinition { Height = GridLength.Auto });
+			myGrid.ColumnDefinitions.Add (new ColumnDefinition { Width = GridLength.Auto });
 
-			Image peni = new Image
-			{
+			Image peni = new Image {
 
 				HeightRequest = 420,
 				VerticalOptions = LayoutOptions.Center,
@@ -30,8 +29,7 @@ namespace Peni
 
 
 
-			Button mapIcon = new Button
-			{
+			Button mapIcon = new Button {
 
 				HeightRequest = 80,
 				WidthRequest = 100,
@@ -42,34 +40,28 @@ namespace Peni
 
 			};
 
-			mapIcon.Clicked+= async (sender, e) => 
-			{
-				await Navigation.PushAsync(new MapPageMasterDetail());
+			mapIcon.Clicked += async (sender, e) => {
+				await Navigation.PushAsync (new MapPageMasterDetail ());
 			};
 
 			//Logic to change peni expression (img). Must be finished after implementing health database and logic
 			//1 == Defaul expression (Happy)/ 2 == thirsty / 3 == Hungry / 4 == Feelings (Journal)
 			int expression = 1;
-			Random randomValue = new Random();
-			expression = randomValue.Next(1,5); 
+			Random randomValue = new Random ();
+			expression = randomValue.Next (1, 5); 
 
-
-			switch (expression) {
-			case 1:
-				peni.Source = "peni_happy.png";
-				break;
-			case 2:
+			if (App.Locator.MainPage.WaterNeeded == true) {
 				peni.Source = "peni_thirsty.png";
-				break;
-			case 3:
-				peni.Source = "peni_hungry.png";
-				break;
-			case 4:
-				peni.Source = "peni_feelings.png";
-				break;
-			default:
-				peni.Source = "peni_happy.png";
-				break;
+			} else {
+				if (App.Locator.MainPage.FoodNeeded == true) {
+					peni.Source = "peni_hungry.png";
+				} else {
+					if (App.Locator.MainPage.DiaryNeeded == true) {
+						peni.Source = "peni_feelings.png";
+					} else {
+						peni.Source = "peni_happy.png";
+					}
+				}
 			}
 
 			myGrid.Children.Add (peni);
@@ -93,12 +85,7 @@ namespace Peni
 					Image = "cloud_water.png",
 					Command = (Command)App.Locator.MainPage.BeamToWater
 				};
-				/*
-				waterNotification.Clicked+= async (sender, e) => 
-				{
-					await Navigation.PushAsync(new AddWaterPage());
-				};
-*/
+
 				myGrid.Children.Add (waterNotification);
 				Grid.SetRow (waterNotification, 0);
 				Grid.SetColumn (waterNotification, 0);
@@ -125,7 +112,7 @@ namespace Peni
 			}
 
 			//If there's other notification, then display image. Must be finished the logic with the database
-			if (true) {
+			if (App.Locator.MainPage.DiaryNeeded==true) {
 				Button feelingsNotification = new Button
 				{
 

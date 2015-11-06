@@ -26,6 +26,7 @@ namespace Peni.Data
 		//Used to store query results from le database
 		private List<DWI> WaterBubbleList;
 		private List<FoodTable> FoodBubbleList;
+		private List<JournalTable> FeelingsList;
 
 
 		// Time is stored in the database at Universal time because Xamarin is stupid.
@@ -65,6 +66,23 @@ namespace Peni.Data
 			set { RaisePropertyChanged (() => WaterNeeded); }
 		}
 
+		public bool DiaryNeeded {
+			get {
+				var database = new HealthDatabase();
+				FeelingsList = new List<JournalTable> (database.LastEntry ()); 
+				if (FeelingsList.Count == 0) {
+					return true;
+				} else {
+					if (DateTime.Now > FeelingsList [0].RecentEntry.AddDays(3)) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+			set { RaisePropertyChanged (() => DiaryNeeded); }
+		}
+
 
 		public PeniMainViewModel (IMyNavigationService navigationService)
 		{
@@ -90,6 +108,8 @@ namespace Peni.Data
 					FoodNeeded = false;
 				}
 			}
+
+
 
 			// Beam me up, Scotty
 			this.navigationService = navigationService;

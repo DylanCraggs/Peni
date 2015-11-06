@@ -7,12 +7,12 @@ using System.Diagnostics;
 
 namespace Peni
 {
-	public partial class MessageMain : ContentPage
+	public partial class PeniMessageMain : ContentPage
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.MessageMain"/> class.
 		/// </summary>
-		public MessageMain()
+		public PeniMessageMain()
 		{
 			InitializeComponent ();
 			BindingContext = App.Locator.MessagingMain;
@@ -48,14 +48,14 @@ namespace Peni
 	/// <summary>
 	/// Peni forums master view (side menu + content)
 	/// </summary>
-	public class PeniMessageMain : MasterDetailPage
+	public class MessageMain : MasterDetailPage
 	{
 		/// <summary>
 		/// Initializes a new instance of the <see cref="Peni.PeniForums"/> class.
 		/// </summary>
-		public PeniMessageMain()
+		public MessageMain()
 		{
-			Detail = new MessageMain();
+			Detail = new PeniMessageMain();
 			MenuPage menuPage = new MenuPage();
 			Master = menuPage;
 			this.Title = "Messages";

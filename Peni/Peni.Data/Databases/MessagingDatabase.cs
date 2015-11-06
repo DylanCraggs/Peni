@@ -16,8 +16,7 @@ namespace Peni.Data
 		/// </summary>
 		/// <returns>The all.</returns>
 		public async Task<List<Message>> GetConversation(Guid receivingID) {
-			return await client.GetTable<Message>().Where (x => x.ReceivingUserID == receivingID && x.SendingUserID == Guid.Parse(Globals.UserSession.id) ||
-				x.SendingUserID == receivingID && x.ReceivingUserID == Guid.Parse(Globals.UserSession.id)).ToListAsync();
+			return await client.GetTable<Message>().Where(x => x.ReceivingUserID == receivingID && x.SendingUserID == Guid.Parse(Globals.UserSession.id) || (x.SendingUserID == receivingID && x.ReceivingUserID == Guid.Parse(Globals.UserSession.id))).ToListAsync();
 		}
 
 		/// <summary>

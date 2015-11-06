@@ -2,23 +2,48 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Peni.HealthDashboard2Main">
 	<ScrollView>
 		<StackLayout>
-	
-			<Image Source="{Binding WaterImage}">
+			<Grid>
+    		<Grid.RowDefinitions>
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="100" />
+     			<RowDefinition Height="75" />
+    		</Grid.RowDefinitions>
+
+    		<Grid.ColumnDefinitions>
+      			<ColumnDefinition Width="Auto" />
+      			<ColumnDefinition Width="Auto" />
+    		</Grid.ColumnDefinitions>
+
+			<Image Source="{Binding WaterImage}" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
    				 	<Image.GestureRecognizers>
         				<TapGestureRecognizer Command="{Binding GoToWaterCommand}" NumberOfTapsRequired="1" />
   					</Image.GestureRecognizers>
 			</Image>
-			<Image Source="{Binding FoodImage}">
+
+			<Label Text="{Binding WaterDrunkLabel}" Grid.Row="0" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+			<Label Text="Your goal is to drink 2000mls" Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+
+			<Image Source="{Binding FoodImage}" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2">
    				 	<Image.GestureRecognizers>
         				<TapGestureRecognizer Command="{Binding GoToFoodCommand}" NumberOfTapsRequired="1" />
   					</Image.GestureRecognizers>
 			</Image>
-			<Image Source="{Binding FeelingImage}">
+
+			<Label Text="{Binding StringFoodEaten}" Grid.Row="2" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+			<Label Text="Your goal is to eat 1200 calories" Grid.Row="3" Grid.Column="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+
+			<Image Source="{Binding FeelingImage}" Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="2">
    				 	<Image.GestureRecognizers>
         				<TapGestureRecognizer Command="{Binding GoToJourCommand}" NumberOfTapsRequired="1" />
   					</Image.GestureRecognizers>
 			</Image>
-			<Label Text="{Binding datetest}" />
+			<Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="Change Goals" BackgroundColor="#F6905D"/>
+			</Grid>
 		</StackLayout>
 
 			</ScrollView>

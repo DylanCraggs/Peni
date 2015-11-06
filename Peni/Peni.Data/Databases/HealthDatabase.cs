@@ -40,8 +40,8 @@ namespace Peni.Data
 			}
 
 			// Check if the Goals table exists, if not create it
-			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(Goals).Name)) {
-				Connection.CreateTable<Goals> ();
+			if (Connection.TableMappings.All(t => t.MappedType.Name != typeof(GoalsTable).Name)) {
+				Connection.CreateTable<GoalsTable> ();
 				Connection.Commit ();
 			}
 
@@ -109,6 +109,21 @@ namespace Peni.Data
 			return database.Query<JournalTable> ("Select Rank from JournalTable Order by DBID DESC").ToList ();
 		}
 
+		public List<JournalTable> LastEntry(){
+			return database.Query<JournalTable> ("Select RecentEntry from JournalTable Order by RecentEntry DESC Limit 1").ToList ();
+		}
+
+	
+
+//Goals Functions
+		public void NewGoals () {
+			var newgoalrecord = new GoalsTable { WaterGoal=2000, FoodGoal=1200 };
+			database.Insert (newgoalrecord);
+		}
+
+		public List<GoalsTable> GoalsQuery(){
+			return database.Query<GoalsTable> ("Select WaterGoal, FoodGoal from GoalTable").ToList ();
+		}
 	}
 }
 

@@ -61,9 +61,34 @@ namespace Peni.Data
 								return "card_water_100.png";
 						}}}}}
 
+		public string WaterDrunkLabel {
+			get {
+				var database = new HealthDatabase ();
+				WaterAmount = new List<DWI> (database.WaterDrunk ());
+				if (WaterAmount.Count == 0) {
+					return "You have not drunk any water today!";
+				} else {
+					return "You have drunk " + WaterAmount [0].WaterIntake.ToString () + "mLs today!";
+				}
+			}
+			set {RaisePropertyChanged (() => WaterDrunkLabel) ;}
+		}
+
 		private List<FoodTable> FoodAmount;
 
-		// How much have you drunk? I bet you were wondering that this morning when you woke up without your undies.
+		public string StringFoodEaten {
+			get {
+				var database = new HealthDatabase ();
+				FoodAmount = new List<FoodTable> (database.FoodQuery ());
+				if (FoodAmount.Count == 0) {
+					return "You haven not eaten anything today";
+				} else {
+					return "You have eaten " + FoodAmount [0].CalorieIntake + " calories today!";
+				}
+			}
+			set { RaisePropertyChanged (() => StringFoodEaten); }
+		}
+
 		private int IntFoodAmount {
 			get {
 				var database = new HealthDatabase ();
